@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カーフェリー離島マップ｜ハイエースで行ける島 全国完全版</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+
+    /* ===== LAYOUT ===== */
+    #app { display: flex; height: 100vh; overflow: hidden; }
+    #sidebar { width: 280px; min-width: 280px; background: #1a1a2e; color: #eee;
+               display: flex; flex-direction: column; z-index: 100; transition: width .3s; }
+    #sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
+    #map-wrap { flex: 1; position: relative; }
+    #map { width: 100%; height: 100%; }
+
+    /* ===== TOGGLE BUTTON ===== */
+    #sb-toggle { position: fixed; top: 50%; left: 280px; transform: translateY(-50%);
+                 z-index: 200; background: #1a1a2e; color: #eee; border: none;
+                 width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
+                 font-size: 11px; transition: left .3s; }
+    #sb-toggle.collapsed { left: 0; }
+
+    /* ===== SIDEBAR HEADER ===== */
+    #sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #333; }
+    #sb-header h1 { font-size: 14px; font-weight: 700; color: #64b5f6; line-height: 1.4; }
+    #sb-header .vehicle { font-size: 11px; color: #aaa; margin-top: 4px; }
+    #sb-header .vehicle b { color: #ffcc80; }
+
+    /* ===== SEARCH ===== */
+    #search-wrap { padding: 8px 10px; }
+    #search { width: 100%; padding: 6px 10px; border-radius: 20px;
+              border: none; background: #2d2d44; color: #eee; font-size: 13px; outline: none; }
+    #search::placeholder { color: #888; }
+
+    /* ===== REGION FILTER ===== */
+    #region-filter { padding: 6px 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+    .chip { padding: 3px 8px; border-radius: 12px; font-size: 11px; cursor: pointer;
+            background: transparent; color: #aaa; border: 1px solid #555; transition: all .15s; }
+    .chip.active { background: #64b5f6; color: #1a1a2e; border-color: #64b5f6; font-weight: 700; }
+
+    /* ===== ISLAND LIST ===== */
+    #island-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+    #island-list::-webkit-scrollbar { width: 4px; }
+    #island-list::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+    .list-item { display: flex; align-items: center; padding: 5px 12px;
+                 cursor: pointer; transition: background .1s; gap: 6px; }
+    .list-item:hover { background: #2d2d44; }
+    .list-item.freight_only { opacity: 0.6; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .iname { font-size: 13px; flex: 1; }
+    .ipref { font-size: 11px; color: #888; }
+
+    /* ===== LEGEND ===== */
+    #legend { padding: 8px 12px; border-top: 1px solid #333; font-size: 11px; color: #999; }
+    .leg { display: flex; gap: 10px; flex-wrap: wrap; }
+    .leg-item { display: flex; align-items: center; gap: 4px; }
+    .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .leg-tri { width: 0; height: 0; border-left: 5px solid transparent;
+               border-right: 5px solid transparent; border-bottom: 10px solid #999; }
+
+    /* ===== INFO PANEL (bottom sheet) ===== */
+    #info-panel { position: fixed; bottom: -100%; left: 280px; right: 0;
+                  max-height: 55vh; background: #fff; border-radius: 16px 16px 0 0;
+                  box-shadow: 0 -4px 20px rgba(0,0,0,.2); z-index: 150;
+                  transition: bottom .3s ease; overflow: hidden;
+                  display: flex; flex-direction: column; }
+    #info-panel.open { bottom: 0; }
+    #info-panel.sidebar-collapsed { left: 0; }
+
+    .panel-header { padding: 14px 16px 10px; border-bottom: 1px solid #eee;
+                    background: #f8f9fa; flex-shrink: 0; }
+    .close-btn { float: right; background: none; border: none; font-size: 22px;
+                 cursor: pointer; color: #999; line-height: 1; margin-left: 8px; }
+    .island-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .island-name { font-size: 20px; font-weight: 700; }
+    .island-kana { font-size: 13px; color: #666; }
+    .island-meta { font-size: 12px; color: #888; margin-top: 3px; }
+    .island-notes { font-size: 12px; color: #e65100; margin-top: 3px; }
+
+    .panel-body { overflow-y: auto; padding: 12px 16px 16px; flex: 1; }
+    .routes-title { font-size: 13px; font-weight: 700; color: #555; margin-bottom: 8px; }
+
+    .route-card { background: #f5f5f5; border-radius: 10px; padding: 10px 12px;
+                  margin-bottom: 8px; border-left: 4px solid #1565c0; }
+    .route-header { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+    .port-name { font-size: 14px; font-weight: 700; color: #1565c0; }
+    .arr-port { font-size: 12px; color: #555; }
+    .company { font-size: 12px; color: #666; }
+    .ferry-name { font-size: 11px; color: #888; }
+    .route-note { font-size: 11px; color: #e65100; margin-top: 3px; }
+
+    .price-info { margin-top: 6px; padding: 6px 8px; background: #fff;
+                  border-radius: 6px; font-size: 12px; }
+    .price-info b { font-size: 14px; color: #1b5e20; }
+    .h-ok { color: #2e7d32; font-weight: 600; margin-left: 6px; }
+    .h-ng { color: #b71c1c; font-weight: 600; margin-left: 6px; }
+    .h-unk { color: #e65100; margin-left: 6px; }
+    .price-note { font-size: 11px; color: #777; margin-top: 3px; }
+    .no-price { color: #999; }
+    .src-link { display: inline-block; margin-top: 4px; font-size: 11px;
+                color: #1565c0; text-decoration: none; }
+    .src-link:hover { text-decoration: underline; }
+
+    .pricing-footer { margin-top: 16px; padding: 10px; background: #fff8e1;
+                      border-radius: 8px; font-size: 11px; color: #795548; line-height: 1.6; }
+
+    /* ===== BADGES ===== */
+    .badge { display: inline-block; padding: 2px 7px; border-radius: 10px;
+             font-size: 11px; font-weight: 600; }
+    .badge.ok { background: #e8f5e9; color: #2e7d32; }
+    .badge.cond { background: #fff8e1; color: #e65100; }
+    .badge.freight { background: #fce4ec; color: #880e4f; }
+
+    /* ===== MAP OVERLAY ===== */
+    #map-title { position: absolute; top: 10px; left: 10px; z-index: 50;
+                 background: rgba(26,26,46,0.85); color: #fff; padding: 8px 14px;
+                 border-radius: 8px; font-size: 12px; pointer-events: none; }
+    #map-title b { color: #64b5f6; display: block; font-size: 14px; margin-bottom: 2px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      #sidebar { width: 0; min-width: 0; overflow: hidden; }
+      #sidebar.open { width: 260px; min-width: 260px; position: fixed; height: 100%; z-index: 300; }
+      #sb-toggle { left: 0; }
+      #sb-toggle.open { left: 260px; }
+      #info-panel { left: 0; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <div id="sidebar">
+    <div id="sb-header">
+      <h1>🚢 カーフェリー<br>離島マップ</h1>
+      <div class="vehicle">
+        対象車両: <b>ハイエース ワイドボディ</b><br>
+        490cm × 190cm × <b style="color:#ff8f00">高さ220cm</b>
+      </div>
+    </div>
+    <div id="search-wrap">
+      <input id="search" type="text" placeholder="島を検索（例: 壱岐、やくしま）">
+    </div>
+    <div id="region-filter"></div>
+    <div id="island-list"></div>
+    <div id="legend">
+      <div class="leg">
+        <div class="leg-item"><div class="leg-dot" style="background:#888"></div>マイカーOK</div>
+        <div class="leg-item"><div class="leg-tri"></div>条件付き</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#ccc"></div>貨物扱い</div>
+        <div class="leg-item" style="margin-top:4px">
+          <svg width="12" height="12"><polygon points="6,1 11,11 1,11" fill="#FF6F00"/></svg>
+          出港地
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOGGLE BUTTON ===== -->
+  <button id="sb-toggle" onclick="toggleSidebar()">◀</button>
+
+  <!-- ===== MAP ===== -->
+  <div id="map-wrap">
+    <div id="map"></div>
+    <div id="map-title">
+      <b>カーフェリーで行ける島 全120島</b>
+      島をクリック → 出港地（⚓）と航路（点線）を表示
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== INFO PANEL ===== -->
+<div id="info-panel"></div>
+
+<!-- ===== DATA + SCRIPTS ===== -->
+<script src="data/ferry_data.js"></script>
+<script src="js/map.js"></script>
+<script>
+  let sbOpen = true;
+
+  function toggleSidebar() {
+    const sb = document.getElementById('sidebar');
+    const btn = document.getElementById('sb-toggle');
+    const panel = document.getElementById('info-panel');
+    sbOpen = !sbOpen;
+    sb.classList.toggle('collapsed', !sbOpen);
+    btn.classList.toggle('collapsed', !sbOpen);
+    btn.textContent = sbOpen ? '◀' : '▶';
+    panel.classList.toggle('sidebar-collapsed', !sbOpen);
+  }
+
+  // Mobile: sidebar closed by default
+  if (window.innerWidth <= 640) {
+    sbOpen = false;
+    document.getElementById('sidebar').classList.add('collapsed');
+    document.getElementById('sb-toggle').classList.add('collapsed');
+    document.getElementById('sb-toggle').textContent = '▶';
+  }
+</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja"
+  async defer>
+</script>
+</body>
+</html>

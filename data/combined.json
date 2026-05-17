@@ -1,0 +1,4477 @@
+{
+  "ISL_001": {
+    "id": "ISL_001",
+    "name": "利尻島",
+    "kana": "りしりとう",
+    "region": "北海道",
+    "pref": "北海道",
+    "type": "yes",
+    "notes": "大型カーフェリー。観光マイカー可",
+    "lat": 45.18,
+    "lng": 141.21,
+    "color": "#1E88E5",
+    "routes": [
+      {
+        "id": "RTE_001",
+        "island_id": "ISL_001",
+        "port_id": "PORT_001",
+        "arrival_port": "鴛泊港・沓形港",
+        "company": "ハートランドフェリー",
+        "ferry": "フェリーりしり等",
+        "type": "yes",
+        "notes": "",
+        "port_name": "稚内港",
+        "port_lat": 45.4167,
+        "port_lng": 141.6667,
+        "pricing": [
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜利尻島（鴛泊）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27400",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "幅2.5m以下制限あり。高さ制限記載なし"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜礼文島（香深）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "30710",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "運転者1名2等席込み"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "江差〜奥尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27030",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/okushiri-route/",
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_002": {
+    "id": "ISL_002",
+    "name": "礼文島",
+    "kana": "れぶんとう",
+    "region": "北海道",
+    "pref": "北海道",
+    "type": "yes",
+    "notes": "",
+    "lat": 45.32,
+    "lng": 141.04,
+    "color": "#1E88E5",
+    "routes": [
+      {
+        "id": "RTE_002",
+        "island_id": "ISL_002",
+        "port_id": "PORT_001",
+        "arrival_port": "香深港",
+        "company": "ハートランドフェリー",
+        "ferry": "フェリーれぶん等",
+        "type": "yes",
+        "notes": "",
+        "port_name": "稚内港",
+        "port_lat": 45.4167,
+        "port_lng": 141.6667,
+        "pricing": [
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜利尻島（鴛泊）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27400",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "幅2.5m以下制限あり。高さ制限記載なし"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜礼文島（香深）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "30710",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "運転者1名2等席込み"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "江差〜奥尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27030",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/okushiri-route/",
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_003": {
+    "id": "ISL_003",
+    "name": "奥尻島",
+    "kana": "おくしりとう",
+    "region": "北海道",
+    "pref": "北海道",
+    "type": "yes",
+    "notes": "",
+    "lat": 42.08,
+    "lng": 139.53,
+    "color": "#1E88E5",
+    "routes": [
+      {
+        "id": "RTE_003",
+        "island_id": "ISL_003",
+        "port_id": "PORT_002",
+        "arrival_port": "奥尻港",
+        "company": "ハートランドフェリー",
+        "ferry": "フェリーおくしり",
+        "type": "yes",
+        "notes": "",
+        "port_name": "江差港",
+        "port_lat": 41.8667,
+        "port_lng": 140.1333,
+        "pricing": [
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜利尻島（鴛泊）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27400",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "幅2.5m以下制限あり。高さ制限記載なし"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜礼文島（香深）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "30710",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "運転者1名2等席込み"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "江差〜奥尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27030",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/okushiri-route/",
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "id": "RTE_004",
+        "island_id": "ISL_003",
+        "port_id": "PORT_003",
+        "arrival_port": "奥尻港",
+        "company": "ハートランドフェリー",
+        "ferry": "フェリーおくしり",
+        "type": "yes",
+        "notes": "",
+        "port_name": "せたな港",
+        "port_lat": 42.45,
+        "port_lng": 139.7333,
+        "pricing": [
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜利尻島（鴛泊）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27400",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "幅2.5m以下制限あり。高さ制限記載なし"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "稚内〜礼文島（香深）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "30710",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/",
+            "notes": "運転者1名2等席込み"
+          },
+          {
+            "company": "ハートランドフェリー",
+            "route": "江差〜奥尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "27030",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://heartlandferry.jp/faretable/okushiri-route/",
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_004": {
+    "id": "ISL_004",
+    "name": "焼尻島",
+    "kana": "やぎしりとう",
+    "region": "北海道",
+    "pref": "北海道",
+    "type": "yes",
+    "notes": "",
+    "lat": 44.45,
+    "lng": 141.58,
+    "color": "#1E88E5",
+    "routes": [
+      {
+        "id": "RTE_005",
+        "island_id": "ISL_004",
+        "port_id": "PORT_004",
+        "arrival_port": "焼尻港",
+        "company": "羽幌沿海フェリー",
+        "ferry": "おろろん2",
+        "type": "yes",
+        "notes": "",
+        "port_name": "羽幌港",
+        "port_lat": 44.3667,
+        "port_lng": 141.6833,
+        "pricing": [
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "羽幌〜天売島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "14640",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満。220cmは問題なし"
+          },
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "羽幌〜焼尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "10040",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満"
+          },
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "焼尻〜天売",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "4600",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_005": {
+    "id": "ISL_005",
+    "name": "天売島",
+    "kana": "てうりとう",
+    "region": "北海道",
+    "pref": "北海道",
+    "type": "yes",
+    "notes": "",
+    "lat": 44.42,
+    "lng": 141.53,
+    "color": "#1E88E5",
+    "routes": [
+      {
+        "id": "RTE_006",
+        "island_id": "ISL_005",
+        "port_id": "PORT_004",
+        "arrival_port": "天売港",
+        "company": "羽幌沿海フェリー",
+        "ferry": "おろろん2",
+        "type": "yes",
+        "notes": "",
+        "port_name": "羽幌港",
+        "port_lat": 44.3667,
+        "port_lng": 141.6833,
+        "pricing": [
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "羽幌〜天売島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "14640",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満。220cmは問題なし"
+          },
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "羽幌〜焼尻島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "10040",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満"
+          },
+          {
+            "company": "羽幌沿海フェリー",
+            "route": "焼尻〜天売",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "4600",
+            "height_limit": "370",
+            "applicable": "OK",
+            "url": "https://haboro-enkai.com/fare/",
+            "notes": "高さ3.7m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_006": {
+    "id": "ISL_006",
+    "name": "佐渡島",
+    "kana": "さどしま",
+    "region": "東北・北陸",
+    "pref": "新潟県",
+    "type": "yes",
+    "notes": "",
+    "lat": 38.05,
+    "lng": 138.35,
+    "color": "#43A047",
+    "routes": [
+      {
+        "id": "RTE_007",
+        "island_id": "ISL_006",
+        "port_id": "PORT_005",
+        "arrival_port": "両津港",
+        "company": "佐渡汽船",
+        "ferry": "おけさ丸・ときわ丸",
+        "type": "yes",
+        "notes": "",
+        "port_name": "新潟港",
+        "port_lat": 37.9167,
+        "port_lng": 139.05,
+        "pricing": [
+          {
+            "company": "佐渡汽船",
+            "route": "新潟〜両津（カーフェリー）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "19260",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.sadokisen.co.jp/faretables/",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "佐渡汽船",
+            "route": "直江津〜小木（カーフェリー）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "20880",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.sadokisen.co.jp/faretables/naoetsu_ferry/",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      },
+      {
+        "id": "RTE_008",
+        "island_id": "ISL_006",
+        "port_id": "PORT_006",
+        "arrival_port": "小木港",
+        "company": "佐渡汽船",
+        "ferry": "あかね",
+        "type": "yes",
+        "notes": "",
+        "port_name": "直江津港",
+        "port_lat": 37.15,
+        "port_lng": 138.2333,
+        "pricing": [
+          {
+            "company": "佐渡汽船",
+            "route": "新潟〜両津（カーフェリー）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "19260",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.sadokisen.co.jp/faretables/",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "佐渡汽船",
+            "route": "直江津〜小木（カーフェリー）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "20880",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.sadokisen.co.jp/faretables/naoetsu_ferry/",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_007": {
+    "id": "ISL_007",
+    "name": "粟島（新潟）",
+    "kana": "あわしまにいがた",
+    "region": "東北・北陸",
+    "pref": "新潟県",
+    "type": "yes",
+    "notes": "",
+    "lat": 38.48,
+    "lng": 139.25,
+    "color": "#43A047",
+    "routes": [
+      {
+        "id": "RTE_009",
+        "island_id": "ISL_007",
+        "port_id": "PORT_007",
+        "arrival_port": "粟島港",
+        "company": "粟島汽船",
+        "ferry": "フェリーあわしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "岩船港",
+        "port_lat": 38.4667,
+        "port_lng": 139.4833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_008": {
+    "id": "ISL_008",
+    "name": "飛島",
+    "kana": "とびしま",
+    "region": "東北・北陸",
+    "pref": "山形県",
+    "type": "conditional",
+    "notes": "積載台数制限。一般観光マイカーは要確認",
+    "lat": 39.2,
+    "lng": 139.42,
+    "color": "#43A047",
+    "routes": [
+      {
+        "id": "RTE_010",
+        "island_id": "ISL_008",
+        "port_id": "PORT_008",
+        "arrival_port": "飛島港",
+        "company": "酒田市営",
+        "ferry": "とびしま",
+        "type": "conditional",
+        "notes": "一般観光マイカーは要確認",
+        "port_name": "酒田港",
+        "port_lat": 38.9167,
+        "port_lng": 139.8167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_009": {
+    "id": "ISL_009",
+    "name": "大島（気仙沼）",
+    "kana": "おおしまけせんぬま",
+    "region": "東北・北陸",
+    "pref": "宮城県",
+    "type": "yes",
+    "notes": "東北最大級の離島",
+    "lat": 38.78,
+    "lng": 141.55,
+    "color": "#43A047",
+    "routes": [
+      {
+        "id": "RTE_011",
+        "island_id": "ISL_009",
+        "port_id": "PORT_009",
+        "arrival_port": "浦の浜港",
+        "company": "気仙沼市営フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "気仙沼港",
+        "port_lat": 38.9,
+        "port_lng": 141.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_010": {
+    "id": "ISL_010",
+    "name": "網地島",
+    "kana": "あじしま",
+    "region": "東北・北陸",
+    "pref": "宮城県",
+    "type": "yes",
+    "notes": "",
+    "lat": 38.28,
+    "lng": 141.25,
+    "color": "#43A047",
+    "routes": [
+      {
+        "id": "RTE_012",
+        "island_id": "ISL_010",
+        "port_id": "PORT_010",
+        "arrival_port": "網地港",
+        "company": "網地島ライン",
+        "ferry": "マーブル他",
+        "type": "yes",
+        "notes": "",
+        "port_name": "石巻港",
+        "port_lat": 38.4333,
+        "port_lng": 141.3,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_011": {
+    "id": "ISL_011",
+    "name": "伊豆大島",
+    "kana": "いずおおしま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "東海汽船 大型貨客船",
+    "lat": 34.73,
+    "lng": 139.38,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_013",
+        "island_id": "ISL_011",
+        "port_id": "PORT_011",
+        "arrival_port": "岡田港・元町港",
+        "company": "東海汽船",
+        "ferry": "さるびあ丸他",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      },
+      {
+        "id": "RTE_014",
+        "island_id": "ISL_011",
+        "port_id": "PORT_012",
+        "arrival_port": "熱海港",
+        "company": "東海汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "熱海港",
+        "port_lat": 35.0833,
+        "port_lng": 139.0667,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      },
+      {
+        "id": "RTE_015",
+        "island_id": "ISL_011",
+        "port_id": "PORT_014",
+        "arrival_port": "大島港",
+        "company": "神新汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "下田港",
+        "port_lat": 34.6667,
+        "port_lng": 138.95,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_012": {
+    "id": "ISL_012",
+    "name": "利島",
+    "kana": "としま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.52,
+    "lng": 139.28,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_016",
+        "island_id": "ISL_012",
+        "port_id": "PORT_011",
+        "arrival_port": "利島港",
+        "company": "東海汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_013": {
+    "id": "ISL_013",
+    "name": "新島",
+    "kana": "にいじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.37,
+    "lng": 139.27,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_017",
+        "island_id": "ISL_013",
+        "port_id": "PORT_011",
+        "arrival_port": "新島港",
+        "company": "東海汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      },
+      {
+        "id": "RTE_018",
+        "island_id": "ISL_013",
+        "port_id": "PORT_014",
+        "arrival_port": "新島港",
+        "company": "神新汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "下田港",
+        "port_lat": 34.6667,
+        "port_lng": 138.95,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_014": {
+    "id": "ISL_014",
+    "name": "式根島",
+    "kana": "しきねじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.32,
+    "lng": 139.22,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_019",
+        "island_id": "ISL_014",
+        "port_id": "PORT_011",
+        "arrival_port": "式根島港",
+        "company": "東海汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_015": {
+    "id": "ISL_015",
+    "name": "神津島",
+    "kana": "こうづしま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.21,
+    "lng": 139.13,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_020",
+        "island_id": "ISL_015",
+        "port_id": "PORT_011",
+        "arrival_port": "神津島港",
+        "company": "東海汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      },
+      {
+        "id": "RTE_021",
+        "island_id": "ISL_015",
+        "port_id": "PORT_014",
+        "arrival_port": "神津島港",
+        "company": "神新汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "下田港",
+        "port_lat": 34.6667,
+        "port_lng": 138.95,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_016": {
+    "id": "ISL_016",
+    "name": "三宅島",
+    "kana": "みやけじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.07,
+    "lng": 139.52,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_022",
+        "island_id": "ISL_016",
+        "port_id": "PORT_011",
+        "arrival_port": "三宅島（三池港）",
+        "company": "東海汽船",
+        "ferry": "橘丸",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_017": {
+    "id": "ISL_017",
+    "name": "御蔵島",
+    "kana": "みくらじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.88,
+    "lng": 139.6,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_023",
+        "island_id": "ISL_017",
+        "port_id": "PORT_011",
+        "arrival_port": "御蔵島港",
+        "company": "東海汽船",
+        "ferry": "橘丸",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_018": {
+    "id": "ISL_018",
+    "name": "八丈島",
+    "kana": "はちじょうじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.1,
+    "lng": 139.78,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_024",
+        "island_id": "ISL_018",
+        "port_id": "PORT_011",
+        "arrival_port": "八丈島（底土港）",
+        "company": "東海汽船",
+        "ferry": "橘丸",
+        "type": "yes",
+        "notes": "",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": [
+          {
+            "company": "東海汽船",
+            "route": "竹芝〜伊豆諸島",
+            "class": "貨物扱いのみ",
+            "max_len": "",
+            "price": "",
+            "height_limit": "不明",
+            "applicable": "不明",
+            "url": "https://www.tokaikisen.co.jp/cargo/",
+            "notes": "旅客船へのマイカー積載不可。貨物船のみ（週2〜3便）"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_019": {
+    "id": "ISL_019",
+    "name": "父島",
+    "kana": "ちちじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "freight_only",
+    "notes": "チッキ（貨物）扱い。ドライバーは飛行機",
+    "lat": 27.09,
+    "lng": 142.19,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_025",
+        "island_id": "ISL_019",
+        "port_id": "PORT_011",
+        "arrival_port": "父島（二見港）",
+        "company": "小笠原海運",
+        "ferry": "おがさわら丸",
+        "type": "freight_only",
+        "notes": "チッキ扱い。要事前予約",
+        "port_name": "東京港（竹芝）",
+        "port_lat": 35.65,
+        "port_lng": 139.7583,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_020": {
+    "id": "ISL_020",
+    "name": "母島",
+    "kana": "ははじま",
+    "region": "関東・伊豆",
+    "pref": "東京都",
+    "type": "yes",
+    "notes": "父島〜母島間。自走乗船可",
+    "lat": 26.65,
+    "lng": 142.15,
+    "color": "#E53935",
+    "routes": [
+      {
+        "id": "RTE_026",
+        "island_id": "ISL_020",
+        "port_id": "PORT_052",
+        "arrival_port": "母島（沖港）",
+        "company": "伊豆諸島開発",
+        "ferry": "ははじま丸",
+        "type": "yes",
+        "notes": "父島から乗り換え",
+        "port_name": "屋久島港（宮之浦）",
+        "port_lat": 30.4,
+        "port_lng": 130.65,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_021": {
+    "id": "ISL_021",
+    "name": "答志島",
+    "kana": "とうしじま",
+    "region": "東海・中部",
+    "pref": "三重県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.52,
+    "lng": 136.9,
+    "color": "#FB8C00",
+    "routes": [
+      {
+        "id": "RTE_027",
+        "island_id": "ISL_021",
+        "port_id": "PORT_015",
+        "arrival_port": "答志島",
+        "company": "鳥羽市営・鏡浦自動車フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鳥羽港",
+        "port_lat": 34.4833,
+        "port_lng": 136.85,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_022": {
+    "id": "ISL_022",
+    "name": "菅島",
+    "kana": "すがしま",
+    "region": "東海・中部",
+    "pref": "三重県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.48,
+    "lng": 136.92,
+    "color": "#FB8C00",
+    "routes": [
+      {
+        "id": "RTE_028",
+        "island_id": "ISL_022",
+        "port_id": "PORT_015",
+        "arrival_port": "菅島",
+        "company": "鳥羽市営",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鳥羽港",
+        "port_lat": 34.4833,
+        "port_lng": 136.85,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_023": {
+    "id": "ISL_023",
+    "name": "坂手島",
+    "kana": "さかてじま",
+    "region": "東海・中部",
+    "pref": "三重県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.45,
+    "lng": 136.88,
+    "color": "#FB8C00",
+    "routes": [
+      {
+        "id": "RTE_029",
+        "island_id": "ISL_023",
+        "port_id": "PORT_015",
+        "arrival_port": "坂手島",
+        "company": "鳥羽市営",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鳥羽港",
+        "port_lat": 34.4833,
+        "port_lng": 136.85,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_024": {
+    "id": "ISL_024",
+    "name": "篠島",
+    "kana": "しのじま",
+    "region": "東海・中部",
+    "pref": "愛知県",
+    "type": "yes",
+    "notes": "フェリーひまわり",
+    "lat": 34.77,
+    "lng": 136.97,
+    "color": "#FB8C00",
+    "routes": [
+      {
+        "id": "RTE_030",
+        "island_id": "ISL_024",
+        "port_id": "PORT_016",
+        "arrival_port": "篠島",
+        "company": "名鉄海上観光船",
+        "ferry": "フェリーひまわり",
+        "type": "yes",
+        "notes": "",
+        "port_name": "師崎港",
+        "port_lat": 34.7167,
+        "port_lng": 136.9333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_025": {
+    "id": "ISL_025",
+    "name": "沼島",
+    "kana": "ぬしま",
+    "region": "近畿・瀬戸内",
+    "pref": "兵庫県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.08,
+    "lng": 134.85,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_031",
+        "island_id": "ISL_025",
+        "port_id": "PORT_017",
+        "arrival_port": "沼島港",
+        "company": "沼島汽船",
+        "ferry": "フェリーなだ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "土生港（洲本）",
+        "port_lat": 34.3,
+        "port_lng": 134.8833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_026": {
+    "id": "ISL_026",
+    "name": "家島",
+    "kana": "いえしま",
+    "region": "近畿・瀬戸内",
+    "pref": "兵庫県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.65,
+    "lng": 134.52,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_032",
+        "island_id": "ISL_026",
+        "port_id": "PORT_018",
+        "arrival_port": "家島港",
+        "company": "高福ライナー他",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "姫路港",
+        "port_lat": 34.8,
+        "port_lng": 134.65,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_027": {
+    "id": "ISL_027",
+    "name": "小豆島",
+    "kana": "しょうどしま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "複数航路。瀬戸内最大クラス",
+    "lat": 34.5,
+    "lng": 134.25,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_033",
+        "island_id": "ISL_027",
+        "port_id": "PORT_019",
+        "arrival_port": "坂手港・池田港・土庄港",
+        "company": "四国フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "高松港",
+        "port_lat": 34.35,
+        "port_lng": 134.05,
+        "pricing": []
+      },
+      {
+        "id": "RTE_034",
+        "island_id": "ISL_027",
+        "port_id": "PORT_018",
+        "arrival_port": "福田港",
+        "company": "姫路〜小豆島",
+        "ferry": "国際両備フェリー",
+        "type": "yes",
+        "notes": "",
+        "port_name": "姫路港",
+        "port_lat": 34.8,
+        "port_lng": 134.65,
+        "pricing": []
+      },
+      {
+        "id": "RTE_035",
+        "island_id": "ISL_027",
+        "port_id": "PORT_020",
+        "arrival_port": "大部港",
+        "company": "両備フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "新岡山港",
+        "port_lat": 34.5,
+        "port_lng": 134.15,
+        "pricing": []
+      },
+      {
+        "id": "RTE_036",
+        "island_id": "ISL_027",
+        "port_id": "PORT_068",
+        "arrival_port": "大部港",
+        "company": "日生〜小豆島",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "日生港",
+        "port_lat": 34.6167,
+        "port_lng": 134.2333,
+        "pricing": []
+      },
+      {
+        "id": "RTE_037",
+        "island_id": "ISL_027",
+        "port_id": "PORT_069",
+        "arrival_port": "坂手港",
+        "company": "ジャンボフェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "神戸港（六甲アイランド）",
+        "port_lat": 34.6833,
+        "port_lng": 135.2667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_028": {
+    "id": "ISL_028",
+    "name": "豊島（香川）",
+    "kana": "てしまかがわ",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.47,
+    "lng": 134.07,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_038",
+        "island_id": "ISL_028",
+        "port_id": "PORT_021",
+        "arrival_port": "家浦港・唐櫃港",
+        "company": "小豆島豊島フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宇野港",
+        "port_lat": 34.4833,
+        "port_lng": 133.95,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_029": {
+    "id": "ISL_029",
+    "name": "直島",
+    "kana": "なおしま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "観光マイカーは制限あり",
+    "lat": 34.46,
+    "lng": 133.98,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_039",
+        "island_id": "ISL_029",
+        "port_id": "PORT_021",
+        "arrival_port": "宮浦港",
+        "company": "四国汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "観光マイカー制限あり",
+        "port_name": "宇野港",
+        "port_lat": 34.4833,
+        "port_lng": 133.95,
+        "pricing": []
+      },
+      {
+        "id": "RTE_040",
+        "island_id": "ISL_029",
+        "port_id": "PORT_019",
+        "arrival_port": "宮浦港",
+        "company": "四国汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "高松港",
+        "port_lat": 34.35,
+        "port_lng": 134.05,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_030": {
+    "id": "ISL_030",
+    "name": "男木島",
+    "kana": "おぎしま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.43,
+    "lng": 134.12,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_041",
+        "island_id": "ISL_030",
+        "port_id": "PORT_019",
+        "arrival_port": "男木島",
+        "company": "雌雄島海運",
+        "ferry": "めおん2",
+        "type": "yes",
+        "notes": "",
+        "port_name": "高松港",
+        "port_lat": 34.35,
+        "port_lng": 134.05,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_031": {
+    "id": "ISL_031",
+    "name": "女木島",
+    "kana": "めぎしま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.45,
+    "lng": 134.1,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_042",
+        "island_id": "ISL_031",
+        "port_id": "PORT_019",
+        "arrival_port": "女木島",
+        "company": "雌雄島海運",
+        "ferry": "めおん2",
+        "type": "yes",
+        "notes": "",
+        "port_name": "高松港",
+        "port_lat": 34.35,
+        "port_lng": 134.05,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_032": {
+    "id": "ISL_032",
+    "name": "本島（香川）",
+    "kana": "ほんじまかがわ",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.27,
+    "lng": 133.73,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_043",
+        "island_id": "ISL_032",
+        "port_id": "PORT_022",
+        "arrival_port": "本島港",
+        "company": "本島汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "丸亀港",
+        "port_lat": 34.2833,
+        "port_lng": 133.8,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_033": {
+    "id": "ISL_033",
+    "name": "広島（丸亀）",
+    "kana": "ひろしままるかめ",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.37,
+    "lng": 133.68,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_044",
+        "island_id": "ISL_033",
+        "port_id": "PORT_022",
+        "arrival_port": "広島港",
+        "company": "本島汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "丸亀港",
+        "port_lat": 34.2833,
+        "port_lng": 133.8,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_034": {
+    "id": "ISL_034",
+    "name": "手島（丸亀）",
+    "kana": "てしままるかめ",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.33,
+    "lng": 133.65,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_045",
+        "island_id": "ISL_034",
+        "port_id": "PORT_022",
+        "arrival_port": "手島港",
+        "company": "本島汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "丸亀港",
+        "port_lat": 34.2833,
+        "port_lng": 133.8,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_035": {
+    "id": "ISL_035",
+    "name": "佐柳島",
+    "kana": "さなぎしま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.17,
+    "lng": 133.7,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_046",
+        "island_id": "ISL_035",
+        "port_id": "PORT_023",
+        "arrival_port": "佐柳島港",
+        "company": "三洋汽船",
+        "ferry": "フェリーたかみ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "多度津港",
+        "port_lat": 34.2667,
+        "port_lng": 133.75,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_036": {
+    "id": "ISL_036",
+    "name": "高見島",
+    "kana": "たかみじま",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.17,
+    "lng": 133.77,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_047",
+        "island_id": "ISL_036",
+        "port_id": "PORT_023",
+        "arrival_port": "高見島港",
+        "company": "三洋汽船",
+        "ferry": "フェリーたかみ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "多度津港",
+        "port_lat": 34.2667,
+        "port_lng": 133.75,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_037": {
+    "id": "ISL_037",
+    "name": "粟島（香川）",
+    "kana": "あわしまかがわ",
+    "region": "近畿・瀬戸内",
+    "pref": "香川県",
+    "type": "yes",
+    "notes": "小型フェリー",
+    "lat": 34.13,
+    "lng": 133.68,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_048",
+        "island_id": "ISL_037",
+        "port_id": "PORT_024",
+        "arrival_port": "粟島港",
+        "company": "三豊市営",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宮の下港（三豊）",
+        "port_lat": 34.1833,
+        "port_lng": 133.6833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_038": {
+    "id": "ISL_038",
+    "name": "前島",
+    "kana": "まえしま",
+    "region": "近畿・瀬戸内",
+    "pref": "岡山県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.67,
+    "lng": 134.18,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_049",
+        "island_id": "ISL_038",
+        "port_id": "PORT_025",
+        "arrival_port": "前島港",
+        "company": "前島フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "牛窓港",
+        "port_lat": 34.6167,
+        "port_lng": 134.1667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_039": {
+    "id": "ISL_039",
+    "name": "岩城島",
+    "kana": "いわぎじま",
+    "region": "近畿・瀬戸内",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "ゆめしま海道",
+    "lat": 34.28,
+    "lng": 133.05,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_050",
+        "island_id": "ISL_039",
+        "port_id": "PORT_026",
+        "arrival_port": "岩城港",
+        "company": "岩城汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "土生港（因島）",
+        "port_lat": 34.2667,
+        "port_lng": 133.1833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_040": {
+    "id": "ISL_040",
+    "name": "生名島",
+    "kana": "いきなじま",
+    "region": "近畿・瀬戸内",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "ゆめしま海道",
+    "lat": 34.3,
+    "lng": 133.08,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_051",
+        "island_id": "ISL_040",
+        "port_id": "PORT_026",
+        "arrival_port": "生名港",
+        "company": "家老渡フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "土生港（因島）",
+        "port_lat": 34.2667,
+        "port_lng": 133.1833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_041": {
+    "id": "ISL_041",
+    "name": "弓削島",
+    "kana": "ゆげじま",
+    "region": "近畿・瀬戸内",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "ゆめしま海道",
+    "lat": 34.28,
+    "lng": 133.15,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_052",
+        "island_id": "ISL_041",
+        "port_id": "PORT_026",
+        "arrival_port": "弓削港",
+        "company": "三光汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "土生港（因島）",
+        "port_lat": 34.2667,
+        "port_lng": 133.1833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_042": {
+    "id": "ISL_042",
+    "name": "魚島",
+    "kana": "うおしま",
+    "region": "近畿・瀬戸内",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.33,
+    "lng": 133.2,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_053",
+        "island_id": "ISL_042",
+        "port_id": "PORT_026",
+        "arrival_port": "魚島港",
+        "company": "上島町営",
+        "ferry": "ニューうおしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "土生港（因島）",
+        "port_lat": 34.2667,
+        "port_lng": 133.1833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_043": {
+    "id": "ISL_043",
+    "name": "大崎上島",
+    "kana": "おおさきかみじま",
+    "region": "近畿・瀬戸内",
+    "pref": "広島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.3,
+    "lng": 132.95,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_054",
+        "island_id": "ISL_043",
+        "port_id": "PORT_027",
+        "arrival_port": "白水港・垂水港",
+        "company": "山陽商船・大崎汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "竹原港",
+        "port_lat": 34.35,
+        "port_lng": 132.9167,
+        "pricing": []
+      },
+      {
+        "id": "RTE_055",
+        "island_id": "ISL_043",
+        "port_id": "PORT_028",
+        "arrival_port": "大西港",
+        "company": "藤井汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "安芸津港",
+        "port_lat": 34.3167,
+        "port_lng": 132.9667,
+        "pricing": []
+      },
+      {
+        "id": "RTE_056",
+        "island_id": "ISL_043",
+        "port_id": "PORT_029",
+        "arrival_port": "木江港",
+        "company": "大崎汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "今治港",
+        "port_lat": 34.0667,
+        "port_lng": 133.0,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_044": {
+    "id": "ISL_044",
+    "name": "阿多田島",
+    "kana": "あたたじま",
+    "region": "近畿・瀬戸内",
+    "pref": "広島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.2,
+    "lng": 132.23,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_057",
+        "island_id": "ISL_044",
+        "port_id": "PORT_063",
+        "arrival_port": "阿多田港",
+        "company": "阿多田島汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "小方港",
+        "port_lat": 34.2,
+        "port_lng": 132.2167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_045": {
+    "id": "ISL_045",
+    "name": "江田島・能美島",
+    "kana": "えたじまのうみじま",
+    "region": "近畿・瀬戸内",
+    "pref": "広島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.25,
+    "lng": 132.45,
+    "color": "#8E24AA",
+    "routes": [
+      {
+        "id": "RTE_058",
+        "island_id": "ISL_045",
+        "port_id": "PORT_032",
+        "arrival_port": "切串港・小用港・三高港",
+        "company": "瀬戸内シーライン・江田島汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "広島港（宇品）",
+        "port_lat": 34.35,
+        "port_lng": 132.4667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_046": {
+    "id": "ISL_046",
+    "name": "隠岐・島後（西郷）",
+    "kana": "おきどうご",
+    "region": "山陰",
+    "pref": "島根県",
+    "type": "yes",
+    "notes": "大型カーフェリー",
+    "lat": 36.2,
+    "lng": 133.32,
+    "color": "#00ACC1",
+    "routes": [
+      {
+        "id": "RTE_059",
+        "island_id": "ISL_046",
+        "port_id": "PORT_030",
+        "arrival_port": "西郷港",
+        "company": "隠岐汽船",
+        "ferry": "しらしま・おき",
+        "type": "yes",
+        "notes": "",
+        "port_name": "七類港",
+        "port_lat": 35.55,
+        "port_lng": 133.2167,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      },
+      {
+        "id": "RTE_060",
+        "island_id": "ISL_046",
+        "port_id": "PORT_031",
+        "arrival_port": "西郷港",
+        "company": "隠岐汽船",
+        "ferry": "しらしま・おき",
+        "type": "yes",
+        "notes": "",
+        "port_name": "境港",
+        "port_lat": 35.55,
+        "port_lng": 133.2333,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_047": {
+    "id": "ISL_047",
+    "name": "隠岐・西ノ島",
+    "kana": "おきにしのしま",
+    "region": "山陰",
+    "pref": "島根県",
+    "type": "yes",
+    "notes": "",
+    "lat": 36.17,
+    "lng": 133.0,
+    "color": "#00ACC1",
+    "routes": [
+      {
+        "id": "RTE_061",
+        "island_id": "ISL_047",
+        "port_id": "PORT_030",
+        "arrival_port": "別府港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "七類港",
+        "port_lat": 35.55,
+        "port_lng": 133.2167,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      },
+      {
+        "id": "RTE_062",
+        "island_id": "ISL_047",
+        "port_id": "PORT_031",
+        "arrival_port": "別府港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "境港",
+        "port_lat": 35.55,
+        "port_lng": 133.2333,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_048": {
+    "id": "ISL_048",
+    "name": "隠岐・中ノ島（海士町）",
+    "kana": "おきなかのしま",
+    "region": "山陰",
+    "pref": "島根県",
+    "type": "yes",
+    "notes": "",
+    "lat": 36.13,
+    "lng": 133.07,
+    "color": "#00ACC1",
+    "routes": [
+      {
+        "id": "RTE_063",
+        "island_id": "ISL_048",
+        "port_id": "PORT_030",
+        "arrival_port": "菱浦港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "七類港",
+        "port_lat": 35.55,
+        "port_lng": 133.2167,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      },
+      {
+        "id": "RTE_064",
+        "island_id": "ISL_048",
+        "port_id": "PORT_031",
+        "arrival_port": "菱浦港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "境港",
+        "port_lat": 35.55,
+        "port_lng": 133.2333,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_049": {
+    "id": "ISL_049",
+    "name": "隠岐・知夫里島",
+    "kana": "おきちぶりじま",
+    "region": "山陰",
+    "pref": "島根県",
+    "type": "yes",
+    "notes": "",
+    "lat": 36.08,
+    "lng": 133.08,
+    "color": "#00ACC1",
+    "routes": [
+      {
+        "id": "RTE_065",
+        "island_id": "ISL_049",
+        "port_id": "PORT_030",
+        "arrival_port": "来居港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "七類港",
+        "port_lat": 35.55,
+        "port_lng": 133.2167,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      },
+      {
+        "id": "RTE_066",
+        "island_id": "ISL_049",
+        "port_id": "PORT_031",
+        "arrival_port": "来居港",
+        "company": "隠岐汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "境港",
+        "port_lat": 35.55,
+        "port_lng": 133.2333,
+        "pricing": [
+          {
+            "company": "隠岐汽船",
+            "route": "七類/境港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "22870",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満。220cmは問題なし"
+          },
+          {
+            "company": "隠岐汽船",
+            "route": "島前各港〜西郷（島後）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "9360",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "https://www.oki-kisen.co.jp/fare/",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_050": {
+    "id": "ISL_050",
+    "name": "大島（山口・萩）",
+    "kana": "おおしまやまぐち",
+    "region": "山陰・山口",
+    "pref": "山口県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.47,
+    "lng": 131.43,
+    "color": "#00897B",
+    "routes": [
+      {
+        "id": "RTE_067",
+        "island_id": "ISL_050",
+        "port_id": "PORT_065",
+        "arrival_port": "大島港",
+        "company": "萩海運",
+        "ferry": "フェリーおしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "萩港",
+        "port_lat": 34.4,
+        "port_lng": 131.4,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_051": {
+    "id": "ISL_051",
+    "name": "平郡島",
+    "kana": "へぐりじま",
+    "region": "山陰・山口",
+    "pref": "山口県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.85,
+    "lng": 131.85,
+    "color": "#00897B",
+    "routes": [
+      {
+        "id": "RTE_068",
+        "island_id": "ISL_051",
+        "port_id": "PORT_066",
+        "arrival_port": "平郡港",
+        "company": "平郡航路",
+        "ferry": "フェリーへぐり",
+        "type": "yes",
+        "notes": "",
+        "port_name": "柳井港",
+        "port_lat": 33.9667,
+        "port_lng": 132.1,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_052": {
+    "id": "ISL_052",
+    "name": "大津島",
+    "kana": "おおづしま",
+    "region": "山陰・山口",
+    "pref": "山口県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.03,
+    "lng": 131.83,
+    "color": "#00897B",
+    "routes": [
+      {
+        "id": "RTE_069",
+        "island_id": "ISL_052",
+        "port_id": "PORT_033",
+        "arrival_port": "大津島",
+        "company": "大津島巡航",
+        "ferry": "フェリー新大津島",
+        "type": "yes",
+        "notes": "",
+        "port_name": "徳山港",
+        "port_lat": 34.05,
+        "port_lng": 131.8167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_053": {
+    "id": "ISL_053",
+    "name": "蓋井島",
+    "kana": "ふたおいじま",
+    "region": "山陰・山口",
+    "pref": "山口県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.0,
+    "lng": 130.8,
+    "color": "#00897B",
+    "routes": [
+      {
+        "id": "RTE_070",
+        "island_id": "ISL_053",
+        "port_id": "PORT_034",
+        "arrival_port": "蓋井島",
+        "company": "下関市営",
+        "ferry": "ふるしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "吉見港",
+        "port_lat": 34.0167,
+        "port_lng": 130.95,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_054": {
+    "id": "ISL_054",
+    "name": "中島（愛媛）",
+    "kana": "なかじまえひめ",
+    "region": "四国",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.88,
+    "lng": 132.68,
+    "color": "#F4511E",
+    "routes": [
+      {
+        "id": "RTE_071",
+        "island_id": "ISL_054",
+        "port_id": "PORT_035",
+        "arrival_port": "中島港",
+        "company": "瀬戸内海汽船・中島汽船",
+        "ferry": "フェリーなかじま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "三津浜港・高浜港",
+        "port_lat": 33.85,
+        "port_lng": 132.7333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_055": {
+    "id": "ISL_055",
+    "name": "興居島",
+    "kana": "ごごしま",
+    "region": "四国",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.85,
+    "lng": 132.7,
+    "color": "#F4511E",
+    "routes": [
+      {
+        "id": "RTE_072",
+        "island_id": "ISL_055",
+        "port_id": "PORT_035",
+        "arrival_port": "由良港・泊港",
+        "company": "ごごしま",
+        "ferry": "フェリー由良",
+        "type": "yes",
+        "notes": "",
+        "port_name": "三津浜港・高浜港",
+        "port_lat": 33.85,
+        "port_lng": 132.7333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_056": {
+    "id": "ISL_056",
+    "name": "戸島（愛媛）",
+    "kana": "とじまえひめ",
+    "region": "四国",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.0,
+    "lng": 132.53,
+    "color": "#F4511E",
+    "routes": [
+      {
+        "id": "RTE_073",
+        "island_id": "ISL_056",
+        "port_id": "PORT_036",
+        "arrival_port": "戸島港",
+        "company": "宇和島運輸・盛運汽船",
+        "ferry": "しらさぎ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宇和島港",
+        "port_lat": 33.2333,
+        "port_lng": 132.55,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_057": {
+    "id": "ISL_057",
+    "name": "日振島",
+    "kana": "ひぶりじま",
+    "region": "四国",
+    "pref": "愛媛県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.92,
+    "lng": 132.47,
+    "color": "#F4511E",
+    "routes": [
+      {
+        "id": "RTE_074",
+        "island_id": "ISL_057",
+        "port_id": "PORT_036",
+        "arrival_port": "日振島港",
+        "company": "盛運汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宇和島港",
+        "port_lat": 33.2333,
+        "port_lng": 132.55,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_058": {
+    "id": "ISL_058",
+    "name": "沖の島（高知）",
+    "kana": "おきのしまこうち",
+    "region": "四国",
+    "pref": "高知県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.77,
+    "lng": 132.72,
+    "color": "#F4511E",
+    "routes": [
+      {
+        "id": "RTE_075",
+        "island_id": "ISL_058",
+        "port_id": "PORT_064",
+        "arrival_port": "沖の島",
+        "company": "宿毛市営",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宿毛港",
+        "port_lat": 32.9333,
+        "port_lng": 132.7333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_059": {
+    "id": "ISL_059",
+    "name": "能古島",
+    "kana": "のこのしま",
+    "region": "九州北部",
+    "pref": "福岡県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.62,
+    "lng": 130.27,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_076",
+        "island_id": "ISL_059",
+        "port_id": "PORT_061",
+        "arrival_port": "能古島",
+        "company": "福岡市営",
+        "ferry": "フェリーのこ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "姪浜港",
+        "port_lat": 33.5833,
+        "port_lng": 130.3,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_060": {
+    "id": "ISL_060",
+    "name": "大島（宗像）",
+    "kana": "おおしまむなかた",
+    "region": "九州北部",
+    "pref": "福岡県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.87,
+    "lng": 130.83,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_077",
+        "island_id": "ISL_060",
+        "port_id": "PORT_038",
+        "arrival_port": "大島港（宗像）",
+        "company": "宗像市営",
+        "ferry": "フェリーおおしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "神湊港",
+        "port_lat": 33.8167,
+        "port_lng": 130.6167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_061": {
+    "id": "ISL_061",
+    "name": "姫島（大分）",
+    "kana": "ひめしまおおいた",
+    "region": "九州北部",
+    "pref": "大分県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.73,
+    "lng": 131.68,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_078",
+        "island_id": "ISL_061",
+        "port_id": "PORT_039",
+        "arrival_port": "姫島港",
+        "company": "姫島村営",
+        "ferry": "フェリー姫島",
+        "type": "yes",
+        "notes": "",
+        "port_name": "伊美港",
+        "port_lat": 33.6167,
+        "port_lng": 131.7,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_062": {
+    "id": "ISL_062",
+    "name": "大入島",
+    "kana": "おおにゅうじま",
+    "region": "九州北部",
+    "pref": "大分県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.88,
+    "lng": 131.87,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_079",
+        "island_id": "ISL_062",
+        "port_id": "PORT_040",
+        "arrival_port": "大入島",
+        "company": "大入島観光フェリー",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "佐伯港",
+        "port_lat": 32.9667,
+        "port_lng": 131.9,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_063": {
+    "id": "ISL_063",
+    "name": "対馬",
+    "kana": "つしま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 34.2,
+    "lng": 129.28,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_080",
+        "island_id": "ISL_063",
+        "port_id": "PORT_037",
+        "arrival_port": "厳原港・比田勝港",
+        "company": "九州郵船",
+        "ferry": "フェリーちくし・フェリーきずな",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": [
+          {
+            "company": "九州郵船",
+            "route": "博多〜壱岐（郷ノ浦/芦辺）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18690",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "博多〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "33950",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "壱岐〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18360",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_064": {
+    "id": "ISL_064",
+    "name": "壱岐",
+    "kana": "いき",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.75,
+    "lng": 129.68,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_081",
+        "island_id": "ISL_064",
+        "port_id": "PORT_037",
+        "arrival_port": "郷ノ浦港・芦辺港",
+        "company": "九州郵船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": [
+          {
+            "company": "九州郵船",
+            "route": "博多〜壱岐（郷ノ浦/芦辺）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18690",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "博多〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "33950",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "壱岐〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18360",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      },
+      {
+        "id": "RTE_082",
+        "island_id": "ISL_064",
+        "port_id": "PORT_045",
+        "arrival_port": "印通寺港",
+        "company": "九州郵船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "唐津港",
+        "port_lat": 33.4667,
+        "port_lng": 129.9667,
+        "pricing": [
+          {
+            "company": "九州郵船",
+            "route": "博多〜壱岐（郷ノ浦/芦辺）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18690",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "博多〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "33950",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          },
+          {
+            "company": "九州郵船",
+            "route": "壱岐〜厳原（対馬）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18360",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://www.kyu-you.co.jp/price/13.html",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_065": {
+    "id": "ISL_065",
+    "name": "宇久島",
+    "kana": "うくじま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.25,
+    "lng": 129.08,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_083",
+        "island_id": "ISL_065",
+        "port_id": "PORT_037",
+        "arrival_port": "宇久平港",
+        "company": "九州商船・野母商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": []
+      },
+      {
+        "id": "RTE_084",
+        "island_id": "ISL_065",
+        "port_id": "PORT_042",
+        "arrival_port": "宇久平港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "佐世保港",
+        "port_lat": 33.1667,
+        "port_lng": 129.7167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_066": {
+    "id": "ISL_066",
+    "name": "小値賀島",
+    "kana": "おぢかじま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.18,
+    "lng": 129.08,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_085",
+        "island_id": "ISL_066",
+        "port_id": "PORT_037",
+        "arrival_port": "笛吹港",
+        "company": "九州商船・野母商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": []
+      },
+      {
+        "id": "RTE_086",
+        "island_id": "ISL_066",
+        "port_id": "PORT_042",
+        "arrival_port": "笛吹港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "佐世保港",
+        "port_lat": 33.1667,
+        "port_lng": 129.7167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_067": {
+    "id": "ISL_067",
+    "name": "中通島（上五島）",
+    "kana": "なかどおりじま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.05,
+    "lng": 129.1,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_087",
+        "island_id": "ISL_067",
+        "port_id": "PORT_041",
+        "arrival_port": "有川港・鯛ノ浦港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "長崎港",
+        "port_lat": 32.7333,
+        "port_lng": 129.8667,
+        "pricing": []
+      },
+      {
+        "id": "RTE_088",
+        "island_id": "ISL_067",
+        "port_id": "PORT_042",
+        "arrival_port": "有川港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "佐世保港",
+        "port_lat": 33.1667,
+        "port_lng": 129.7167,
+        "pricing": []
+      },
+      {
+        "id": "RTE_089",
+        "island_id": "ISL_067",
+        "port_id": "PORT_037",
+        "arrival_port": "有川港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_068": {
+    "id": "ISL_068",
+    "name": "奈留島",
+    "kana": "なるしま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.9,
+    "lng": 128.93,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_090",
+        "island_id": "ISL_068",
+        "port_id": "PORT_041",
+        "arrival_port": "奈留港",
+        "company": "九州商船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "長崎港",
+        "port_lat": 32.7333,
+        "port_lng": 129.8667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_069": {
+    "id": "ISL_069",
+    "name": "久賀島",
+    "kana": "ひさかじま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.82,
+    "lng": 128.85,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_091",
+        "island_id": "ISL_069",
+        "port_id": "PORT_052",
+        "arrival_port": "久賀島",
+        "company": "木口汽船",
+        "ferry": "フェリーひさか",
+        "type": "yes",
+        "notes": "福江島経由",
+        "port_name": "屋久島港（宮之浦）",
+        "port_lat": 30.4,
+        "port_lng": 130.65,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_070": {
+    "id": "ISL_070",
+    "name": "福江島（下五島）",
+    "kana": "ふくえじま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.7,
+    "lng": 128.85,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_092",
+        "island_id": "ISL_070",
+        "port_id": "PORT_041",
+        "arrival_port": "福江港",
+        "company": "九州商船・野母商船",
+        "ferry": "太古",
+        "type": "yes",
+        "notes": "",
+        "port_name": "長崎港",
+        "port_lat": 32.7333,
+        "port_lng": 129.8667,
+        "pricing": []
+      },
+      {
+        "id": "RTE_093",
+        "island_id": "ISL_070",
+        "port_id": "PORT_037",
+        "arrival_port": "福江港",
+        "company": "九州商船・野母商船",
+        "ferry": "太古",
+        "type": "yes",
+        "notes": "",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_071": {
+    "id": "ISL_071",
+    "name": "池島",
+    "kana": "いけしま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.9,
+    "lng": 129.65,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_094",
+        "island_id": "ISL_071",
+        "port_id": "PORT_064",
+        "arrival_port": "池島",
+        "company": "西海沿海商船",
+        "ferry": "フェリーかしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "宿毛港",
+        "port_lat": 32.9333,
+        "port_lng": 132.7333,
+        "pricing": []
+      },
+      {
+        "id": "RTE_095",
+        "island_id": "ISL_071",
+        "port_id": "PORT_042",
+        "arrival_port": "池島",
+        "company": "西海沿海商船",
+        "ferry": "フェリーかしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "佐世保港",
+        "port_lat": 33.1667,
+        "port_lng": 129.7167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_072": {
+    "id": "ISL_072",
+    "name": "度島",
+    "kana": "たくしま",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.4,
+    "lng": 129.52,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_096",
+        "island_id": "ISL_072",
+        "port_id": "PORT_043",
+        "arrival_port": "度島港",
+        "company": "度島公営",
+        "ferry": "フェリー度島",
+        "type": "yes",
+        "notes": "",
+        "port_name": "平戸港",
+        "port_lat": 33.3667,
+        "port_lng": 129.55,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_073": {
+    "id": "ISL_073",
+    "name": "大島（平戸）",
+    "kana": "おおしまひらど",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.4,
+    "lng": 129.42,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_097",
+        "island_id": "ISL_073",
+        "port_id": "PORT_062",
+        "arrival_port": "神崎港",
+        "company": "平戸市営",
+        "ferry": "フェリー大島",
+        "type": "yes",
+        "notes": "",
+        "port_name": "薄香港",
+        "port_lat": 33.3833,
+        "port_lng": 129.4333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_074": {
+    "id": "ISL_074",
+    "name": "黒島（佐世保）",
+    "kana": "くろしまさせぼ",
+    "region": "九州北部",
+    "pref": "長崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 33.03,
+    "lng": 129.37,
+    "color": "#3949AB",
+    "routes": [
+      {
+        "id": "RTE_098",
+        "island_id": "ISL_074",
+        "port_id": "PORT_044",
+        "arrival_port": "黒島港",
+        "company": "黒島旅客船",
+        "ferry": "フェリーくろしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "相浦港",
+        "port_lat": 33.2333,
+        "port_lng": 129.65,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_075": {
+    "id": "ISL_075",
+    "name": "御所浦島",
+    "kana": "ごしょうらじま",
+    "region": "九州南部",
+    "pref": "熊本県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.45,
+    "lng": 130.0,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_099",
+        "island_id": "ISL_075",
+        "port_id": "PORT_046",
+        "arrival_port": "御所浦港",
+        "company": "御所浦汽船",
+        "ferry": "フェリーごしょうら",
+        "type": "yes",
+        "notes": "",
+        "port_name": "棚底港",
+        "port_lat": 32.4,
+        "port_lng": 130.0667,
+        "pricing": []
+      },
+      {
+        "id": "RTE_100",
+        "island_id": "ISL_075",
+        "port_id": "PORT_067",
+        "arrival_port": "御所浦港",
+        "company": "御所浦汽船",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "大道港（天草）",
+        "port_lat": 32.35,
+        "port_lng": 130.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_076": {
+    "id": "ISL_076",
+    "name": "獅子島",
+    "kana": "ししじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.22,
+    "lng": 130.17,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_101",
+        "island_id": "ISL_076",
+        "port_id": "PORT_047",
+        "arrival_port": "片側港",
+        "company": "獅子島汽船",
+        "ferry": "フェリーししじま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "諸浦港",
+        "port_lat": 32.3167,
+        "port_lng": 130.1167,
+        "pricing": []
+      },
+      {
+        "id": "RTE_102",
+        "island_id": "ISL_076",
+        "port_id": "PORT_048",
+        "arrival_port": "片側港",
+        "company": "獅子島汽船",
+        "ferry": "フェリーししじま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "水俣港",
+        "port_lat": 32.2167,
+        "port_lng": 130.4,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_077": {
+    "id": "ISL_077",
+    "name": "島野浦島",
+    "kana": "しまのうらじま",
+    "region": "九州南部",
+    "pref": "宮崎県",
+    "type": "yes",
+    "notes": "",
+    "lat": 32.58,
+    "lng": 131.77,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_103",
+        "island_id": "ISL_077",
+        "port_id": "PORT_049",
+        "arrival_port": "島野浦港",
+        "company": "日向海運",
+        "ferry": "フェリー島あつまる",
+        "type": "yes",
+        "notes": "",
+        "port_name": "浦城港",
+        "port_lat": 32.5833,
+        "port_lng": 131.7167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_078": {
+    "id": "ISL_078",
+    "name": "甑島列島",
+    "kana": "こしきじまれつとう",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "甑大橋で上中下甑連結",
+    "lat": 31.82,
+    "lng": 129.87,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_104",
+        "island_id": "ISL_078",
+        "port_id": "PORT_050",
+        "arrival_port": "里港・鹿島港・長浜港",
+        "company": "甑島商船",
+        "ferry": "フェリーニューこしき",
+        "type": "yes",
+        "notes": "",
+        "port_name": "串木野新港",
+        "port_lat": 31.7333,
+        "port_lng": 130.25,
+        "pricing": [
+          {
+            "company": "甑島商船",
+            "route": "串木野〜甑島各港（結Lineこしき）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "10670",
+            "height_limit": "400",
+            "applicable": "OK",
+            "url": "https://www.koshikisho.co.jp/fare_yuilinekoshiki_a",
+            "notes": "高さ4.0m未満。220cmは問題なし"
+          },
+          {
+            "company": "甑島商船",
+            "route": "串木野〜甑島各港（フェリーニューこしき）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "",
+            "height_limit": "380",
+            "applicable": "OK",
+            "url": "",
+            "notes": "高さ3.8m未満"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_079": {
+    "id": "ISL_079",
+    "name": "黒島（三島村）",
+    "kana": "くろしまみしまむら",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 30.83,
+    "lng": 129.92,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_105",
+        "island_id": "ISL_079",
+        "port_id": "PORT_051",
+        "arrival_port": "黒島港",
+        "company": "三島村",
+        "ferry": "フェリーみしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_080": {
+    "id": "ISL_080",
+    "name": "硫黄島（三島村）",
+    "kana": "いおうじまみしまむら",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 30.78,
+    "lng": 130.28,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_106",
+        "island_id": "ISL_080",
+        "port_id": "PORT_051",
+        "arrival_port": "硫黄島港",
+        "company": "三島村",
+        "ferry": "フェリーみしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_081": {
+    "id": "ISL_081",
+    "name": "竹島（三島村）",
+    "kana": "たけしまみしまむら",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 30.48,
+    "lng": 130.42,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_107",
+        "island_id": "ISL_081",
+        "port_id": "PORT_051",
+        "arrival_port": "竹島港",
+        "company": "三島村",
+        "ferry": "フェリーみしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_082": {
+    "id": "ISL_082",
+    "name": "口永良部島",
+    "kana": "くちのえらぶじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "屋久島経由",
+    "lat": 30.45,
+    "lng": 130.22,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_108",
+        "island_id": "ISL_082",
+        "port_id": "PORT_052",
+        "arrival_port": "口永良部島港",
+        "company": "屋久島町",
+        "ferry": "フェリー太陽2",
+        "type": "yes",
+        "notes": "屋久島経由。鹿児島直行なし",
+        "port_name": "屋久島港（宮之浦）",
+        "port_lat": 30.4,
+        "port_lng": 130.65,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_083": {
+    "id": "ISL_083",
+    "name": "屋久島",
+    "kana": "やくしま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 30.33,
+    "lng": 130.53,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_109",
+        "island_id": "ISL_083",
+        "port_id": "PORT_051",
+        "arrival_port": "宮之浦港",
+        "company": "折田汽船",
+        "ferry": "フェリー屋久島2",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": [
+          {
+            "company": "折田汽船",
+            "route": "鹿児島〜屋久島（宮之浦）",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "29500",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://ferryyakusima2.com/timetable",
+            "notes": "ハイエース5m未満乗船実績あり"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_084": {
+    "id": "ISL_084",
+    "name": "種子島",
+    "kana": "たねがしま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 30.67,
+    "lng": 130.98,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_110",
+        "island_id": "ISL_084",
+        "port_id": "PORT_051",
+        "arrival_port": "西之表港",
+        "company": "コスモライン・新屋久島フェリー",
+        "ferry": "プリンセスわかさ他",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_085": {
+    "id": "ISL_085",
+    "name": "口之島",
+    "kana": "くちのしま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.87,
+    "lng": 129.93,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_111",
+        "island_id": "ISL_085",
+        "port_id": "PORT_051",
+        "arrival_port": "口之島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_086": {
+    "id": "ISL_086",
+    "name": "中之島（トカラ）",
+    "kana": "なかのしまとから",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.85,
+    "lng": 129.85,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_112",
+        "island_id": "ISL_086",
+        "port_id": "PORT_051",
+        "arrival_port": "中之島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_087": {
+    "id": "ISL_087",
+    "name": "平島",
+    "kana": "たいらじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.72,
+    "lng": 129.93,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_113",
+        "island_id": "ISL_087",
+        "port_id": "PORT_051",
+        "arrival_port": "平島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_088": {
+    "id": "ISL_088",
+    "name": "諏訪之瀬島",
+    "kana": "すわのせじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.62,
+    "lng": 129.72,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_114",
+        "island_id": "ISL_088",
+        "port_id": "PORT_051",
+        "arrival_port": "諏訪之瀬島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_089": {
+    "id": "ISL_089",
+    "name": "悪石島",
+    "kana": "あくせきじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.45,
+    "lng": 129.58,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_115",
+        "island_id": "ISL_089",
+        "port_id": "PORT_051",
+        "arrival_port": "悪石島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_090": {
+    "id": "ISL_090",
+    "name": "小宝島",
+    "kana": "こだからじま",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.35,
+    "lng": 129.5,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_116",
+        "island_id": "ISL_090",
+        "port_id": "PORT_051",
+        "arrival_port": "小宝島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_091": {
+    "id": "ISL_091",
+    "name": "宝島",
+    "kana": "たからじまとから",
+    "region": "九州南部",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "トカラ列島",
+    "lat": 29.15,
+    "lng": 129.32,
+    "color": "#D81B60",
+    "routes": [
+      {
+        "id": "RTE_117",
+        "island_id": "ISL_091",
+        "port_id": "PORT_051",
+        "arrival_port": "宝島港",
+        "company": "十島村",
+        "ferry": "フェリーとから",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_092": {
+    "id": "ISL_092",
+    "name": "奄美大島",
+    "kana": "あまみおおしま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 28.37,
+    "lng": 129.5,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_118",
+        "island_id": "ISL_092",
+        "port_id": "PORT_051",
+        "arrival_port": "名瀬港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "フェリーあまみ他",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_093": {
+    "id": "ISL_093",
+    "name": "喜界島",
+    "kana": "きかいじま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 28.33,
+    "lng": 129.92,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_119",
+        "island_id": "ISL_093",
+        "port_id": "PORT_051",
+        "arrival_port": "湾港",
+        "company": "奄美海運",
+        "ferry": "フェリーきかい",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_094": {
+    "id": "ISL_094",
+    "name": "加計呂麻島",
+    "kana": "かけろまじま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "奄美大島・古仁屋から",
+    "lat": 28.12,
+    "lng": 129.35,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_120",
+        "island_id": "ISL_094",
+        "port_id": "PORT_053",
+        "arrival_port": "瀬相港・生間港",
+        "company": "瀬戸内町",
+        "ferry": "フェリーかけろま",
+        "type": "yes",
+        "notes": "奄美大島・古仁屋から",
+        "port_name": "古仁屋港",
+        "port_lat": 28.2,
+        "port_lng": 129.3,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_095": {
+    "id": "ISL_095",
+    "name": "請島",
+    "kana": "うけしま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "小型フェリー。車両航送可",
+    "lat": 28.08,
+    "lng": 129.38,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_121",
+        "island_id": "ISL_095",
+        "port_id": "PORT_053",
+        "arrival_port": "請島港",
+        "company": "瀬戸内町",
+        "ferry": "せとなみ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "古仁屋港",
+        "port_lat": 28.2,
+        "port_lng": 129.3,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_096": {
+    "id": "ISL_096",
+    "name": "与路島",
+    "kana": "よろしま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "小型フェリー。車両航送可",
+    "lat": 28.03,
+    "lng": 129.32,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_122",
+        "island_id": "ISL_096",
+        "port_id": "PORT_053",
+        "arrival_port": "与路島港",
+        "company": "瀬戸内町",
+        "ferry": "せとなみ",
+        "type": "yes",
+        "notes": "",
+        "port_name": "古仁屋港",
+        "port_lat": 28.2,
+        "port_lng": 129.3,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_097": {
+    "id": "ISL_097",
+    "name": "徳之島",
+    "kana": "とくのしま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 27.73,
+    "lng": 128.98,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_123",
+        "island_id": "ISL_097",
+        "port_id": "PORT_051",
+        "arrival_port": "亀徳港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_098": {
+    "id": "ISL_098",
+    "name": "沖永良部島",
+    "kana": "おきのえらぶじま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 27.38,
+    "lng": 128.58,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_124",
+        "island_id": "ISL_098",
+        "port_id": "PORT_051",
+        "arrival_port": "和泊港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_099": {
+    "id": "ISL_099",
+    "name": "与論島",
+    "kana": "よろんじま",
+    "region": "奄美",
+    "pref": "鹿児島県",
+    "type": "yes",
+    "notes": "",
+    "lat": 27.05,
+    "lng": 128.42,
+    "color": "#6D4C41",
+    "routes": [
+      {
+        "id": "RTE_125",
+        "island_id": "ISL_099",
+        "port_id": "PORT_051",
+        "arrival_port": "供利港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_100": {
+    "id": "ISL_100",
+    "name": "伊江島",
+    "kana": "いえじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.72,
+    "lng": 127.78,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_126",
+        "island_id": "ISL_100",
+        "port_id": "PORT_055",
+        "arrival_port": "伊江島港",
+        "company": "伊江村営",
+        "ferry": "フェリーいえしま",
+        "type": "yes",
+        "notes": "",
+        "port_name": "本部港",
+        "port_lat": 26.6333,
+        "port_lng": 127.9,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_101": {
+    "id": "ISL_101",
+    "name": "伊平屋島",
+    "kana": "いへやじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 27.02,
+    "lng": 127.97,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_127",
+        "island_id": "ISL_101",
+        "port_id": "PORT_056",
+        "arrival_port": "伊平屋港",
+        "company": "伊平屋村営",
+        "ferry": "フェリーいへや3",
+        "type": "yes",
+        "notes": "",
+        "port_name": "運天港",
+        "port_lat": 26.6833,
+        "port_lng": 128.0,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_102": {
+    "id": "ISL_102",
+    "name": "伊ぜ名島",
+    "kana": "いぜなじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.92,
+    "lng": 127.92,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_128",
+        "island_id": "ISL_102",
+        "port_id": "PORT_056",
+        "arrival_port": "仲田港",
+        "company": "伊ぜな村営",
+        "ferry": "フェリーいぜな尚円",
+        "type": "yes",
+        "notes": "",
+        "port_name": "運天港",
+        "port_lat": 26.6833,
+        "port_lng": 128.0,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_103": {
+    "id": "ISL_103",
+    "name": "粟国島",
+    "kana": "あぐにじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.58,
+    "lng": 127.22,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_129",
+        "island_id": "ISL_103",
+        "port_id": "PORT_054",
+        "arrival_port": "粟国港",
+        "company": "粟国村営",
+        "ferry": "フェリーあぐに",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_104": {
+    "id": "ISL_104",
+    "name": "渡名喜島",
+    "kana": "となきじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.38,
+    "lng": 127.55,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_130",
+        "island_id": "ISL_104",
+        "port_id": "PORT_054",
+        "arrival_port": "渡名喜港",
+        "company": "久米商船",
+        "ferry": "フェリー琉球・フェリー海邦",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "久米商船",
+            "route": "那覇〜久米島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18800",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "http://kumeline.com/fare_ticket/",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_105": {
+    "id": "ISL_105",
+    "name": "久米島",
+    "kana": "くめじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.33,
+    "lng": 126.8,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_131",
+        "island_id": "ISL_105",
+        "port_id": "PORT_054",
+        "arrival_port": "久米島港",
+        "company": "久米商船",
+        "ferry": "フェリー琉球・フェリー海邦",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "久米商船",
+            "route": "那覇〜久米島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "18800",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "http://kumeline.com/fare_ticket/",
+            "notes": "高さ制限記載なし"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_106": {
+    "id": "ISL_106",
+    "name": "渡嘉敷島",
+    "kana": "とかしきじま",
+    "region": "沖縄慶良間",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.17,
+    "lng": 127.37,
+    "color": "#26C6DA",
+    "routes": [
+      {
+        "id": "RTE_132",
+        "island_id": "ISL_106",
+        "port_id": "PORT_054",
+        "arrival_port": "渡嘉敷港",
+        "company": "渡嘉敷村営",
+        "ferry": "フェリーとかしき",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_107": {
+    "id": "ISL_107",
+    "name": "座間味島",
+    "kana": "ざまみじま",
+    "region": "沖縄慶良間",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.23,
+    "lng": 127.3,
+    "color": "#26C6DA",
+    "routes": [
+      {
+        "id": "RTE_133",
+        "island_id": "ISL_107",
+        "port_id": "PORT_054",
+        "arrival_port": "座間味港",
+        "company": "座間味村営",
+        "ferry": "フェリーざまみ3",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_108": {
+    "id": "ISL_108",
+    "name": "阿嘉島",
+    "kana": "あかしま",
+    "region": "沖縄慶良間",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.2,
+    "lng": 127.28,
+    "color": "#26C6DA",
+    "routes": [
+      {
+        "id": "RTE_134",
+        "island_id": "ISL_108",
+        "port_id": "PORT_054",
+        "arrival_port": "阿嘉港",
+        "company": "座間味村営",
+        "ferry": "フェリーざまみ3",
+        "type": "yes",
+        "notes": "",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_109": {
+    "id": "ISL_109",
+    "name": "津堅島",
+    "kana": "つけんじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.28,
+    "lng": 127.98,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_135",
+        "island_id": "ISL_109",
+        "port_id": "PORT_057",
+        "arrival_port": "津堅島港",
+        "company": "神谷観光",
+        "ferry": "フェリーくがに",
+        "type": "yes",
+        "notes": "",
+        "port_name": "平敷屋港",
+        "port_lat": 26.3833,
+        "port_lng": 127.9167,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_110": {
+    "id": "ISL_110",
+    "name": "久高島",
+    "kana": "くだかじま",
+    "region": "沖縄本島周辺",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 26.13,
+    "lng": 127.88,
+    "color": "#00BCD4",
+    "routes": [
+      {
+        "id": "RTE_136",
+        "island_id": "ISL_110",
+        "port_id": "PORT_058",
+        "arrival_port": "久高港",
+        "company": "久高海運",
+        "ferry": "フェリーくだか",
+        "type": "yes",
+        "notes": "",
+        "port_name": "安座真港",
+        "port_lat": 26.1667,
+        "port_lng": 127.8333,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_111": {
+    "id": "ISL_111",
+    "name": "多良間島",
+    "kana": "たらまじま",
+    "region": "宮古",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "自走乗船可",
+    "lat": 24.67,
+    "lng": 124.7,
+    "color": "#FDD835",
+    "routes": [
+      {
+        "id": "RTE_137",
+        "island_id": "ISL_111",
+        "port_id": "PORT_059",
+        "arrival_port": "多良間港",
+        "company": "多良間海運",
+        "ferry": "フェリーたらまゆう",
+        "type": "yes",
+        "notes": "",
+        "port_name": "平良港（宮古）",
+        "port_lat": 24.8,
+        "port_lng": 125.2833,
+        "pricing": [
+          {
+            "company": "多良間海運",
+            "route": "宮古島（平良）〜多良間島",
+            "class": "5m未満",
+            "max_len": "500",
+            "price": "35920",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "",
+            "notes": "高さ制限記載なし。日曜運休"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_112": {
+    "id": "ISL_112",
+    "name": "竹富島",
+    "kana": "たけとみじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "conditional",
+    "notes": "観光マイカー実質不可。島民・業務車両は可",
+    "lat": 24.32,
+    "lng": 124.08,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_138",
+        "island_id": "ISL_112",
+        "port_id": "PORT_060",
+        "arrival_port": "竹富港",
+        "company": "八重山観光フェリー・安栄観光",
+        "ferry": "かりゆし・ぱいかじ",
+        "type": "conditional",
+        "notes": "島民・業務車両のみ実質可",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_113": {
+    "id": "ISL_113",
+    "name": "小浜島",
+    "kana": "こはまじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 24.33,
+    "lng": 123.95,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_139",
+        "island_id": "ISL_113",
+        "port_id": "PORT_060",
+        "arrival_port": "小浜港",
+        "company": "八重山観光フェリー・安栄観光",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_114": {
+    "id": "ISL_114",
+    "name": "黒島（八重山）",
+    "kana": "くろしまやえやま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "",
+    "lat": 24.23,
+    "lng": 123.78,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_140",
+        "island_id": "ISL_114",
+        "port_id": "PORT_060",
+        "arrival_port": "黒島港",
+        "company": "八重山観光フェリー・安栄観光",
+        "ferry": "",
+        "type": "yes",
+        "notes": "",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_115": {
+    "id": "ISL_115",
+    "name": "西表島",
+    "kana": "いりおもてじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "週数便の貨客フェリー",
+    "lat": 24.33,
+    "lng": 123.8,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_141",
+        "island_id": "ISL_115",
+        "port_id": "PORT_060",
+        "arrival_port": "大原港・上原港",
+        "company": "八重山観光フェリー・安栄観光",
+        "ferry": "かりゆし・ぱいかじ",
+        "type": "yes",
+        "notes": "週数便の貨客フェリー",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_116": {
+    "id": "ISL_116",
+    "name": "鳩間島",
+    "kana": "はとまじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "週数便",
+    "lat": 24.47,
+    "lng": 123.82,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_142",
+        "island_id": "ISL_116",
+        "port_id": "PORT_060",
+        "arrival_port": "鳩間島港",
+        "company": "八重山観光フェリー・安栄観光",
+        "ferry": "",
+        "type": "yes",
+        "notes": "週数便",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_117": {
+    "id": "ISL_117",
+    "name": "波照間島",
+    "kana": "はてるまじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "週3便程度。欠航多い",
+    "lat": 24.05,
+    "lng": 123.78,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_143",
+        "island_id": "ISL_117",
+        "port_id": "PORT_060",
+        "arrival_port": "波照間港",
+        "company": "安栄観光",
+        "ferry": "フェリーはてるま2",
+        "type": "yes",
+        "notes": "週3便程度。欠航多い",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": [
+          {
+            "company": "安栄観光",
+            "route": "石垣〜各八重山離島",
+            "class": "",
+            "max_len": "",
+            "price": "",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "https://aneikankou.co.jp/timetable/carferry",
+            "notes": "PDFのみ公開。貨物事務所0980-83-5891に問合せ要"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_118": {
+    "id": "ISL_118",
+    "name": "与那国島",
+    "kana": "よなぐにじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "週2往復",
+    "lat": 24.47,
+    "lng": 123.0,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_144",
+        "island_id": "ISL_118",
+        "port_id": "PORT_060",
+        "arrival_port": "久部良港",
+        "company": "福山海運",
+        "ferry": "フェリーよなくに",
+        "type": "yes",
+        "notes": "週2往復",
+        "port_name": "石垣港（離島ターミナル）",
+        "port_lat": 24.3333,
+        "port_lng": 124.15,
+        "pricing": []
+      }
+    ]
+  },
+  "ISL_119": {
+    "id": "ISL_119",
+    "name": "南大東島",
+    "kana": "みなみだいとうじま",
+    "region": "大東",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "外洋。揺れ強い",
+    "lat": 25.83,
+    "lng": 131.23,
+    "color": "#78909C",
+    "routes": [
+      {
+        "id": "RTE_145",
+        "island_id": "ISL_119",
+        "port_id": "PORT_054",
+        "arrival_port": "南大東港",
+        "company": "大東海運",
+        "ferry": "だいとう",
+        "type": "yes",
+        "notes": "外洋航路",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "大東海運",
+            "route": "那覇〜南大東島〜北大東島",
+            "class": "",
+            "max_len": "",
+            "price": "",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "",
+            "notes": "料金公開情報なし。098-861-0515に問合せ要"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_120": {
+    "id": "ISL_120",
+    "name": "北大東島",
+    "kana": "きただいとうじま",
+    "region": "大東",
+    "pref": "沖縄県",
+    "type": "yes",
+    "notes": "外洋。揺れ強い",
+    "lat": 25.95,
+    "lng": 131.3,
+    "color": "#78909C",
+    "routes": [
+      {
+        "id": "RTE_146",
+        "island_id": "ISL_120",
+        "port_id": "PORT_054",
+        "arrival_port": "北大東港",
+        "company": "大東海運",
+        "ferry": "だいとう",
+        "type": "yes",
+        "notes": "外洋航路",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "大東海運",
+            "route": "那覇〜南大東島〜北大東島",
+            "class": "",
+            "max_len": "",
+            "price": "",
+            "height_limit": "",
+            "applicable": "要確認",
+            "url": "",
+            "notes": "料金公開情報なし。098-861-0515に問合せ要"
+          }
+        ]
+      }
+    ]
+  }
+}

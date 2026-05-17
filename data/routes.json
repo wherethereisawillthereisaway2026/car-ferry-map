@@ -1,0 +1,1462 @@
+[
+  {
+    "id": "RTE_001",
+    "island_id": "ISL_001",
+    "port_id": "PORT_001",
+    "arrival_port": "鴛泊港・沓形港",
+    "company": "ハートランドフェリー",
+    "ferry": "フェリーりしり等",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_002",
+    "island_id": "ISL_002",
+    "port_id": "PORT_001",
+    "arrival_port": "香深港",
+    "company": "ハートランドフェリー",
+    "ferry": "フェリーれぶん等",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_003",
+    "island_id": "ISL_003",
+    "port_id": "PORT_002",
+    "arrival_port": "奥尻港",
+    "company": "ハートランドフェリー",
+    "ferry": "フェリーおくしり",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_004",
+    "island_id": "ISL_003",
+    "port_id": "PORT_003",
+    "arrival_port": "奥尻港",
+    "company": "ハートランドフェリー",
+    "ferry": "フェリーおくしり",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_005",
+    "island_id": "ISL_004",
+    "port_id": "PORT_004",
+    "arrival_port": "焼尻港",
+    "company": "羽幌沿海フェリー",
+    "ferry": "おろろん2",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_006",
+    "island_id": "ISL_005",
+    "port_id": "PORT_004",
+    "arrival_port": "天売港",
+    "company": "羽幌沿海フェリー",
+    "ferry": "おろろん2",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_007",
+    "island_id": "ISL_006",
+    "port_id": "PORT_005",
+    "arrival_port": "両津港",
+    "company": "佐渡汽船",
+    "ferry": "おけさ丸・ときわ丸",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_008",
+    "island_id": "ISL_006",
+    "port_id": "PORT_006",
+    "arrival_port": "小木港",
+    "company": "佐渡汽船",
+    "ferry": "あかね",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_009",
+    "island_id": "ISL_007",
+    "port_id": "PORT_007",
+    "arrival_port": "粟島港",
+    "company": "粟島汽船",
+    "ferry": "フェリーあわしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_010",
+    "island_id": "ISL_008",
+    "port_id": "PORT_008",
+    "arrival_port": "飛島港",
+    "company": "酒田市営",
+    "ferry": "とびしま",
+    "type": "conditional",
+    "notes": "一般観光マイカーは要確認"
+  },
+  {
+    "id": "RTE_011",
+    "island_id": "ISL_009",
+    "port_id": "PORT_009",
+    "arrival_port": "浦の浜港",
+    "company": "気仙沼市営フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_012",
+    "island_id": "ISL_010",
+    "port_id": "PORT_010",
+    "arrival_port": "網地港",
+    "company": "網地島ライン",
+    "ferry": "マーブル他",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_013",
+    "island_id": "ISL_011",
+    "port_id": "PORT_011",
+    "arrival_port": "岡田港・元町港",
+    "company": "東海汽船",
+    "ferry": "さるびあ丸他",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_014",
+    "island_id": "ISL_011",
+    "port_id": "PORT_012",
+    "arrival_port": "熱海港",
+    "company": "東海汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_015",
+    "island_id": "ISL_011",
+    "port_id": "PORT_014",
+    "arrival_port": "大島港",
+    "company": "神新汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_016",
+    "island_id": "ISL_012",
+    "port_id": "PORT_011",
+    "arrival_port": "利島港",
+    "company": "東海汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_017",
+    "island_id": "ISL_013",
+    "port_id": "PORT_011",
+    "arrival_port": "新島港",
+    "company": "東海汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_018",
+    "island_id": "ISL_013",
+    "port_id": "PORT_014",
+    "arrival_port": "新島港",
+    "company": "神新汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_019",
+    "island_id": "ISL_014",
+    "port_id": "PORT_011",
+    "arrival_port": "式根島港",
+    "company": "東海汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_020",
+    "island_id": "ISL_015",
+    "port_id": "PORT_011",
+    "arrival_port": "神津島港",
+    "company": "東海汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_021",
+    "island_id": "ISL_015",
+    "port_id": "PORT_014",
+    "arrival_port": "神津島港",
+    "company": "神新汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_022",
+    "island_id": "ISL_016",
+    "port_id": "PORT_011",
+    "arrival_port": "三宅島（三池港）",
+    "company": "東海汽船",
+    "ferry": "橘丸",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_023",
+    "island_id": "ISL_017",
+    "port_id": "PORT_011",
+    "arrival_port": "御蔵島港",
+    "company": "東海汽船",
+    "ferry": "橘丸",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_024",
+    "island_id": "ISL_018",
+    "port_id": "PORT_011",
+    "arrival_port": "八丈島（底土港）",
+    "company": "東海汽船",
+    "ferry": "橘丸",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_025",
+    "island_id": "ISL_019",
+    "port_id": "PORT_011",
+    "arrival_port": "父島（二見港）",
+    "company": "小笠原海運",
+    "ferry": "おがさわら丸",
+    "type": "freight_only",
+    "notes": "チッキ扱い。要事前予約"
+  },
+  {
+    "id": "RTE_026",
+    "island_id": "ISL_020",
+    "port_id": "PORT_052",
+    "arrival_port": "母島（沖港）",
+    "company": "伊豆諸島開発",
+    "ferry": "ははじま丸",
+    "type": "yes",
+    "notes": "父島から乗り換え"
+  },
+  {
+    "id": "RTE_027",
+    "island_id": "ISL_021",
+    "port_id": "PORT_015",
+    "arrival_port": "答志島",
+    "company": "鳥羽市営・鏡浦自動車フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_028",
+    "island_id": "ISL_022",
+    "port_id": "PORT_015",
+    "arrival_port": "菅島",
+    "company": "鳥羽市営",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_029",
+    "island_id": "ISL_023",
+    "port_id": "PORT_015",
+    "arrival_port": "坂手島",
+    "company": "鳥羽市営",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_030",
+    "island_id": "ISL_024",
+    "port_id": "PORT_016",
+    "arrival_port": "篠島",
+    "company": "名鉄海上観光船",
+    "ferry": "フェリーひまわり",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_031",
+    "island_id": "ISL_025",
+    "port_id": "PORT_017",
+    "arrival_port": "沼島港",
+    "company": "沼島汽船",
+    "ferry": "フェリーなだ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_032",
+    "island_id": "ISL_026",
+    "port_id": "PORT_018",
+    "arrival_port": "家島港",
+    "company": "高福ライナー他",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_033",
+    "island_id": "ISL_027",
+    "port_id": "PORT_019",
+    "arrival_port": "坂手港・池田港・土庄港",
+    "company": "四国フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_034",
+    "island_id": "ISL_027",
+    "port_id": "PORT_018",
+    "arrival_port": "福田港",
+    "company": "姫路〜小豆島",
+    "ferry": "国際両備フェリー",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_035",
+    "island_id": "ISL_027",
+    "port_id": "PORT_020",
+    "arrival_port": "大部港",
+    "company": "両備フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_036",
+    "island_id": "ISL_027",
+    "port_id": "PORT_068",
+    "arrival_port": "大部港",
+    "company": "日生〜小豆島",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_037",
+    "island_id": "ISL_027",
+    "port_id": "PORT_069",
+    "arrival_port": "坂手港",
+    "company": "ジャンボフェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_038",
+    "island_id": "ISL_028",
+    "port_id": "PORT_021",
+    "arrival_port": "家浦港・唐櫃港",
+    "company": "小豆島豊島フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_039",
+    "island_id": "ISL_029",
+    "port_id": "PORT_021",
+    "arrival_port": "宮浦港",
+    "company": "四国汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": "観光マイカー制限あり"
+  },
+  {
+    "id": "RTE_040",
+    "island_id": "ISL_029",
+    "port_id": "PORT_019",
+    "arrival_port": "宮浦港",
+    "company": "四国汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_041",
+    "island_id": "ISL_030",
+    "port_id": "PORT_019",
+    "arrival_port": "男木島",
+    "company": "雌雄島海運",
+    "ferry": "めおん2",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_042",
+    "island_id": "ISL_031",
+    "port_id": "PORT_019",
+    "arrival_port": "女木島",
+    "company": "雌雄島海運",
+    "ferry": "めおん2",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_043",
+    "island_id": "ISL_032",
+    "port_id": "PORT_022",
+    "arrival_port": "本島港",
+    "company": "本島汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_044",
+    "island_id": "ISL_033",
+    "port_id": "PORT_022",
+    "arrival_port": "広島港",
+    "company": "本島汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_045",
+    "island_id": "ISL_034",
+    "port_id": "PORT_022",
+    "arrival_port": "手島港",
+    "company": "本島汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_046",
+    "island_id": "ISL_035",
+    "port_id": "PORT_023",
+    "arrival_port": "佐柳島港",
+    "company": "三洋汽船",
+    "ferry": "フェリーたかみ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_047",
+    "island_id": "ISL_036",
+    "port_id": "PORT_023",
+    "arrival_port": "高見島港",
+    "company": "三洋汽船",
+    "ferry": "フェリーたかみ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_048",
+    "island_id": "ISL_037",
+    "port_id": "PORT_024",
+    "arrival_port": "粟島港",
+    "company": "三豊市営",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_049",
+    "island_id": "ISL_038",
+    "port_id": "PORT_025",
+    "arrival_port": "前島港",
+    "company": "前島フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_050",
+    "island_id": "ISL_039",
+    "port_id": "PORT_026",
+    "arrival_port": "岩城港",
+    "company": "岩城汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_051",
+    "island_id": "ISL_040",
+    "port_id": "PORT_026",
+    "arrival_port": "生名港",
+    "company": "家老渡フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_052",
+    "island_id": "ISL_041",
+    "port_id": "PORT_026",
+    "arrival_port": "弓削港",
+    "company": "三光汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_053",
+    "island_id": "ISL_042",
+    "port_id": "PORT_026",
+    "arrival_port": "魚島港",
+    "company": "上島町営",
+    "ferry": "ニューうおしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_054",
+    "island_id": "ISL_043",
+    "port_id": "PORT_027",
+    "arrival_port": "白水港・垂水港",
+    "company": "山陽商船・大崎汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_055",
+    "island_id": "ISL_043",
+    "port_id": "PORT_028",
+    "arrival_port": "大西港",
+    "company": "藤井汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_056",
+    "island_id": "ISL_043",
+    "port_id": "PORT_029",
+    "arrival_port": "木江港",
+    "company": "大崎汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_057",
+    "island_id": "ISL_044",
+    "port_id": "PORT_063",
+    "arrival_port": "阿多田港",
+    "company": "阿多田島汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_058",
+    "island_id": "ISL_045",
+    "port_id": "PORT_032",
+    "arrival_port": "切串港・小用港・三高港",
+    "company": "瀬戸内シーライン・江田島汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_059",
+    "island_id": "ISL_046",
+    "port_id": "PORT_030",
+    "arrival_port": "西郷港",
+    "company": "隠岐汽船",
+    "ferry": "しらしま・おき",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_060",
+    "island_id": "ISL_046",
+    "port_id": "PORT_031",
+    "arrival_port": "西郷港",
+    "company": "隠岐汽船",
+    "ferry": "しらしま・おき",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_061",
+    "island_id": "ISL_047",
+    "port_id": "PORT_030",
+    "arrival_port": "別府港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_062",
+    "island_id": "ISL_047",
+    "port_id": "PORT_031",
+    "arrival_port": "別府港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_063",
+    "island_id": "ISL_048",
+    "port_id": "PORT_030",
+    "arrival_port": "菱浦港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_064",
+    "island_id": "ISL_048",
+    "port_id": "PORT_031",
+    "arrival_port": "菱浦港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_065",
+    "island_id": "ISL_049",
+    "port_id": "PORT_030",
+    "arrival_port": "来居港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_066",
+    "island_id": "ISL_049",
+    "port_id": "PORT_031",
+    "arrival_port": "来居港",
+    "company": "隠岐汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_067",
+    "island_id": "ISL_050",
+    "port_id": "PORT_065",
+    "arrival_port": "大島港",
+    "company": "萩海運",
+    "ferry": "フェリーおしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_068",
+    "island_id": "ISL_051",
+    "port_id": "PORT_066",
+    "arrival_port": "平郡港",
+    "company": "平郡航路",
+    "ferry": "フェリーへぐり",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_069",
+    "island_id": "ISL_052",
+    "port_id": "PORT_033",
+    "arrival_port": "大津島",
+    "company": "大津島巡航",
+    "ferry": "フェリー新大津島",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_070",
+    "island_id": "ISL_053",
+    "port_id": "PORT_034",
+    "arrival_port": "蓋井島",
+    "company": "下関市営",
+    "ferry": "ふるしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_071",
+    "island_id": "ISL_054",
+    "port_id": "PORT_035",
+    "arrival_port": "中島港",
+    "company": "瀬戸内海汽船・中島汽船",
+    "ferry": "フェリーなかじま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_072",
+    "island_id": "ISL_055",
+    "port_id": "PORT_035",
+    "arrival_port": "由良港・泊港",
+    "company": "ごごしま",
+    "ferry": "フェリー由良",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_073",
+    "island_id": "ISL_056",
+    "port_id": "PORT_036",
+    "arrival_port": "戸島港",
+    "company": "宇和島運輸・盛運汽船",
+    "ferry": "しらさぎ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_074",
+    "island_id": "ISL_057",
+    "port_id": "PORT_036",
+    "arrival_port": "日振島港",
+    "company": "盛運汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_075",
+    "island_id": "ISL_058",
+    "port_id": "PORT_064",
+    "arrival_port": "沖の島",
+    "company": "宿毛市営",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_076",
+    "island_id": "ISL_059",
+    "port_id": "PORT_061",
+    "arrival_port": "能古島",
+    "company": "福岡市営",
+    "ferry": "フェリーのこ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_077",
+    "island_id": "ISL_060",
+    "port_id": "PORT_038",
+    "arrival_port": "大島港（宗像）",
+    "company": "宗像市営",
+    "ferry": "フェリーおおしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_078",
+    "island_id": "ISL_061",
+    "port_id": "PORT_039",
+    "arrival_port": "姫島港",
+    "company": "姫島村営",
+    "ferry": "フェリー姫島",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_079",
+    "island_id": "ISL_062",
+    "port_id": "PORT_040",
+    "arrival_port": "大入島",
+    "company": "大入島観光フェリー",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_080",
+    "island_id": "ISL_063",
+    "port_id": "PORT_037",
+    "arrival_port": "厳原港・比田勝港",
+    "company": "九州郵船",
+    "ferry": "フェリーちくし・フェリーきずな",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_081",
+    "island_id": "ISL_064",
+    "port_id": "PORT_037",
+    "arrival_port": "郷ノ浦港・芦辺港",
+    "company": "九州郵船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_082",
+    "island_id": "ISL_064",
+    "port_id": "PORT_045",
+    "arrival_port": "印通寺港",
+    "company": "九州郵船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_083",
+    "island_id": "ISL_065",
+    "port_id": "PORT_037",
+    "arrival_port": "宇久平港",
+    "company": "九州商船・野母商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_084",
+    "island_id": "ISL_065",
+    "port_id": "PORT_042",
+    "arrival_port": "宇久平港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_085",
+    "island_id": "ISL_066",
+    "port_id": "PORT_037",
+    "arrival_port": "笛吹港",
+    "company": "九州商船・野母商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_086",
+    "island_id": "ISL_066",
+    "port_id": "PORT_042",
+    "arrival_port": "笛吹港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_087",
+    "island_id": "ISL_067",
+    "port_id": "PORT_041",
+    "arrival_port": "有川港・鯛ノ浦港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_088",
+    "island_id": "ISL_067",
+    "port_id": "PORT_042",
+    "arrival_port": "有川港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_089",
+    "island_id": "ISL_067",
+    "port_id": "PORT_037",
+    "arrival_port": "有川港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_090",
+    "island_id": "ISL_068",
+    "port_id": "PORT_041",
+    "arrival_port": "奈留港",
+    "company": "九州商船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_091",
+    "island_id": "ISL_069",
+    "port_id": "PORT_052",
+    "arrival_port": "久賀島",
+    "company": "木口汽船",
+    "ferry": "フェリーひさか",
+    "type": "yes",
+    "notes": "福江島経由"
+  },
+  {
+    "id": "RTE_092",
+    "island_id": "ISL_070",
+    "port_id": "PORT_041",
+    "arrival_port": "福江港",
+    "company": "九州商船・野母商船",
+    "ferry": "太古",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_093",
+    "island_id": "ISL_070",
+    "port_id": "PORT_037",
+    "arrival_port": "福江港",
+    "company": "九州商船・野母商船",
+    "ferry": "太古",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_094",
+    "island_id": "ISL_071",
+    "port_id": "PORT_064",
+    "arrival_port": "池島",
+    "company": "西海沿海商船",
+    "ferry": "フェリーかしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_095",
+    "island_id": "ISL_071",
+    "port_id": "PORT_042",
+    "arrival_port": "池島",
+    "company": "西海沿海商船",
+    "ferry": "フェリーかしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_096",
+    "island_id": "ISL_072",
+    "port_id": "PORT_043",
+    "arrival_port": "度島港",
+    "company": "度島公営",
+    "ferry": "フェリー度島",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_097",
+    "island_id": "ISL_073",
+    "port_id": "PORT_062",
+    "arrival_port": "神崎港",
+    "company": "平戸市営",
+    "ferry": "フェリー大島",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_098",
+    "island_id": "ISL_074",
+    "port_id": "PORT_044",
+    "arrival_port": "黒島港",
+    "company": "黒島旅客船",
+    "ferry": "フェリーくろしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_099",
+    "island_id": "ISL_075",
+    "port_id": "PORT_046",
+    "arrival_port": "御所浦港",
+    "company": "御所浦汽船",
+    "ferry": "フェリーごしょうら",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_100",
+    "island_id": "ISL_075",
+    "port_id": "PORT_067",
+    "arrival_port": "御所浦港",
+    "company": "御所浦汽船",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_101",
+    "island_id": "ISL_076",
+    "port_id": "PORT_047",
+    "arrival_port": "片側港",
+    "company": "獅子島汽船",
+    "ferry": "フェリーししじま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_102",
+    "island_id": "ISL_076",
+    "port_id": "PORT_048",
+    "arrival_port": "片側港",
+    "company": "獅子島汽船",
+    "ferry": "フェリーししじま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_103",
+    "island_id": "ISL_077",
+    "port_id": "PORT_049",
+    "arrival_port": "島野浦港",
+    "company": "日向海運",
+    "ferry": "フェリー島あつまる",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_104",
+    "island_id": "ISL_078",
+    "port_id": "PORT_050",
+    "arrival_port": "里港・鹿島港・長浜港",
+    "company": "甑島商船",
+    "ferry": "フェリーニューこしき",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_105",
+    "island_id": "ISL_079",
+    "port_id": "PORT_051",
+    "arrival_port": "黒島港",
+    "company": "三島村",
+    "ferry": "フェリーみしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_106",
+    "island_id": "ISL_080",
+    "port_id": "PORT_051",
+    "arrival_port": "硫黄島港",
+    "company": "三島村",
+    "ferry": "フェリーみしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_107",
+    "island_id": "ISL_081",
+    "port_id": "PORT_051",
+    "arrival_port": "竹島港",
+    "company": "三島村",
+    "ferry": "フェリーみしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_108",
+    "island_id": "ISL_082",
+    "port_id": "PORT_052",
+    "arrival_port": "口永良部島港",
+    "company": "屋久島町",
+    "ferry": "フェリー太陽2",
+    "type": "yes",
+    "notes": "屋久島経由。鹿児島直行なし"
+  },
+  {
+    "id": "RTE_109",
+    "island_id": "ISL_083",
+    "port_id": "PORT_051",
+    "arrival_port": "宮之浦港",
+    "company": "折田汽船",
+    "ferry": "フェリー屋久島2",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_110",
+    "island_id": "ISL_084",
+    "port_id": "PORT_051",
+    "arrival_port": "西之表港",
+    "company": "コスモライン・新屋久島フェリー",
+    "ferry": "プリンセスわかさ他",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_111",
+    "island_id": "ISL_085",
+    "port_id": "PORT_051",
+    "arrival_port": "口之島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_112",
+    "island_id": "ISL_086",
+    "port_id": "PORT_051",
+    "arrival_port": "中之島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_113",
+    "island_id": "ISL_087",
+    "port_id": "PORT_051",
+    "arrival_port": "平島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_114",
+    "island_id": "ISL_088",
+    "port_id": "PORT_051",
+    "arrival_port": "諏訪之瀬島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_115",
+    "island_id": "ISL_089",
+    "port_id": "PORT_051",
+    "arrival_port": "悪石島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_116",
+    "island_id": "ISL_090",
+    "port_id": "PORT_051",
+    "arrival_port": "小宝島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_117",
+    "island_id": "ISL_091",
+    "port_id": "PORT_051",
+    "arrival_port": "宝島港",
+    "company": "十島村",
+    "ferry": "フェリーとから",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_118",
+    "island_id": "ISL_092",
+    "port_id": "PORT_051",
+    "arrival_port": "名瀬港",
+    "company": "マルエーフェリー・マリックスライン",
+    "ferry": "フェリーあまみ他",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_119",
+    "island_id": "ISL_093",
+    "port_id": "PORT_051",
+    "arrival_port": "湾港",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_120",
+    "island_id": "ISL_094",
+    "port_id": "PORT_053",
+    "arrival_port": "瀬相港・生間港",
+    "company": "瀬戸内町",
+    "ferry": "フェリーかけろま",
+    "type": "yes",
+    "notes": "奄美大島・古仁屋から"
+  },
+  {
+    "id": "RTE_121",
+    "island_id": "ISL_095",
+    "port_id": "PORT_053",
+    "arrival_port": "請島港",
+    "company": "瀬戸内町",
+    "ferry": "せとなみ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_122",
+    "island_id": "ISL_096",
+    "port_id": "PORT_053",
+    "arrival_port": "与路島港",
+    "company": "瀬戸内町",
+    "ferry": "せとなみ",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_123",
+    "island_id": "ISL_097",
+    "port_id": "PORT_051",
+    "arrival_port": "亀徳港",
+    "company": "マルエーフェリー・マリックスライン",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_124",
+    "island_id": "ISL_098",
+    "port_id": "PORT_051",
+    "arrival_port": "和泊港",
+    "company": "マルエーフェリー・マリックスライン",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_125",
+    "island_id": "ISL_099",
+    "port_id": "PORT_051",
+    "arrival_port": "供利港",
+    "company": "マルエーフェリー・マリックスライン",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_126",
+    "island_id": "ISL_100",
+    "port_id": "PORT_055",
+    "arrival_port": "伊江島港",
+    "company": "伊江村営",
+    "ferry": "フェリーいえしま",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_127",
+    "island_id": "ISL_101",
+    "port_id": "PORT_056",
+    "arrival_port": "伊平屋港",
+    "company": "伊平屋村営",
+    "ferry": "フェリーいへや3",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_128",
+    "island_id": "ISL_102",
+    "port_id": "PORT_056",
+    "arrival_port": "仲田港",
+    "company": "伊ぜな村営",
+    "ferry": "フェリーいぜな尚円",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_129",
+    "island_id": "ISL_103",
+    "port_id": "PORT_054",
+    "arrival_port": "粟国港",
+    "company": "粟国村営",
+    "ferry": "フェリーあぐに",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_130",
+    "island_id": "ISL_104",
+    "port_id": "PORT_054",
+    "arrival_port": "渡名喜港",
+    "company": "久米商船",
+    "ferry": "フェリー琉球・フェリー海邦",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_131",
+    "island_id": "ISL_105",
+    "port_id": "PORT_054",
+    "arrival_port": "久米島港",
+    "company": "久米商船",
+    "ferry": "フェリー琉球・フェリー海邦",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_132",
+    "island_id": "ISL_106",
+    "port_id": "PORT_054",
+    "arrival_port": "渡嘉敷港",
+    "company": "渡嘉敷村営",
+    "ferry": "フェリーとかしき",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_133",
+    "island_id": "ISL_107",
+    "port_id": "PORT_054",
+    "arrival_port": "座間味港",
+    "company": "座間味村営",
+    "ferry": "フェリーざまみ3",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_134",
+    "island_id": "ISL_108",
+    "port_id": "PORT_054",
+    "arrival_port": "阿嘉港",
+    "company": "座間味村営",
+    "ferry": "フェリーざまみ3",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_135",
+    "island_id": "ISL_109",
+    "port_id": "PORT_057",
+    "arrival_port": "津堅島港",
+    "company": "神谷観光",
+    "ferry": "フェリーくがに",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_136",
+    "island_id": "ISL_110",
+    "port_id": "PORT_058",
+    "arrival_port": "久高港",
+    "company": "久高海運",
+    "ferry": "フェリーくだか",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_137",
+    "island_id": "ISL_111",
+    "port_id": "PORT_059",
+    "arrival_port": "多良間港",
+    "company": "多良間海運",
+    "ferry": "フェリーたらまゆう",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_138",
+    "island_id": "ISL_112",
+    "port_id": "PORT_060",
+    "arrival_port": "竹富港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "かりゆし・ぱいかじ",
+    "type": "conditional",
+    "notes": "島民・業務車両のみ実質可"
+  },
+  {
+    "id": "RTE_139",
+    "island_id": "ISL_113",
+    "port_id": "PORT_060",
+    "arrival_port": "小浜港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_140",
+    "island_id": "ISL_114",
+    "port_id": "PORT_060",
+    "arrival_port": "黒島港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "",
+    "type": "yes",
+    "notes": ""
+  },
+  {
+    "id": "RTE_141",
+    "island_id": "ISL_115",
+    "port_id": "PORT_060",
+    "arrival_port": "大原港・上原港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "かりゆし・ぱいかじ",
+    "type": "yes",
+    "notes": "週数便の貨客フェリー"
+  },
+  {
+    "id": "RTE_142",
+    "island_id": "ISL_116",
+    "port_id": "PORT_060",
+    "arrival_port": "鳩間島港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "",
+    "type": "yes",
+    "notes": "週数便"
+  },
+  {
+    "id": "RTE_143",
+    "island_id": "ISL_117",
+    "port_id": "PORT_060",
+    "arrival_port": "波照間港",
+    "company": "安栄観光",
+    "ferry": "フェリーはてるま2",
+    "type": "yes",
+    "notes": "週3便程度。欠航多い"
+  },
+  {
+    "id": "RTE_144",
+    "island_id": "ISL_118",
+    "port_id": "PORT_060",
+    "arrival_port": "久部良港",
+    "company": "福山海運",
+    "ferry": "フェリーよなくに",
+    "type": "yes",
+    "notes": "週2往復"
+  },
+  {
+    "id": "RTE_145",
+    "island_id": "ISL_119",
+    "port_id": "PORT_054",
+    "arrival_port": "南大東港",
+    "company": "大東海運",
+    "ferry": "だいとう",
+    "type": "yes",
+    "notes": "外洋航路"
+  },
+  {
+    "id": "RTE_146",
+    "island_id": "ISL_120",
+    "port_id": "PORT_054",
+    "arrival_port": "北大東港",
+    "company": "大東海運",
+    "ferry": "だいとう",
+    "type": "yes",
+    "notes": "外洋航路"
+  }
+]
