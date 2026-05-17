@@ -3615,6 +3615,34 @@
         "port_lat": 31.5833,
         "port_lng": 130.5667,
         "pricing": []
+      },
+      {
+        "id": "RTE_147",
+        "island_id": "ISL_092",
+        "port_id": "PORT_054",
+        "arrival_port": "名瀬港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "那覇→(本部)→与論→沖永良部→徳之島→奄美 方向",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      },
+      {
+        "id": "RTE_148",
+        "island_id": "ISL_092",
+        "port_id": "PORT_055",
+        "arrival_port": "名瀬港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "本部→与論→沖永良部→徳之島→奄美 方向",
+        "port_name": "本部港",
+        "port_lat": 26.6333,
+        "port_lng": 127.9,
+        "pricing": []
       }
     ]
   },
@@ -3755,6 +3783,48 @@
         "port_lat": 31.5833,
         "port_lng": 130.5667,
         "pricing": []
+      },
+      {
+        "id": "RTE_149",
+        "island_id": "ISL_097",
+        "port_id": "PORT_054",
+        "arrival_port": "亀徳港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "那覇→(本部)→与論→沖永良部→徳之島 方向",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      },
+      {
+        "id": "RTE_150",
+        "island_id": "ISL_097",
+        "port_id": "PORT_055",
+        "arrival_port": "亀徳港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "本部→与論→沖永良部→徳之島 方向",
+        "port_name": "本部港",
+        "port_lat": 26.6333,
+        "port_lng": 127.9,
+        "pricing": []
+      },
+      {
+        "id": "RTE_151",
+        "island_id": "ISL_097",
+        "port_id": "PORT_072",
+        "arrival_port": "亀徳港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "和泊(沖永良部)→徳之島 方向",
+        "port_name": "和泊港（沖永良部島）",
+        "port_lat": 27.37,
+        "port_lng": 128.555,
+        "pricing": []
       }
     ]
   },
@@ -3783,6 +3853,34 @@
         "port_lat": 31.5833,
         "port_lng": 130.5667,
         "pricing": []
+      },
+      {
+        "id": "RTE_152",
+        "island_id": "ISL_098",
+        "port_id": "PORT_054",
+        "arrival_port": "和泊港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "那覇→本部→与論→沖永良部 方向",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      },
+      {
+        "id": "RTE_153",
+        "island_id": "ISL_098",
+        "port_id": "PORT_055",
+        "arrival_port": "和泊港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "本部→与論→沖永良部 方向",
+        "port_name": "本部港",
+        "port_lat": 26.6333,
+        "port_lng": 127.9,
+        "pricing": []
       }
     ]
   },
@@ -3810,6 +3908,48 @@
         "port_name": "鹿児島港（南埠頭）",
         "port_lat": 31.5833,
         "port_lng": 130.5667,
+        "pricing": []
+      },
+      {
+        "id": "RTE_154",
+        "island_id": "ISL_099",
+        "port_id": "PORT_054",
+        "arrival_port": "与論港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "那覇→本部→与論 方向",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": []
+      },
+      {
+        "id": "RTE_155",
+        "island_id": "ISL_099",
+        "port_id": "PORT_055",
+        "arrival_port": "与論港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "本部→与論 方向",
+        "port_name": "本部港",
+        "port_lat": 26.6333,
+        "port_lng": 127.9,
+        "pricing": []
+      },
+      {
+        "id": "RTE_156",
+        "island_id": "ISL_099",
+        "port_id": "PORT_072",
+        "arrival_port": "与論港",
+        "company": "マルエーフェリー・マリックスライン",
+        "ferry": "",
+        "type": "yes",
+        "notes": "和泊(沖永良部)→与論 方向（ユーザー指摘）",
+        "port_name": "和泊港（沖永良部島）",
+        "port_lat": 27.37,
+        "port_lng": 128.555,
         "pricing": []
       }
     ]
