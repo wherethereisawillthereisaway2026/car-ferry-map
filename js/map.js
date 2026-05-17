@@ -177,66 +177,77 @@ function showInfoPanel(island, routes) {
   panel.classList.add('open');
 
   const typeLabel = {
-    yes: '<span class="badge ok">🚗 マイカーOK（乗船）</span>',
-    conditional: '<span class="badge cond">⚠ 条件付き乗船</span>',
-    freight_only: '<span class="badge freight">📦 車のみ貨物輸送（要飛行機）</span>',
+    yes: '<span class="badge ok">🚗 乗船可</span>',
+    conditional: '<span class="badge cond">⚠ 条件付き</span>',
+    freight_only: '<span class="badge freight">📦 貨物輸送</span>',
   }[island.type] || '';
 
-  let routeHTML = '';
+  let routeCards = [];
   const seenPorts = new Set();
-  routes.forEach(r => {
+
+  routes.forEach((r, idx) => {
     const port = portById[r.port_id];
     if (!port) return;
     const portKey = `${r.port_id}-${r.company}`;
     if (seenPorts.has(portKey)) return;
     seenPorts.add(portKey);
 
-    // Pricing for this company
     const prices = pricingByCompany[r.company] || [];
     const relevantPrice = prices.find(p =>
-      p.route.includes(port.city?.slice(0,2) || '') ||
-      prices.length === 1
+      p.route.includes(port.city?.slice(0,2) || '') || prices.length === 1
     ) || prices[0];
 
-    let priceHTML = '';
+    // Badge for header (compact)
+    const typeBadge = r.type === 'freight_only'
+      ? ' <span class="badge freight" style="font-size:10px">📦</span>'
+      : r.type === 'conditional' ? ' <span class="badge cond" style="font-size:10px">⚠</span>' : '';
+
+    // Price badge for header
+    let priceBadge = '<span class="port-price-badge unknown">要確認</span>';
+    let priceBodyHTML = '<div class="price-info no-price">料金情報なし（公式サイトで確認）</div>';
+
     if (relevantPrice) {
       const heightCheck = relevantPrice.height_limit
         ? (parseInt(relevantPrice.height_limit) >= 220
-            ? '<span class="h-ok">✓ 高さ220cm OK</span>'
+            ? '<span class="h-ok">✓ 高さ220cmOK</span>'
             : '<span class="h-ng">⚠ 高さ要確認</span>')
         : '<span class="h-unk">高さ要確認</span>';
-      const priceText = relevantPrice.price
-        ? `<b>¥${parseInt(relevantPrice.price).toLocaleString()}</b>（片道/車両）`
-        : '料金要確認';
+
+      if (relevantPrice.price && !isNaN(parseInt(relevantPrice.price))) {
+        priceBadge = `<span class="port-price-badge">¥${parseInt(relevantPrice.price).toLocaleString()}</span>`;
+      }
+
       const srcLink = relevantPrice.url
-        ? `<a href="${relevantPrice.url}" target="_blank" class="src-link">公式サイトで確認 →</a>`
+        ? `<a href="${relevantPrice.url}" target="_blank" class="src-link">公式で確認 →</a>`
         : '';
-      priceHTML = `
+
+      priceBodyHTML = `
         <div class="price-info">
-          ${priceText} ${heightCheck}
+          ${relevantPrice.price && !isNaN(parseInt(relevantPrice.price))
+            ? `<b>¥${parseInt(relevantPrice.price).toLocaleString()}</b> 片道/車両`
+            : '料金要確認'}
+          ${heightCheck}
           ${srcLink}
           ${relevantPrice.notes ? `<div class="price-note">${relevantPrice.notes}</div>` : ''}
         </div>`;
-    } else {
-      priceHTML = '<div class="price-info no-price">料金情報なし（公式に要確認）</div>';
     }
 
-    const ferryBadge = r.type === 'freight_only'
-      ? '<span class="badge freight">📦 貨物輸送（自分は飛行機）</span>'
-      : r.type === 'conditional' ? '<span class="badge cond">⚠ 条件付き</span>' : '';
-
-    routeHTML += `
+    const cardId = `rc-${idx}`;
+    routeCards.push(`
       <div class="route-card">
-        <div class="route-header">
-          <span class="port-name">🚢 ${port.name}</span>
-          <span class="arr-port">→ ${r.arrival_port}</span>
-          ${ferryBadge}
+        <div class="route-card-header" onclick="toggleCard('${cardId}', this)">
+          <span class="port-name">⚓ ${port.name}${typeBadge}</span>
+          ${priceBadge}
+          <span class="expand-icon">▼</span>
         </div>
-        <div class="company">${r.company}</div>
-        ${r.ferry ? `<div class="ferry-name">便名: ${r.ferry}</div>` : ''}
-        ${r.notes ? `<div class="route-note">${r.notes}</div>` : ''}
-        ${priceHTML}
-      </div>`;
+        <div class="route-card-body" id="${cardId}">
+          <div class="arr-port">→ ${r.arrival_port}</div>
+          <div class="company">${r.company}</div>
+          ${r.ferry ? `<div class="ferry-name">${r.ferry}</div>` : ''}
+          ${r.notes ? `<div class="route-note">${r.notes}</div>` : ''}
+          ${priceBodyHTML}
+        </div>
+      </div>`);
   });
 
   panel.innerHTML = `
@@ -247,17 +258,23 @@ function showInfoPanel(island, routes) {
         <span class="island-kana">（${island.kana}）</span>
         ${typeLabel}
       </div>
-      <div class="island-meta">${island.pref} / ${island.region}</div>
+      <div class="island-meta">${island.pref} · ${island.region}</div>
       ${island.notes ? `<div class="island-notes">${island.notes}</div>` : ''}
     </div>
     <div class="panel-body">
-      <div class="routes-title">出港地 (${seenPorts.size}港)</div>
-      ${routeHTML || '<p>航路データなし</p>'}
+      <div class="routes-title">出港地 ${seenPorts.size}港</div>
+      ${routeCards.join('') || '<p style="padding:12px;color:#999">航路データなし</p>'}
       <div class="pricing-footer">
-        ⚠ 料金は変更になることがあります。乗船前に必ず公式サイトでご確認ください。<br>
-        最終確認: ${PRICING_LAST_CHECKED}
+        ⚠ 料金は変更になる場合があります。乗船前に公式サイトでご確認ください。<br>
+        データ最終確認: ${PRICING_LAST_CHECKED}
       </div>
     </div>`;
+}
+
+function toggleCard(id, header) {
+  const body = document.getElementById(id);
+  const isOpen = body.classList.toggle('open');
+  header.classList.toggle('expanded', isOpen);
 }
 
 function closePanel() {
