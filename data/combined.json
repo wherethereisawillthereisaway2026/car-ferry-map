@@ -4323,6 +4323,320 @@
             "notes": "高さ制限記載なし。日曜運休"
           }
         ]
+      },
+      {
+        "id": "RTE_170",
+        "island_id": "ISL_111",
+        "port_id": "PORT_073",
+        "arrival_port": "多良間港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "東京→多良間島。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_121": {
+    "id": "ISL_121",
+    "name": "宮古島",
+    "kana": "みやこじま",
+    "region": "宮古",
+    "pref": "沖縄県",
+    "type": "freight_only",
+    "notes": "本土からの一般車フェリーなし。琉球海運RO-RO船またはアイランデクスで貨物委託。ドライバーは飛行機",
+    "lat": 24.8,
+    "lng": 125.28,
+    "color": "#FDD835",
+    "routes": [
+      {
+        "id": "RTE_157",
+        "island_id": "ISL_121",
+        "port_id": "PORT_051",
+        "arrival_port": "平良港（宮古島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機。ハイエースワイドは要見積",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_158",
+        "island_id": "ISL_121",
+        "port_id": "PORT_037",
+        "arrival_port": "平良港（宮古島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_159",
+        "island_id": "ISL_121",
+        "port_id": "PORT_073",
+        "arrival_port": "平良港（宮古島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_160",
+        "island_id": "ISL_121",
+        "port_id": "PORT_074",
+        "arrival_port": "平良港（宮古島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "南港（大阪）",
+        "port_lat": 34.609,
+        "port_lng": 135.425,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_161",
+        "island_id": "ISL_121",
+        "port_id": "PORT_054",
+        "arrival_port": "平良港（宮古島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "那覇→宮古島。ドライバーは飛行機",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      }
+    ]
+  },
+  "ISL_122": {
+    "id": "ISL_122",
+    "name": "石垣島",
+    "kana": "いしがきじま",
+    "region": "八重山",
+    "pref": "沖縄県",
+    "type": "freight_only",
+    "notes": "本土・那覇からのマイカー輸送は貨物船委託。島内は自走可。八重山各島フェリーの拠点",
+    "lat": 24.34,
+    "lng": 124.16,
+    "color": "#FF7043",
+    "routes": [
+      {
+        "id": "RTE_162",
+        "island_id": "ISL_122",
+        "port_id": "PORT_051",
+        "arrival_port": "石垣港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "鹿児島港（南埠頭）",
+        "port_lat": 31.5833,
+        "port_lng": 130.5667,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_163",
+        "island_id": "ISL_122",
+        "port_id": "PORT_037",
+        "arrival_port": "石垣港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "博多港",
+        "port_lat": 33.5833,
+        "port_lng": 130.4167,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_164",
+        "island_id": "ISL_122",
+        "port_id": "PORT_073",
+        "arrival_port": "石垣港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_165",
+        "island_id": "ISL_122",
+        "port_id": "PORT_074",
+        "arrival_port": "石垣港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "車のみ輸送。ドライバーは飛行機",
+        "port_name": "南港（大阪）",
+        "port_lat": 34.609,
+        "port_lng": 135.425,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
+      },
+      {
+        "id": "RTE_166",
+        "island_id": "ISL_122",
+        "port_id": "PORT_054",
+        "arrival_port": "石垣港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "那覇→石垣島。ドライバーは飛行機",
+        "port_name": "那覇港（泊港）",
+        "port_lat": 26.2333,
+        "port_lng": 127.6833,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
       }
     ]
   },
@@ -4435,6 +4749,32 @@
         "port_lat": 24.3333,
         "port_lng": 124.15,
         "pricing": []
+      },
+      {
+        "id": "RTE_167",
+        "island_id": "ISL_115",
+        "port_id": "PORT_073",
+        "arrival_port": "大原港・上原港（西表島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "東京→西表島。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
       }
     ]
   },
@@ -4503,6 +4843,32 @@
             "notes": "PDFのみ公開。貨物事務所0980-83-5891に問合せ要"
           }
         ]
+      },
+      {
+        "id": "RTE_168",
+        "island_id": "ISL_117",
+        "port_id": "PORT_073",
+        "arrival_port": "波照間港",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "東京→波照間島。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
       }
     ]
   },
@@ -4531,6 +4897,32 @@
         "port_lat": 24.3333,
         "port_lng": 124.15,
         "pricing": []
+      },
+      {
+        "id": "RTE_169",
+        "island_id": "ISL_118",
+        "port_id": "PORT_073",
+        "arrival_port": "久部良港（与那国島）",
+        "company": "アイランデクス（car-okinawa.com）",
+        "ferry": "琉球海運RO-RO船",
+        "type": "freight_only",
+        "notes": "東京→与那国島。ドライバーは飛行機",
+        "port_name": "有明港（東京）",
+        "port_lat": 35.637,
+        "port_lng": 139.7895,
+        "pricing": [
+          {
+            "company": "アイランデクス（car-okinawa.com）",
+            "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+            "class": "普通自動車",
+            "max_len": "500",
+            "price": "要見積",
+            "height_limit": "不明",
+            "applicable": "要確認",
+            "url": "https://car-okinawa.com/estimation/",
+            "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
+          }
+        ]
       }
     ]
   },

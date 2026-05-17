@@ -1558,5 +1558,145 @@
     "ferry": "",
     "type": "yes",
     "notes": "和泊(沖永良部)→与論 方向（ユーザー指摘）"
+  },
+  {
+    "id": "RTE_157",
+    "island_id": "ISL_121",
+    "port_id": "PORT_051",
+    "arrival_port": "平良港（宮古島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機。ハイエースワイドは要見積"
+  },
+  {
+    "id": "RTE_158",
+    "island_id": "ISL_121",
+    "port_id": "PORT_037",
+    "arrival_port": "平良港（宮古島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_159",
+    "island_id": "ISL_121",
+    "port_id": "PORT_073",
+    "arrival_port": "平良港（宮古島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_160",
+    "island_id": "ISL_121",
+    "port_id": "PORT_074",
+    "arrival_port": "平良港（宮古島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_161",
+    "island_id": "ISL_121",
+    "port_id": "PORT_054",
+    "arrival_port": "平良港（宮古島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "那覇→宮古島。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_162",
+    "island_id": "ISL_122",
+    "port_id": "PORT_051",
+    "arrival_port": "石垣港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_163",
+    "island_id": "ISL_122",
+    "port_id": "PORT_037",
+    "arrival_port": "石垣港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_164",
+    "island_id": "ISL_122",
+    "port_id": "PORT_073",
+    "arrival_port": "石垣港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_165",
+    "island_id": "ISL_122",
+    "port_id": "PORT_074",
+    "arrival_port": "石垣港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "車のみ輸送。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_166",
+    "island_id": "ISL_122",
+    "port_id": "PORT_054",
+    "arrival_port": "石垣港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "那覇→石垣島。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_167",
+    "island_id": "ISL_115",
+    "port_id": "PORT_073",
+    "arrival_port": "大原港・上原港（西表島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "東京→西表島。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_168",
+    "island_id": "ISL_117",
+    "port_id": "PORT_073",
+    "arrival_port": "波照間港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "東京→波照間島。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_169",
+    "island_id": "ISL_118",
+    "port_id": "PORT_073",
+    "arrival_port": "久部良港（与那国島）",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "東京→与那国島。ドライバーは飛行機"
+  },
+  {
+    "id": "RTE_170",
+    "island_id": "ISL_111",
+    "port_id": "PORT_073",
+    "arrival_port": "多良間港",
+    "company": "アイランデクス（car-okinawa.com）",
+    "ferry": "琉球海運RO-RO船",
+    "type": "freight_only",
+    "notes": "東京→多良間島。ドライバーは飛行機"
   }
 ]

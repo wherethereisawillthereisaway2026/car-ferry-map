@@ -306,5 +306,16 @@
     "applicable": "要確認",
     "url": "",
     "notes": "高さ制限記載なし。日曜運休"
+  },
+  {
+    "company": "アイランデクス（car-okinawa.com）",
+    "route": "東京/大阪/大阪/福岡/鹿児島→宮古島・石垣島・八重山・奄美各島",
+    "class": "普通自動車",
+    "max_len": "500",
+    "price": "要見積",
+    "height_limit": "不明",
+    "applicable": "要確認",
+    "url": "https://car-okinawa.com/estimation/",
+    "notes": "「貨物輸送代行」。ドライバーは飛行機で移動。車のみ船積み。ハイエースワイドは大型のため公式WEB見積フォームより要問合せ。軽自動車東京→沖縄59400円が参考価格"
   }
 ]

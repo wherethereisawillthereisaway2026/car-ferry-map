@@ -155,3 +155,17 @@ RTE_153,ISL_098,PORT_055,和泊港,マルエーフェリー・マリックスラ
 RTE_154,ISL_099,PORT_054,与論港,マルエーフェリー・マリックスライン,,yes,那覇→本部→与論 方向
 RTE_155,ISL_099,PORT_055,与論港,マルエーフェリー・マリックスライン,,yes,本部→与論 方向
 RTE_156,ISL_099,PORT_072,与論港,マルエーフェリー・マリックスライン,,yes,和泊(沖永良部)→与論 方向（ユーザー指摘）
+RTE_157,ISL_121,PORT_051,平良港（宮古島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機。ハイエースワイドは要見積
+RTE_158,ISL_121,PORT_037,平良港（宮古島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_159,ISL_121,PORT_073,平良港（宮古島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_160,ISL_121,PORT_074,平良港（宮古島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_161,ISL_121,PORT_054,平良港（宮古島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,那覇→宮古島。ドライバーは飛行機
+RTE_162,ISL_122,PORT_051,石垣港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_163,ISL_122,PORT_037,石垣港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_164,ISL_122,PORT_073,石垣港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_165,ISL_122,PORT_074,石垣港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,車のみ輸送。ドライバーは飛行機
+RTE_166,ISL_122,PORT_054,石垣港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,那覇→石垣島。ドライバーは飛行機
+RTE_167,ISL_115,PORT_073,大原港・上原港（西表島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→西表島。ドライバーは飛行機
+RTE_168,ISL_117,PORT_073,波照間港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→波照間島。ドライバーは飛行機
+RTE_169,ISL_118,PORT_073,久部良港（与那国島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→与那国島。ドライバーは飛行機
+RTE_170,ISL_111,PORT_073,多良間港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→多良間島。ドライバーは飛行機

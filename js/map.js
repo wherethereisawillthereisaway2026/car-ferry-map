@@ -177,9 +177,9 @@ function showInfoPanel(island, routes) {
   panel.classList.add('open');
 
   const typeLabel = {
-    yes: '<span class="badge ok">マイカーOK</span>',
-    conditional: '<span class="badge cond">条件付き</span>',
-    freight_only: '<span class="badge freight">貨物扱いのみ</span>',
+    yes: '<span class="badge ok">🚗 マイカーOK（乗船）</span>',
+    conditional: '<span class="badge cond">⚠ 条件付き乗船</span>',
+    freight_only: '<span class="badge freight">📦 車のみ貨物輸送（要飛行機）</span>',
   }[island.type] || '';
 
   let routeHTML = '';
@@ -222,8 +222,8 @@ function showInfoPanel(island, routes) {
     }
 
     const ferryBadge = r.type === 'freight_only'
-      ? '<span class="badge freight">貨物扱い</span>'
-      : r.type === 'conditional' ? '<span class="badge cond">条件付き</span>' : '';
+      ? '<span class="badge freight">📦 貨物輸送（自分は飛行機）</span>'
+      : r.type === 'conditional' ? '<span class="badge cond">⚠ 条件付き</span>' : '';
 
     routeHTML += `
       <div class="route-card">
