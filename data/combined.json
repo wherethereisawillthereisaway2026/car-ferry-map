@@ -21,8 +21,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "稚内港",
-        "port_lat": 45.4167,
-        "port_lng": 141.6667,
+        "port_lat": 45.4179,
+        "port_lng": 141.6807,
         "pricing": [
           {
             "company": "ハートランドフェリー",
@@ -83,8 +83,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "稚内港",
-        "port_lat": 45.4167,
-        "port_lng": 141.6667,
+        "port_lat": 45.4179,
+        "port_lng": 141.6807,
         "pricing": [
           {
             "company": "ハートランドフェリー",
@@ -145,8 +145,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "江差港",
-        "port_lat": 41.8667,
-        "port_lng": 140.1333,
+        "port_lat": 41.664,
+        "port_lng": 140.418,
         "pricing": [
           {
             "company": "ハートランドフェリー",
@@ -193,8 +193,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "せたな港",
-        "port_lat": 42.45,
-        "port_lng": 139.7333,
+        "port_lat": 42.4189,
+        "port_lng": 139.8743,
         "pricing": [
           {
             "company": "ハートランドフェリー",
@@ -255,8 +255,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "羽幌港",
-        "port_lat": 44.3667,
-        "port_lng": 141.6833,
+        "port_lat": 44.3665,
+        "port_lng": 141.6972,
         "pricing": [
           {
             "company": "羽幌沿海フェリー",
@@ -317,8 +317,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "羽幌港",
-        "port_lat": 44.3667,
-        "port_lng": 141.6833,
+        "port_lat": 44.3665,
+        "port_lng": 141.6972,
         "pricing": [
           {
             "company": "羽幌沿海フェリー",
@@ -379,8 +379,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "新潟港",
-        "port_lat": 37.9167,
-        "port_lng": 139.05,
+        "port_lat": 37.9544,
+        "port_lng": 139.1138,
         "pricing": [
           {
             "company": "佐渡汽船",
@@ -416,8 +416,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "直江津港",
-        "port_lat": 37.15,
-        "port_lng": 138.2333,
+        "port_lat": 37.1925,
+        "port_lng": 138.2601,
         "pricing": [
           {
             "company": "佐渡汽船",
@@ -467,8 +467,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "岩船港",
-        "port_lat": 38.4667,
-        "port_lng": 139.4833,
+        "port_lat": 38.1905,
+        "port_lng": 139.4319,
         "pricing": []
       }
     ]
@@ -495,8 +495,8 @@
         "type": "conditional",
         "notes": "一般観光マイカーは要確認",
         "port_name": "酒田港",
-        "port_lat": 38.9167,
-        "port_lng": 139.8167,
+        "port_lat": 38.9165,
+        "port_lng": 139.8347,
         "pricing": []
       }
     ]
@@ -523,8 +523,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "気仙沼港",
-        "port_lat": 38.9,
-        "port_lng": 141.5667,
+        "port_lat": 38.9064,
+        "port_lng": 141.5747,
         "pricing": []
       }
     ]
@@ -551,8 +551,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "石巻港",
-        "port_lat": 38.4333,
-        "port_lng": 141.3,
+        "port_lat": 38.4278,
+        "port_lng": 141.3068,
         "pricing": []
       }
     ]
@@ -579,8 +579,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -605,8 +605,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "熱海港",
-        "port_lat": 35.0833,
-        "port_lng": 139.0667,
+        "port_lat": 35.0894,
+        "port_lng": 139.0761,
         "pricing": [
           {
             "company": "東海汽船",
@@ -631,8 +631,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "下田港",
-        "port_lat": 34.6667,
-        "port_lng": 138.95,
+        "port_lat": 34.675,
+        "port_lng": 138.9461,
         "pricing": []
       }
     ]
@@ -659,8 +659,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -699,8 +699,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -725,8 +725,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "下田港",
-        "port_lat": 34.6667,
-        "port_lng": 138.95,
+        "port_lat": 34.675,
+        "port_lng": 138.9461,
         "pricing": []
       }
     ]
@@ -753,8 +753,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -793,8 +793,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -819,8 +819,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "下田港",
-        "port_lat": 34.6667,
-        "port_lng": 138.95,
+        "port_lat": 34.675,
+        "port_lng": 138.9461,
         "pricing": []
       }
     ]
@@ -847,8 +847,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -887,8 +887,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -927,8 +927,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": [
           {
             "company": "東海汽船",
@@ -967,8 +967,8 @@
         "type": "freight_only",
         "notes": "チッキ扱い。要事前予約",
         "port_name": "東京港（竹芝）",
-        "port_lat": 35.65,
-        "port_lng": 139.7583,
+        "port_lat": 35.6548,
+        "port_lng": 139.7642,
         "pricing": []
       }
     ]
@@ -995,8 +995,8 @@
         "type": "yes",
         "notes": "父島から乗り換え",
         "port_name": "屋久島港（宮之浦）",
-        "port_lat": 30.4,
-        "port_lng": 130.65,
+        "port_lat": 30.4327,
+        "port_lng": 130.5714,
         "pricing": []
       }
     ]
@@ -1023,8 +1023,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鳥羽港",
-        "port_lat": 34.4833,
-        "port_lng": 136.85,
+        "port_lat": 34.3911,
+        "port_lng": 136.9075,
         "pricing": []
       }
     ]
@@ -1051,8 +1051,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鳥羽港",
-        "port_lat": 34.4833,
-        "port_lng": 136.85,
+        "port_lat": 34.3911,
+        "port_lng": 136.9075,
         "pricing": []
       }
     ]
@@ -1079,8 +1079,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鳥羽港",
-        "port_lat": 34.4833,
-        "port_lng": 136.85,
+        "port_lat": 34.3911,
+        "port_lng": 136.9075,
         "pricing": []
       }
     ]
@@ -1107,8 +1107,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "師崎港",
-        "port_lat": 34.7167,
-        "port_lng": 136.9333,
+        "port_lat": 34.6977,
+        "port_lng": 136.9725,
         "pricing": []
       }
     ]
@@ -1135,8 +1135,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "土生港（洲本）",
-        "port_lat": 34.3,
-        "port_lng": 134.8833,
+        "port_lat": 34.2532,
+        "port_lng": 134.7167,
         "pricing": []
       }
     ]
@@ -1163,8 +1163,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "姫路港",
-        "port_lat": 34.8,
-        "port_lng": 134.65,
+        "port_lat": 34.7847,
+        "port_lng": 134.6629,
         "pricing": []
       }
     ]
@@ -1191,8 +1191,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "高松港",
-        "port_lat": 34.35,
-        "port_lng": 134.05,
+        "port_lat": 34.3516,
+        "port_lng": 134.0504,
         "pricing": []
       },
       {
@@ -1205,8 +1205,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "姫路港",
-        "port_lat": 34.8,
-        "port_lng": 134.65,
+        "port_lat": 34.7847,
+        "port_lng": 134.6629,
         "pricing": []
       },
       {
@@ -1219,8 +1219,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "新岡山港",
-        "port_lat": 34.5,
-        "port_lng": 134.15,
+        "port_lat": 34.4887,
+        "port_lng": 133.8831,
         "pricing": []
       },
       {
@@ -1233,8 +1233,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "日生港",
-        "port_lat": 34.6167,
-        "port_lng": 134.2333,
+        "port_lat": 34.7312,
+        "port_lng": 134.2692,
         "pricing": []
       },
       {
@@ -1247,8 +1247,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "神戸港（六甲アイランド）",
-        "port_lat": 34.6833,
-        "port_lng": 135.2667,
+        "port_lat": 34.6883,
+        "port_lng": 135.2704,
         "pricing": []
       }
     ]
@@ -1275,8 +1275,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "宇野港",
-        "port_lat": 34.4833,
-        "port_lng": 133.95,
+        "port_lat": 34.5104,
+        "port_lng": 133.9659,
         "pricing": []
       }
     ]
@@ -1303,8 +1303,8 @@
         "type": "yes",
         "notes": "観光マイカー制限あり",
         "port_name": "宇野港",
-        "port_lat": 34.4833,
-        "port_lng": 133.95,
+        "port_lat": 34.5104,
+        "port_lng": 133.9659,
         "pricing": []
       },
       {
@@ -1317,8 +1317,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "高松港",
-        "port_lat": 34.35,
-        "port_lng": 134.05,
+        "port_lat": 34.3516,
+        "port_lng": 134.0504,
         "pricing": []
       }
     ]
@@ -1345,8 +1345,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "高松港",
-        "port_lat": 34.35,
-        "port_lng": 134.05,
+        "port_lat": 34.3516,
+        "port_lng": 134.0504,
         "pricing": []
       }
     ]
@@ -1373,8 +1373,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "高松港",
-        "port_lat": 34.35,
-        "port_lng": 134.05,
+        "port_lat": 34.3516,
+        "port_lng": 134.0504,
         "pricing": []
       }
     ]
@@ -1401,8 +1401,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "丸亀港",
-        "port_lat": 34.2833,
-        "port_lng": 133.8,
+        "port_lat": 34.2948,
+        "port_lng": 133.7908,
         "pricing": []
       }
     ]
@@ -1429,8 +1429,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "丸亀港",
-        "port_lat": 34.2833,
-        "port_lng": 133.8,
+        "port_lat": 34.2948,
+        "port_lng": 133.7908,
         "pricing": []
       }
     ]
@@ -1457,8 +1457,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "丸亀港",
-        "port_lat": 34.2833,
-        "port_lng": 133.8,
+        "port_lat": 34.2948,
+        "port_lng": 133.7908,
         "pricing": []
       }
     ]
@@ -1485,8 +1485,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "多度津港",
-        "port_lat": 34.2667,
-        "port_lng": 133.75,
+        "port_lat": 34.2828,
+        "port_lng": 133.7616,
         "pricing": []
       }
     ]
@@ -1513,8 +1513,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "多度津港",
-        "port_lat": 34.2667,
-        "port_lng": 133.75,
+        "port_lat": 34.2828,
+        "port_lng": 133.7616,
         "pricing": []
       }
     ]
@@ -1569,8 +1569,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "牛窓港",
-        "port_lat": 34.6167,
-        "port_lng": 134.1667,
+        "port_lat": 34.6205,
+        "port_lng": 134.1486,
         "pricing": []
       }
     ]
@@ -1597,8 +1597,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "土生港（因島）",
-        "port_lat": 34.2667,
-        "port_lng": 133.1833,
+        "port_lat": 34.2812,
+        "port_lng": 133.1801,
         "pricing": []
       }
     ]
@@ -1625,8 +1625,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "土生港（因島）",
-        "port_lat": 34.2667,
-        "port_lng": 133.1833,
+        "port_lat": 34.2812,
+        "port_lng": 133.1801,
         "pricing": []
       }
     ]
@@ -1653,8 +1653,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "土生港（因島）",
-        "port_lat": 34.2667,
-        "port_lng": 133.1833,
+        "port_lat": 34.2812,
+        "port_lng": 133.1801,
         "pricing": []
       }
     ]
@@ -1681,8 +1681,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "土生港（因島）",
-        "port_lat": 34.2667,
-        "port_lng": 133.1833,
+        "port_lat": 34.2812,
+        "port_lng": 133.1801,
         "pricing": []
       }
     ]
@@ -1709,8 +1709,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "竹原港",
-        "port_lat": 34.35,
-        "port_lng": 132.9167,
+        "port_lat": 34.3386,
+        "port_lng": 132.914,
         "pricing": []
       },
       {
@@ -1723,8 +1723,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "安芸津港",
-        "port_lat": 34.3167,
-        "port_lng": 132.9667,
+        "port_lat": 34.317,
+        "port_lng": 132.8181,
         "pricing": []
       },
       {
@@ -1737,8 +1737,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "今治港",
-        "port_lat": 34.0667,
-        "port_lng": 133.0,
+        "port_lat": 34.07,
+        "port_lng": 133.0049,
         "pricing": []
       }
     ]
@@ -1765,8 +1765,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "小方港",
-        "port_lat": 34.2,
-        "port_lng": 132.2167,
+        "port_lat": 34.2424,
+        "port_lng": 132.2223,
         "pricing": []
       }
     ]
@@ -1793,8 +1793,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "広島港（宇品）",
-        "port_lat": 34.35,
-        "port_lng": 132.4667,
+        "port_lat": 34.3527,
+        "port_lng": 132.4551,
         "pricing": []
       }
     ]
@@ -1821,8 +1821,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "七類港",
-        "port_lat": 35.55,
-        "port_lng": 133.2167,
+        "port_lat": 35.5712,
+        "port_lng": 133.2292,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -1858,8 +1858,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "境港",
-        "port_lat": 35.55,
-        "port_lng": 133.2333,
+        "port_lat": 35.5452,
+        "port_lng": 133.2227,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -1909,8 +1909,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "七類港",
-        "port_lat": 35.55,
-        "port_lng": 133.2167,
+        "port_lat": 35.5712,
+        "port_lng": 133.2292,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -1946,8 +1946,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "境港",
-        "port_lat": 35.55,
-        "port_lng": 133.2333,
+        "port_lat": 35.5452,
+        "port_lng": 133.2227,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -1997,8 +1997,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "七類港",
-        "port_lat": 35.55,
-        "port_lng": 133.2167,
+        "port_lat": 35.5712,
+        "port_lng": 133.2292,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -2034,8 +2034,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "境港",
-        "port_lat": 35.55,
-        "port_lng": 133.2333,
+        "port_lat": 35.5452,
+        "port_lng": 133.2227,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -2085,8 +2085,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "七類港",
-        "port_lat": 35.55,
-        "port_lng": 133.2167,
+        "port_lat": 35.5712,
+        "port_lng": 133.2292,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -2122,8 +2122,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "境港",
-        "port_lat": 35.55,
-        "port_lng": 133.2333,
+        "port_lat": 35.5452,
+        "port_lng": 133.2227,
         "pricing": [
           {
             "company": "隠岐汽船",
@@ -2173,8 +2173,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "萩港",
-        "port_lat": 34.4,
-        "port_lng": 131.4,
+        "port_lat": 34.4235,
+        "port_lng": 131.399,
         "pricing": []
       }
     ]
@@ -2201,8 +2201,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "柳井港",
-        "port_lat": 33.9667,
-        "port_lng": 132.1,
+        "port_lat": 33.9583,
+        "port_lng": 132.1343,
         "pricing": []
       }
     ]
@@ -2229,8 +2229,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "徳山港",
-        "port_lat": 34.05,
-        "port_lng": 131.8167,
+        "port_lat": 34.0498,
+        "port_lng": 131.7989,
         "pricing": []
       }
     ]
@@ -2257,8 +2257,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "吉見港",
-        "port_lat": 34.0167,
-        "port_lng": 130.95,
+        "port_lat": 33.9408,
+        "port_lng": 130.9206,
         "pricing": []
       }
     ]
@@ -2285,8 +2285,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "三津浜港・高浜港",
-        "port_lat": 33.85,
-        "port_lng": 132.7333,
+        "port_lat": 33.8625,
+        "port_lng": 132.7288,
         "pricing": []
       }
     ]
@@ -2313,8 +2313,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "三津浜港・高浜港",
-        "port_lat": 33.85,
-        "port_lng": 132.7333,
+        "port_lat": 33.8625,
+        "port_lng": 132.7288,
         "pricing": []
       }
     ]
@@ -2341,8 +2341,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "宇和島港",
-        "port_lat": 33.2333,
-        "port_lng": 132.55,
+        "port_lat": 33.2288,
+        "port_lng": 132.5473,
         "pricing": []
       }
     ]
@@ -2369,8 +2369,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "宇和島港",
-        "port_lat": 33.2333,
-        "port_lng": 132.55,
+        "port_lat": 33.2288,
+        "port_lng": 132.5473,
         "pricing": []
       }
     ]
@@ -2397,8 +2397,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "宿毛港",
-        "port_lat": 32.9333,
-        "port_lng": 132.7333,
+        "port_lat": 32.9272,
+        "port_lng": 132.6833,
         "pricing": []
       }
     ]
@@ -2425,8 +2425,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "姪浜港",
-        "port_lat": 33.5833,
-        "port_lng": 130.3,
+        "port_lat": 33.5972,
+        "port_lng": 130.3274,
         "pricing": []
       }
     ]
@@ -2453,8 +2453,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "神湊港",
-        "port_lat": 33.8167,
-        "port_lng": 130.6167,
+        "port_lat": 33.8529,
+        "port_lng": 130.4835,
         "pricing": []
       }
     ]
@@ -2481,8 +2481,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "伊美港",
-        "port_lat": 33.6167,
-        "port_lng": 131.7,
+        "port_lat": 33.6848,
+        "port_lng": 131.6004,
         "pricing": []
       }
     ]
@@ -2509,8 +2509,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "佐伯港",
-        "port_lat": 32.9667,
-        "port_lng": 131.9,
+        "port_lat": 32.968,
+        "port_lng": 131.9155,
         "pricing": []
       }
     ]
@@ -2537,8 +2537,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": [
           {
             "company": "九州郵船",
@@ -2599,8 +2599,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": [
           {
             "company": "九州郵船",
@@ -2647,8 +2647,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "唐津港",
-        "port_lat": 33.4667,
-        "port_lng": 129.9667,
+        "port_lat": 33.4764,
+        "port_lng": 129.9497,
         "pricing": [
           {
             "company": "九州郵船",
@@ -2709,8 +2709,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": []
       },
       {
@@ -2723,8 +2723,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "佐世保港",
-        "port_lat": 33.1667,
-        "port_lng": 129.7167,
+        "port_lat": 33.1517,
+        "port_lng": 129.714,
         "pricing": []
       }
     ]
@@ -2751,8 +2751,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": []
       },
       {
@@ -2765,8 +2765,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "佐世保港",
-        "port_lat": 33.1667,
-        "port_lng": 129.7167,
+        "port_lat": 33.1517,
+        "port_lng": 129.714,
         "pricing": []
       }
     ]
@@ -2793,8 +2793,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "長崎港",
-        "port_lat": 32.7333,
-        "port_lng": 129.8667,
+        "port_lat": 32.7346,
+        "port_lng": 129.8619,
         "pricing": []
       },
       {
@@ -2807,8 +2807,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "佐世保港",
-        "port_lat": 33.1667,
-        "port_lng": 129.7167,
+        "port_lat": 33.1517,
+        "port_lng": 129.714,
         "pricing": []
       },
       {
@@ -2821,8 +2821,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": []
       }
     ]
@@ -2849,8 +2849,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "長崎港",
-        "port_lat": 32.7333,
-        "port_lng": 129.8667,
+        "port_lat": 32.7346,
+        "port_lng": 129.8619,
         "pricing": []
       }
     ]
@@ -2877,8 +2877,8 @@
         "type": "yes",
         "notes": "福江島経由",
         "port_name": "屋久島港（宮之浦）",
-        "port_lat": 30.4,
-        "port_lng": 130.65,
+        "port_lat": 30.4327,
+        "port_lng": 130.5714,
         "pricing": []
       }
     ]
@@ -2905,8 +2905,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "長崎港",
-        "port_lat": 32.7333,
-        "port_lng": 129.8667,
+        "port_lat": 32.7346,
+        "port_lng": 129.8619,
         "pricing": []
       },
       {
@@ -2919,8 +2919,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": []
       }
     ]
@@ -2947,8 +2947,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "宿毛港",
-        "port_lat": 32.9333,
-        "port_lng": 132.7333,
+        "port_lat": 32.9272,
+        "port_lng": 132.6833,
         "pricing": []
       },
       {
@@ -2961,8 +2961,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "佐世保港",
-        "port_lat": 33.1667,
-        "port_lng": 129.7167,
+        "port_lat": 33.1517,
+        "port_lng": 129.714,
         "pricing": []
       }
     ]
@@ -2989,8 +2989,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "平戸港",
-        "port_lat": 33.3667,
-        "port_lng": 129.55,
+        "port_lat": 33.3776,
+        "port_lng": 129.5559,
         "pricing": []
       }
     ]
@@ -3017,8 +3017,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "薄香港",
-        "port_lat": 33.3833,
-        "port_lng": 129.4333,
+        "port_lat": 33.3737,
+        "port_lng": 129.5439,
         "pricing": []
       }
     ]
@@ -3045,8 +3045,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "相浦港",
-        "port_lat": 33.2333,
-        "port_lng": 129.65,
+        "port_lat": 33.1838,
+        "port_lng": 129.641,
         "pricing": []
       }
     ]
@@ -3073,8 +3073,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "棚底港",
-        "port_lat": 32.4,
-        "port_lng": 130.0667,
+        "port_lat": 32.4066,
+        "port_lng": 130.3417,
         "pricing": []
       },
       {
@@ -3129,8 +3129,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "水俣港",
-        "port_lat": 32.2167,
-        "port_lng": 130.4,
+        "port_lat": 32.2109,
+        "port_lng": 130.394,
         "pricing": []
       }
     ]
@@ -3157,8 +3157,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "浦城港",
-        "port_lat": 32.5833,
-        "port_lng": 131.7167,
+        "port_lat": 32.6466,
+        "port_lng": 131.7433,
         "pricing": []
       }
     ]
@@ -3185,8 +3185,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "串木野新港",
-        "port_lat": 31.7333,
-        "port_lng": 130.25,
+        "port_lat": 31.7223,
+        "port_lng": 130.253,
         "pricing": [
           {
             "company": "甑島商船",
@@ -3236,8 +3236,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3264,8 +3264,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3292,8 +3292,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3320,8 +3320,8 @@
         "type": "yes",
         "notes": "屋久島経由。鹿児島直行なし",
         "port_name": "屋久島港（宮之浦）",
-        "port_lat": 30.4,
-        "port_lng": 130.65,
+        "port_lat": 30.4327,
+        "port_lng": 130.5714,
         "pricing": []
       }
     ]
@@ -3348,8 +3348,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": [
           {
             "company": "折田汽船",
@@ -3388,8 +3388,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3416,8 +3416,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3444,8 +3444,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3472,8 +3472,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3500,8 +3500,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3528,8 +3528,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3556,8 +3556,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3584,8 +3584,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3612,8 +3612,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       },
       {
@@ -3626,8 +3626,8 @@
         "type": "yes",
         "notes": "那覇→(本部)→与論→沖永良部→徳之島→奄美 方向",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       },
       {
@@ -3640,8 +3640,8 @@
         "type": "yes",
         "notes": "本部→与論→沖永良部→徳之島→奄美 方向",
         "port_name": "本部港",
-        "port_lat": 26.6333,
-        "port_lng": 127.9,
+        "port_lat": 26.6413,
+        "port_lng": 127.8801,
         "pricing": []
       }
     ]
@@ -3668,8 +3668,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       }
     ]
@@ -3780,8 +3780,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       },
       {
@@ -3794,8 +3794,8 @@
         "type": "yes",
         "notes": "那覇→(本部)→与論→沖永良部→徳之島 方向",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       },
       {
@@ -3808,8 +3808,8 @@
         "type": "yes",
         "notes": "本部→与論→沖永良部→徳之島 方向",
         "port_name": "本部港",
-        "port_lat": 26.6333,
-        "port_lng": 127.9,
+        "port_lat": 26.6413,
+        "port_lng": 127.8801,
         "pricing": []
       },
       {
@@ -3822,8 +3822,8 @@
         "type": "yes",
         "notes": "和泊(沖永良部)→徳之島 方向",
         "port_name": "和泊港（沖永良部島）",
-        "port_lat": 27.37,
-        "port_lng": 128.555,
+        "port_lat": 27.4018,
+        "port_lng": 128.6623,
         "pricing": []
       }
     ]
@@ -3850,8 +3850,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       },
       {
@@ -3864,8 +3864,8 @@
         "type": "yes",
         "notes": "那覇→本部→与論→沖永良部 方向",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       },
       {
@@ -3878,8 +3878,8 @@
         "type": "yes",
         "notes": "本部→与論→沖永良部 方向",
         "port_name": "本部港",
-        "port_lat": 26.6333,
-        "port_lng": 127.9,
+        "port_lat": 26.6413,
+        "port_lng": 127.8801,
         "pricing": []
       }
     ]
@@ -3906,8 +3906,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": []
       },
       {
@@ -3920,8 +3920,8 @@
         "type": "yes",
         "notes": "那覇→本部→与論 方向",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       },
       {
@@ -3934,8 +3934,8 @@
         "type": "yes",
         "notes": "本部→与論 方向",
         "port_name": "本部港",
-        "port_lat": 26.6333,
-        "port_lng": 127.9,
+        "port_lat": 26.6413,
+        "port_lng": 127.8801,
         "pricing": []
       },
       {
@@ -3948,8 +3948,8 @@
         "type": "yes",
         "notes": "和泊(沖永良部)→与論 方向（ユーザー指摘）",
         "port_name": "和泊港（沖永良部島）",
-        "port_lat": 27.37,
-        "port_lng": 128.555,
+        "port_lat": 27.4018,
+        "port_lng": 128.6623,
         "pricing": []
       }
     ]
@@ -3976,8 +3976,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "本部港",
-        "port_lat": 26.6333,
-        "port_lng": 127.9,
+        "port_lat": 26.6413,
+        "port_lng": 127.8801,
         "pricing": []
       }
     ]
@@ -4004,8 +4004,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "運天港",
-        "port_lat": 26.6833,
-        "port_lng": 128.0,
+        "port_lat": 26.6778,
+        "port_lng": 127.9966,
         "pricing": []
       }
     ]
@@ -4032,8 +4032,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "運天港",
-        "port_lat": 26.6833,
-        "port_lng": 128.0,
+        "port_lat": 26.6778,
+        "port_lng": 127.9966,
         "pricing": []
       }
     ]
@@ -4060,8 +4060,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       }
     ]
@@ -4088,8 +4088,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "久米商船",
@@ -4128,8 +4128,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "久米商船",
@@ -4168,8 +4168,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       }
     ]
@@ -4196,8 +4196,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       }
     ]
@@ -4224,8 +4224,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": []
       }
     ]
@@ -4252,8 +4252,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "平敷屋港",
-        "port_lat": 26.3833,
-        "port_lng": 127.9167,
+        "port_lat": 26.309,
+        "port_lng": 127.9218,
         "pricing": []
       }
     ]
@@ -4280,8 +4280,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "安座真港",
-        "port_lat": 26.1667,
-        "port_lng": 127.8333,
+        "port_lat": 26.181,
+        "port_lng": 127.8258,
         "pricing": []
       }
     ]
@@ -4308,8 +4308,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "平良港（宮古）",
-        "port_lat": 24.8,
-        "port_lng": 125.2833,
+        "port_lat": 24.7974,
+        "port_lng": 125.2734,
         "pricing": [
           {
             "company": "多良間海運",
@@ -4334,8 +4334,8 @@
         "type": "freight_only",
         "notes": "東京→多良間島。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4374,8 +4374,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機。ハイエースワイドは要見積",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4400,8 +4400,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4426,8 +4426,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4452,8 +4452,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "南港（大阪）",
-        "port_lat": 34.609,
-        "port_lng": 135.425,
+        "port_lat": 34.6197,
+        "port_lng": 135.4324,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4478,8 +4478,8 @@
         "type": "freight_only",
         "notes": "那覇→宮古島。ドライバーは飛行機",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4518,8 +4518,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "鹿児島港（南埠頭）",
-        "port_lat": 31.5833,
-        "port_lng": 130.5667,
+        "port_lat": 31.6196,
+        "port_lng": 130.6345,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4544,8 +4544,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "博多港",
-        "port_lat": 33.5833,
-        "port_lng": 130.4167,
+        "port_lat": 33.6283,
+        "port_lng": 130.3569,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4570,8 +4570,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4596,8 +4596,8 @@
         "type": "freight_only",
         "notes": "車のみ輸送。ドライバーは飛行機",
         "port_name": "南港（大阪）",
-        "port_lat": 34.609,
-        "port_lng": 135.425,
+        "port_lat": 34.6197,
+        "port_lng": 135.4324,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4622,8 +4622,8 @@
         "type": "freight_only",
         "notes": "那覇→石垣島。ドライバーは飛行機",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4662,8 +4662,8 @@
         "type": "conditional",
         "notes": "島民・業務車両のみ実質可",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       }
     ]
@@ -4690,8 +4690,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       }
     ]
@@ -4718,8 +4718,8 @@
         "type": "yes",
         "notes": "",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       }
     ]
@@ -4746,8 +4746,8 @@
         "type": "yes",
         "notes": "週数便の貨客フェリー",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       },
       {
@@ -4760,8 +4760,8 @@
         "type": "freight_only",
         "notes": "東京→西表島。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4800,8 +4800,8 @@
         "type": "yes",
         "notes": "週数便",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       }
     ]
@@ -4828,8 +4828,8 @@
         "type": "yes",
         "notes": "週3便程度。欠航多い",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": [
           {
             "company": "安栄観光",
@@ -4854,8 +4854,8 @@
         "type": "freight_only",
         "notes": "東京→波照間島。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4894,8 +4894,8 @@
         "type": "yes",
         "notes": "週2往復",
         "port_name": "石垣港（離島ターミナル）",
-        "port_lat": 24.3333,
-        "port_lng": 124.15,
+        "port_lat": 24.3376,
+        "port_lng": 124.1555,
         "pricing": []
       },
       {
@@ -4908,8 +4908,8 @@
         "type": "freight_only",
         "notes": "東京→与那国島。ドライバーは飛行機",
         "port_name": "有明港（東京）",
-        "port_lat": 35.637,
-        "port_lng": 139.7895,
+        "port_lat": 35.6276,
+        "port_lng": 139.7889,
         "pricing": [
           {
             "company": "アイランデクス（car-okinawa.com）",
@@ -4948,8 +4948,8 @@
         "type": "yes",
         "notes": "外洋航路",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "大東海運",
@@ -4988,8 +4988,8 @@
         "type": "yes",
         "notes": "外洋航路",
         "port_name": "那覇港（泊港）",
-        "port_lat": 26.2333,
-        "port_lng": 127.6833,
+        "port_lat": 26.2253,
+        "port_lng": 127.6828,
         "pricing": [
           {
             "company": "大東海運",
