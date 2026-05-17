@@ -1690,6 +1690,16 @@
     "notes": "東京→与那国島。ドライバーは飛行機"
   },
   {
+    "id": "RTE_171",
+    "island_id": "ISL_123",
+    "port_id": "PORT_078",
+    "arrival_port": "三宝港（青ヶ島）",
+    "company": "東京都村営",
+    "ferry": "あおがしま丸",
+    "type": "yes",
+    "notes": "八丈島から約3時間。欠航率高く事前確認必須"
+  },
+  {
     "id": "RTE_170",
     "island_id": "ISL_111",
     "port_id": "PORT_073",

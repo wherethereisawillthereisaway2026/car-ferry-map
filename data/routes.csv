@@ -168,4 +168,5 @@ RTE_166,ISL_122,PORT_054,石垣港,アイランデクス（car-okinawa.com）,�
 RTE_167,ISL_115,PORT_073,大原港・上原港（西表島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→西表島。ドライバーは飛行機
 RTE_168,ISL_117,PORT_073,波照間港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→波照間島。ドライバーは飛行機
 RTE_169,ISL_118,PORT_073,久部良港（与那国島）,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→与那国島。ドライバーは飛行機
+RTE_171,ISL_123,PORT_078,三宝港（青ヶ島）,東京都村営,あおがしま丸,yes,八丈島から約3時間。欠航率高く事前確認必須
 RTE_170,ISL_111,PORT_073,多良間港,アイランデクス（car-okinawa.com）,琉球海運RO-RO船,freight_only,東京→多良間島。ドライバーは飛行機
