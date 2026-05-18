@@ -124,6 +124,7 @@ ISLAND_COORDS = {
     'ISL_119': (25.8423, 131.2429),  # 南大東島
     'ISL_120': (25.9445, 131.3076),  # 北大東島
     'ISL_123': (32.4571, 139.7641),  # 青ヶ島
+    'ISL_127': (24.1400, 124.1900),  # 新城島（パナリ）
     'ISL_121': (24.8140, 125.3056),  # 宮古島
     'ISL_122': (24.4710, 124.2385),  # 石垣島
     'ISL_124': (34.0500, 132.9833),  # 岡村島
@@ -186,6 +187,7 @@ for r in ports_raw:
         'pref': r['prefecture'],
         'lat': float(r['lat']) if r['lat'] else None,
         'lng': float(r['lng']) if r['lng'] else None,
+        'island_id': r.get('island_id', ''),
     })
 
 # Routes
@@ -202,6 +204,7 @@ for r in routes_raw:
         'type': r['car_ferry_type'],
         'notes': r['notes'],
         'via_ports': [v for v in via_str.split(',') if v],
+        'transport_mode': r.get('transport_mode', 'car'),
     })
 
 # Pricing (keyed by company)

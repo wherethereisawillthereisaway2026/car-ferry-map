@@ -132,6 +132,16 @@
     .badge.ok { background: #e8f5e9; color: #2e7d32; }
     .badge.cond { background: #fff8e1; color: #e65100; }
     .badge.freight { background: #fce4ec; color: #880e4f; }
+    .badge.passenger { background: #e1f5fe; color: #0277bd; }
+
+    /* ===== TRANSPORT MODE FILTER ===== */
+    #mode-filter { padding: 6px 10px 2px; display: flex; gap: 4px; }
+    .mode-chip { padding: 3px 10px; border-radius: 12px; font-size: 11px; cursor: pointer;
+                 background: transparent; color: #aaa; border: 1px solid #555; transition: all .15s; }
+    .mode-chip.active { background: #64b5f6; color: #1a1a2e; border-color: #64b5f6; font-weight: 700; }
+
+    /* passenger_only island list item */
+    .list-item.passenger_only .dot { border: 2px solid currentColor; background: transparent !important; }
 
     /* ===== MAP OVERLAY ===== */
     #map-title { position: absolute; top: 10px; left: 10px; z-index: 50;
@@ -166,6 +176,11 @@
     <div id="search-wrap">
       <input id="search" type="text" placeholder="島を検索（例: 壱岐、やくしま）">
     </div>
+    <div id="mode-filter">
+      <button class="mode-chip active" data-mode="all" onclick="setTransportMode('all')">🚢 全て</button>
+      <button class="mode-chip" data-mode="car" onclick="setTransportMode('car')">🚗 カーフェリー</button>
+      <button class="mode-chip" data-mode="passenger" onclick="setTransportMode('passenger')">👤 旅客船</button>
+    </div>
     <div id="region-filter"></div>
     <div id="island-list"></div>
     <div id="legend">
@@ -173,9 +188,10 @@
         <div class="leg-item"><div class="leg-dot" style="background:#888"></div>マイカーOK</div>
         <div class="leg-item"><div class="leg-tri"></div>条件付き</div>
         <div class="leg-item"><div class="leg-dot" style="background:#ccc"></div>貨物扱い</div>
-        <div class="leg-item" style="margin-top:4px">
+        <div class="leg-item"><div class="leg-dot" style="border:2px solid #888;background:transparent"></div>旅客のみ</div>
+        <div class="leg-item">
           <svg width="12" height="12"><polygon points="6,1 11,11 1,11" fill="#FF6F00"/></svg>
-          出港地
+          出港地（⚓）
         </div>
       </div>
     </div>

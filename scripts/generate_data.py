@@ -150,6 +150,7 @@ ISLANDS = [
     ('ISL_116','鳩間島','はとまじま','八重山','沖縄県','yes','週数便'),
     ('ISL_117','波照間島','はてるまじま','八重山','沖縄県','yes','週3便程度。欠航多い'),
     ('ISL_118','与那国島','よなぐにじま','八重山','沖縄県','yes','週2往復'),
+    ('ISL_127','新城島（パナリ）','にーしきじま','八重山','沖縄県','passenger_only','石垣から不定期便（安栄観光）。上地島・下地島の総称。集落あり'),
     ('ISL_119','南大東島','みなみだいとうじま','大東','沖縄県','yes','外洋。揺れ強い'),
     ('ISL_120','北大東島','きただいとうじま','大東','沖縄県','yes','外洋。揺れ強い'),
 ]
@@ -231,6 +232,8 @@ PORTS = [
     ('PORT_069','神戸港（六甲アイランド）','神戸市','兵庫県','34.6833','135.2667'),
     # 奄美海運 寄港地
     ('PORT_079','平土野港（徳之島）','天城町','鹿児島県','27.8900','128.9100'),
+    # 八重山 島内港（旅客・島→島ルート用）
+    ('PORT_080','上原港（西表島）','竹富町','沖縄県','24.4503','123.7694'),
     # マルエーフェリー/マリックスライン中間寄港地（島内港だが出港地として有効）
     ('PORT_070','名瀬港（奄美大島）','奄美市','鹿児島県','28.3785','129.4968'),
     ('PORT_071','亀徳港（徳之島）','徳之島町','鹿児島県','27.7200','128.9800'),
@@ -464,6 +467,21 @@ ROUTES = [
     ('RTE_178','ISL_093','PORT_079','喜界港','奄美海運','フェリーきかい/フェリーあまみ','yes','平土野→古仁屋→名瀬→喜界島方向（北行き）'),
     ('RTE_179','ISL_092','PORT_051','名瀬港','奄美海運','フェリーきかい/フェリーあまみ','yes','鹿児島→喜界島→名瀬（奄美海運ルート）'),
     ('RTE_180','ISL_097','PORT_051','平土野港（徳之島）','奄美海運','フェリーきかい/フェリーあまみ','yes','鹿児島→喜界→名瀬→古仁屋→平土野（徳之島）'),
+    # ============================================================
+    # 八重山 旅客専用高速船（transport_mode='passenger'）
+    # 八重山観光フェリー・安栄観光。1日10便以上。車は積めない
+    # 石垣→各島
+    # ============================================================
+    ('RTE_201','ISL_112','PORT_060','竹富港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約10分。1日10便以上','passenger'),
+    ('RTE_202','ISL_113','PORT_060','小浜港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約25分','passenger'),
+    ('RTE_203','ISL_114','PORT_060','黒島港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約25分','passenger'),
+    ('RTE_204','ISL_115','PORT_060','大原港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約35分','passenger'),
+    ('RTE_205','ISL_115','PORT_060','上原港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約40分。欠航時は大原港発着に変更','passenger'),
+    ('RTE_206','ISL_116','PORT_060','鳩間港','八重山観光フェリー・安栄観光','高速船','passenger_only','所要約55分','passenger'),
+    ('RTE_207','ISL_117','PORT_060','波照間港','安栄観光','高速船','passenger_only','所要約1時間。欠航多い','passenger'),
+    ('RTE_208','ISL_127','PORT_060','上地港','安栄観光','高速船','passenger_only','不定期便。要問い合わせ','passenger'),
+    # 島→島（旅客）
+    ('RTE_209','ISL_116','PORT_080','鳩間港','安栄観光','高速船','passenger_only','西表島上原→鳩間島。所要約15分','passenger'),
     # 今治市営せきぜん渡船（第二せきぜん）← 初期リスト漏れ
     ('RTE_172','ISL_124','PORT_029','岡村港','今治市営せきぜん渡船','第二せきぜん','yes','今治→大下島→小大下島→岡村 経由。所要約1時間10分'),
     ('RTE_173','ISL_125','PORT_029','大下港','今治市営せきぜん渡船','第二せきぜん','yes','今治→大下島 直行便あり'),
@@ -483,10 +501,6 @@ def write_csv(path, headers, rows):
 write_csv('../data/islands.csv',
     ['island_id','name','name_kana','region','prefecture','car_ferry_type','notes'],
     ISLANDS)
-
-write_csv('../data/ports.csv',
-    ['port_id','port_name','city','prefecture','lat','lng'],
-    PORTS)
 
 # ============================================================
 # ROUTE_VIA_PORTS: 寄港地付きルート（航路の中継港を順番に記載）
@@ -531,12 +545,37 @@ ROUTE_VIA_PORTS = {
     'RTE_117': 'ISL_085,ISL_086,ISL_087,ISL_088,ISL_089,ISL_090',
 }
 
-routes_with_via = [r + (ROUTE_VIA_PORTS.get(r[0], ''),) for r in ROUTES]
+# ============================================================
+# ISLAND_PORTS: 島の上にある港 → island_id マッピング
+# 島→島ルートの出発地として機能する港
+# ============================================================
+ISLAND_PORTS = {
+    'PORT_053': 'ISL_092',  # 古仁屋港 on 奄美大島
+    'PORT_070': 'ISL_092',  # 名瀬港 on 奄美大島
+    'PORT_071': 'ISL_097',  # 亀徳港 on 徳之島
+    'PORT_072': 'ISL_098',  # 和泊港 on 沖永良部島
+    'PORT_078': 'ISL_018',  # 八丈島底土港 on 八丈島
+    'PORT_079': 'ISL_097',  # 平土野港 on 徳之島
+    'PORT_060': 'ISL_122',  # 石垣港（離島ターミナル）on 石垣島
+    'PORT_080': 'ISL_115',  # 上原港 on 西表島
+}
+
+ports_with_island = [p + (ISLAND_PORTS.get(p[0], ''),) for p in PORTS]
+write_csv('../data/ports.csv',
+    ['port_id','port_name','city','prefecture','lat','lng','island_id'],
+    ports_with_island)
+
+# routes: via_ports + transport_mode（9番目の要素があればそれを使用、なければ'car'）
+routes_final = []
+for r in ROUTES:
+    via  = ROUTE_VIA_PORTS.get(r[0], '')
+    mode = r[8] if len(r) > 8 else 'car'
+    routes_final.append(r[:8] + (via, mode))
 
 write_csv('../data/routes.csv',
     ['route_id','island_id','departure_port_id','arrival_port_name',
-     'ferry_company','ferry_name','car_ferry_type','notes','via_ports'],
-    routes_with_via)
+     'ferry_company','ferry_name','car_ferry_type','notes','via_ports','transport_mode'],
+    routes_final)
 
 print(f"\n合計: {len(ISLANDS)}島 / {len(PORTS)}港 / {len(ROUTES)}航路")
 print("Vehicle: HiAce Wide Body 490cm × 190cm × 220cm")

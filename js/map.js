@@ -9,6 +9,9 @@ const polylines = [];
 // Region filter state
 let activeRegion = 'all';
 
+// Transport mode filter: 'all' | 'car' | 'passenger'
+let activeTransportMode = 'all';
+
 // Build lookups
 const portById = {};
 const routesByIsland = {};
@@ -28,12 +31,17 @@ function buildLookups() {
 
 // Marker icons
 function islandIcon(color, type) {
-  const opacity = type === 'freight_only' ? 0.5 : 1.0;
-  const shape = type === 'conditional' ? 'triangle' : 'circle';
-  const size = 12;
-  const svg = shape === 'circle'
-    ? `<circle cx="12" cy="12" r="${size/2}" fill="${color}" stroke="white" stroke-width="2" opacity="${opacity}"/>`
-    : `<polygon points="12,4 20,20 4,20" fill="${color}" stroke="white" stroke-width="2" opacity="${opacity}"/>`;
+  let svg;
+  if (type === 'passenger_only') {
+    // 旅客専用: 白抜き円（ドーナツ）
+    svg = `<circle cx="12" cy="12" r="6" fill="white" stroke="${color}" stroke-width="3"/>`;
+  } else if (type === 'freight_only') {
+    svg = `<circle cx="12" cy="12" r="6" fill="${color}" stroke="white" stroke-width="2" opacity="0.5"/>`;
+  } else if (type === 'conditional') {
+    svg = `<polygon points="12,4 20,20 4,20" fill="${color}" stroke="white" stroke-width="2"/>`;
+  } else {
+    svg = `<circle cx="12" cy="12" r="6" fill="${color}" stroke="white" stroke-width="2"/>`;
+  }
   return {
     url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">${svg}</svg>`
@@ -116,8 +124,13 @@ function selectIsland(island) {
     });
   }
 
-  // Show departure port markers and polylines
-  const routes = routesByIsland[island.id] || [];
+  // Show departure port markers and polylines (transport mode filter)
+  const allRoutes = routesByIsland[island.id] || [];
+  const routes = allRoutes.filter(r => {
+    const mode = r.transport_mode || 'car';
+    if (activeTransportMode === 'all') return true;
+    return mode === activeTransportMode;
+  });
   const seenPorts = new Set();
 
   routes.forEach(route => {
@@ -153,13 +166,18 @@ function selectIsland(island) {
         { lat: island.lat, lng: island.lng },
       ];
 
+      const isPassenger = (route.transport_mode || 'car') === 'passenger';
       const line = new google.maps.Polyline({
         path: routePath,
         geodesic: true,
-        strokeColor: island.color,
-        strokeOpacity: 0,
-        strokeWeight: 2,
-        icons: [{
+        strokeColor: isPassenger ? '#29B6F6' : island.color,
+        strokeOpacity: isPassenger ? 0.6 : 0,
+        strokeWeight: isPassenger ? 2 : 2,
+        icons: isPassenger ? [{
+          icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 2 },
+          offset: '0',
+          repeat: '20px',
+        }] : [{
           icon: { path: 'M 0,-1 0,1', strokeOpacity: 0.8, scale: 3 },
           offset: '0',
           repeat: '12px',
@@ -192,12 +210,21 @@ function showInfoPanel(island, routes) {
     yes: '<span class="badge ok">🚗 乗船可</span>',
     conditional: '<span class="badge cond">⚠ 条件付き</span>',
     freight_only: '<span class="badge freight">📦 貨物輸送</span>',
+    passenger_only: '<span class="badge passenger">👤 旅客船のみ</span>',
   }[island.type] || '';
 
   let routeCards = [];
   const seenPorts = new Set();
 
-  routes.forEach((r, idx) => {
+  // allRoutes for panel (respect transport mode filter)
+  const allRoutes = routesByIsland[island.id] || [];
+  const filteredRoutes = allRoutes.filter(r => {
+    const mode = r.transport_mode || 'car';
+    if (activeTransportMode === 'all') return true;
+    return mode === activeTransportMode;
+  });
+
+  filteredRoutes.forEach((r, idx) => {
     const port = portById[r.port_id];
     if (!port) return;
     const portKey = `${r.port_id}-${r.company}`;
@@ -275,7 +302,7 @@ function showInfoPanel(island, routes) {
     </div>
     <div class="panel-body">
       <div class="routes-title">出港地 ${seenPorts.size}港</div>
-      ${routeCards.join('') || '<p style="padding:12px;color:#999">航路データなし</p>'}
+      ${routeCards.join('') || '<p style="padding:12px;color:#999">このモードの航路データなし</p>'}
       <div class="pricing-footer">
         ⚠ 料金は変更になる場合があります。乗船前に公式サイトでご確認ください。<br>
         データ最終確認: ${PRICING_LAST_CHECKED}
@@ -317,6 +344,30 @@ function showPortInfo(port) {
   win.open(map);
 }
 
+// Transport mode filter
+function setTransportMode(mode) {
+  activeTransportMode = mode;
+  document.querySelectorAll('.mode-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.mode === mode);
+  });
+  // Re-render if island is selected
+  if (selectedIsland) selectIsland(selectedIsland);
+  // Update island markers visibility
+  FERRY_ISLANDS.forEach(isl => {
+    const m = islandMarkers[isl.id];
+    if (!m) return;
+    const isVisible = activeRegion === 'all' || isl.region === activeRegion;
+    const isType = isl.type;
+    const show = isVisible && (
+      mode === 'all' ||
+      (mode === 'car' && isType !== 'passenger_only') ||
+      (mode === 'passenger' && isType === 'passenger_only')
+    );
+    m.setMap(show ? map : null);
+  });
+  updateIslandList(activeRegion);
+}
+
 // Region filter
 function buildRegionFilter() {
   const regions = [...new Set(FERRY_ISLANDS.map(i => i.region))];
@@ -348,9 +399,9 @@ function filterRegion(region) {
 // Island list panel
 function updateIslandList(region = 'all') {
   const list = document.getElementById('island-list');
-  const islands = region === 'all'
-    ? FERRY_ISLANDS
-    : FERRY_ISLANDS.filter(i => i.region === region);
+  let islands = region === 'all' ? FERRY_ISLANDS : FERRY_ISLANDS.filter(i => i.region === region);
+  if (activeTransportMode === 'car') islands = islands.filter(i => i.type !== 'passenger_only');
+  if (activeTransportMode === 'passenger') islands = islands.filter(i => i.type === 'passenger_only');
   list.innerHTML = islands
     .sort((a, b) => a.name.localeCompare(b.name, 'ja'))
     .map(isl => `

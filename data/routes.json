@@ -8,7 +8,8 @@
     "ferry": "フェリーりしり等",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_002",
@@ -19,7 +20,8 @@
     "ferry": "フェリーれぶん等",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_003",
@@ -30,7 +32,8 @@
     "ferry": "フェリーおくしり",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_004",
@@ -41,7 +44,8 @@
     "ferry": "フェリーおくしり",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_005",
@@ -52,7 +56,8 @@
     "ferry": "おろろん2",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_006",
@@ -63,7 +68,8 @@
     "ferry": "おろろん2",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_007",
@@ -74,7 +80,8 @@
     "ferry": "おけさ丸・ときわ丸",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_008",
@@ -85,7 +92,8 @@
     "ferry": "あかね",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_009",
@@ -96,7 +104,8 @@
     "ferry": "フェリーあわしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_010",
@@ -107,7 +116,8 @@
     "ferry": "とびしま",
     "type": "conditional",
     "notes": "一般観光マイカーは要確認",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_011",
@@ -118,7 +128,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_012",
@@ -129,7 +140,8 @@
     "ferry": "マーブル他",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_013",
@@ -140,7 +152,8 @@
     "ferry": "さるびあ丸他",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_014",
@@ -151,7 +164,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_015",
@@ -162,7 +176,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_016",
@@ -175,7 +190,8 @@
     "notes": "",
     "via_ports": [
       "ISL_011"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_017",
@@ -189,7 +205,8 @@
     "via_ports": [
       "ISL_011",
       "ISL_012"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_018",
@@ -200,7 +217,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_019",
@@ -215,7 +233,8 @@
       "ISL_011",
       "ISL_012",
       "ISL_013"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_020",
@@ -231,7 +250,8 @@
       "ISL_012",
       "ISL_013",
       "ISL_014"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_021",
@@ -242,7 +262,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_022",
@@ -255,7 +276,8 @@
     "notes": "",
     "via_ports": [
       "ISL_011"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_023",
@@ -269,7 +291,8 @@
     "via_ports": [
       "ISL_011",
       "ISL_016"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_024",
@@ -284,7 +307,8 @@
       "ISL_011",
       "ISL_016",
       "ISL_017"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_025",
@@ -295,7 +319,8 @@
     "ferry": "おがさわら丸",
     "type": "freight_only",
     "notes": "チッキ扱い。要事前予約",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_026",
@@ -306,7 +331,8 @@
     "ferry": "ははじま丸",
     "type": "yes",
     "notes": "父島から乗り換え",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_027",
@@ -317,7 +343,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_028",
@@ -328,7 +355,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_029",
@@ -339,7 +367,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_030",
@@ -350,7 +379,8 @@
     "ferry": "フェリーひまわり",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_031",
@@ -361,7 +391,8 @@
     "ferry": "フェリーなだ",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_032",
@@ -372,7 +403,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_033",
@@ -383,7 +415,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_034",
@@ -394,7 +427,8 @@
     "ferry": "国際両備フェリー",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_035",
@@ -405,7 +439,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_036",
@@ -416,7 +451,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_037",
@@ -427,7 +463,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_038",
@@ -438,7 +475,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_039",
@@ -449,7 +487,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "観光マイカー制限あり",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_040",
@@ -460,7 +499,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_041",
@@ -471,7 +511,8 @@
     "ferry": "めおん2",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_042",
@@ -482,7 +523,8 @@
     "ferry": "めおん2",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_043",
@@ -493,7 +535,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_044",
@@ -504,7 +547,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_045",
@@ -515,7 +559,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_046",
@@ -526,7 +571,8 @@
     "ferry": "フェリーたかみ",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_047",
@@ -537,7 +583,8 @@
     "ferry": "フェリーたかみ",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_048",
@@ -548,7 +595,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_049",
@@ -559,7 +607,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_050",
@@ -570,7 +619,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_051",
@@ -581,7 +631,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_052",
@@ -592,7 +643,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_053",
@@ -603,7 +655,8 @@
     "ferry": "ニューうおしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_054",
@@ -614,7 +667,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_055",
@@ -625,7 +679,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_056",
@@ -636,7 +691,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_057",
@@ -647,7 +703,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_058",
@@ -658,7 +715,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_059",
@@ -669,7 +727,8 @@
     "ferry": "しらしま・おき",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_060",
@@ -680,7 +739,8 @@
     "ferry": "しらしま・おき",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_061",
@@ -691,7 +751,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_062",
@@ -702,7 +763,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_063",
@@ -713,7 +775,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_064",
@@ -724,7 +787,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_065",
@@ -735,7 +799,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_066",
@@ -746,7 +811,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_067",
@@ -757,7 +823,8 @@
     "ferry": "フェリーおしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_068",
@@ -768,7 +835,8 @@
     "ferry": "フェリーへぐり",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_069",
@@ -779,7 +847,8 @@
     "ferry": "フェリー新大津島",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_070",
@@ -790,7 +859,8 @@
     "ferry": "ふるしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_071",
@@ -801,7 +871,8 @@
     "ferry": "フェリーなかじま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_072",
@@ -812,7 +883,8 @@
     "ferry": "フェリー由良",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_073",
@@ -823,7 +895,8 @@
     "ferry": "しらさぎ",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_074",
@@ -834,7 +907,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_075",
@@ -845,7 +919,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_076",
@@ -856,7 +931,8 @@
     "ferry": "フェリーのこ",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_077",
@@ -867,7 +943,8 @@
     "ferry": "フェリーおおしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_078",
@@ -878,7 +955,8 @@
     "ferry": "フェリー姫島",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_079",
@@ -889,7 +967,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_080",
@@ -900,7 +979,8 @@
     "ferry": "フェリーちくし・フェリーきずな",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_081",
@@ -911,7 +991,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_082",
@@ -922,7 +1003,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_083",
@@ -933,7 +1015,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_084",
@@ -944,7 +1027,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_085",
@@ -955,7 +1039,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_086",
@@ -966,7 +1051,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_087",
@@ -977,7 +1063,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_088",
@@ -988,7 +1075,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_089",
@@ -999,7 +1087,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_090",
@@ -1010,7 +1099,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_091",
@@ -1021,7 +1111,8 @@
     "ferry": "フェリーひさか",
     "type": "yes",
     "notes": "福江島経由",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_092",
@@ -1032,7 +1123,8 @@
     "ferry": "太古",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_093",
@@ -1043,7 +1135,8 @@
     "ferry": "太古",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_094",
@@ -1054,7 +1147,8 @@
     "ferry": "フェリーかしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_095",
@@ -1065,7 +1159,8 @@
     "ferry": "フェリーかしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_096",
@@ -1076,7 +1171,8 @@
     "ferry": "フェリー度島",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_097",
@@ -1087,7 +1183,8 @@
     "ferry": "フェリー大島",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_098",
@@ -1098,7 +1195,8 @@
     "ferry": "フェリーくろしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_099",
@@ -1109,7 +1207,8 @@
     "ferry": "フェリーごしょうら",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_100",
@@ -1120,7 +1219,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_101",
@@ -1131,7 +1231,8 @@
     "ferry": "フェリーししじま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_102",
@@ -1142,7 +1243,8 @@
     "ferry": "フェリーししじま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_103",
@@ -1153,7 +1255,8 @@
     "ferry": "フェリー島あつまる",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_104",
@@ -1164,7 +1267,8 @@
     "ferry": "フェリーニューこしき",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_105",
@@ -1175,7 +1279,8 @@
     "ferry": "フェリーみしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_106",
@@ -1186,7 +1291,8 @@
     "ferry": "フェリーみしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_107",
@@ -1197,7 +1303,8 @@
     "ferry": "フェリーみしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_108",
@@ -1208,7 +1315,8 @@
     "ferry": "フェリー太陽2",
     "type": "yes",
     "notes": "屋久島経由。鹿児島直行なし",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_109",
@@ -1219,7 +1327,8 @@
     "ferry": "フェリー屋久島2",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_110",
@@ -1230,7 +1339,8 @@
     "ferry": "プリンセスわかさ他",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_111",
@@ -1241,7 +1351,8 @@
     "ferry": "フェリーとから",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_112",
@@ -1254,7 +1365,8 @@
     "notes": "",
     "via_ports": [
       "ISL_085"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_113",
@@ -1268,7 +1380,8 @@
     "via_ports": [
       "ISL_085",
       "ISL_086"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_114",
@@ -1283,7 +1396,8 @@
       "ISL_085",
       "ISL_086",
       "ISL_087"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_115",
@@ -1299,7 +1413,8 @@
       "ISL_086",
       "ISL_087",
       "ISL_088"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_116",
@@ -1316,7 +1431,8 @@
       "ISL_087",
       "ISL_088",
       "ISL_089"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_117",
@@ -1334,7 +1450,8 @@
       "ISL_088",
       "ISL_089",
       "ISL_090"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_118",
@@ -1345,7 +1462,8 @@
     "ferry": "フェリーあまみ他",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_119",
@@ -1356,7 +1474,8 @@
     "ferry": "フェリーきかい",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_120",
@@ -1367,7 +1486,8 @@
     "ferry": "フェリーかけろま",
     "type": "yes",
     "notes": "奄美大島・古仁屋から",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_123",
@@ -1380,7 +1500,8 @@
     "notes": "",
     "via_ports": [
       "PORT_070"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_124",
@@ -1394,7 +1515,8 @@
     "via_ports": [
       "PORT_070",
       "PORT_071"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_125",
@@ -1409,7 +1531,8 @@
       "PORT_070",
       "PORT_071",
       "PORT_072"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_126",
@@ -1420,7 +1543,8 @@
     "ferry": "フェリーいえしま",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_127",
@@ -1431,7 +1555,8 @@
     "ferry": "フェリーいへや3",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_128",
@@ -1442,7 +1567,8 @@
     "ferry": "フェリーいぜな尚円",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_129",
@@ -1453,7 +1579,8 @@
     "ferry": "フェリーあぐに",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_130",
@@ -1464,7 +1591,8 @@
     "ferry": "フェリー琉球・フェリー海邦",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_131",
@@ -1475,7 +1603,8 @@
     "ferry": "フェリー琉球・フェリー海邦",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_132",
@@ -1486,7 +1615,8 @@
     "ferry": "フェリーとかしき",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_133",
@@ -1497,7 +1627,8 @@
     "ferry": "フェリーざまみ3",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_134",
@@ -1508,7 +1639,8 @@
     "ferry": "フェリーざまみ3",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_135",
@@ -1519,7 +1651,8 @@
     "ferry": "フェリーくがに",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_136",
@@ -1530,7 +1663,8 @@
     "ferry": "フェリーくだか",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_137",
@@ -1541,7 +1675,8 @@
     "ferry": "フェリーたらまゆう",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_138",
@@ -1552,7 +1687,8 @@
     "ferry": "かりゆし・ぱいかじ",
     "type": "conditional",
     "notes": "島民・業務車両のみ実質可",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_139",
@@ -1563,7 +1699,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_140",
@@ -1574,7 +1711,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_141",
@@ -1585,7 +1723,8 @@
     "ferry": "かりゆし・ぱいかじ",
     "type": "yes",
     "notes": "週数便の貨客フェリー",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_142",
@@ -1596,7 +1735,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "週数便",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_143",
@@ -1607,7 +1747,8 @@
     "ferry": "フェリーはてるま2",
     "type": "yes",
     "notes": "週3便程度。欠航多い",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_144",
@@ -1618,7 +1759,8 @@
     "ferry": "フェリーよなくに",
     "type": "yes",
     "notes": "週2往復",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_145",
@@ -1629,7 +1771,8 @@
     "ferry": "だいとう",
     "type": "yes",
     "notes": "外洋航路",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_146",
@@ -1640,7 +1783,8 @@
     "ferry": "だいとう",
     "type": "yes",
     "notes": "外洋航路",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_147",
@@ -1656,7 +1800,8 @@
       "ISL_099",
       "PORT_072",
       "PORT_071"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_148",
@@ -1671,7 +1816,8 @@
       "ISL_099",
       "PORT_072",
       "PORT_071"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_149",
@@ -1686,7 +1832,8 @@
       "PORT_055",
       "ISL_099",
       "PORT_072"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_150",
@@ -1700,7 +1847,8 @@
     "via_ports": [
       "ISL_099",
       "PORT_072"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_151",
@@ -1711,7 +1859,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "和泊(沖永良部)→徳之島 方向",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_152",
@@ -1725,7 +1874,8 @@
     "via_ports": [
       "PORT_055",
       "ISL_099"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_153",
@@ -1738,7 +1888,8 @@
     "notes": "本部→与論→沖永良部 方向",
     "via_ports": [
       "ISL_099"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_154",
@@ -1751,7 +1902,8 @@
     "notes": "那覇→本部→与論 方向",
     "via_ports": [
       "PORT_055"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_155",
@@ -1762,7 +1914,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "本部→与論 方向",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_156",
@@ -1773,7 +1926,8 @@
     "ferry": "",
     "type": "yes",
     "notes": "和泊(沖永良部)→与論 方向（ユーザー指摘）",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_157",
@@ -1784,7 +1938,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機。ハイエースワイドは要見積",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_158",
@@ -1795,7 +1950,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_159",
@@ -1806,7 +1962,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_160",
@@ -1817,7 +1974,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_161",
@@ -1828,7 +1986,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "那覇→宮古島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_162",
@@ -1839,7 +1998,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_163",
@@ -1850,7 +2010,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_164",
@@ -1861,7 +2022,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_165",
@@ -1872,7 +2034,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "車のみ輸送。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_166",
@@ -1883,7 +2046,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "那覇→石垣島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_167",
@@ -1894,7 +2058,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "東京→西表島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_168",
@@ -1905,7 +2070,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "東京→波照間島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_169",
@@ -1916,7 +2082,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "東京→与那国島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_171",
@@ -1927,7 +2094,8 @@
     "ferry": "あおがしま丸",
     "type": "yes",
     "notes": "八丈島から約3時間。欠航率高く事前確認必須",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_175",
@@ -1943,7 +2111,8 @@
       "ISL_016",
       "ISL_017",
       "ISL_018"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_170",
@@ -1954,7 +2123,8 @@
     "ferry": "琉球海運RO-RO船",
     "type": "freight_only",
     "notes": "東京→多良間島。ドライバーは飛行機",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_176",
@@ -1965,7 +2135,8 @@
     "ferry": "フェリーきかい/フェリーあまみ",
     "type": "yes",
     "notes": "名瀬→喜界島方向（北行き）",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_177",
@@ -1978,7 +2149,8 @@
     "notes": "古仁屋→名瀬→喜界島方向（北行き）",
     "via_ports": [
       "PORT_070"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_178",
@@ -1992,7 +2164,8 @@
     "via_ports": [
       "PORT_053",
       "PORT_070"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_179",
@@ -2005,7 +2178,8 @@
     "notes": "鹿児島→喜界島→名瀬（奄美海運ルート）",
     "via_ports": [
       "ISL_093"
-    ]
+    ],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_180",
@@ -2020,7 +2194,116 @@
       "ISL_093",
       "PORT_070",
       "PORT_053"
-    ]
+    ],
+    "transport_mode": "car"
+  },
+  {
+    "id": "RTE_201",
+    "island_id": "ISL_112",
+    "port_id": "PORT_060",
+    "arrival_port": "竹富港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約10分。1日10便以上",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_202",
+    "island_id": "ISL_113",
+    "port_id": "PORT_060",
+    "arrival_port": "小浜港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約25分",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_203",
+    "island_id": "ISL_114",
+    "port_id": "PORT_060",
+    "arrival_port": "黒島港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約25分",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_204",
+    "island_id": "ISL_115",
+    "port_id": "PORT_060",
+    "arrival_port": "大原港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約35分",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_205",
+    "island_id": "ISL_115",
+    "port_id": "PORT_060",
+    "arrival_port": "上原港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約40分。欠航時は大原港発着に変更",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_206",
+    "island_id": "ISL_116",
+    "port_id": "PORT_060",
+    "arrival_port": "鳩間港",
+    "company": "八重山観光フェリー・安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約55分",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_207",
+    "island_id": "ISL_117",
+    "port_id": "PORT_060",
+    "arrival_port": "波照間港",
+    "company": "安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "所要約1時間。欠航多い",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_208",
+    "island_id": "ISL_127",
+    "port_id": "PORT_060",
+    "arrival_port": "上地港",
+    "company": "安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "不定期便。要問い合わせ",
+    "via_ports": [],
+    "transport_mode": "passenger"
+  },
+  {
+    "id": "RTE_209",
+    "island_id": "ISL_116",
+    "port_id": "PORT_080",
+    "arrival_port": "鳩間港",
+    "company": "安栄観光",
+    "ferry": "高速船",
+    "type": "passenger_only",
+    "notes": "西表島上原→鳩間島。所要約15分",
+    "via_ports": [],
+    "transport_mode": "passenger"
   },
   {
     "id": "RTE_172",
@@ -2031,7 +2314,8 @@
     "ferry": "第二せきぜん",
     "type": "yes",
     "notes": "今治→大下島→小大下島→岡村 経由。所要約1時間10分",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_173",
@@ -2042,7 +2326,8 @@
     "ferry": "第二せきぜん",
     "type": "yes",
     "notes": "今治→大下島 直行便あり",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   },
   {
     "id": "RTE_174",
@@ -2053,6 +2338,7 @@
     "ferry": "第二せきぜん",
     "type": "yes",
     "notes": "今治→大下島→小大下島 経由",
-    "via_ports": []
+    "via_ports": [],
+    "transport_mode": "car"
   }
 ]
