@@ -1934,6 +1934,21 @@
     "via_ports": []
   },
   {
+    "id": "RTE_175",
+    "island_id": "ISL_123",
+    "port_id": "PORT_011",
+    "arrival_port": "三宝港（青ヶ島）",
+    "company": "東海汽船+あおがしま丸（乗り換え）",
+    "ferry": "橘丸→あおがしま丸",
+    "type": "yes",
+    "notes": "八丈島乗り換え必須。竹芝→八丈島（橘丸）→青ヶ島（あおがしま丸）",
+    "via_ports": [
+      "ISL_016",
+      "ISL_017",
+      "ISL_018"
+    ]
+  },
+  {
     "id": "RTE_170",
     "island_id": "ISL_111",
     "port_id": "PORT_073",
