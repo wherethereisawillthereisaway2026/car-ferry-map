@@ -4016,8 +4016,8 @@
         "notes": "名瀬→喜界島方向（北行き）",
         "via_ports": [],
         "port_name": "名瀬港（奄美大島）",
-        "port_lat": 28.38,
-        "port_lng": 129.49,
+        "port_lat": 28.3785,
+        "port_lng": 129.4968,
         "pricing": []
       },
       {
@@ -4033,8 +4033,8 @@
           "PORT_070"
         ],
         "port_name": "古仁屋港",
-        "port_lat": 28.2,
-        "port_lng": 129.3,
+        "port_lat": 28.1457,
+        "port_lng": 129.3087,
         "pricing": []
       },
       {
@@ -4080,8 +4080,8 @@
         "notes": "奄美大島・古仁屋から",
         "via_ports": [],
         "port_name": "古仁屋港",
-        "port_lat": 28.2,
-        "port_lng": 129.3,
+        "port_lat": 28.1457,
+        "port_lng": 129.3087,
         "pricing": []
       }
     ]
