@@ -155,11 +155,32 @@ function parseCSV(text) {
   return rows;
 }
 
+function remapRegion(pref, region) {
+  if (region === '宮古' || region === '八重山' || region === '大東') return '八重山';
+  if (region === '沖縄本島周辺' || region === '沖縄慶良間') return '沖縄本島';
+  if (region === '奄美') return '奄美';
+  const m = {
+    '北海道':'北海道',
+    '青森県':'東北','岩手県':'東北','宮城県':'東北','秋田県':'東北','山形県':'東北','福島県':'東北',
+    '新潟県':'北陸','富山県':'北陸','石川県':'北陸','福井県':'北陸',
+    '茨城県':'関東','千葉県':'関東','東京都':'関東','神奈川県':'関東','静岡県':'関東',
+    '愛知県':'東海','三重県':'東海','岐阜県':'東海',
+    '滋賀県':'近畿','京都府':'近畿','大阪府':'近畿','奈良県':'近畿','和歌山県':'近畿',
+    '兵庫県':'瀬戸内','岡山県':'瀬戸内','広島県':'瀬戸内','香川県':'瀬戸内',
+    '鳥取県':'山陰','島根県':'山陰','山口県':'山陰',
+    '徳島県':'四国','愛媛県':'四国','高知県':'四国',
+    '福岡県':'九州北部','佐賀県':'九州北部','長崎県':'九州北部','大分県':'九州北部',
+    '熊本県':'九州南部','宮崎県':'九州南部','鹿児島県':'九州南部',
+    '沖縄県':'沖縄本島',
+  };
+  return m[pref] || 'その他';
+}
+
 function buildData(routesText, portsText, compsText) {
   const ports = {};
   parseCSV(portsText).slice(1).forEach(([pid,name,loc,pref,region,lat,lng]) => {
     if (!pid||!lat||isNaN(parseFloat(lat))) return;
-    ports[pid] = { id:pid, name, location:loc, pref, region, lat:parseFloat(lat), lng:parseFloat(lng) };
+    ports[pid] = { id:pid, name, location:loc, pref, region:remapRegion(pref,region), lat:parseFloat(lat), lng:parseFloat(lng) };
   });
 
   const companies = {};
@@ -376,12 +397,19 @@ function clearLines() {
 
 // ---- サイドバー港リスト ----
 const REGION_ORDER = [
-  '北海道','東北・北陸','関東・伊豆','東海・中部','近畿・瀬戸内',
-  '山陰','山陰・山口','四国','九州北部','九州南部',
-  '奄美','沖縄本島周辺','沖縄慶良間','宮古','八重山','大東','その他'
+  '北海道','東北','北陸','関東','東海','近畿','瀬戸内',
+  '山陰','四国','九州北部','九州南部','奄美','沖縄本島','八重山','その他'
 ];
+const REGION_LABEL = {
+  '関東': '関東（伊豆含む）',
+  '東海': '東海（中部含む）',
+  '近畿': '近畿（瀬戸内除く）',
+  '山陰': '山陰（山口含む）',
+  '沖縄本島': '沖縄本島（慶良間含む）',
+  '八重山': '八重山（宮古・大東含む）',
+};
 
-const collapsedRegions = new Set();
+const openRegions = new Set();
 
 function portItemHtml(p) {
   const color = getColor((D.port_companies[p.id]||[])[0]||'');
@@ -401,32 +429,32 @@ function renderPortList(filter='') {
                          p.name.toLowerCase().includes(lc) || p.location.toLowerCase().includes(lc));
 
   if (lc) {
-    // 検索中: グループなし・名前順
     items.sort((a,b) => a.name.localeCompare(b.name,'ja'));
     list.innerHTML = items.map(portItemHtml).join('');
     return;
   }
 
-  // 地方別グループ
   const byRegion = {};
   items.forEach(p => {
     const r = p.region || 'その他';
     (byRegion[r] = byRegion[r] || []).push(p);
   });
-  Object.values(byRegion).forEach(arr => arr.sort((a,b) => a.name.localeCompare(b.name,'ja')));
+  // 北緯降順（北から南）
+  Object.values(byRegion).forEach(arr => arr.sort((a,b) => b.lat - a.lat));
 
   const order = [...REGION_ORDER, ...Object.keys(byRegion).filter(r => !REGION_ORDER.includes(r))];
   list.innerHTML = order
     .filter(r => byRegion[r]?.length)
     .map(r => {
       const ports = byRegion[r];
-      const rid = 'region-' + r.replace(/[・ ]/g,'_');
-      const isCollapsed = collapsedRegions.has(rid);
+      const rid = 'region-' + r.replace(/[・（）\s]/g,'_');
+      const label = REGION_LABEL[r] || r;
+      const isOpen = openRegions.has(rid);
       return `<div class="region-header" onclick="toggleRegion('${rid}')">
-        <span>${r}</span><span class="region-count">(${ports.length})</span>
-        <span class="region-arrow" id="${rid}-arrow">${isCollapsed?'▸':'▾'}</span>
+        <span>${label}</span><span class="region-count">(${ports.length})</span>
+        <span class="region-arrow" id="${rid}-arrow">${isOpen?'▾':'▸'}</span>
       </div>
-      <div class="region-list${isCollapsed?' collapsed':''}" id="${rid}">
+      <div class="region-list${isOpen?'':' collapsed'}" id="${rid}">
         ${ports.map(portItemHtml).join('')}
       </div>`;
     }).join('');
@@ -436,10 +464,10 @@ function toggleRegion(rid) {
   const el = document.getElementById(rid);
   const arrow = document.getElementById(rid+'-arrow');
   if (!el) return;
-  const willCollapse = !el.classList.contains('collapsed');
-  el.classList.toggle('collapsed', willCollapse);
-  if (arrow) arrow.textContent = willCollapse ? '▸' : '▾';
-  if (willCollapse) collapsedRegions.add(rid); else collapsedRegions.delete(rid);
+  const willOpen = el.classList.contains('collapsed');
+  el.classList.toggle('collapsed', !willOpen);
+  if (arrow) arrow.textContent = willOpen ? '▾' : '▸';
+  if (willOpen) openRegions.add(rid); else openRegions.delete(rid);
 }
 
 function selectPortSidebar(portId) {
