@@ -18,20 +18,16 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
              width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
              font-size: 11px; transition: left .3s; }
 #sb-toggle.collapsed { left: 0; }
-
 #sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #222; }
 #sb-header h1 { font-size: 15px; font-weight: 700; color: #5bc8fa; line-height: 1.4; }
 #sb-header p  { font-size: 11px; color: #888; margin-top: 4px; }
-
 #search-wrap { padding: 8px 10px; }
 #search { width: 100%; padding: 6px 10px; border-radius: 20px;
           border: none; background: #1e2d3d; color: #eee; font-size: 13px; outline: none; }
 #search::placeholder { color: #666; }
-
 #port-list { flex: 1; overflow-y: auto; padding: 4px 0; }
 #port-list::-webkit-scrollbar { width: 4px; }
 #port-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
-
 .pitem { padding: 6px 12px; cursor: pointer; font-size: 12px; transition: background .1s;
          display: flex; align-items: center; gap: 6px; }
 .pitem:hover { background: #1e2d3d; }
@@ -44,43 +40,25 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 #map-wrap { flex: 1; position: relative; }
 #map { width: 100%; height: 100%; }
 
-/* INFO PANEL */
-#info-panel { position: fixed; top: 0; right: -380px; width: 360px; height: 100%;
-              background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,.18);
-              z-index: 150; transition: right .28s ease;
-              display: flex; flex-direction: column; }
-#info-panel.open { right: 0; }
-.ph { padding: 12px 14px 10px; background: #0d1b2a; flex-shrink: 0; position: relative; }
-.ph-name { font-size: 17px; font-weight: 700; color: #fff; padding-right: 32px; }
-.ph-meta { font-size: 11px; color: #89c4e1; margin-top: 3px; }
-.ph-close { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.12);
-            border: none; font-size: 18px; color: #ccc; width: 28px; height: 28px;
-            border-radius: 50%; cursor: pointer; line-height: 28px; text-align: center; }
-
-.pb { overflow-y: auto; flex: 1; padding-bottom: 16px; }
-.pb::-webkit-scrollbar { width: 4px; }
-.pb::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
-
-.sec-title { font-size: 11px; font-weight: 700; color: #999; padding: 10px 14px 4px;
-             letter-spacing: .06em; text-transform: uppercase; }
-
-.comp-row { display: flex; align-items: center; gap: 8px; padding: 7px 14px;
-            border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background .1s; }
-.comp-row:hover { background: #f5f7fa; }
-.comp-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
-.comp-name { font-size: 13px; flex: 1; }
-.comp-badge { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
-.comp-badge.car { background: #e3f2fd; color: #1565c0; }
-.comp-badge.pass { background: #f3e5f5; color: #6a1b9a; }
-.comp-toggle { font-size: 11px; color: #aaa; margin-left: 4px; }
-.comp-chain { padding: 4px 14px 8px 34px; font-size: 11px; color: #555;
-              border-bottom: 1px solid #f5f5f5; display: none; }
-.comp-chain.open { display: block; }
-.chain-line { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-bottom: 3px; }
-.chain-port { background: #f0f4f8; padding: 1px 5px; border-radius: 3px; font-size: 11px; }
-.chain-arrow { color: #aaa; font-size: 10px; }
-.comp-link { display: inline-block; margin-top: 4px; font-size: 11px; color: #1565c0;
-             text-decoration: none; background: #e8f0fe; padding: 2px 6px; border-radius: 4px; }
+/* INFO WINDOW カスタムスタイル */
+.iw-wrap { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; min-width: 220px; max-width: 300px; }
+.iw-header { padding: 10px 12px 8px; background: #0d1b2a; margin: -12px -16px 0; border-radius: 4px 4px 0 0; }
+.iw-name { display: block; font-size: 15px; font-weight: 700; color: #fff; }
+.iw-meta { display: block; font-size: 11px; color: #89c4e1; margin-top: 2px; }
+.iw-sec  { font-size: 10px; font-weight: 700; color: #999; padding: 8px 0 4px;
+           letter-spacing: .06em; text-transform: uppercase; }
+.iw-comp { display: flex; align-items: center; gap: 6px; padding: 5px 6px;
+           border-radius: 6px; cursor: pointer; transition: background .1s; margin-bottom: 2px; }
+.iw-comp:hover { background: #f0f4ff; }
+.iw-comp.active { background: #e8f0fe; }
+.iw-dot  { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.iw-cname { font-size: 12px; flex: 1; }
+.iw-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
+.iw-badge.car  { background: #e3f2fd; color: #1565c0; }
+.iw-badge.pass { background: #f3e5f5; color: #6a1b9a; }
+.iw-chain { font-size: 10px; color: #555; padding: 3px 6px 4px; background: #f8faff;
+            border-radius: 4px; margin-bottom: 4px; display: none; line-height: 1.5; }
+.iw-chain.open { display: block; }
 
 /* LOADING */
 #loading { position: fixed; inset: 0; background: rgba(13,27,42,.85); z-index: 999;
@@ -102,9 +80,6 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
   #sidebar.open { width: 260px; min-width: 260px; position: fixed; height: 100%; z-index: 300; }
   #sb-toggle { left: 0; }
   #sb-toggle.open { left: 260px; }
-  #info-panel { width: 100%; right: -100%; top: auto; bottom: 0; height: 70vh;
-                border-radius: 16px 16px 0 0; }
-  #info-panel.open { right: 0; }
 }
 </style>
 </head>
@@ -134,21 +109,10 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
   </div>
 </div>
 
-<div id="info-panel">
-  <div class="ph">
-    <div class="ph-name" id="ph-name">-</div>
-    <div class="ph-meta" id="ph-meta"></div>
-    <button class="ph-close" onclick="closePanel()">✕</button>
-  </div>
-  <div class="pb" id="pb"></div>
-</div>
-
 <script>
 const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
 const CSV_BASE = `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv&gid=`;
-const ROUTES_GID = '466317895';
-const PORTS_GID = '958244978';
-const COMPANIES_GID = '1143602536';
+const ROUTES_GID = '466317895', PORTS_GID = '958244978', COMPANIES_GID = '1143602536';
 
 const PALETTE = [
   '#1565c0','#00838f','#2e7d32','#6a1b9a','#c62828',
@@ -157,114 +121,82 @@ const PALETTE = [
   '#01579b','#558b2f','#827717','#bf360c','#4e342e'
 ];
 const compColor = {};
-
-let D = null;
-let map;
-const markerMap = {};
-const activeLines = [];
-
-function getColor(compId) {
-  if (!compColor[compId]) {
-    compColor[compId] = PALETTE[Object.keys(compColor).length % PALETTE.length];
-  }
-  return compColor[compId];
+function getColor(cid) {
+  if (!compColor[cid]) compColor[cid] = PALETTE[Object.keys(compColor).length % PALETTE.length];
+  return compColor[cid];
 }
 
-// CSV パーサー（RFC4180準拠・ダブルクォート対応）
+let D = null, map, infoWin = null;
+const markerMap = {};
+const activeLines = [];
+const activeComps = new Set(); // 現在表示中のcomp_id
+
+// CSV パーサー
 function parseCSV(text) {
-  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
-  const result = [];
-  for (const line of lines) {
+  const rows = [];
+  for (const line of text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n')) {
     if (!line.trim()) continue;
-    const row = [];
-    let cur = '', inQ = false;
+    const row = []; let cur = '', inQ = false;
     for (let i = 0; i < line.length; i++) {
       const c = line[i];
-      if (inQ) {
-        if (c === '"' && line[i+1] === '"') { cur += '"'; i++; }
-        else if (c === '"') { inQ = false; }
-        else { cur += c; }
-      } else {
-        if (c === '"') { inQ = true; }
-        else if (c === ',') { row.push(cur); cur = ''; }
-        else { cur += c; }
-      }
+      if (inQ) { if (c==='"'&&line[i+1]==='"'){cur+='"';i++;} else if(c==='"'){inQ=false;} else cur+=c; }
+      else { if(c==='"'){inQ=true;} else if(c===','){row.push(cur);cur='';} else cur+=c; }
     }
-    row.push(cur);
-    result.push(row);
+    row.push(cur); rows.push(row);
   }
-  return result;
+  return rows;
 }
 
 function buildData(routesText, portsText, compsText) {
-  // PORTS
-  const portsRows = parseCSV(portsText);
   const ports = {};
-  for (let i = 1; i < portsRows.length; i++) {
-    const [pid, name, loc, pref, region, lat, lng] = portsRows[i];
-    if (!pid || !lat || !lng || isNaN(parseFloat(lat))) continue;
-    ports[pid] = { id: pid, name, location: loc, pref, region,
-                   lat: parseFloat(lat), lng: parseFloat(lng) };
-  }
+  parseCSV(portsText).slice(1).forEach(([pid,name,loc,pref,region,lat,lng]) => {
+    if (!pid||!lat||isNaN(parseFloat(lat))) return;
+    ports[pid] = { id:pid, name, location:loc, pref, region, lat:parseFloat(lat), lng:parseFloat(lng) };
+  });
 
-  // COMPANIES
-  const compsRows = parseCSV(compsText);
   const companies = {};
-  for (let i = 1; i < compsRows.length; i++) {
-    const [cid, cname, url, note] = compsRows[i];
-    if (!cid) continue;
-    companies[cid] = { id: cid, name: cname, url: url || '', note: note || '' };
-  }
+  parseCSV(compsText).slice(1).forEach(([cid,cname,url,note]) => {
+    if (!cid) return;
+    companies[cid] = { id:cid, name:cname, url:url||'', note:note||'' };
+  });
 
-  // ROUTES → segments
-  const routesRows = parseCSV(routesText);
   const seen = {};
-  for (let i = 1; i < routesRows.length; i++) {
-    const [rid, cid, dep, arr, carFerry, status, note] = routesRows[i];
-    if (!dep || !arr || !ports[dep] || !ports[arr]) continue;
-    const car = String(carFerry).toUpperCase() === 'TRUE';
-    const key = cid + '|' + (dep < arr ? dep + '|' + arr : arr + '|' + dep);
-    if (!seen[key]) {
-      seen[key] = { comp_id: cid, port_a: dep, port_b: arr,
-                    is_car_ferry: car, note: note || '', route_ids: [] };
-    }
+  parseCSV(routesText).slice(1).forEach(([rid,cid,dep,arr,carFerry,status,note]) => {
+    if (!dep||!arr||!ports[dep]||!ports[arr]) return;
+    const car = String(carFerry).toUpperCase()==='TRUE';
+    const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
+    if (!seen[key]) seen[key] = { comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:car, note:note||'', route_ids:[] };
     seen[key].route_ids.push(rid);
-  }
+  });
   const segments = Object.values(seen);
 
-  // インデックス構築
   const comp_segments = {}, port_companies = {};
-  segments.forEach((seg, i) => {
-    (comp_segments[seg.comp_id] = comp_segments[seg.comp_id] || []).push(i);
-    [seg.port_a, seg.port_b].forEach(p => {
-      (port_companies[p] = port_companies[p] || new Set()).add(seg.comp_id);
-    });
+  segments.forEach((seg,i) => {
+    (comp_segments[seg.comp_id] = comp_segments[seg.comp_id]||[]).push(i);
+    [seg.port_a,seg.port_b].forEach(p => (port_companies[p]=port_companies[p]||new Set()).add(seg.comp_id));
   });
-  Object.keys(port_companies).forEach(k => port_companies[k] = [...port_companies[k]].sort());
+  Object.keys(port_companies).forEach(k => port_companies[k]=[...port_companies[k]].sort());
 
   return { ports, companies, segments, comp_segments, port_companies };
 }
 
 async function loadData() {
-  const [routesText, portsText, compsText] = await Promise.all([
-    fetch(CSV_BASE + ROUTES_GID).then(r => r.text()),
-    fetch(CSV_BASE + PORTS_GID).then(r => r.text()),
-    fetch(CSV_BASE + COMPANIES_GID).then(r => r.text()),
+  const [r,p,c] = await Promise.all([
+    fetch(CSV_BASE+ROUTES_GID).then(x=>x.text()),
+    fetch(CSV_BASE+PORTS_GID).then(x=>x.text()),
+    fetch(CSV_BASE+COMPANIES_GID).then(x=>x.text()),
   ]);
-  D = buildData(routesText, portsText, compsText);
+  D = buildData(r,p,c);
 }
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 33.5, lng: 132.0 },
-    zoom: 5,
-    mapTypeId: 'roadmap',
-    mapTypeControl: true,
-    streetViewControl: false,
-    fullscreenControl: true,
-    gestureHandling: 'greedy',
-    styles: [{ featureType: 'water', stylers: [{ color: '#a8d5e5' }] }]
+    center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
+    mapTypeControl:true, streetViewControl:false, fullscreenControl:true,
+    gestureHandling:'greedy',
+    styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
   });
+  infoWin = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: false });
 
   loadData().then(() => {
     document.getElementById('loading').style.display = 'none';
@@ -281,121 +213,120 @@ function portIcon(hasRoute) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
     <circle cx="10" cy="10" r="7" fill="${color}" stroke="white" stroke-width="2"/>
   </svg>`;
-  return {
-    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
-    scaledSize: new google.maps.Size(20, 20),
-    anchor: new google.maps.Point(10, 10),
-  };
+  return { url:'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg),
+           scaledSize:new google.maps.Size(20,20), anchor:new google.maps.Point(10,10) };
 }
 
 function renderPorts() {
   Object.values(D.ports).forEach(p => {
     const hasRoute = !!D.port_companies[p.id];
     const marker = new google.maps.Marker({
-      position: { lat: p.lat, lng: p.lng },
-      map,
-      title: p.name,
-      icon: portIcon(hasRoute),
-      zIndex: hasRoute ? 2 : 1,
+      position:{lat:p.lat,lng:p.lng}, map, title:p.name,
+      icon:portIcon(hasRoute), zIndex:hasRoute?2:1
     });
-    if (hasRoute) marker.addListener('click', () => selectPort(p.id));
+    if (hasRoute) marker.addListener('click', () => openInfoWin(p.id, marker));
     markerMap[p.id] = marker;
   });
 }
 
-function renderPortList(filter = '') {
-  const list = document.getElementById('port-list');
-  const lc = filter.toLowerCase();
-  const items = Object.values(D.ports)
-    .filter(p => D.port_companies[p.id])
-    .filter(p => !lc || p.name.toLowerCase().includes(lc)
-                      || p.location.toLowerCase().includes(lc)
-                      || p.pref.toLowerCase().includes(lc))
-    .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
-
-  list.innerHTML = items.map(p => `
-    <div class="pitem" data-id="${p.id}" onclick="selectPort('${p.id}')">
-      <div class="pdot" style="background:${getCompGroupColor(p.id)}"></div>
-      <div class="pname">${p.name}</div>
-      <div class="ppref">${p.pref}</div>
-    </div>`).join('');
-}
-
-function getCompGroupColor(portId) {
-  const comps = D.port_companies[portId] || [];
-  return comps.length ? getColor(comps[0]) : '#888';
-}
-
-document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
-
-function selectPort(portId) {
-  clearLines();
+// ---- Info Window ----
+function openInfoWin(portId, marker) {
   const port = D.ports[portId];
   if (!port) return;
 
-  Object.values(markerMap).forEach(m => m.setZIndex(1));
-  if (markerMap[portId]) markerMap[portId].setZIndex(10);
+  // サイドバーのアクティブ状態
   document.querySelectorAll('.pitem').forEach(el =>
     el.classList.toggle('active', el.dataset.id === portId));
 
-  document.getElementById('ph-name').textContent = port.name;
-  document.getElementById('ph-meta').textContent = `${port.location}  ${port.pref}`;
-
   const compIds = D.port_companies[portId] || [];
-  const pb = document.getElementById('pb');
-  pb.innerHTML = '<div class="sec-title">この港の航路（会社別）</div>';
 
-  compIds.forEach(cid => {
-    const comp = D.companies[cid] || { name: cid, url: '' };
+  const compsHtml = compIds.map(cid => {
+    const comp = D.companies[cid] || {name:cid, url:''};
     const color = getColor(cid);
-    const segs = (D.comp_segments[cid] || []).map(i => D.segments[i]);
-    const carFerry = segs.some(s => s.is_car_ferry);
+    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+    const carFerry = segs.some(s=>s.is_car_ferry);
     const chains = buildChains(segs);
-
-    const chainHtml = chains.map(chain =>
-      `<div class="chain-line">${chain.map(pid => {
-        const p = D.ports[pid];
-        return `<span class="chain-port">${p ? p.name : pid}</span>`;
-      }).join('<span class="chain-arrow">→</span>')}</div>`
-    ).join('');
-
+    const chainText = chains.map(ch =>
+      ch.map(pid => D.ports[pid]?.name || pid).join(' → ')
+    ).join('<br>');
     const linkHtml = comp.url
-      ? `<a class="comp-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
+      ? `<a href="${comp.url}" target="_blank" style="font-size:10px;color:#1565c0;text-decoration:none;">公式サイト ↗</a>`
+      : '';
 
-    const rowId = 'comp-' + cid;
-    pb.innerHTML += `
-      <div class="comp-row" onclick="toggleChain('${rowId}')">
-        <div class="comp-color" style="background:${color}"></div>
-        <div class="comp-name">${comp.name}</div>
-        <span class="comp-badge ${carFerry ? 'car' : 'pass'}">${carFerry ? 'カーフェリー' : '旅客船'}</span>
-        <span class="comp-toggle">▼</span>
+    return `
+      <div class="iw-comp" id="iw-comp-${cid}" onclick="toggleCompLine('${cid}','${portId}')">
+        <div class="iw-dot" style="background:${color}"></div>
+        <div class="iw-cname">${comp.name}</div>
+        <span class="iw-badge ${carFerry?'car':'pass'}">${carFerry?'カーフェリー':'旅客船'}</span>
       </div>
-      <div class="comp-chain" id="${rowId}">${chainHtml}${linkHtml}</div>`;
+      <div class="iw-chain" id="iw-chain-${cid}">${chainText}${linkHtml?'<br>'+linkHtml:''}</div>`;
+  }).join('');
 
-    drawCompLines(segs, color);
+  const html = `<div class="iw-wrap">
+    <div class="iw-header">
+      <span class="iw-name">${port.name}</span>
+      <span class="iw-meta">${port.location}　${port.pref}</span>
+    </div>
+    <div style="padding:0 2px 4px">
+      <div class="iw-sec">この港の航路（クリックで表示）</div>
+      ${compsHtml}
+    </div>
+  </div>`;
+
+  infoWin.setContent(html);
+  infoWin.open(map, marker);
+
+  // 前の航路をクリア
+  clearLines();
+  activeComps.clear();
+
+  // 全会社の航路を自動表示
+  compIds.forEach(cid => {
+    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+    drawCompLines(segs, getColor(cid));
+    activeComps.add(cid);
+    const compEl = document.getElementById(`iw-comp-${cid}`);
+    if (compEl) compEl.classList.add('active');
   });
-
-  document.getElementById('info-panel').classList.add('open');
-  map.panTo({ lat: port.lat, lng: port.lng });
 }
 
-function toggleChain(rowId) {
-  const el = document.getElementById(rowId);
-  el.classList.toggle('open');
-  const toggle = el.previousElementSibling.querySelector('.comp-toggle');
-  if (toggle) toggle.textContent = el.classList.contains('open') ? '▲' : '▼';
+function toggleCompLine(cid, portId) {
+  const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+  const color = getColor(cid);
+  const compEl = document.getElementById(`iw-comp-${cid}`);
+  const chainEl = document.getElementById(`iw-chain-${cid}`);
+
+  if (activeComps.has(cid)) {
+    // 非表示: この会社の線だけ消す（他社の線は残す）
+    activeComps.delete(cid);
+    if (compEl) compEl.classList.remove('active');
+    if (chainEl) chainEl.classList.remove('open');
+    // 全線クリアして再描画
+    clearLines();
+    activeComps.forEach(c => {
+      const s = (D.comp_segments[c]||[]).map(i=>D.segments[i]);
+      drawCompLines(s, getColor(c));
+    });
+  } else {
+    // 表示
+    activeComps.add(cid);
+    if (compEl) compEl.classList.add('active');
+    if (chainEl) chainEl.classList.toggle('open');
+    drawCompLines(segs, color);
+  }
 }
 
+// ---- チェーン構築 ----
 function buildChains(segs) {
   const adj = {};
   segs.forEach(s => {
-    (adj[s.port_a] = adj[s.port_a] || []).push(s.port_b);
-    (adj[s.port_b] = adj[s.port_b] || []).push(s.port_a);
+    (adj[s.port_a]=adj[s.port_a]||[]).push(s.port_b);
+    (adj[s.port_b]=adj[s.port_b]||[]).push(s.port_a);
   });
   const visited = new Set();
   const chains = [];
-  const ports = new Set(segs.flatMap(s => [s.port_a, s.port_b]));
-  const endpoints = [...ports].filter(p => adj[p].length === 1);
+  const ports = new Set(segs.flatMap(s=>[s.port_a,s.port_b]));
+  const endpoints = [...ports].filter(p=>adj[p].length===1);
   const starts = endpoints.length ? endpoints : [...ports];
 
   for (const start of starts) {
@@ -403,58 +334,77 @@ function buildChains(segs) {
     const chain = [];
     let cur = start;
     while (cur && !visited.has(cur)) {
-      visited.add(cur);
-      chain.push(cur);
-      cur = (adj[cur] || []).find(n => !visited.has(n)) || null;
+      visited.add(cur); chain.push(cur);
+      cur = (adj[cur]||[]).find(n=>!visited.has(n))||null;
     }
     if (chain.length >= 2) chains.push(chain);
   }
   return chains;
 }
 
+// ---- 航路描画 ----
 function drawCompLines(segs, color) {
   const drawn = new Set();
   segs.forEach(seg => {
-    const key = [seg.port_a, seg.port_b].sort().join('|');
+    const key = [seg.port_a,seg.port_b].sort().join('|');
     if (drawn.has(key)) return;
     drawn.add(key);
     const pa = D.ports[seg.port_a], pb = D.ports[seg.port_b];
-    if (!pa || !pb) return;
+    if (!pa||!pb) return;
     const line = new google.maps.Polyline({
-      path: [{ lat: pa.lat, lng: pa.lng }, { lat: pb.lat, lng: pb.lng }],
-      geodesic: true,
-      strokeColor: color,
-      strokeOpacity: 0,
-      icons: [{ icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
-                offset: '0', repeat: '20px' }],
-      strokeWeight: 2,
-      map,
+      path:[{lat:pa.lat,lng:pa.lng},{lat:pb.lat,lng:pb.lng}],
+      geodesic:true, strokeColor:color, strokeOpacity:0,
+      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:3},offset:'0',repeat:'20px'}],
+      strokeWeight:2, map
     });
     activeLines.push(line);
   });
 }
 
 function clearLines() {
-  activeLines.forEach(l => l.setMap(null));
+  activeLines.forEach(l=>l.setMap(null));
   activeLines.length = 0;
 }
 
-function closePanel() {
-  document.getElementById('info-panel').classList.remove('open');
-  clearLines();
-  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
+// ---- サイドバー港リスト ----
+function renderPortList(filter='') {
+  const list = document.getElementById('port-list');
+  const lc = filter.toLowerCase();
+  const items = Object.values(D.ports)
+    .filter(p=>D.port_companies[p.id])
+    .filter(p=>!lc||p.name.toLowerCase().includes(lc)||p.location.toLowerCase().includes(lc)||p.pref.toLowerCase().includes(lc))
+    .sort((a,b)=>a.name.localeCompare(b.name,'ja'));
+
+  list.innerHTML = items.map(p=>`
+    <div class="pitem" data-id="${p.id}" onclick="selectPortSidebar('${p.id}')">
+      <div class="pdot" style="background:${getColor((D.port_companies[p.id]||[])[0]||'')}"></div>
+      <div class="pname">${p.name}</div>
+      <div class="ppref">${p.pref}</div>
+    </div>`).join('');
 }
 
+function selectPortSidebar(portId) {
+  const port = D.ports[portId];
+  if (!port) return;
+  map.panTo({lat:port.lat,lng:port.lng});
+  map.setZoom(Math.max(map.getZoom(),7));
+  const marker = markerMap[portId];
+  if (marker) openInfoWin(portId, marker);
+}
+
+document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
+
+// ---- サイドバートグル ----
 let sbOpen = true;
 function toggleSidebar() {
   const sb = document.getElementById('sidebar');
   const btn = document.getElementById('sb-toggle');
   sbOpen = !sbOpen;
-  sb.classList.toggle('collapsed', !sbOpen);
-  btn.classList.toggle('collapsed', !sbOpen);
+  sb.classList.toggle('collapsed',!sbOpen);
+  btn.classList.toggle('collapsed',!sbOpen);
   btn.textContent = sbOpen ? '◀' : '▶';
 }
-if (window.innerWidth <= 640) {
+if (window.innerWidth<=640) {
   document.getElementById('sidebar').classList.add('collapsed');
   document.getElementById('sb-toggle').classList.add('collapsed');
   document.getElementById('sb-toggle').textContent = '▶';
