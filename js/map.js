@@ -137,12 +137,24 @@ function selectIsland(island) {
       pm.addListener('click', () => showPortInfo(port));
       portMarkers.push(pm);
 
-      // Dotted polyline
+      // Build path: departure port → via stops → island
+      const viaCoords = (route.via_ports || []).map(id => {
+        if (id.startsWith('PORT_')) {
+          const p = portById[id];
+          return p ? { lat: p.lat, lng: p.lng } : null;
+        }
+        const isl = FERRY_ISLANDS.find(i => i.id === id);
+        return isl ? { lat: isl.lat, lng: isl.lng } : null;
+      }).filter(Boolean);
+
+      const routePath = [
+        { lat: port.lat, lng: port.lng },
+        ...viaCoords,
+        { lat: island.lat, lng: island.lng },
+      ];
+
       const line = new google.maps.Polyline({
-        path: [
-          { lat: island.lat, lng: island.lng },
-          { lat: port.lat, lng: port.lng },
-        ],
+        path: routePath,
         geodesic: true,
         strokeColor: island.color,
         strokeOpacity: 0,

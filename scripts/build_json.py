@@ -128,6 +128,9 @@ ISLAND_COORDS = {
     'ISL_123': (32.4571, 139.7641),  # 青ヶ島
     'ISL_121': (24.8140, 125.3056),  # 宮古島
     'ISL_122': (24.4710, 124.2385),  # 石垣島
+    'ISL_124': (34.0500, 132.9833),  # 岡村島
+    'ISL_125': (34.1333, 132.9833),  # 大下島
+    'ISL_126': (34.1167, 132.9700),  # 小大下島
 }
 
 REGION_COLORS = {
@@ -190,6 +193,7 @@ for r in ports_raw:
 # Routes
 routes = []
 for r in routes_raw:
+    via_str = r.get('via_ports', '')
     routes.append({
         'id': r['route_id'],
         'island_id': r['island_id'],
@@ -199,6 +203,7 @@ for r in routes_raw:
         'ferry': r['ferry_name'],
         'type': r['car_ferry_type'],
         'notes': r['notes'],
+        'via_ports': [v for v in via_str.split(',') if v],
     })
 
 # Pricing (keyed by company)
