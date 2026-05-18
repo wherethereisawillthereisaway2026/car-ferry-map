@@ -1,243 +1,465 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>カーフェリー離島マップ｜ハイエースで行ける島 全国完全版</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カーフェリー航路マップ</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+#app { display: flex; height: 100vh; overflow: hidden; }
 
-    /* ===== LAYOUT ===== */
-    #app { display: flex; height: 100vh; overflow: hidden; }
-    #sidebar { width: 280px; min-width: 280px; background: #1a1a2e; color: #eee;
-               display: flex; flex-direction: column; z-index: 100; transition: width .3s; }
-    #sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
-    #map-wrap { flex: 1; position: relative; }
-    #map { width: 100%; height: 100%; }
+/* SIDEBAR */
+#sidebar { width: 280px; min-width: 280px; background: #0d1b2a; color: #eee;
+           display: flex; flex-direction: column; z-index: 100; transition: width .3s; }
+#sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
+#sb-toggle { position: fixed; top: 50%; left: 280px; transform: translateY(-50%);
+             z-index: 200; background: #0d1b2a; color: #eee; border: none;
+             width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
+             font-size: 11px; transition: left .3s; }
+#sb-toggle.collapsed { left: 0; }
 
-    /* ===== TOGGLE BUTTON ===== */
-    #sb-toggle { position: fixed; top: 50%; left: 280px; transform: translateY(-50%);
-                 z-index: 200; background: #1a1a2e; color: #eee; border: none;
-                 width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
-                 font-size: 11px; transition: left .3s; }
-    #sb-toggle.collapsed { left: 0; }
+#sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #222; }
+#sb-header h1 { font-size: 15px; font-weight: 700; color: #5bc8fa; line-height: 1.4; }
+#sb-header p  { font-size: 11px; color: #888; margin-top: 4px; }
 
-    /* ===== SIDEBAR HEADER ===== */
-    #sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #333; }
-    #sb-header h1 { font-size: 14px; font-weight: 700; color: #64b5f6; line-height: 1.4; }
-    #sb-header .vehicle { font-size: 11px; color: #aaa; margin-top: 4px; }
-    #sb-header .vehicle b { color: #ffcc80; }
+#search-wrap { padding: 8px 10px; }
+#search { width: 100%; padding: 6px 10px; border-radius: 20px;
+          border: none; background: #1e2d3d; color: #eee; font-size: 13px; outline: none; }
+#search::placeholder { color: #666; }
 
-    /* ===== SEARCH ===== */
-    #search-wrap { padding: 8px 10px; }
-    #search { width: 100%; padding: 6px 10px; border-radius: 20px;
-              border: none; background: #2d2d44; color: #eee; font-size: 13px; outline: none; }
-    #search::placeholder { color: #888; }
+#port-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+#port-list::-webkit-scrollbar { width: 4px; }
+#port-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
-    /* ===== REGION FILTER ===== */
-    #region-filter { padding: 6px 10px; display: flex; flex-wrap: wrap; gap: 4px; }
-    .chip { padding: 3px 8px; border-radius: 12px; font-size: 11px; cursor: pointer;
-            background: transparent; color: #aaa; border: 1px solid #555; transition: all .15s; }
-    .chip.active { background: #64b5f6; color: #1a1a2e; border-color: #64b5f6; font-weight: 700; }
+.pitem { padding: 6px 12px; cursor: pointer; font-size: 12px; transition: background .1s;
+         display: flex; align-items: center; gap: 6px; }
+.pitem:hover { background: #1e2d3d; }
+.pitem.active { background: #1a3a5c; }
+.pname { flex: 1; }
+.ppref { font-size: 10px; color: #666; }
+.pdot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-    /* ===== ISLAND LIST ===== */
-    #island-list { flex: 1; overflow-y: auto; padding: 4px 0; }
-    #island-list::-webkit-scrollbar { width: 4px; }
-    #island-list::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
-    .list-item { display: flex; align-items: center; padding: 5px 12px;
-                 cursor: pointer; transition: background .1s; gap: 6px; }
-    .list-item:hover { background: #2d2d44; }
-    .list-item.freight_only { opacity: 0.6; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .iname { font-size: 13px; flex: 1; }
-    .ipref { font-size: 11px; color: #888; }
+/* MAP */
+#map-wrap { flex: 1; position: relative; }
+#map { width: 100%; height: 100%; }
 
-    /* ===== LEGEND ===== */
-    #legend { padding: 8px 12px; border-top: 1px solid #333; font-size: 11px; color: #999; }
-    .leg { display: flex; gap: 10px; flex-wrap: wrap; }
-    .leg-item { display: flex; align-items: center; gap: 4px; }
-    .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .leg-tri { width: 0; height: 0; border-left: 5px solid transparent;
-               border-right: 5px solid transparent; border-bottom: 10px solid #999; }
+/* INFO PANEL */
+#info-panel { position: fixed; top: 0; right: -380px; width: 360px; height: 100%;
+              background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,.18);
+              z-index: 150; transition: right .28s ease;
+              display: flex; flex-direction: column; }
+#info-panel.open { right: 0; }
+.ph { padding: 12px 14px 10px; background: #0d1b2a; flex-shrink: 0; position: relative; }
+.ph-name { font-size: 17px; font-weight: 700; color: #fff; padding-right: 32px; }
+.ph-meta { font-size: 11px; color: #89c4e1; margin-top: 3px; }
+.ph-close { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.12);
+            border: none; font-size: 18px; color: #ccc; width: 28px; height: 28px;
+            border-radius: 50%; cursor: pointer; line-height: 28px; text-align: center; }
 
-    /* ===== INFO PANEL (right side panel) ===== */
-    #info-panel { position: fixed; top: 0; right: -380px; width: 360px; height: 100%;
-                  background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,.18);
-                  z-index: 150; transition: right .28s cubic-bezier(.4,0,.2,1);
-                  display: flex; flex-direction: column; }
-    #info-panel.open { right: 0; }
+.pb { overflow-y: auto; flex: 1; padding-bottom: 16px; }
+.pb::-webkit-scrollbar { width: 4px; }
+.pb::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
 
-    .panel-header { padding: 12px 14px 10px; border-bottom: 1px solid #e8eaf6;
-                    background: #1a1a2e; flex-shrink: 0; position: relative; }
-    .close-btn { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.12);
-                 border: none; font-size: 18px; cursor: pointer; color: #ccc;
-                 width: 28px; height: 28px; border-radius: 50%; line-height: 28px;
-                 text-align: center; transition: background .15s; }
-    .close-btn:hover { background: rgba(255,255,255,.25); }
-    .island-title { display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-                    padding-right: 36px; }
-    .island-name { font-size: 18px; font-weight: 700; color: #fff; }
-    .island-kana { font-size: 12px; color: #aab; }
-    .island-meta { font-size: 11px; color: #889; margin-top: 2px; }
-    .island-notes { font-size: 11px; color: #ffcc80; margin-top: 2px; }
+.sec-title { font-size: 11px; font-weight: 700; color: #999; padding: 10px 14px 4px;
+             letter-spacing: .06em; text-transform: uppercase; }
 
-    .panel-body { overflow-y: auto; flex: 1; }
-    .panel-body::-webkit-scrollbar { width: 4px; }
-    .panel-body::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+.comp-row { display: flex; align-items: center; gap: 8px; padding: 7px 14px;
+            border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background .1s; }
+.comp-row:hover { background: #f5f7fa; }
+.comp-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.comp-name { font-size: 13px; flex: 1; }
+.comp-badge { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
+.comp-badge.car { background: #e3f2fd; color: #1565c0; }
+.comp-badge.pass { background: #f3e5f5; color: #6a1b9a; }
+.comp-toggle { font-size: 11px; color: #aaa; margin-left: 4px; }
+.comp-chain { padding: 4px 14px 8px 34px; font-size: 11px; color: #555;
+              border-bottom: 1px solid #f5f5f5; display: none; }
+.comp-chain.open { display: block; }
+.chain-line { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-bottom: 3px; }
+.chain-port { background: #f0f4f8; padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+.chain-arrow { color: #aaa; font-size: 10px; }
+.comp-link { display: inline-block; margin-top: 4px; font-size: 11px; color: #1565c0;
+             text-decoration: none; background: #e8f0fe; padding: 2px 6px; border-radius: 4px; }
 
-    .routes-title { font-size: 12px; font-weight: 700; color: #777; padding: 8px 14px 4px;
-                    letter-spacing: .05em; text-transform: uppercase; }
+/* LOADING */
+#loading { position: fixed; inset: 0; background: rgba(13,27,42,.85); z-index: 999;
+           display: flex; align-items: center; justify-content: center; color: #fff;
+           font-size: 14px; flex-direction: column; gap: 12px; }
+.spinner { width: 36px; height: 36px; border: 3px solid rgba(255,255,255,.2);
+           border-top-color: #5bc8fa; border-radius: 50%;
+           animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Route cards: compact accordion style */
-    .route-card { border-bottom: 1px solid #f0f0f0; }
-    .route-card-header { display: flex; align-items: center; gap: 8px;
-                         padding: 9px 14px; cursor: pointer; transition: background .12s;
-                         user-select: none; }
-    .route-card-header:hover { background: #f5f7ff; }
-    .route-card-header.expanded { background: #f0f4ff; }
-    .port-name { font-size: 13px; font-weight: 700; color: #1565c0; flex: 1; min-width: 0; }
-    .port-price-badge { font-size: 12px; font-weight: 600; color: #2e7d32; white-space: nowrap; }
-    .port-price-badge.unknown { color: #999; }
-    .expand-icon { font-size: 11px; color: #aaa; transition: transform .2s; flex-shrink: 0; }
-    .route-card-header.expanded .expand-icon { transform: rotate(180deg); }
+/* MAP OVERLAY */
+#overlay { position: absolute; top: 10px; left: 10px; z-index: 50;
+           background: rgba(13,27,42,.82); color: #fff; padding: 7px 12px;
+           border-radius: 8px; font-size: 11px; pointer-events: none; line-height: 1.6; }
+#overlay b { color: #5bc8fa; display: block; font-size: 13px; }
 
-    .route-card-body { padding: 0 14px 10px 14px; display: none; background: #f8faff;
-                       font-size: 12px; }
-    .route-card-body.open { display: block; }
-    .arr-port { color: #333; margin-bottom: 3px; }
-    .company { color: #555; }
-    .ferry-name { color: #888; font-size: 11px; }
-    .route-note { color: #e65100; font-size: 11px; margin-top: 2px; }
-
-    .price-info { margin-top: 6px; padding: 6px 8px; background: #fff;
-                  border-radius: 6px; border: 1px solid #e8f0fe; }
-    .price-info b { font-size: 13px; color: #1b5e20; }
-    .h-ok { color: #2e7d32; font-size: 11px; margin-left: 4px; }
-    .h-ng { color: #b71c1c; font-size: 11px; margin-left: 4px; }
-    .h-unk { color: #e65100; font-size: 11px; margin-left: 4px; }
-    .price-note { font-size: 10px; color: #888; margin-top: 2px; line-height: 1.4; }
-    .no-price { color: #bbb; }
-    .src-link { display: inline-block; margin-top: 4px; font-size: 11px;
-                color: #1565c0; text-decoration: none; background: #e8f0fe;
-                padding: 2px 6px; border-radius: 4px; }
-    .src-link:hover { background: #c5d8ff; }
-
-    .pricing-footer { margin: 10px 14px 14px; padding: 8px 10px; background: #fff8e1;
-                      border-radius: 8px; font-size: 10px; color: #795548; line-height: 1.5; }
-
-    /* ===== BADGES ===== */
-    .badge { display: inline-block; padding: 2px 7px; border-radius: 10px;
-             font-size: 11px; font-weight: 600; }
-    .badge.ok { background: #e8f5e9; color: #2e7d32; }
-    .badge.cond { background: #fff8e1; color: #e65100; }
-    .badge.freight { background: #fce4ec; color: #880e4f; }
-    .badge.passenger { background: #e1f5fe; color: #0277bd; }
-
-    /* ===== TRANSPORT MODE FILTER ===== */
-    #mode-filter { padding: 6px 10px 2px; display: flex; gap: 4px; }
-    .mode-chip { padding: 3px 10px; border-radius: 12px; font-size: 11px; cursor: pointer;
-                 background: transparent; color: #aaa; border: 1px solid #555; transition: all .15s; }
-    .mode-chip.active { background: #64b5f6; color: #1a1a2e; border-color: #64b5f6; font-weight: 700; }
-
-    /* passenger_only island list item */
-    .list-item.passenger_only .dot { border: 2px solid currentColor; background: transparent !important; }
-
-    /* ===== MAP OVERLAY ===== */
-    #map-title { position: absolute; top: 10px; left: 10px; z-index: 50;
-                 background: rgba(26,26,46,0.85); color: #fff; padding: 8px 14px;
-                 border-radius: 8px; font-size: 12px; pointer-events: none; }
-    #map-title b { color: #64b5f6; display: block; font-size: 14px; margin-bottom: 2px; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 640px) {
-      #sidebar { width: 0; min-width: 0; overflow: hidden; }
-      #sidebar.open { width: 260px; min-width: 260px; position: fixed; height: 100%; z-index: 300; }
-      #sb-toggle { left: 0; }
-      #sb-toggle.open { left: 260px; }
-      #info-panel { width: 100%; right: -100%; border-radius: 16px 16px 0 0;
-                    top: auto; bottom: 0; height: 70vh; }
-      #info-panel.open { right: 0; }
-    }
-  </style>
+@media (max-width: 640px) {
+  #sidebar { width: 0; min-width: 0; }
+  #sidebar.open { width: 260px; min-width: 260px; position: fixed; height: 100%; z-index: 300; }
+  #sb-toggle { left: 0; }
+  #sb-toggle.open { left: 260px; }
+  #info-panel { width: 100%; right: -100%; top: auto; bottom: 0; height: 70vh;
+                border-radius: 16px 16px 0 0; }
+  #info-panel.open { right: 0; }
+}
+</style>
 </head>
 <body>
-<div id="app">
+<div id="loading"><div class="spinner"></div><div>データ読み込み中...</div></div>
 
-  <!-- ===== SIDEBAR ===== -->
+<div id="app">
   <div id="sidebar">
     <div id="sb-header">
-      <h1>🚢 カーフェリー<br>離島マップ</h1>
-      <div class="vehicle">
-        対象車両: <b>ハイエース ワイドボディ</b><br>
-        490cm × 190cm × <b style="color:#ff8f00">高さ220cm</b>
-      </div>
+      <h1>⚓ カーフェリー航路マップ</h1>
+      <p>港をクリック → 航路を表示</p>
     </div>
     <div id="search-wrap">
-      <input id="search" type="text" placeholder="島を検索（例: 壱岐、やくしま）">
+      <input id="search" type="text" placeholder="港を検索...">
     </div>
-    <div id="mode-filter">
-      <button class="mode-chip active" data-mode="all" onclick="setTransportMode('all')">🚢 全て</button>
-      <button class="mode-chip" data-mode="car" onclick="setTransportMode('car')">🚗 カーフェリー</button>
-      <button class="mode-chip" data-mode="passenger" onclick="setTransportMode('passenger')">👤 旅客船</button>
-    </div>
-    <div id="region-filter"></div>
-    <div id="island-list"></div>
-    <div id="legend">
-      <div class="leg">
-        <div class="leg-item"><div class="leg-dot" style="background:#888"></div>マイカーOK</div>
-        <div class="leg-item"><div class="leg-tri"></div>条件付き</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#ccc"></div>貨物扱い</div>
-        <div class="leg-item"><div class="leg-dot" style="border:2px solid #888;background:transparent"></div>旅客のみ</div>
-        <div class="leg-item">
-          <svg width="12" height="12"><polygon points="6,1 11,11 1,11" fill="#FF6F00"/></svg>
-          出港地（⚓）
-        </div>
-      </div>
-    </div>
+    <div id="port-list"></div>
   </div>
 
-  <!-- ===== TOGGLE BUTTON ===== -->
   <button id="sb-toggle" onclick="toggleSidebar()">◀</button>
 
-  <!-- ===== MAP ===== -->
   <div id="map-wrap">
     <div id="map"></div>
-    <div id="map-title">
-      <b>カーフェリーで行ける島 全120島</b>
-      島をクリック → 出港地（⚓）と航路（点線）を表示
+    <div id="overlay">
+      <b>カーフェリー航路マップ</b>
+      港アイコンをクリック → 航路が表示されます
     </div>
   </div>
-
 </div>
 
-<!-- ===== INFO PANEL ===== -->
-<div id="info-panel"></div>
+<div id="info-panel">
+  <div class="ph">
+    <div class="ph-name" id="ph-name">-</div>
+    <div class="ph-meta" id="ph-meta"></div>
+    <button class="ph-close" onclick="closePanel()">✕</button>
+  </div>
+  <div class="pb" id="pb"></div>
+</div>
 
-<!-- ===== DATA + SCRIPTS ===== -->
-<script src="data/ferry_data.js"></script>
-<script src="js/map.js"></script>
 <script>
-  let sbOpen = true;
+const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
+const CSV_BASE = `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv&gid=`;
+const ROUTES_GID = '466317895';
+const PORTS_GID = '958244978';
+const COMPANIES_GID = '1143602536';
 
-  function toggleSidebar() {
-    const sb = document.getElementById('sidebar');
-    const btn = document.getElementById('sb-toggle');
-    const panel = document.getElementById('info-panel');
-    sbOpen = !sbOpen;
-    sb.classList.toggle('collapsed', !sbOpen);
-    btn.classList.toggle('collapsed', !sbOpen);
-    btn.textContent = sbOpen ? '◀' : '▶';
-    panel.classList.toggle('sidebar-collapsed', !sbOpen);
+const PALETTE = [
+  '#1565c0','#00838f','#2e7d32','#6a1b9a','#c62828',
+  '#e65100','#37474f','#1b5e20','#880e4f','#004d40',
+  '#0d47a1','#33691e','#b71c1c','#4a148c','#006064',
+  '#01579b','#558b2f','#827717','#bf360c','#4e342e'
+];
+const compColor = {};
+
+let D = null;
+let map;
+const markerMap = {};
+const activeLines = [];
+
+function getColor(compId) {
+  if (!compColor[compId]) {
+    compColor[compId] = PALETTE[Object.keys(compColor).length % PALETTE.length];
+  }
+  return compColor[compId];
+}
+
+// CSV パーサー（RFC4180準拠・ダブルクォート対応）
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const result = [];
+  for (const line of lines) {
+    if (!line.trim()) continue;
+    const row = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (inQ) {
+        if (c === '"' && line[i+1] === '"') { cur += '"'; i++; }
+        else if (c === '"') { inQ = false; }
+        else { cur += c; }
+      } else {
+        if (c === '"') { inQ = true; }
+        else if (c === ',') { row.push(cur); cur = ''; }
+        else { cur += c; }
+      }
+    }
+    row.push(cur);
+    result.push(row);
+  }
+  return result;
+}
+
+function buildData(routesText, portsText, compsText) {
+  // PORTS
+  const portsRows = parseCSV(portsText);
+  const ports = {};
+  for (let i = 1; i < portsRows.length; i++) {
+    const [pid, name, loc, pref, region, lat, lng] = portsRows[i];
+    if (!pid || !lat || !lng || isNaN(parseFloat(lat))) continue;
+    ports[pid] = { id: pid, name, location: loc, pref, region,
+                   lat: parseFloat(lat), lng: parseFloat(lng) };
   }
 
-  // Mobile: sidebar closed by default
-  if (window.innerWidth <= 640) {
-    sbOpen = false;
-    document.getElementById('sidebar').classList.add('collapsed');
-    document.getElementById('sb-toggle').classList.add('collapsed');
-    document.getElementById('sb-toggle').textContent = '▶';
+  // COMPANIES
+  const compsRows = parseCSV(compsText);
+  const companies = {};
+  for (let i = 1; i < compsRows.length; i++) {
+    const [cid, cname, url, note] = compsRows[i];
+    if (!cid) continue;
+    companies[cid] = { id: cid, name: cname, url: url || '', note: note || '' };
   }
+
+  // ROUTES → segments
+  const routesRows = parseCSV(routesText);
+  const seen = {};
+  for (let i = 1; i < routesRows.length; i++) {
+    const [rid, cid, dep, arr, carFerry, status, note] = routesRows[i];
+    if (!dep || !arr || !ports[dep] || !ports[arr]) continue;
+    const car = String(carFerry).toUpperCase() === 'TRUE';
+    const key = cid + '|' + (dep < arr ? dep + '|' + arr : arr + '|' + dep);
+    if (!seen[key]) {
+      seen[key] = { comp_id: cid, port_a: dep, port_b: arr,
+                    is_car_ferry: car, note: note || '', route_ids: [] };
+    }
+    seen[key].route_ids.push(rid);
+  }
+  const segments = Object.values(seen);
+
+  // インデックス構築
+  const comp_segments = {}, port_companies = {};
+  segments.forEach((seg, i) => {
+    (comp_segments[seg.comp_id] = comp_segments[seg.comp_id] || []).push(i);
+    [seg.port_a, seg.port_b].forEach(p => {
+      (port_companies[p] = port_companies[p] || new Set()).add(seg.comp_id);
+    });
+  });
+  Object.keys(port_companies).forEach(k => port_companies[k] = [...port_companies[k]].sort());
+
+  return { ports, companies, segments, comp_segments, port_companies };
+}
+
+async function loadData() {
+  const [routesText, portsText, compsText] = await Promise.all([
+    fetch(CSV_BASE + ROUTES_GID).then(r => r.text()),
+    fetch(CSV_BASE + PORTS_GID).then(r => r.text()),
+    fetch(CSV_BASE + COMPANIES_GID).then(r => r.text()),
+  ]);
+  D = buildData(routesText, portsText, compsText);
+}
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 33.5, lng: 132.0 },
+    zoom: 5,
+    mapTypeId: 'roadmap',
+    mapTypeControl: true,
+    streetViewControl: false,
+    fullscreenControl: true,
+    gestureHandling: 'greedy',
+    styles: [{ featureType: 'water', stylers: [{ color: '#a8d5e5' }] }]
+  });
+
+  loadData().then(() => {
+    document.getElementById('loading').style.display = 'none';
+    renderPorts();
+    renderPortList();
+  }).catch(err => {
+    document.getElementById('loading').innerHTML =
+      `<div style="color:#f66">データ読み込み失敗<br>${err.message}</div>`;
+  });
+}
+
+function portIcon(hasRoute) {
+  const color = hasRoute ? '#1565c0' : '#888';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+    <circle cx="10" cy="10" r="7" fill="${color}" stroke="white" stroke-width="2"/>
+  </svg>`;
+  return {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+    scaledSize: new google.maps.Size(20, 20),
+    anchor: new google.maps.Point(10, 10),
+  };
+}
+
+function renderPorts() {
+  Object.values(D.ports).forEach(p => {
+    const hasRoute = !!D.port_companies[p.id];
+    const marker = new google.maps.Marker({
+      position: { lat: p.lat, lng: p.lng },
+      map,
+      title: p.name,
+      icon: portIcon(hasRoute),
+      zIndex: hasRoute ? 2 : 1,
+    });
+    if (hasRoute) marker.addListener('click', () => selectPort(p.id));
+    markerMap[p.id] = marker;
+  });
+}
+
+function renderPortList(filter = '') {
+  const list = document.getElementById('port-list');
+  const lc = filter.toLowerCase();
+  const items = Object.values(D.ports)
+    .filter(p => D.port_companies[p.id])
+    .filter(p => !lc || p.name.toLowerCase().includes(lc)
+                      || p.location.toLowerCase().includes(lc)
+                      || p.pref.toLowerCase().includes(lc))
+    .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
+
+  list.innerHTML = items.map(p => `
+    <div class="pitem" data-id="${p.id}" onclick="selectPort('${p.id}')">
+      <div class="pdot" style="background:${getCompGroupColor(p.id)}"></div>
+      <div class="pname">${p.name}</div>
+      <div class="ppref">${p.pref}</div>
+    </div>`).join('');
+}
+
+function getCompGroupColor(portId) {
+  const comps = D.port_companies[portId] || [];
+  return comps.length ? getColor(comps[0]) : '#888';
+}
+
+document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
+
+function selectPort(portId) {
+  clearLines();
+  const port = D.ports[portId];
+  if (!port) return;
+
+  Object.values(markerMap).forEach(m => m.setZIndex(1));
+  if (markerMap[portId]) markerMap[portId].setZIndex(10);
+  document.querySelectorAll('.pitem').forEach(el =>
+    el.classList.toggle('active', el.dataset.id === portId));
+
+  document.getElementById('ph-name').textContent = port.name;
+  document.getElementById('ph-meta').textContent = `${port.location}  ${port.pref}`;
+
+  const compIds = D.port_companies[portId] || [];
+  const pb = document.getElementById('pb');
+  pb.innerHTML = '<div class="sec-title">この港の航路（会社別）</div>';
+
+  compIds.forEach(cid => {
+    const comp = D.companies[cid] || { name: cid, url: '' };
+    const color = getColor(cid);
+    const segs = (D.comp_segments[cid] || []).map(i => D.segments[i]);
+    const carFerry = segs.some(s => s.is_car_ferry);
+    const chains = buildChains(segs);
+
+    const chainHtml = chains.map(chain =>
+      `<div class="chain-line">${chain.map(pid => {
+        const p = D.ports[pid];
+        return `<span class="chain-port">${p ? p.name : pid}</span>`;
+      }).join('<span class="chain-arrow">→</span>')}</div>`
+    ).join('');
+
+    const linkHtml = comp.url
+      ? `<a class="comp-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
+
+    const rowId = 'comp-' + cid;
+    pb.innerHTML += `
+      <div class="comp-row" onclick="toggleChain('${rowId}')">
+        <div class="comp-color" style="background:${color}"></div>
+        <div class="comp-name">${comp.name}</div>
+        <span class="comp-badge ${carFerry ? 'car' : 'pass'}">${carFerry ? 'カーフェリー' : '旅客船'}</span>
+        <span class="comp-toggle">▼</span>
+      </div>
+      <div class="comp-chain" id="${rowId}">${chainHtml}${linkHtml}</div>`;
+
+    drawCompLines(segs, color);
+  });
+
+  document.getElementById('info-panel').classList.add('open');
+  map.panTo({ lat: port.lat, lng: port.lng });
+}
+
+function toggleChain(rowId) {
+  const el = document.getElementById(rowId);
+  el.classList.toggle('open');
+  const toggle = el.previousElementSibling.querySelector('.comp-toggle');
+  if (toggle) toggle.textContent = el.classList.contains('open') ? '▲' : '▼';
+}
+
+function buildChains(segs) {
+  const adj = {};
+  segs.forEach(s => {
+    (adj[s.port_a] = adj[s.port_a] || []).push(s.port_b);
+    (adj[s.port_b] = adj[s.port_b] || []).push(s.port_a);
+  });
+  const visited = new Set();
+  const chains = [];
+  const ports = new Set(segs.flatMap(s => [s.port_a, s.port_b]));
+  const endpoints = [...ports].filter(p => adj[p].length === 1);
+  const starts = endpoints.length ? endpoints : [...ports];
+
+  for (const start of starts) {
+    if (visited.has(start)) continue;
+    const chain = [];
+    let cur = start;
+    while (cur && !visited.has(cur)) {
+      visited.add(cur);
+      chain.push(cur);
+      cur = (adj[cur] || []).find(n => !visited.has(n)) || null;
+    }
+    if (chain.length >= 2) chains.push(chain);
+  }
+  return chains;
+}
+
+function drawCompLines(segs, color) {
+  const drawn = new Set();
+  segs.forEach(seg => {
+    const key = [seg.port_a, seg.port_b].sort().join('|');
+    if (drawn.has(key)) return;
+    drawn.add(key);
+    const pa = D.ports[seg.port_a], pb = D.ports[seg.port_b];
+    if (!pa || !pb) return;
+    const line = new google.maps.Polyline({
+      path: [{ lat: pa.lat, lng: pa.lng }, { lat: pb.lat, lng: pb.lng }],
+      geodesic: true,
+      strokeColor: color,
+      strokeOpacity: 0,
+      icons: [{ icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
+                offset: '0', repeat: '20px' }],
+      strokeWeight: 2,
+      map,
+    });
+    activeLines.push(line);
+  });
+}
+
+function clearLines() {
+  activeLines.forEach(l => l.setMap(null));
+  activeLines.length = 0;
+}
+
+function closePanel() {
+  document.getElementById('info-panel').classList.remove('open');
+  clearLines();
+  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
+}
+
+let sbOpen = true;
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const btn = document.getElementById('sb-toggle');
+  sbOpen = !sbOpen;
+  sb.classList.toggle('collapsed', !sbOpen);
+  btn.classList.toggle('collapsed', !sbOpen);
+  btn.textContent = sbOpen ? '◀' : '▶';
+}
+if (window.innerWidth <= 640) {
+  document.getElementById('sidebar').classList.add('collapsed');
+  document.getElementById('sb-toggle').classList.add('collapsed');
+  document.getElementById('sb-toggle').textContent = '▶';
+  sbOpen = false;
+}
 </script>
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja"
