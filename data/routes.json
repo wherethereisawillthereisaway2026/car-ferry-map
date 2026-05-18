@@ -250,7 +250,9 @@
     "ferry": "橘丸",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [
+      "ISL_016"
+    ]
   },
   {
     "id": "RTE_024",
@@ -261,7 +263,10 @@
     "ferry": "橘丸",
     "type": "yes",
     "notes": "",
-    "via_ports": []
+    "via_ports": [
+      "ISL_016",
+      "ISL_017"
+    ]
   },
   {
     "id": "RTE_025",
