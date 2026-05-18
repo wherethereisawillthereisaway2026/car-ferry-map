@@ -1370,28 +1370,6 @@
     "via_ports": []
   },
   {
-    "id": "RTE_121",
-    "island_id": "ISL_095",
-    "port_id": "PORT_053",
-    "arrival_port": "請島港",
-    "company": "瀬戸内町",
-    "ferry": "せとなみ",
-    "type": "yes",
-    "notes": "",
-    "via_ports": []
-  },
-  {
-    "id": "RTE_122",
-    "island_id": "ISL_096",
-    "port_id": "PORT_053",
-    "arrival_port": "与路島港",
-    "company": "瀬戸内町",
-    "ferry": "せとなみ",
-    "type": "yes",
-    "notes": "",
-    "via_ports": []
-  },
-  {
     "id": "RTE_123",
     "island_id": "ISL_097",
     "port_id": "PORT_051",

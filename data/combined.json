@@ -4086,64 +4086,6 @@
       }
     ]
   },
-  "ISL_095": {
-    "id": "ISL_095",
-    "name": "請島",
-    "kana": "うけしま",
-    "region": "奄美",
-    "pref": "鹿児島県",
-    "type": "yes",
-    "notes": "小型フェリー。車両航送可",
-    "lat": 28.0301,
-    "lng": 129.2327,
-    "color": "#6D4C41",
-    "routes": [
-      {
-        "id": "RTE_121",
-        "island_id": "ISL_095",
-        "port_id": "PORT_053",
-        "arrival_port": "請島港",
-        "company": "瀬戸内町",
-        "ferry": "せとなみ",
-        "type": "yes",
-        "notes": "",
-        "via_ports": [],
-        "port_name": "古仁屋港",
-        "port_lat": 28.2,
-        "port_lng": 129.3,
-        "pricing": []
-      }
-    ]
-  },
-  "ISL_096": {
-    "id": "ISL_096",
-    "name": "与路島",
-    "kana": "よろしま",
-    "region": "奄美",
-    "pref": "鹿児島県",
-    "type": "yes",
-    "notes": "小型フェリー。車両航送可",
-    "lat": 28.0415,
-    "lng": 129.1572,
-    "color": "#6D4C41",
-    "routes": [
-      {
-        "id": "RTE_122",
-        "island_id": "ISL_096",
-        "port_id": "PORT_053",
-        "arrival_port": "与路島港",
-        "company": "瀬戸内町",
-        "ferry": "せとなみ",
-        "type": "yes",
-        "notes": "",
-        "via_ports": [],
-        "port_name": "古仁屋港",
-        "port_lat": 28.2,
-        "port_lng": 129.3,
-        "pricing": []
-      }
-    ]
-  },
   "ISL_097": {
     "id": "ISL_097",
     "name": "徳之島",
