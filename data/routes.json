@@ -1979,6 +1979,72 @@
     "via_ports": []
   },
   {
+    "id": "RTE_176",
+    "island_id": "ISL_093",
+    "port_id": "PORT_070",
+    "arrival_port": "喜界港",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい/フェリーあまみ",
+    "type": "yes",
+    "notes": "名瀬→喜界島方向（北行き）",
+    "via_ports": []
+  },
+  {
+    "id": "RTE_177",
+    "island_id": "ISL_093",
+    "port_id": "PORT_053",
+    "arrival_port": "喜界港",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい/フェリーあまみ",
+    "type": "yes",
+    "notes": "古仁屋→名瀬→喜界島方向（北行き）",
+    "via_ports": [
+      "PORT_070"
+    ]
+  },
+  {
+    "id": "RTE_178",
+    "island_id": "ISL_093",
+    "port_id": "PORT_079",
+    "arrival_port": "喜界港",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい/フェリーあまみ",
+    "type": "yes",
+    "notes": "平土野→古仁屋→名瀬→喜界島方向（北行き）",
+    "via_ports": [
+      "PORT_053",
+      "PORT_070"
+    ]
+  },
+  {
+    "id": "RTE_179",
+    "island_id": "ISL_092",
+    "port_id": "PORT_051",
+    "arrival_port": "名瀬港",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい/フェリーあまみ",
+    "type": "yes",
+    "notes": "鹿児島→喜界島→名瀬（奄美海運ルート）",
+    "via_ports": [
+      "ISL_093"
+    ]
+  },
+  {
+    "id": "RTE_180",
+    "island_id": "ISL_097",
+    "port_id": "PORT_051",
+    "arrival_port": "平土野港（徳之島）",
+    "company": "奄美海運",
+    "ferry": "フェリーきかい/フェリーあまみ",
+    "type": "yes",
+    "notes": "鹿児島→喜界→名瀬→古仁屋→平土野（徳之島）",
+    "via_ports": [
+      "ISL_093",
+      "PORT_070",
+      "PORT_053"
+    ]
+  },
+  {
     "id": "RTE_172",
     "island_id": "ISL_124",
     "port_id": "PORT_029",
