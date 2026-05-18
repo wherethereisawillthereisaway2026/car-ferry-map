@@ -673,7 +673,9 @@
         "ferry": "",
         "type": "yes",
         "notes": "",
-        "via_ports": [],
+        "via_ports": [
+          "ISL_011"
+        ],
         "port_name": "東京港（竹芝）",
         "port_lat": 35.65,
         "port_lng": 139.7583,
@@ -714,7 +716,10 @@
         "ferry": "",
         "type": "yes",
         "notes": "",
-        "via_ports": [],
+        "via_ports": [
+          "ISL_011",
+          "ISL_012"
+        ],
         "port_name": "東京港（竹芝）",
         "port_lat": 35.65,
         "port_lng": 139.7583,
@@ -770,7 +775,11 @@
         "ferry": "",
         "type": "yes",
         "notes": "",
-        "via_ports": [],
+        "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013"
+        ],
         "port_name": "東京港（竹芝）",
         "port_lat": 35.65,
         "port_lng": 139.7583,
@@ -811,7 +820,12 @@
         "ferry": "",
         "type": "yes",
         "notes": "",
-        "via_ports": [],
+        "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013",
+          "ISL_014"
+        ],
         "port_name": "東京港（竹芝）",
         "port_lat": 35.65,
         "port_lng": 139.7583,
@@ -867,7 +881,13 @@
         "ferry": "橘丸",
         "type": "yes",
         "notes": "",
-        "via_ports": [],
+        "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013",
+          "ISL_014",
+          "ISL_015"
+        ],
         "port_name": "東京港（竹芝）",
         "port_lat": 35.65,
         "port_lng": 139.7583,
@@ -909,6 +929,11 @@
         "type": "yes",
         "notes": "",
         "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013",
+          "ISL_014",
+          "ISL_015",
           "ISL_016"
         ],
         "port_name": "東京港（竹芝）",
@@ -952,6 +977,11 @@
         "type": "yes",
         "notes": "",
         "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013",
+          "ISL_014",
+          "ISL_015",
           "ISL_016",
           "ISL_017"
         ],
@@ -1011,6 +1041,11 @@
         "type": "yes",
         "notes": "八丈島乗り換え必須。竹芝→八丈島（橘丸）→青ヶ島（あおがしま丸）",
         "via_ports": [
+          "ISL_011",
+          "ISL_012",
+          "ISL_013",
+          "ISL_014",
+          "ISL_015",
           "ISL_016",
           "ISL_017",
           "ISL_018"
