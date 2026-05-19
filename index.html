@@ -304,7 +304,8 @@ function openPortDetail(portId) {
       const mkGoogle = (f,t) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(f)}&destination=${encodeURIComponent(t)}&travelmode=transit`;
       const adjIds = [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))];
       const chainText = adjIds.map(adjId => {
-        const pn = D.ports[portId]?.name||portId, an = D.ports[adjId]?.name||adjId;
+        const label = id => { const p = D.ports[id]; return p ? `${p.name}（${p.location}）` : id; };
+        const pn = label(portId), an = label(adjId);
         const mkRow = (f,t) => `<div class="pd-transit-row"><span class="pd-transit-seg">${f} → ${t}</span>`
           +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
           +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a></div>`;
