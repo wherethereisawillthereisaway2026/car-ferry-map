@@ -335,11 +335,12 @@ function openPortDetail(portId) {
   // サイドバーが閉じていれば開く
   if (!sbOpen) toggleSidebar();
 
-  // 航路描画
+  // 航路描画（選択港に直接接続するセグメントのみ）
   clearLines();
   activeComps.clear();
   compIds.forEach(cid => {
-    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+      .filter(s => s.port_a === portId || s.port_b === portId);
     drawCompLines(segs, getColor(cid));
     activeComps.add(cid);
   });
@@ -359,7 +360,8 @@ function showPortList() {
 }
 
 function toggleCompLine(cid, portId) {
-  const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+  const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+    .filter(s => s.port_a === portId || s.port_b === portId);
   const color = getColor(cid);
   const compEl = document.getElementById(`pd-comp-${cid}`);
   const chainEl = document.getElementById(`pd-chain-${cid}`);
@@ -370,7 +372,8 @@ function toggleCompLine(cid, portId) {
     if (chainEl) chainEl.classList.remove('open');
     clearLines();
     activeComps.forEach(c => {
-      const s = (D.comp_segments[c]||[]).map(i=>D.segments[i]);
+      const s = (D.comp_segments[c]||[]).map(i=>D.segments[i])
+        .filter(seg => seg.port_a === portId || seg.port_b === portId);
       drawCompLines(s, getColor(c));
     });
   } else {
