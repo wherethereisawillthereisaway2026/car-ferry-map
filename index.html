@@ -74,6 +74,10 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
             background: #f8faff; line-height: 1.6; display: none; border-bottom: 1px solid #eee; }
 .pd-chain.open { display: block; }
 .pd-link { display: block; font-size: 10px; color: #1a73e8; text-decoration: none; margin-top: 3px; }
+.pd-transit-btns { display: flex; gap: 5px; margin-top: 4px; flex-wrap: wrap; }
+.pd-transit-btn { font-size: 10px; padding: 2px 7px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
+.pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
+.pd-transit-btn.google { background: #4285f4; color: #fff; }
 
 /* MAP */
 #map-wrap { flex: 1; position: relative; }
@@ -290,9 +294,20 @@ function openPortDetail(portId) {
       const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
       const carFerry = segs.some(s=>s.is_car_ferry);
       const chains = buildChains(segs);
-      const chainText = chains.map(ch =>
-        ch.map(pid => D.ports[pid]?.name || pid).join(' → ')
-      ).join('<br>');
+      const chainText = chains.map(ch => {
+        const names = ch.map(pid => D.ports[pid]?.name || pid);
+        const from = names[0], to = names[names.length - 1];
+        const now = new Date();
+        const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0');
+        const d = String(now.getDate()).padStart(2,'0'), hh = String(now.getHours()).padStart(2,'0');
+        const yahooUrl = `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=0&m2=0`;
+        const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(from)}&destination=${encodeURIComponent(to)}&travelmode=transit`;
+        return `<div>${names.join(' → ')}</div>`
+          + `<div class="pd-transit-btns">`
+          + `<a class="pd-transit-btn yahoo" href="${yahooUrl}" target="_blank">Yahoo乗換</a>`
+          + `<a class="pd-transit-btn google" href="${googleUrl}" target="_blank">Googleマップ</a>`
+          + `</div>`;
+      }).join('');
       const linkHtml = comp.url
         ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
       return `
