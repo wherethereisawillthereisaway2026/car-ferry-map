@@ -379,7 +379,13 @@ function buildChains(segs) {
       visited.add(cur); chain.push(cur);
       cur = (adj[cur]||[]).find(n=>!visited.has(n))||null;
     }
-    if (chain.length >= 2) chains.push(chain);
+    if (chain.length >= 2) {
+      chains.push(chain);
+    } else if (chain.length === 1) {
+      // ハブ港に繋がるスタブ：訪問済み隣接ノードと2ノードチェーンを作る
+      const nb = (adj[chain[0]]||[]).find(n=>visited.has(n));
+      if (nb) chains.push([chain[0], nb]);
+    }
   }
   return chains;
 }
