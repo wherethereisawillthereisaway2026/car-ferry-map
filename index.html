@@ -207,7 +207,7 @@ function buildData(routesText, portsText, compsText) {
   const seen = {};
   parseCSV(routesText).slice(1).forEach(([rid,cid,dep,arr,carFerry,status,note]) => {
     if (!dep||!arr||!ports[dep]||!ports[arr]) return;
-    const car = String(carFerry).toUpperCase()==='TRUE';
+    const car = String(carFerry).toUpperCase()==='TRUE' || String(carFerry).trim()==='1';
     const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
     if (!seen[key]) seen[key] = { comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:car, note:note||'', route_ids:[] };
     seen[key].route_ids.push(rid);
