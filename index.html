@@ -297,10 +297,12 @@ function openPortDetail(portId) {
       const chainText = chains.map(ch => {
         const names = ch.map(pid => D.ports[pid]?.name || pid);
         const from = names[0], to = names[names.length - 1];
+        const clean = s => s.replace(/[（(][^)）]*[)）]/g, '').trim();
         const now = new Date();
         const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0');
         const d = String(now.getDate()).padStart(2,'0'), hh = String(now.getHours()).padStart(2,'0');
-        const yahooUrl = `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=0&m2=0`;
+        const m1 = Math.floor(now.getMinutes() / 10), m2 = now.getMinutes() % 10;
+        const yahooUrl = `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(clean(from))}&to=${encodeURIComponent(clean(to))}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
         const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(from)}&destination=${encodeURIComponent(to)}&travelmode=transit`;
         return `<div>${names.join(' → ')}</div>`
           + `<div class="pd-transit-btns">`
