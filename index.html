@@ -80,6 +80,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 .pd-transit-btn { font-size: 10px; padding: 2px 7px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
 .pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
 .pd-transit-btn.google { background: #4285f4; color: #fff; }
+.pd-divider { border: none; border-top: 1px dashed #ccc; margin: 5px 0 2px; }
 
 /* MAP */
 #map-wrap { flex: 1; position: relative; }
@@ -314,7 +315,7 @@ function openPortDetail(portId) {
           +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
           +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a>`
           +`</div></div>`;
-        return mkRow(pn,an) + mkRow(an,pn);
+        return mkRow(pn,an) + mkRow(an,pn) + '<hr class="pd-divider">';
       }).join('');
       const linkHtml = comp.url
         ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
