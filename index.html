@@ -10,78 +10,83 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 #app { display: flex; height: 100vh; overflow: hidden; }
 
 /* SIDEBAR */
-#sidebar { width: 280px; min-width: 280px; background: #0d1b2a; color: #eee;
-           display: flex; flex-direction: column; z-index: 100; transition: width .3s; }
+#sidebar { width: 280px; min-width: 280px; background: #fff; color: #333;
+           display: flex; flex-direction: column; z-index: 100;
+           transition: width .3s; border-right: 1px solid #ddd; }
 #sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
 #sb-toggle { position: fixed; top: 50%; left: 280px; transform: translateY(-50%);
-             z-index: 200; background: #0d1b2a; color: #eee; border: none;
-             width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
-             font-size: 11px; transition: left .3s; }
+             z-index: 200; background: #fff; color: #666; border: 1px solid #ddd;
+             width: 18px; height: 48px; cursor: pointer; border-radius: 0 6px 6px 0;
+             font-size: 10px; transition: left .3s; box-shadow: 2px 0 4px rgba(0,0,0,.08); }
 #sb-toggle.collapsed { left: 0; }
-#sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #222; }
-#sb-header h1 { font-size: 15px; font-weight: 700; color: #5bc8fa; line-height: 1.4; }
-#sb-header p  { font-size: 11px; color: #888; margin-top: 4px; }
-#search-wrap { padding: 8px 10px; }
+#sb-header { padding: 12px 12px 8px; border-bottom: 1px solid #eee; background: #f8f9fa; flex-shrink: 0; }
+#sb-header h1 { font-size: 14px; font-weight: 700; color: #1a73e8; line-height: 1.4; }
+#search-wrap { padding: 8px 10px; flex-shrink: 0; border-bottom: 1px solid #eee; }
 #search { width: 100%; padding: 6px 10px; border-radius: 20px;
-          border: none; background: #1e2d3d; color: #eee; font-size: 13px; outline: none; }
-#search::placeholder { color: #666; }
+          border: 1px solid #ddd; background: #f5f5f5; color: #333;
+          font-size: 13px; outline: none; }
+#search:focus { border-color: #1a73e8; background: #fff; }
+#search::placeholder { color: #aaa; }
+
+/* PORT LIST */
 #port-list { flex: 1; overflow-y: auto; padding: 4px 0; }
 #port-list::-webkit-scrollbar { width: 4px; }
-#port-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+#port-list::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
 .region-header { padding: 7px 12px 5px; font-size: 10px; font-weight: 700;
-                 color: #5bc8fa; letter-spacing: .08em; cursor: pointer;
+                 color: #1a73e8; letter-spacing: .06em; cursor: pointer;
                  display: flex; align-items: center; gap: 4px;
-                 border-top: 1px solid #1a2a3a; user-select: none; }
+                 border-top: 1px solid #eee; user-select: none; }
 .region-header:first-child { border-top: none; }
-.region-count { font-size: 10px; color: #556; margin-left: 3px; font-weight: 400; }
-.region-arrow { margin-left: auto; font-size: 11px; color: #778; transition: transform .15s; }
+.region-count { font-size: 10px; color: #aaa; margin-left: 3px; font-weight: 400; }
+.region-arrow { margin-left: auto; font-size: 11px; color: #aaa; }
 .region-list.collapsed { display: none; }
-.pitem { padding: 5px 12px 5px 20px; cursor: pointer; font-size: 12px; transition: background .1s;
-         display: flex; align-items: center; gap: 6px; }
-.pitem:hover { background: #1e2d3d; }
-.pitem.active { background: #1a3a5c; }
-.pname { flex: 1; }
-.ppref { font-size: 10px; color: #556; }
+.pitem { padding: 5px 12px 5px 20px; cursor: pointer; font-size: 12px;
+         transition: background .1s; display: flex; align-items: center; gap: 6px; }
+.pitem:hover { background: #f0f4ff; }
+.pitem.active { background: #e8f0fe; }
+.pname { flex: 1; color: #333; }
+.ppref { font-size: 10px; color: #aaa; }
 .pdot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+/* PORT DETAIL (サイドバー内詳細パネル) */
+#port-detail { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+#pd-header { padding: 10px 12px; background: #1a73e8; color: #fff; flex-shrink: 0; }
+#pd-back { background: none; border: none; color: rgba(255,255,255,.85); cursor: pointer;
+           font-size: 11px; padding: 0 0 6px; display: flex; align-items: center; gap: 4px; }
+#pd-back:hover { color: #fff; }
+#pd-name { font-size: 15px; font-weight: 700; }
+#pd-meta { font-size: 11px; color: rgba(255,255,255,.8); margin-top: 2px; }
+#pd-body { flex: 1; overflow-y: auto; padding: 8px 0; }
+#pd-body::-webkit-scrollbar { width: 4px; }
+#pd-body::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+.pd-sec { font-size: 10px; font-weight: 700; color: #999; padding: 8px 12px 4px;
+          letter-spacing: .06em; text-transform: uppercase; }
+.pd-comp { display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+           cursor: pointer; transition: background .1s; border-radius: 0; }
+.pd-comp:hover { background: #f0f4ff; }
+.pd-comp.active { background: #e8f0fe; }
+.pd-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.pd-cname { font-size: 12px; flex: 1; color: #333; }
+.pd-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
+.pd-badge.car  { background: #e3f2fd; color: #1565c0; }
+.pd-badge.pass { background: #f3e5f5; color: #6a1b9a; }
+.pd-chain { font-size: 11px; color: #555; padding: 4px 12px 6px 28px;
+            background: #f8faff; line-height: 1.6; display: none; border-bottom: 1px solid #eee; }
+.pd-chain.open { display: block; }
+.pd-link { display: block; font-size: 10px; color: #1a73e8; text-decoration: none; margin-top: 3px; }
 
 /* MAP */
 #map-wrap { flex: 1; position: relative; }
 #map { width: 100%; height: 100%; }
 
-/* INFO WINDOW カスタムスタイル */
-.iw-wrap { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; min-width: 220px; max-width: 300px; }
-.iw-header { padding: 10px 12px 8px; background: #0d1b2a; margin: -12px -16px 0; border-radius: 4px 4px 0 0; }
-.iw-name { display: block; font-size: 15px; font-weight: 700; color: #fff; }
-.iw-meta { display: block; font-size: 11px; color: #89c4e1; margin-top: 2px; }
-.iw-sec  { font-size: 10px; font-weight: 700; color: #999; padding: 8px 0 4px;
-           letter-spacing: .06em; text-transform: uppercase; }
-.iw-comp { display: flex; align-items: center; gap: 6px; padding: 5px 6px;
-           border-radius: 6px; cursor: pointer; transition: background .1s; margin-bottom: 2px; }
-.iw-comp:hover { background: #f0f4ff; }
-.iw-comp.active { background: #e8f0fe; }
-.iw-dot  { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
-.iw-cname { font-size: 12px; flex: 1; }
-.iw-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
-.iw-badge.car  { background: #e3f2fd; color: #1565c0; }
-.iw-badge.pass { background: #f3e5f5; color: #6a1b9a; }
-.iw-chain { font-size: 10px; color: #555; padding: 3px 6px 4px; background: #f8faff;
-            border-radius: 4px; margin-bottom: 4px; display: none; line-height: 1.5; }
-.iw-chain.open { display: block; }
-
 /* LOADING */
-#loading { position: fixed; inset: 0; background: rgba(13,27,42,.85); z-index: 999;
-           display: flex; align-items: center; justify-content: center; color: #fff;
+#loading { position: fixed; inset: 0; background: rgba(255,255,255,.9); z-index: 999;
+           display: flex; align-items: center; justify-content: center; color: #555;
            font-size: 14px; flex-direction: column; gap: 12px; }
-.spinner { width: 36px; height: 36px; border: 3px solid rgba(255,255,255,.2);
-           border-top-color: #5bc8fa; border-radius: 50%;
+.spinner { width: 36px; height: 36px; border: 3px solid #eee;
+           border-top-color: #1a73e8; border-radius: 50%;
            animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* MAP OVERLAY */
-#overlay { position: absolute; top: 10px; left: 10px; z-index: 50;
-           background: rgba(13,27,42,.82); color: #fff; padding: 7px 12px;
-           border-radius: 8px; font-size: 11px; pointer-events: none; line-height: 1.6; }
-#overlay b { color: #5bc8fa; display: block; font-size: 13px; }
 
 @media (max-width: 640px) {
   #sidebar { width: 0; min-width: 0; }
@@ -98,22 +103,27 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
   <div id="sidebar">
     <div id="sb-header">
       <h1>⚓ カーフェリー航路マップ</h1>
-      <p>港をクリック → 航路を表示</p>
     </div>
     <div id="search-wrap">
       <input id="search" type="text" placeholder="港を検索...">
     </div>
     <div id="port-list"></div>
+
+    <!-- 詳細パネル（港クリック時に表示） -->
+    <div id="port-detail">
+      <div id="pd-header">
+        <button id="pd-back" onclick="showPortList()">← 港一覧</button>
+        <div id="pd-name"></div>
+        <div id="pd-meta"></div>
+      </div>
+      <div id="pd-body"></div>
+    </div>
   </div>
 
   <button id="sb-toggle" onclick="toggleSidebar()">◀</button>
 
   <div id="map-wrap">
     <div id="map"></div>
-    <div id="overlay">
-      <b>カーフェリー航路マップ</b>
-      港アイコンをクリック → 航路が表示されます
-    </div>
   </div>
 </div>
 
@@ -134,12 +144,11 @@ function getColor(cid) {
   return compColor[cid];
 }
 
-let D = null, map, infoWin = null;
+let D = null, map;
 const markerMap = {};
 const activeLines = [];
-const activeComps = new Set(); // 現在表示中のcomp_id
+const activeComps = new Set();
 
-// CSV パーサー
 function parseCSV(text) {
   const rows = [];
   for (const line of text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n')) {
@@ -225,7 +234,6 @@ function initMap() {
     gestureHandling:'greedy',
     styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
   });
-  infoWin = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: false });
 
   loadData().then(() => {
     document.getElementById('loading').style.display = 'none';
@@ -233,12 +241,12 @@ function initMap() {
     renderPortList();
   }).catch(err => {
     document.getElementById('loading').innerHTML =
-      `<div style="color:#f66">データ読み込み失敗<br>${err.message}</div>`;
+      `<div style="color:#c00">データ読み込み失敗<br>${err.message}</div>`;
   });
 }
 
 function portIcon(hasRoute) {
-  const color = hasRoute ? '#1565c0' : '#888';
+  const color = hasRoute ? '#1565c0' : '#aaa';
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
     <circle cx="10" cy="10" r="7" fill="${color}" stroke="white" stroke-width="2"/>
   </svg>`;
@@ -253,94 +261,99 @@ function renderPorts() {
       position:{lat:p.lat,lng:p.lng}, map, title:p.name,
       icon:portIcon(hasRoute), zIndex:hasRoute?2:1
     });
-    if (hasRoute) marker.addListener('click', () => openInfoWin(p.id, marker));
+    if (hasRoute) marker.addListener('click', () => openPortDetail(p.id));
     markerMap[p.id] = marker;
   });
 }
 
-// ---- Info Window ----
-function openInfoWin(portId, marker) {
+// ---- サイドバー詳細表示 ----
+function openPortDetail(portId) {
   const port = D.ports[portId];
   if (!port) return;
 
-  // サイドバーのアクティブ状態
+  // マーカーのアクティブ状態
   document.querySelectorAll('.pitem').forEach(el =>
     el.classList.toggle('active', el.dataset.id === portId));
 
   const compIds = D.port_companies[portId] || [];
 
-  const compsHtml = compIds.map(cid => {
-    const comp = D.companies[cid] || {name:cid, url:''};
-    const color = getColor(cid);
-    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
-    const carFerry = segs.some(s=>s.is_car_ferry);
-    const chains = buildChains(segs);
-    const chainText = chains.map(ch =>
-      ch.map(pid => D.ports[pid]?.name || pid).join(' → ')
-    ).join('<br>');
-    const linkHtml = comp.url
-      ? `<a href="${comp.url}" target="_blank" style="font-size:10px;color:#1565c0;text-decoration:none;">公式サイト ↗</a>`
-      : '';
+  // ヘッダー
+  document.getElementById('pd-name').textContent = port.name;
+  document.getElementById('pd-meta').textContent = `${port.location}　${port.pref}`;
 
-    return `
-      <div class="iw-comp" id="iw-comp-${cid}" onclick="toggleCompLine('${cid}','${portId}')">
-        <div class="iw-dot" style="background:${color}"></div>
-        <div class="iw-cname">${comp.name}</div>
-        <span class="iw-badge ${carFerry?'car':'pass'}">${carFerry?'カーフェリー':'旅客船'}</span>
-      </div>
-      <div class="iw-chain" id="iw-chain-${cid}">${chainText}${linkHtml?'<br>'+linkHtml:''}</div>`;
-  }).join('');
+  // 航路リスト
+  const body = document.getElementById('pd-body');
+  body.innerHTML = `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
+    compIds.map(cid => {
+      const comp = D.companies[cid] || {name:cid, url:''};
+      const color = getColor(cid);
+      const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+      const carFerry = segs.some(s=>s.is_car_ferry);
+      const chains = buildChains(segs);
+      const chainText = chains.map(ch =>
+        ch.map(pid => D.ports[pid]?.name || pid).join(' → ')
+      ).join('<br>');
+      const linkHtml = comp.url
+        ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
+      return `
+        <div class="pd-comp active" id="pd-comp-${cid}" onclick="toggleCompLine('${cid}','${portId}')">
+          <div class="pd-dot" style="background:${color}"></div>
+          <div class="pd-cname">${comp.name}</div>
+          <span class="pd-badge ${carFerry?'car':'pass'}">${carFerry?'カーフェリー':'旅客船'}</span>
+        </div>
+        <div class="pd-chain open" id="pd-chain-${cid}">${chainText}${linkHtml}</div>`;
+    }).join('');
 
-  const html = `<div class="iw-wrap">
-    <div class="iw-header">
-      <span class="iw-name">${port.name}</span>
-      <span class="iw-meta">${port.location}　${port.pref}</span>
-    </div>
-    <div style="padding:0 2px 4px">
-      <div class="iw-sec">この港の航路（クリックで表示）</div>
-      ${compsHtml}
-    </div>
-  </div>`;
+  // 詳細パネルを表示
+  document.getElementById('port-list').style.display = 'none';
+  document.getElementById('search-wrap').style.display = 'none';
+  document.getElementById('port-detail').style.display = 'flex';
 
-  infoWin.setContent(html);
-  infoWin.open(map, marker);
+  // サイドバーが閉じていれば開く
+  if (!sbOpen) toggleSidebar();
 
-  // 前の航路をクリア
+  // 航路描画
   clearLines();
   activeComps.clear();
-
-  // 全会社の航路を自動表示
   compIds.forEach(cid => {
     const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
     drawCompLines(segs, getColor(cid));
     activeComps.add(cid);
-    const compEl = document.getElementById(`iw-comp-${cid}`);
-    if (compEl) compEl.classList.add('active');
   });
+
+  // 地図を移動
+  map.panTo({lat:port.lat, lng:port.lng});
+  if (map.getZoom() < 7) map.setZoom(7);
+}
+
+function showPortList() {
+  document.getElementById('port-detail').style.display = 'none';
+  document.getElementById('port-list').style.display = '';
+  document.getElementById('search-wrap').style.display = '';
+  clearLines();
+  activeComps.clear();
+  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
 }
 
 function toggleCompLine(cid, portId) {
   const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
   const color = getColor(cid);
-  const compEl = document.getElementById(`iw-comp-${cid}`);
-  const chainEl = document.getElementById(`iw-chain-${cid}`);
+  const compEl = document.getElementById(`pd-comp-${cid}`);
+  const chainEl = document.getElementById(`pd-chain-${cid}`);
 
   if (activeComps.has(cid)) {
-    // 非表示: この会社の線だけ消す（他社の線は残す）
     activeComps.delete(cid);
     if (compEl) compEl.classList.remove('active');
     if (chainEl) chainEl.classList.remove('open');
-    // 全線クリアして再描画
     clearLines();
     activeComps.forEach(c => {
       const s = (D.comp_segments[c]||[]).map(i=>D.segments[i]);
       drawCompLines(s, getColor(c));
     });
   } else {
-    // 表示
     activeComps.add(cid);
     if (compEl) compEl.classList.add('active');
-    if (chainEl) chainEl.classList.toggle('open');
+    if (chainEl) chainEl.classList.add('open');
     drawCompLines(segs, color);
   }
 }
@@ -439,7 +452,6 @@ function renderPortList(filter='') {
     const r = p.region || 'その他';
     (byRegion[r] = byRegion[r] || []).push(p);
   });
-  // 北緯降順（北から南）
   Object.values(byRegion).forEach(arr => arr.sort((a,b) => b.lat - a.lat));
 
   const order = [...REGION_ORDER, ...Object.keys(byRegion).filter(r => !REGION_ORDER.includes(r))];
@@ -471,12 +483,7 @@ function toggleRegion(rid) {
 }
 
 function selectPortSidebar(portId) {
-  const port = D.ports[portId];
-  if (!port) return;
-  map.panTo({lat:port.lat,lng:port.lng});
-  map.setZoom(Math.max(map.getZoom(),7));
-  const marker = markerMap[portId];
-  if (marker) openInfoWin(portId, marker);
+  openPortDetail(portId);
 }
 
 document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
