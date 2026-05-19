@@ -74,7 +74,8 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
             background: #f8faff; line-height: 1.6; display: none; border-bottom: 1px solid #eee; }
 .pd-chain.open { display: block; }
 .pd-link { display: block; font-size: 10px; color: #1a73e8; text-decoration: none; margin-top: 3px; }
-.pd-transit-btns { display: flex; gap: 5px; margin-top: 4px; flex-wrap: wrap; }
+.pd-transit-row { display: flex; align-items: center; gap: 5px; margin-top: 3px; flex-wrap: wrap; }
+.pd-transit-seg { font-size: 11px; color: #444; flex: 1; min-width: 0; }
 .pd-transit-btn { font-size: 10px; padding: 2px 7px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
 .pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
 .pd-transit-btn.google { background: #4285f4; color: #fff; }
@@ -293,22 +294,21 @@ function openPortDetail(portId) {
       const color = getColor(cid);
       const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
       const carFerry = segs.some(s=>s.is_car_ferry);
-      const chains = buildChains(segs).filter(ch => ch.includes(portId));
-      const chainText = chains.map(ch => {
-        const names = ch.map(pid => D.ports[pid]?.name || pid);
-        const from = names[0], to = names[names.length - 1];
-        const clean = s => s.replace(/[（(][^)）]*[)）]/g, '').trim();
-        const now = new Date();
-        const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0');
-        const d = String(now.getDate()).padStart(2,'0'), hh = String(now.getHours()).padStart(2,'0');
-        const m1 = Math.floor(now.getMinutes() / 10), m2 = now.getMinutes() % 10;
-        const yahooUrl = `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(clean(from))}&to=${encodeURIComponent(clean(to))}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
-        const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(from)}&destination=${encodeURIComponent(to)}&travelmode=transit`;
-        return `<div>${names.join(' → ')}</div>`
-          + `<div class="pd-transit-btns">`
-          + `<a class="pd-transit-btn yahoo" href="${yahooUrl}" target="_blank">Yahoo乗換</a>`
-          + `<a class="pd-transit-btn google" href="${googleUrl}" target="_blank">Googleマップ</a>`
-          + `</div>`;
+      // 選択港に直接繋がる隣接港を抽出（往復ボタン用）
+      const clean = s => s.replace(/[（(][^)）]*[)）]/g, '').trim();
+      const now = new Date();
+      const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0');
+      const d = String(now.getDate()).padStart(2,'0'), hh = String(now.getHours()).padStart(2,'0');
+      const m1 = Math.floor(now.getMinutes() / 10), m2 = now.getMinutes() % 10;
+      const mkYahoo = (f,t) => `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(clean(f))}&to=${encodeURIComponent(clean(t))}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
+      const mkGoogle = (f,t) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(f)}&destination=${encodeURIComponent(t)}&travelmode=transit`;
+      const adjIds = [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))];
+      const chainText = adjIds.map(adjId => {
+        const pn = D.ports[portId]?.name||portId, an = D.ports[adjId]?.name||adjId;
+        const mkRow = (f,t) => `<div class="pd-transit-row"><span class="pd-transit-seg">${f} → ${t}</span>`
+          +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
+          +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a></div>`;
+        return mkRow(pn,an) + mkRow(an,pn);
       }).join('');
       const linkHtml = comp.url
         ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
