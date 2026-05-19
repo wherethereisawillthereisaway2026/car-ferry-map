@@ -293,7 +293,7 @@ function openPortDetail(portId) {
       const color = getColor(cid);
       const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
       const carFerry = segs.some(s=>s.is_car_ferry);
-      const chains = buildChains(segs);
+      const chains = buildChains(segs).filter(ch => ch.includes(portId));
       const chainText = chains.map(ch => {
         const names = ch.map(pid => D.ports[pid]?.name || pid);
         const from = names[0], to = names[names.length - 1];
