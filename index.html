@@ -344,7 +344,7 @@ function initMap() {
 
   let _poiIW = null;
   map.addListener('click', e => {
-    if (!e.placeId) return;
+    if (!e.placeId) { if (_poiIW) { _poiIW.close(); _poiIW = null; } return; }
     e.stop();
     if (_poiIW) { _poiIW.close(); _poiIW = null; }
     const iw = new google.maps.InfoWindow({ position: e.latLng });
