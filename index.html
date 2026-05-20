@@ -142,6 +142,13 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
   .bs-port-name  { font-size: 15px; font-weight: 700; color: #333; }
   .bs-port-meta  { font-size: 11px; color: #888; margin-top: 2px; }
   .bs-detail-hdr { padding: 10px 14px 8px; background: #f8f9fa; border-bottom: 1px solid #eee; }
+
+  /* スマホ一覧フォント拡大 */
+  #bs-list .region-header { font-size: 14px; padding: 10px 12px 8px; }
+  #bs-list .region-count  { font-size: 13px; }
+  #bs-list .region-arrow  { font-size: 22px; line-height: 1; }
+  #bs-list .pitem  { font-size: 15px; padding: 9px 12px 9px 22px; }
+  #bs-list .ppref  { font-size: 12px; }
 }
 </style>
 </head>
@@ -672,9 +679,27 @@ function syncBsList() {
   const bsList = document.getElementById('bs-list');
   if (bsList && window.innerWidth <= 640) {
     bsList.innerHTML = document.getElementById('port-list').innerHTML;
-    // bs-listのpitemクリックをスマホ用に上書き
+    // pitemクリックをスマホ用に上書き
     bsList.querySelectorAll('.pitem').forEach(el => {
       el.onclick = () => openPortDetail(el.dataset.id);
+    });
+    // region-headerのonclickをbs-list内で完結するよう上書き（IDが重複しているためgetElementByIdは使えない）
+    bsList.querySelectorAll('.region-header').forEach(headerEl => {
+      const arrowEl = headerEl.querySelector('.region-arrow');
+      const rid = arrowEl ? arrowEl.id.replace('-arrow', '') : null;
+      if (!rid) return;
+      const listEl = headerEl.nextElementSibling;
+      headerEl.onclick = () => {
+        const willOpen = listEl.classList.contains('collapsed');
+        listEl.classList.toggle('collapsed', !willOpen);
+        arrowEl.textContent = willOpen ? '▾' : '▸';
+        // port-list側も同期
+        const portArrow = document.getElementById(rid + '-arrow');
+        const portList  = document.getElementById(rid);
+        if (portList)  portList.classList.toggle('collapsed', !willOpen);
+        if (portArrow) portArrow.textContent = willOpen ? '▾' : '▸';
+        if (willOpen) openRegions.add(rid); else openRegions.delete(rid);
+      };
     });
   }
 }
