@@ -95,11 +95,50 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
            animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* BOTTOM SHEET (スマホ専用) */
+#bs-wrap { display: none; }
+
 @media (max-width: 640px) {
-  #sidebar { width: 0; min-width: 0; }
-  #sidebar.open { width: 260px; min-width: 260px; position: fixed; height: 100%; z-index: 300; }
-  #sb-toggle { left: 0; }
-  #sb-toggle.open { left: 260px; }
+  #sidebar   { display: none !important; }
+  #sb-toggle { display: none !important; }
+
+  #bs-wrap {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -3px 16px rgba(0,0,0,.18);
+    z-index: 300;
+    height: 72px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transition: height .25s cubic-bezier(.4,0,.2,1);
+    touch-action: none;
+  }
+  #bs-handle {
+    width: 40px; height: 4px; background: #ddd; border-radius: 2px;
+    margin: 9px auto 0; flex-shrink: 0; cursor: grab;
+  }
+  #bs-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 12px 7px; flex-shrink: 0;
+    border-bottom: 1px solid #eee;
+  }
+  #bs-back {
+    border: none; background: none; color: #1a73e8;
+    font-size: 13px; cursor: pointer; white-space: nowrap; padding: 0;
+  }
+  #bs-search {
+    flex: 1; border: 1px solid #ddd; border-radius: 20px;
+    padding: 6px 12px; font-size: 14px; outline: none;
+    background: #f5f5f5;
+  }
+  #bs-search:focus { border-color: #1a73e8; background: #fff; }
+  #bs-body {
+    flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  }
+  .bs-port-name  { font-size: 15px; font-weight: 700; color: #333; }
+  .bs-port-meta  { font-size: 11px; color: #888; margin-top: 2px; }
+  .bs-detail-hdr { padding: 10px 14px 8px; background: #f8f9fa; border-bottom: 1px solid #eee; }
 }
 </style>
 </head>
@@ -131,6 +170,19 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 
   <div id="map-wrap">
     <div id="map"></div>
+  </div>
+</div>
+
+<!-- スマホ専用ボトムシート -->
+<div id="bs-wrap">
+  <div id="bs-handle"></div>
+  <div id="bs-header">
+    <button id="bs-back" onclick="bsBack()" style="display:none">← 一覧</button>
+    <input id="bs-search" type="text" placeholder="港を検索...">
+  </div>
+  <div id="bs-body">
+    <div id="bs-list"></div>
+    <div id="bs-detail" style="display:none"></div>
   </div>
 </div>
 
@@ -247,6 +299,11 @@ function initMap() {
     document.getElementById('loading').style.display = 'none';
     renderPorts();
     renderPortList();
+    // スマホ: 初期表示をHALF状態に
+    if (window.innerWidth <= 640) {
+      document.getElementById('bs-wrap').style.height = bsPeek() + 'px';
+      setTimeout(() => snapBs(bsHalf()), 100);
+    }
   }).catch(err => {
     document.getElementById('loading').innerHTML =
       `<div style="color:#c00">データ読み込み失敗<br>${err.message}</div>`;
@@ -358,6 +415,20 @@ function openPortDetail(portId) {
   // 地図を移動
   map.panTo({lat:port.lat, lng:port.lng});
   if (map.getZoom() < 7) map.setZoom(7);
+
+  // スマホ: ボトムシートに詳細表示
+  if (window.innerWidth <= 640) {
+    const detailHtml = `<div class="bs-detail-hdr">
+      <div class="bs-port-name">${port.name}</div>
+      <div class="bs-port-meta">${port.location}　${port.pref}</div>
+    </div>` + document.getElementById('pd-body').innerHTML;
+    document.getElementById('bs-detail').innerHTML = detailHtml;
+    document.getElementById('bs-list').style.display = 'none';
+    document.getElementById('bs-detail').style.display = '';
+    document.getElementById('bs-back').style.display = '';
+    document.getElementById('bs-search').style.display = 'none';
+    snapBs(bsHalf());
+  }
 }
 
 function showPortList() {
@@ -512,6 +583,8 @@ function renderPortList(filter='') {
         ${ports.map(portItemHtml).join('')}
       </div>`;
     }).join('');
+
+  syncBsList();
 }
 
 function toggleRegion(rid) {
@@ -524,11 +597,90 @@ function toggleRegion(rid) {
   if (willOpen) openRegions.add(rid); else openRegions.delete(rid);
 }
 
+// スマホ: bs-listをport-listと同期
+function syncBsList() {
+  const bsList = document.getElementById('bs-list');
+  if (bsList && window.innerWidth <= 640) {
+    bsList.innerHTML = document.getElementById('port-list').innerHTML;
+    // bs-listのpitemクリックをスマホ用に上書き
+    bsList.querySelectorAll('.pitem').forEach(el => {
+      el.onclick = () => openPortDetail(el.dataset.id);
+    });
+  }
+}
+
 function selectPortSidebar(portId) {
   openPortDetail(portId);
 }
 
 document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
+
+// ---- ボトムシート ----
+const bsPeek = () => 72;
+const bsHalf = () => Math.round(window.innerHeight * 0.46);
+const bsFull = () => Math.round(window.innerHeight * 0.88);
+
+let bsCurH = bsPeek();
+
+function snapBs(targetH) {
+  const stages = [bsPeek(), bsHalf(), bsFull()];
+  bsCurH = stages.reduce((a, b) => Math.abs(b - targetH) < Math.abs(a - targetH) ? b : a);
+  const wrap = document.getElementById('bs-wrap');
+  wrap.style.transition = 'height .25s cubic-bezier(.4,0,.2,1)';
+  wrap.style.height = bsCurH + 'px';
+}
+
+function bsBack() {
+  document.getElementById('bs-list').style.display = '';
+  document.getElementById('bs-detail').style.display = 'none';
+  document.getElementById('bs-back').style.display = 'none';
+  document.getElementById('bs-search').style.display = '';
+  clearLines(); activeComps.clear();
+  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
+  snapBs(bsHalf());
+}
+
+// ドラッグ
+(function() {
+  const TARGETS = ['bs-handle','bs-header'];
+  let startY = 0, startH = 0, dragging = false;
+
+  function onStart(e) {
+    dragging = true;
+    startY = (e.touches ? e.touches[0].clientY : e.clientY);
+    startH = parseInt(document.getElementById('bs-wrap').style.height) || bsCurH;
+    document.getElementById('bs-wrap').style.transition = 'none';
+  }
+  function onMove(e) {
+    if (!dragging) return;
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    const newH = Math.max(bsPeek(), Math.min(bsFull(), startH - (y - startY)));
+    document.getElementById('bs-wrap').style.height = newH + 'px';
+    if (e.cancelable) e.preventDefault();
+  }
+  function onEnd(e) {
+    if (!dragging) return;
+    dragging = false;
+    const curH = parseInt(document.getElementById('bs-wrap').style.height) || bsCurH;
+    snapBs(curH);
+  }
+
+  TARGETS.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('touchstart', onStart, { passive: true });
+    el.addEventListener('touchmove',  onMove,  { passive: false });
+    el.addEventListener('touchend',   onEnd,   { passive: true });
+  });
+})();
+
+// bs-searchの入力
+document.getElementById('bs-search').addEventListener('input', e => {
+  renderPortList(e.target.value);
+  // bs-listにも反映
+  const bsList = document.getElementById('bs-list');
+  bsList.innerHTML = document.getElementById('port-list').innerHTML;
+});
 
 // ---- サイドバートグル ----
 let sbOpen = true;
