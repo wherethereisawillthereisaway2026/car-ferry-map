@@ -86,13 +86,6 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 #map-wrap { flex: 1; position: relative; }
 #map { width: 100%; height: 100%; }
 
-/* 地図上ラベル（InfoWindow最小化） */
-.gm-style .gm-style-iw-c { padding: 4px 8px !important; border-radius: 6px !important; box-shadow: 0 1px 6px rgba(0,0,0,.25) !important; }
-.gm-style .gm-style-iw-d { overflow: hidden !important; }
-.gm-style .gm-style-iw-t::after { display: none !important; }
-.gm-ui-hover-effect { display: none !important; }
-.map-label { font-size: 12px; font-weight: 700; color: #1a73e8; white-space: nowrap; line-height: 1.3; }
-.map-label.adj { color: #555; font-weight: 600; }
 .gm-fullscreen-control { display: none !important; }
 .gm-bundled-control { display: none !important; }
 
@@ -544,23 +537,60 @@ function clearLines() {
   activeLines.length = 0;
 }
 
+// --- 港名ラベル（OverlayView、白枠なし） ---
+class PortLabel extends google.maps.OverlayView {
+  constructor(position, text, isSelected) {
+    super();
+    this._pos = position;
+    this._text = text;
+    this._sel = isSelected;
+  }
+  onAdd() {
+    const d = document.createElement('div');
+    d.textContent = this._text;
+    d.style.cssText = [
+      'position:absolute',
+      'white-space:nowrap',
+      'pointer-events:none',
+      'font-family:\'Hiragino Sans\',\'Noto Sans JP\',sans-serif',
+      `font-size:${this._sel ? '13px' : '11px'}`,
+      `font-weight:${this._sel ? '700' : '600'}`,
+      `color:${this._sel ? '#1a73e8' : '#444'}`,
+      'text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff',
+      'transform:translate(-50%,-36px)',
+      'line-height:1',
+    ].join(';');
+    this._div = d;
+    this.getPanes().overlayLayer.appendChild(d);
+  }
+  draw() {
+    const p = this.getProjection().fromLatLngToDivPixel(this._pos);
+    if (!p) return;
+    this._div.style.left = p.x + 'px';
+    this._div.style.top  = p.y + 'px';
+  }
+  onRemove() {
+    if (this._div && this._div.parentNode) this._div.parentNode.removeChild(this._div);
+    this._div = null;
+  }
+}
+
 function clearLabels() {
-  activeLabels.forEach(iw => iw.close());
+  activeLabels.forEach(l => l.setMap(null));
   activeLabels.length = 0;
 }
 
 function showPortLabel(portId, isSelected) {
   const p = D.ports[portId];
-  const m = markerMap[portId];
-  if (!p || !m) return;
+  if (!p) return;
   const loc = p.location ? `（${p.location}）` : '';
-  const cls = isSelected ? 'map-label' : 'map-label adj';
-  const iw = new google.maps.InfoWindow({
-    content: `<div class="${cls}">${p.name}${loc}</div>`,
-    disableAutoPan: true,
-  });
-  iw.open(map, m);
-  activeLabels.push(iw);
+  const label = new PortLabel(
+    new google.maps.LatLng(p.lat, p.lng),
+    p.name + loc,
+    isSelected
+  );
+  label.setMap(map);
+  activeLabels.push(label);
 }
 
 // ---- サイドバー港リスト ----
