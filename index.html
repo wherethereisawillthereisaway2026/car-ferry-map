@@ -269,7 +269,16 @@ function renderPorts() {
       position:{lat:p.lat,lng:p.lng}, map, title:p.name,
       icon:portIcon(hasRoute), zIndex:hasRoute?2:1
     });
-    if (hasRoute) marker.addListener('click', () => openPortDetail(p.id));
+    if (hasRoute) {
+      marker.addListener('click', () => openPortDetail(p.id));
+    } else {
+      marker.addListener('click', () => {
+        const url = p.place_id
+          ? `https://www.google.com/maps/place/?q=place_id:${p.place_id}`
+          : `https://www.google.com/maps?q=${p.lat},${p.lng}`;
+        window.open(url, '_blank');
+      });
+    }
     markerMap[p.id] = marker;
   });
 }
