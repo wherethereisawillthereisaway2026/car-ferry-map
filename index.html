@@ -86,6 +86,14 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 #map-wrap { flex: 1; position: relative; }
 #map { width: 100%; height: 100%; }
 
+/* 地図上ラベル（InfoWindow最小化） */
+.gm-style .gm-style-iw-c { padding: 4px 8px !important; border-radius: 6px !important; box-shadow: 0 1px 6px rgba(0,0,0,.25) !important; }
+.gm-style .gm-style-iw-d { overflow: hidden !important; }
+.gm-style .gm-style-iw-t::after { display: none !important; }
+.gm-ui-hover-effect { display: none !important; }
+.map-label { font-size: 12px; font-weight: 700; color: #1a73e8; white-space: nowrap; line-height: 1.3; }
+.map-label.adj { color: #555; font-weight: 600; }
+
 /* LOADING */
 #loading { position: fixed; inset: 0; background: rgba(255,255,255,.9); z-index: 999;
            display: flex; align-items: center; justify-content: center; color: #555;
@@ -207,6 +215,7 @@ let D = null, map;
 const markerMap = {};
 const activeLines = [];
 const activeComps = new Set();
+const activeLabels = []; // 表示中のInfoWindow
 
 function parseCSV(text) {
   const rows = [];
@@ -289,7 +298,7 @@ async function loadData() {
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
-    mapTypeControl:true, streetViewControl:false, fullscreenControl:true,
+    mapTypeControl:false, streetViewControl:false, fullscreenControl:false,
     gestureHandling:'greedy',
     clickableIcons:false,
     styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
@@ -344,6 +353,8 @@ function renderPorts() {
 function openPortDetail(portId) {
   const port = D.ports[portId];
   if (!port) return;
+
+  clearLabels();
 
   // マーカーのアクティブ状態
   document.querySelectorAll('.pitem').forEach(el =>
@@ -413,8 +424,18 @@ function openPortDetail(portId) {
   });
 
   // 地図を移動
-  map.panTo({lat:port.lat, lng:port.lng});
-  if (map.getZoom() < 7) map.setZoom(7);
+
+  // 選択港と接続港のラベルを地図上に表示
+  showPortLabel(portId, true);
+  const adjPorts = new Set();
+  compIds.forEach(cid => {
+    (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+      .filter(s => s.port_a === portId || s.port_b === portId)
+      .forEach(s => {
+        adjPorts.add(s.port_a === portId ? s.port_b : s.port_a);
+      });
+  });
+  adjPorts.forEach(pid => showPortLabel(pid, false));
 
   // スマホ: ボトムシートに詳細表示
   if (window.innerWidth <= 640) {
@@ -435,7 +456,7 @@ function showPortList() {
   document.getElementById('port-detail').style.display = 'none';
   document.getElementById('port-list').style.display = '';
   document.getElementById('search-wrap').style.display = '';
-  clearLines();
+  clearLines(); clearLabels();
   activeComps.clear();
   document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
 }
@@ -519,6 +540,25 @@ function drawCompLines(segs, color) {
 function clearLines() {
   activeLines.forEach(l=>l.setMap(null));
   activeLines.length = 0;
+}
+
+function clearLabels() {
+  activeLabels.forEach(iw => iw.close());
+  activeLabels.length = 0;
+}
+
+function showPortLabel(portId, isSelected) {
+  const p = D.ports[portId];
+  const m = markerMap[portId];
+  if (!p || !m) return;
+  const loc = p.location ? `（${p.location}）` : '';
+  const cls = isSelected ? 'map-label' : 'map-label adj';
+  const iw = new google.maps.InfoWindow({
+    content: `<div class="${cls}">${p.name}${loc}</div>`,
+    disableAutoPan: true,
+  });
+  iw.open(map, m);
+  activeLabels.push(iw);
 }
 
 // ---- サイドバー港リスト ----
@@ -635,7 +675,7 @@ function bsBack() {
   document.getElementById('bs-detail').style.display = 'none';
   document.getElementById('bs-back').style.display = 'none';
   document.getElementById('bs-search').style.display = '';
-  clearLines(); activeComps.clear();
+  clearLines(); clearLabels(); activeComps.clear();
   document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
   snapBs(bsHalf());
 }
