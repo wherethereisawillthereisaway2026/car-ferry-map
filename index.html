@@ -210,7 +210,8 @@ let D = null, map;
 const markerMap = {};
 const activeLines = [];
 const activeComps = new Set();
-const activeLabels = []; // 表示中のInfoWindow
+const activeLabels = []; // 表示中のPortLabel
+let PortLabel; // Google Maps API読み込み後にinitMap内で定義
 
 function parseCSV(text) {
   const rows = [];
@@ -291,6 +292,38 @@ async function loadData() {
 }
 
 function initMap() {
+  // PortLabel: 白枠なし・テキストシャドウのカスタムオーバーレイ
+  PortLabel = class extends google.maps.OverlayView {
+    constructor(position, text, isSelected) {
+      super();
+      this._pos = position; this._text = text; this._sel = isSelected;
+    }
+    onAdd() {
+      const d = document.createElement('div');
+      d.textContent = this._text;
+      d.style.cssText = [
+        'position:absolute', 'white-space:nowrap', 'pointer-events:none',
+        'font-family:\'Hiragino Sans\',\'Noto Sans JP\',sans-serif',
+        `font-size:${this._sel ? '13px' : '11px'}`,
+        `font-weight:${this._sel ? '700' : '600'}`,
+        `color:${this._sel ? '#1a73e8' : '#444'}`,
+        'text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff',
+        'transform:translate(-50%,-36px)', 'line-height:1',
+      ].join(';');
+      this._div = d;
+      this.getPanes().overlayLayer.appendChild(d);
+    }
+    draw() {
+      const p = this.getProjection().fromLatLngToDivPixel(this._pos);
+      if (!p) return;
+      this._div.style.left = p.x + 'px'; this._div.style.top = p.y + 'px';
+    }
+    onRemove() {
+      if (this._div?.parentNode) this._div.parentNode.removeChild(this._div);
+      this._div = null;
+    }
+  };
+
   map = new google.maps.Map(document.getElementById('map'), {
     center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
     mapTypeControl:false, streetViewControl:false, fullscreenControl:false,
@@ -538,42 +571,7 @@ function clearLines() {
 }
 
 // --- 港名ラベル（OverlayView、白枠なし） ---
-class PortLabel extends google.maps.OverlayView {
-  constructor(position, text, isSelected) {
-    super();
-    this._pos = position;
-    this._text = text;
-    this._sel = isSelected;
-  }
-  onAdd() {
-    const d = document.createElement('div');
-    d.textContent = this._text;
-    d.style.cssText = [
-      'position:absolute',
-      'white-space:nowrap',
-      'pointer-events:none',
-      'font-family:\'Hiragino Sans\',\'Noto Sans JP\',sans-serif',
-      `font-size:${this._sel ? '13px' : '11px'}`,
-      `font-weight:${this._sel ? '700' : '600'}`,
-      `color:${this._sel ? '#1a73e8' : '#444'}`,
-      'text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff',
-      'transform:translate(-50%,-36px)',
-      'line-height:1',
-    ].join(';');
-    this._div = d;
-    this.getPanes().overlayLayer.appendChild(d);
-  }
-  draw() {
-    const p = this.getProjection().fromLatLngToDivPixel(this._pos);
-    if (!p) return;
-    this._div.style.left = p.x + 'px';
-    this._div.style.top  = p.y + 'px';
-  }
-  onRemove() {
-    if (this._div && this._div.parentNode) this._div.parentNode.removeChild(this._div);
-    this._div = null;
-  }
-}
+// PortLabel は initMap() 内で定義（google.maps.OverlayView 継承のため）
 
 function clearLabels() {
   activeLabels.forEach(l => l.setMap(null));
