@@ -491,9 +491,6 @@ function openPortDetail(portId) {
     activeComps.add(cid);
   });
 
-  // 地図を移動
-  map.panTo({lat: port.lat, lng: port.lng});
-  if (map.getZoom() < 10) map.setZoom(11);
 
   // 選択港と接続港のラベルを地図上に表示
   showPortLabel(portId, true);
