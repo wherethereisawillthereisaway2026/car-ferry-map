@@ -301,22 +301,25 @@ async function loadData() {
 function initMap() {
   // PortLabel: 白枠なし・テキストシャドウのカスタムオーバーレイ
   PortLabel = class extends google.maps.OverlayView {
-    constructor(position, text, isSelected) {
+    constructor(position, text, isSelected, gmUrl) {
       super();
-      this._pos = position; this._text = text; this._sel = isSelected;
+      this._pos = position; this._text = text; this._sel = isSelected; this._url = gmUrl||null;
     }
     onAdd() {
       const d = document.createElement('div');
       d.textContent = this._text;
       d.style.cssText = [
-        'position:absolute', 'white-space:nowrap', 'pointer-events:none',
+        'position:absolute', 'white-space:nowrap',
+        `pointer-events:${this._sel && this._url ? 'auto' : 'none'}`,
         'font-family:\'Hiragino Sans\',\'Noto Sans JP\',sans-serif',
         `font-size:${this._sel ? '13px' : '11px'}`,
         `font-weight:${this._sel ? '700' : '600'}`,
         `color:${this._sel ? '#1a73e8' : '#444'}`,
         'text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff',
         'transform:translate(-50%,-36px)', 'line-height:1',
+        this._sel && this._url ? 'cursor:pointer;text-decoration:underline' : '',
       ].join(';');
+      if (this._sel && this._url) d.addEventListener('click', () => window.open(this._url, '_blank'));
       this._div = d;
       this.getPanes().overlayLayer.appendChild(d);
     }
@@ -335,8 +338,34 @@ function initMap() {
     center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
     mapTypeControl:false, streetViewControl:false, fullscreenControl:false,
     gestureHandling:'greedy',
-    clickableIcons:false,
+    clickableIcons:true,
     styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
+  });
+
+  let _poiIW = null;
+  map.addListener('click', e => {
+    if (!e.placeId) return;
+    e.stop();
+    if (_poiIW) { _poiIW.close(); _poiIW = null; }
+    const iw = new google.maps.InfoWindow({ position: e.latLng });
+    iw.setContent('<div style="padding:4px 2px;font-size:12px">読み込み中...</div>');
+    iw.open(map);
+    _poiIW = iw;
+    new google.maps.places.PlacesService(map).getDetails(
+      { placeId: e.placeId, fields: ['name','rating','formatted_address'] },
+      (place, st) => {
+        if (st !== google.maps.places.PlacesServiceStatus.OK || !place) return;
+        const gmUrl = `https://www.google.com/maps/place/?q=place_id:${e.placeId}`;
+        iw.setContent(
+          `<div style="font-size:13px;max-width:220px;padding:2px 4px;line-height:1.5">` +
+          `<b>${place.name}</b>` +
+          (place.rating ? `<div style="color:#555;font-size:12px">⭐ ${place.rating}</div>` : '') +
+          (place.formatted_address ? `<div style="color:#777;font-size:11px">${place.formatted_address}</div>` : '') +
+          `<a href="${gmUrl}" target="_blank" style="color:#1a73e8;font-size:11px;display:block;margin-top:4px">Google マップで開く ↗</a>` +
+          `</div>`
+        );
+      }
+    );
   });
 
   loadData().then(() => {
@@ -398,7 +427,11 @@ function openPortDetail(portId) {
   const compIds = D.port_companies[portId] || [];
 
   // ヘッダー
-  document.getElementById('pd-name').textContent = port.name;
+  const _gmUrl = port.place_id
+    ? `https://www.google.com/maps/place/?q=place_id:${port.place_id}`
+    : `https://www.google.com/maps?q=${port.lat},${port.lng}`;
+  document.getElementById('pd-name').innerHTML =
+    `<a href="${_gmUrl}" target="_blank" style="color:inherit;text-decoration:none">${port.name} <span style="font-size:11px;opacity:.75">↗</span></a>`;
   document.getElementById('pd-meta').textContent = `${port.location}　${port.pref}`;
 
   // 航路リスト
@@ -459,6 +492,8 @@ function openPortDetail(portId) {
   });
 
   // 地図を移動
+  map.panTo({lat: port.lat, lng: port.lng});
+  if (map.getZoom() < 10) map.setZoom(11);
 
   // 選択港と接続港のラベルを地図上に表示
   showPortLabel(portId, true);
@@ -589,10 +624,16 @@ function showPortLabel(portId, isSelected) {
   const p = D.ports[portId];
   if (!p) return;
   const loc = p.location ? `（${p.location}）` : '';
+  const gmUrl = isSelected
+    ? (p.place_id
+        ? `https://www.google.com/maps/place/?q=place_id:${p.place_id}`
+        : `https://www.google.com/maps?q=${p.lat},${p.lng}`)
+    : null;
   const label = new PortLabel(
     new google.maps.LatLng(p.lat, p.lng),
     p.name + loc,
-    isSelected
+    isSelected,
+    gmUrl
   );
   label.setMap(map);
   activeLabels.push(label);
@@ -795,7 +836,7 @@ if (window.innerWidth<=640) {
 }
 </script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja&libraries=places"
   async defer>
 </script>
 </body>
