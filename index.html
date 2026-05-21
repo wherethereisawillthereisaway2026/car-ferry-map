@@ -562,6 +562,9 @@ function openPortDetail(portId) {
   });
 
   // 地図を移動
+  if (map && port.lat && port.lng) {
+    map.panTo({ lat: parseFloat(port.lat), lng: parseFloat(port.lng) });
+  }
 
   // 選択港と接続港のラベルを地図上に表示
   showPortLabel(portId, true);
@@ -762,7 +765,7 @@ function portItemHtml(p) {
     : `https://www.google.com/maps?q=${p.lat},${p.lng}`;
   return `<div class="pitem" data-id="${p.id}" onclick="selectPortSidebar('${p.id}')">
     <div class="pdot" style="background:${color}"></div>
-    <a class="pname-link" href="${mapsUrl}" target="_blank" onclick="event.stopPropagation()">${p.name}</a>
+    <span class="pname-link">${p.name}</span>
     <div class="ppref">${p.pref}</div>
   </div>`;
 }
