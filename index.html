@@ -221,6 +221,8 @@ const activeLines = [];
 const activeComps = new Set();
 const activeLabels = []; // 表示中のPortLabel
 let PortLabel; // Google Maps API読み込み後にinitMap内で定義
+let poiInfoWindow = null; // マップクリック時の POI 情報ウィンドウ
+let placesService = null; // PlacesService インスタンス
 
 function parseCSV(text) {
   const rows = [];
@@ -319,6 +321,62 @@ function loadMapState() {
   };
 }
 
+function handleMapClick(latLng) {
+  if (!placesService) return;
+
+  // 既存の InfoWindow を閉じる
+  if (poiInfoWindow) {
+    poiInfoWindow.close();
+  }
+
+  // 周辺の場所を検索
+  placesService.nearbySearch(
+    {
+      location: latLng,
+      radius: 500,
+      rankBy: google.maps.places.RankBy.PROMINENCE
+    },
+    (results, status) => {
+      if (status !== google.maps.places.PlacesServiceStatus.OK || !results || results.length === 0) {
+        // 場所が見つからない場合は座標を表示
+        poiInfoWindow = new google.maps.InfoWindow({
+          content: `<div style="font-size:12px;padding:5px;">
+            <strong>座標</strong><br>
+            緯度: ${latLng.lat().toFixed(6)}<br>
+            経度: ${latLng.lng().toFixed(6)}
+          </div>`,
+          position: latLng
+        });
+        poiInfoWindow.open(map);
+        return;
+      }
+
+      // 最初の結果を表示
+      const place = results[0];
+      let content = `<div style="font-size:12px;padding:5px;max-width:250px;">
+        <strong>${place.name}</strong><br>`;
+
+      if (place.vicinity) {
+        content += `住所: ${place.vicinity}<br>`;
+      }
+      if (place.rating) {
+        content += `評価: ${place.rating} ⭐<br>`;
+      }
+      if (place.types && place.types.length > 0) {
+        content += `種類: ${place.types[0]}<br>`;
+      }
+
+      content += '</div>';
+
+      poiInfoWindow = new google.maps.InfoWindow({
+        content: content,
+        position: latLng
+      });
+      poiInfoWindow.open(map);
+    }
+  );
+}
+
 function initMap() {
   // PortLabel: 白枠なし・テキストシャドウのカスタムオーバーレイ
   PortLabel = class extends google.maps.OverlayView {
@@ -364,6 +422,14 @@ function initMap() {
   // マップ操作時に状態を保存
   map.addListener('center_changed', saveMapState);
   map.addListener('zoom_changed', saveMapState);
+
+  // PlacesService 初期化（POI 情報取得用）
+  placesService = new google.maps.places.PlacesService(map);
+
+  // マップクリック時に POI 情報を表示
+  map.addListener('click', (event) => {
+    handleMapClick(event.latLng);
+  });
 
   loadData().then(() => {
     document.getElementById('loading').style.display = 'none';
@@ -824,7 +890,7 @@ if (window.innerWidth<=640) {
 }
 </script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja&libraries=places"
   async defer>
 </script>
 </body>
