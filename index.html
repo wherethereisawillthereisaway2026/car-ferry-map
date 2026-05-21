@@ -378,10 +378,18 @@ function initMap() {
   // PlacesService 初期化（POI 情報取得用）
   placesService = new google.maps.places.PlacesService(map);
 
-  // Google Maps で認識されている場所（placeId がある）をクリック時に POI 情報を表示
+  // マップクリック時の処理（POI表示＆背景クリック時のウィンドウ閉鎖）
   map.addListener('click', (event) => {
+    // 既存の InfoWindow があれば閉じる
+    if (poiInfoWindow) {
+      poiInfoWindow.close();
+      poiInfoWindow = null;
+    }
+
+    // placeId がない（背景をクリック）場合はここで終了
     if (!event.placeId) return;
 
+    // Google Maps で認識されている場所の詳細情報を取得して表示
     placesService.getDetails(
       { placeId: event.placeId, fields: ['name', 'formatted_address', 'rating', 'url', 'place_id', 'types'] },
       (place, status) => {
