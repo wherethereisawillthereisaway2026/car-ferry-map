@@ -10,142 +10,145 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 #app { display: flex; height: 100vh; overflow: hidden; }
 
 /* SIDEBAR */
-#sidebar { width: 280px; min-width: 280px; background: #0d1b2a; color: #eee;
-           display: flex; flex-direction: column; z-index: 100; transition: width .3s; }
+#sidebar { width: 340px; min-width: 340px; background: #fff; color: #333;
+           display: flex; flex-direction: column; z-index: 100;
+           transition: width .3s; border-right: 1px solid #ddd; }
 #sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
-#sb-toggle { position: fixed; top: 50%; left: 280px; transform: translateY(-50%);
-             z-index: 200; background: #0d1b2a; color: #eee; border: none;
-             width: 20px; height: 50px; cursor: pointer; border-radius: 0 6px 6px 0;
-             font-size: 11px; transition: left .3s; }
+#sb-toggle { position: fixed; top: 50%; left: 340px; transform: translateY(-50%);
+             z-index: 200; background: #fff; color: #666; border: 1px solid #ddd;
+             width: 18px; height: 48px; cursor: pointer; border-radius: 0 6px 6px 0;
+             font-size: 10px; transition: left .3s; box-shadow: 2px 0 4px rgba(0,0,0,.08); }
 #sb-toggle.collapsed { left: 0; }
-
-#sb-header { padding: 14px 12px 8px; border-bottom: 1px solid #222; display: flex; align-items: center; gap: 8px; }
-#sb-header h1 { font-size: 15px; font-weight: 700; color: #5bc8fa; line-height: 1.4; flex: 1; }
-#sb-header p  { font-size: 11px; color: #888; margin-top: 4px; }
-#aerial-btn { background: #1a3a5c; color: #5bc8fa; border: 1px solid #2a5a8c; padding: 4px 10px;
-              border-radius: 4px; font-size: 11px; font-weight: 600; cursor: pointer;
-              transition: background .2s; white-space: nowrap; flex-shrink: 0; }
-#aerial-btn:hover { background: #2a5a8c; }
-#aerial-btn.active { background: #5bc8fa; color: #0d1b2a; }
-
-#search-wrap { padding: 8px 10px; }
+#sb-header { padding: 12px 12px 8px; border-bottom: 1px solid #eee; background: #f8f9fa; flex-shrink: 0; }
+#sb-header h1 { font-size: 14px; font-weight: 700; color: #1a73e8; line-height: 1.4; }
+#search-wrap { padding: 8px 10px; flex-shrink: 0; border-bottom: 1px solid #eee; }
 #search { width: 100%; padding: 6px 10px; border-radius: 20px;
-          border: none; background: #1e2d3d; color: #eee; font-size: 13px; outline: none; }
-#search::placeholder { color: #666; }
+          border: 1px solid #ddd; background: #f5f5f5; color: #333;
+          font-size: 13px; outline: none; }
+#search:focus { border-color: #1a73e8; background: #fff; }
+#search::placeholder { color: #aaa; }
 
+/* PORT LIST */
 #port-list { flex: 1; overflow-y: auto; padding: 4px 0; }
 #port-list::-webkit-scrollbar { width: 4px; }
-#port-list::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+#port-list::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+.region-header { padding: 7px 12px 5px; font-size: 10px; font-weight: 700;
+                 color: #1a73e8; letter-spacing: .06em; cursor: pointer;
+                 display: flex; align-items: center; gap: 4px;
+                 border-top: 1px solid #eee; user-select: none; }
+.region-header:first-child { border-top: none; }
+.region-count { font-size: 10px; color: #aaa; margin-left: 3px; font-weight: 400; }
+.region-arrow { margin-left: auto; font-size: 11px; color: #aaa; }
+.region-list.collapsed { display: none; }
+.pitem { padding: 5px 12px 5px 20px; cursor: pointer; font-size: 12px;
+         transition: background .1s; display: flex; align-items: center; gap: 6px; }
+.pitem:hover { background: #f0f4ff; }
+.pitem.active { background: #e8f0fe; }
+.pname { flex: 1; color: #333; }
+.ppref { font-size: 10px; color: #aaa; }
+.pdot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
-.pitem { padding: 6px 12px; cursor: pointer; font-size: 12px; transition: background .1s;
-         display: flex; align-items: center; gap: 6px; }
-.pitem:hover { background: #1e2d3d; }
-.pitem.active { background: #1a3a5c; }
-.pname { flex: 1; }
-.ppref { font-size: 10px; color: #666; }
-.pdot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+/* PORT DETAIL (サイドバー内詳細パネル) */
+#port-detail { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+#pd-header { padding: 10px 12px; background: #1a73e8; color: #fff; flex-shrink: 0; }
+#pd-back { background: none; border: none; color: rgba(255,255,255,.85); cursor: pointer;
+           font-size: 11px; padding: 0 0 6px; display: flex; align-items: center; gap: 4px; }
+#pd-back:hover { color: #fff; }
+#pd-name { font-size: 15px; font-weight: 700; }
+#pd-meta { font-size: 11px; color: rgba(255,255,255,.8); margin-top: 2px; }
+#pd-body { flex: 1; overflow-y: auto; padding: 8px 0; }
+#pd-body::-webkit-scrollbar { width: 4px; }
+#pd-body::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+.pd-sec { font-size: 10px; font-weight: 700; color: #999; padding: 8px 12px 4px;
+          letter-spacing: .06em; text-transform: uppercase; }
+.pd-comp { display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+           cursor: pointer; transition: background .1s; border-radius: 0; }
+.pd-comp:hover { background: #f0f4ff; }
+.pd-comp.active { background: #e8f0fe; }
+.pd-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.pd-cname { font-size: 12px; flex: 1; color: #333; }
+.pd-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
+.pd-badge.car  { background: #e3f2fd; color: #1565c0; }
+.pd-badge.pass { background: #f3e5f5; color: #6a1b9a; }
+.pd-chain { font-size: 11px; color: #555; padding: 4px 12px 6px 28px;
+            background: #f8faff; line-height: 1.6; display: none; border-bottom: 1px solid #eee; }
+.pd-chain.open { display: block; }
+.pd-link { display: block; font-size: 10px; color: #1a73e8; text-decoration: none; margin-top: 3px; }
+.pd-transit-row { display: flex; flex-direction: column; margin-top: 5px; gap: 3px; }
+.pd-transit-seg { font-size: 11px; color: #444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pd-transit-btns-inline { display: flex; gap: 5px; }
+.pd-transit-btn { font-size: 10px; padding: 2px 7px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
+.pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
+.pd-transit-btn.google { background: #4285f4; color: #fff; }
+.pd-divider { border: none; border-top: 1px dashed #ccc; margin: 5px 0 2px; }
 
 /* MAP */
 #map-wrap { flex: 1; position: relative; }
 #map { width: 100%; height: 100%; }
 
-/* INFO PANEL */
-#info-panel { position: fixed; top: 0; right: -380px; width: 360px; height: 100%;
-              background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,.18);
-              z-index: 150; transition: right .28s ease;
-              display: flex; flex-direction: column; }
-#info-panel.open { right: 0; }
-.ph { padding: 12px 14px 10px; background: #0d1b2a; flex-shrink: 0; position: relative; }
-.ph-name { font-size: 17px; font-weight: 700; color: #fff; padding-right: 32px; }
-.ph-meta { font-size: 11px; color: #89c4e1; margin-top: 3px; }
-.ph-close { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,.12);
-            border: none; font-size: 18px; color: #ccc; width: 28px; height: 28px;
-            border-radius: 50%; cursor: pointer; line-height: 28px; text-align: center; }
-
-.pb { overflow-y: auto; flex: 1; padding-bottom: 16px; }
-.pb::-webkit-scrollbar { width: 4px; }
-.pb::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
-
-.sec-title { font-size: 11px; font-weight: 700; color: #999; padding: 10px 14px 4px;
-             letter-spacing: .06em; text-transform: uppercase; }
-
-.comp-row { display: flex; align-items: center; gap: 8px; padding: 7px 14px;
-            border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: background .1s; }
-.comp-row:hover { background: #f5f7fa; }
-.comp-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
-.comp-name { font-size: 13px; flex: 1; }
-.comp-badge { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
-.comp-badge.car { background: #e3f2fd; color: #1565c0; }
-.comp-badge.pass { background: #f3e5f5; color: #6a1b9a; }
-.comp-toggle { font-size: 11px; color: #aaa; margin-left: 4px; }
-.comp-chain { padding: 4px 14px 8px 34px; font-size: 11px; color: #555;
-              border-bottom: 1px solid #f5f5f5; display: none; }
-.comp-chain.open { display: block; }
-.chain-line { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-bottom: 3px; }
-.chain-port { background: #f0f4f8; padding: 1px 5px; border-radius: 3px; font-size: 11px; }
-.chain-arrow { color: #aaa; font-size: 10px; }
-.comp-link { display: inline-block; margin-top: 4px; font-size: 11px; color: #1565c0;
-             text-decoration: none; background: #e8f0fe; padding: 2px 6px; border-radius: 4px; }
+.gm-fullscreen-control { display: none !important; }
+.gm-bundled-control { display: none !important; }
 
 /* LOADING */
-#loading { position: fixed; inset: 0; background: rgba(13,27,42,.85); z-index: 999;
-           display: flex; align-items: center; justify-content: center; color: #fff;
+#loading { position: fixed; inset: 0; background: rgba(255,255,255,.9); z-index: 999;
+           display: flex; align-items: center; justify-content: center; color: #555;
            font-size: 14px; flex-direction: column; gap: 12px; }
-.spinner { width: 36px; height: 36px; border: 3px solid rgba(255,255,255,.2);
-           border-top-color: #5bc8fa; border-radius: 50%;
+.spinner { width: 36px; height: 36px; border: 3px solid #eee;
+           border-top-color: #1a73e8; border-radius: 50%;
            animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* MAP OVERLAY */
-#overlay { position: absolute; top: 10px; left: 10px; z-index: 50;
-           background: rgba(13,27,42,.82); color: #fff; padding: 7px 12px;
-           border-radius: 8px; font-size: 11px; pointer-events: none; line-height: 1.6; }
-#overlay b { color: #5bc8fa; display: block; font-size: 13px; }
-
-/* ---- BOTTOM SHEET (スマホ専用) ---- */
+/* BOTTOM SHEET (スマホ専用) */
 #bs-wrap { display: none; }
 
 @media (max-width: 640px) {
-  #sidebar { display: none !important; }
+  #sidebar   { display: none !important; }
   #sb-toggle { display: none !important; }
-  #info-panel { display: none !important; }
 
   #bs-wrap {
-    display: flex;
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #fff;
     border-radius: 14px 14px 0 0;
     box-shadow: 0 -3px 16px rgba(0,0,0,.18);
     z-index: 300;
     height: 72px;
-    transition: height 0.25s ease;
-    flex-direction: column;
+    display: flex; flex-direction: column;
     overflow: hidden;
+    transition: height .25s cubic-bezier(.4,0,.2,1);
+    touch-action: none;
   }
-  #bs-handle-bar {
+  #bs-handle {
     width: 40px; height: 4px; background: #ddd; border-radius: 2px;
-    margin: 8px auto 0;
-    flex-shrink: 0;
+    margin: 9px auto 0; flex-shrink: 0; cursor: grab;
   }
-  #bs-top {
+  #bs-header {
     display: flex; align-items: center; gap: 8px;
-    padding: 6px 12px 6px;
-    flex-shrink: 0;
+    padding: 7px 12px 7px; flex-shrink: 0;
     border-bottom: 1px solid #eee;
   }
   #bs-back {
-    border: none; background: none; color: #1565c0;
-    font-size: 13px; cursor: pointer; white-space: nowrap;
+    border: none; background: none; color: #1a73e8;
+    font-size: 13px; cursor: pointer; white-space: nowrap; padding: 0;
   }
   #bs-search {
     flex: 1; border: 1px solid #ddd; border-radius: 20px;
-    padding: 6px 12px; font-size: 13px; outline: none;
+    padding: 6px 12px; font-size: 14px; outline: none;
+    background: #f5f5f5;
   }
+  #bs-search:focus { border-color: #1a73e8; background: #fff; }
   #bs-body {
-    flex: 1; overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
   }
-  #bs-list .pitem { padding: 8px 14px; border-bottom: 1px solid #f0f0f0; }
+  .bs-port-name  { font-size: 15px; font-weight: 700; color: #333; }
+  .bs-port-meta  { font-size: 11px; color: #888; margin-top: 2px; }
+  .bs-detail-hdr { padding: 10px 14px 8px; background: #f8f9fa; border-bottom: 1px solid #eee; }
+
+  /* スマホ一覧フォント拡大 */
+  #bs-list .region-header { font-size: 14px; padding: 10px 12px 8px; }
+  #bs-list .region-count  { font-size: 13px; }
+  #bs-list .region-arrow  { font-size: 22px; line-height: 1; }
+  #bs-list .pitem  { font-size: 15px; padding: 9px 12px 9px 22px; }
+  #bs-list .ppref  { font-size: 12px; }
 }
 </style>
 </head>
@@ -155,43 +158,36 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 <div id="app">
   <div id="sidebar">
     <div id="sb-header">
-      <div style="flex: 1;">
-        <h1>⚓ カーフェリー航路マップ</h1>
-        <p>港をクリック → 航路を表示</p>
-      </div>
-      <button id="aerial-btn" onclick="toggleAerialView()">航空写真</button>
+      <h1>⚓ カーフェリー航路マップ</h1>
     </div>
     <div id="search-wrap">
       <input id="search" type="text" placeholder="港を検索...">
     </div>
     <div id="port-list"></div>
+
+    <!-- 詳細パネル（港クリック時に表示） -->
+    <div id="port-detail">
+      <div id="pd-header">
+        <button id="pd-back" onclick="showPortList()">← 港一覧</button>
+        <div id="pd-name"></div>
+        <div id="pd-meta"></div>
+      </div>
+      <div id="pd-body"></div>
+    </div>
   </div>
 
   <button id="sb-toggle" onclick="toggleSidebar()">◀</button>
 
   <div id="map-wrap">
     <div id="map"></div>
-    <div id="overlay">
-      <b>カーフェリー航路マップ</b>
-      港アイコンをクリック → 航路が表示されます
-    </div>
   </div>
 </div>
 
-<div id="info-panel">
-  <div class="ph">
-    <div class="ph-name" id="ph-name">-</div>
-    <div class="ph-meta" id="ph-meta"></div>
-    <button class="ph-close" onclick="closePanel()">✕</button>
-  </div>
-  <div class="pb" id="pb"></div>
-</div>
-
-<!-- スマホ専用ボトムシート（PCは display:none） -->
+<!-- スマホ専用ボトムシート -->
 <div id="bs-wrap">
-  <div id="bs-handle-bar"></div>
-  <div id="bs-top">
-    <button id="bs-back" onclick="bsShowList()" style="display:none">← 一覧</button>
+  <div id="bs-handle"></div>
+  <div id="bs-header">
+    <button id="bs-back" onclick="bsBack()" style="display:none">← 一覧</button>
     <input id="bs-search" type="text" placeholder="港を検索...">
   </div>
   <div id="bs-body">
@@ -201,9 +197,10 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 </div>
 
 <script>
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
+const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
+const CSV_BASE = `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv&gid=`;
+const ROUTES_GID = '466317895', PORTS_GID = '958244978', COMPANIES_GID = '1143602536';
 
-// 会社ごとの色パレット
 const PALETTE = [
   '#1565c0','#00838f','#2e7d32','#6a1b9a','#c62828',
   '#e65100','#37474f','#1b5e20','#880e4f','#004d40',
@@ -211,302 +208,574 @@ const PALETTE = [
   '#01579b','#558b2f','#827717','#bf360c','#4e342e'
 ];
 const compColor = {};
+function getColor(cid) {
+  if (!compColor[cid]) compColor[cid] = PALETTE[Object.keys(compColor).length % PALETTE.length];
+  return compColor[cid];
+}
 
-let D = null; // route_data
-let map, activeMarker = null;
-const markerMap = {}; // port_id -> marker
+let D = null, map;
+const markerMap = {};
 const activeLines = [];
-let aerialMode = false;
+const activeComps = new Set();
+const activeLabels = []; // 表示中のPortLabel
+let PortLabel; // Google Maps API読み込み後にinitMap内で定義
 
-function getColor(compId) {
-  if (!compColor[compId]) {
-    const idx = Object.keys(compColor).length % PALETTE.length;
-    compColor[compId] = PALETTE[idx];
+function parseCSV(text) {
+  const rows = [];
+  for (const line of text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n')) {
+    if (!line.trim()) continue;
+    const row = []; let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (inQ) { if (c==='"'&&line[i+1]==='"'){cur+='"';i++;} else if(c==='"'){inQ=false;} else cur+=c; }
+      else { if(c==='"'){inQ=true;} else if(c===','){row.push(cur);cur='';} else cur+=c; }
+    }
+    row.push(cur); rows.push(row);
   }
-  return compColor[compId];
+  return rows;
 }
 
-// ---- データ読み込み ----
-async function loadData() {
-  const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
-  const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
-  D = resp.result || resp;
-}
-
-// ---- マップ状態の保存・復元 ----
-function saveMapState() {
-  if (!map) return;
-  const center = map.getCenter();
-  const zoom = map.getZoom();
-  localStorage.setItem('mapCenter', JSON.stringify({ lat: center.lat(), lng: center.lng() }));
-  localStorage.setItem('mapZoom', zoom.toString());
-  localStorage.setItem('aerialMode', aerialMode.toString());
-}
-
-function loadMapState() {
-  const saved = {
-    center: localStorage.getItem('mapCenter'),
-    zoom: localStorage.getItem('mapZoom'),
-    aerial: localStorage.getItem('aerialMode')
+function remapRegion(pref, region) {
+  if (region === '宮古' || region === '八重山' || region === '大東') return '八重山';
+  if (region === '沖縄本島周辺' || region === '沖縄慶良間') return '沖縄本島';
+  if (region === '奄美') return '奄美';
+  const m = {
+    '北海道':'北海道',
+    '青森県':'東北','岩手県':'東北','宮城県':'東北','秋田県':'東北','山形県':'東北','福島県':'東北',
+    '新潟県':'北陸','富山県':'北陸','石川県':'北陸','福井県':'北陸',
+    '茨城県':'関東','千葉県':'関東','東京都':'関東','神奈川県':'関東','静岡県':'関東',
+    '愛知県':'東海','三重県':'東海','岐阜県':'東海',
+    '滋賀県':'近畿','京都府':'近畿','大阪府':'近畿','奈良県':'近畿','和歌山県':'近畿',
+    '兵庫県':'瀬戸内','岡山県':'瀬戸内','広島県':'瀬戸内','香川県':'瀬戸内',
+    '鳥取県':'山陰','島根県':'山陰','山口県':'山陰',
+    '徳島県':'四国','愛媛県':'四国','高知県':'四国',
+    '福岡県':'九州北部','佐賀県':'九州北部','長崎県':'九州北部','大分県':'九州北部',
+    '熊本県':'九州南部','宮崎県':'九州南部','鹿児島県':'九州南部',
+    '沖縄県':'沖縄本島',
   };
-  return {
-    center: saved.center ? JSON.parse(saved.center) : { lat: 33.5, lng: 132.0 },
-    zoom: saved.zoom ? parseInt(saved.zoom) : 5,
-    aerial: saved.aerial === 'true'
-  };
+  return m[pref] || 'その他';
 }
 
-// ---- マップ初期化 ----
-function initMap() {
-  const state = loadMapState();
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: state.center,
-    zoom: state.zoom,
-    mapTypeId: state.aerial ? 'satellite' : 'roadmap',
-    mapTypeControl: true,
-    streetViewControl: false,
-    fullscreenControl: true,
-    gestureHandling: 'greedy',
-    styles: [
-      { featureType: 'water', stylers: [{ color: '#a8d5e5' }] },
-    ]
+function buildData(routesText, portsText, compsText) {
+  const ports = {};
+  parseCSV(portsText).slice(1).forEach(([pid,name,loc,pref,region,lat,lng]) => {
+    if (!pid||!lat||isNaN(parseFloat(lat))) return;
+    ports[pid] = { id:pid, name, location:loc, pref, region:remapRegion(pref,region), lat:parseFloat(lat), lng:parseFloat(lng) };
   });
 
-  // 航空写真ボタンの状態を同期
-  if (state.aerial) {
-    aerialMode = true;
-    document.getElementById('aerial-btn').classList.add('active');
-  }
+  const companies = {};
+  parseCSV(compsText).slice(1).forEach(([cid,cname,url,note]) => {
+    if (!cid) return;
+    companies[cid] = { id:cid, name:cname, url:url||'', note:note||'' };
+  });
 
-  // マップ状態の変更を監視
-  map.addListener('center_changed', saveMapState);
-  map.addListener('zoom_changed', saveMapState);
+  const seen = {};
+  parseCSV(routesText).slice(1).forEach(([rid,cid,dep,arr,carFerry,status,note]) => {
+    if (!dep||!arr||!ports[dep]||!ports[arr]) return;
+    const car = String(carFerry).toUpperCase()==='TRUE' || String(carFerry).trim()==='1';
+    const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
+    if (!seen[key]) seen[key] = { comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:car, note:note||'', route_ids:[] };
+    seen[key].route_ids.push(rid);
+  });
+  const segments = Object.values(seen);
+
+  const comp_segments = {}, port_companies = {};
+  segments.forEach((seg,i) => {
+    (comp_segments[seg.comp_id] = comp_segments[seg.comp_id]||[]).push(i);
+    [seg.port_a,seg.port_b].forEach(p => (port_companies[p]=port_companies[p]||new Set()).add(seg.comp_id));
+  });
+  Object.keys(port_companies).forEach(k => port_companies[k]=[...port_companies[k]].sort());
+
+  return { ports, companies, segments, comp_segments, port_companies };
+}
+
+async function loadData() {
+  const [r,p,c] = await Promise.all([
+    fetch(CSV_BASE+ROUTES_GID).then(x=>x.text()),
+    fetch(CSV_BASE+PORTS_GID).then(x=>x.text()),
+    fetch(CSV_BASE+COMPANIES_GID).then(x=>x.text()),
+  ]);
+  D = buildData(r,p,c);
+}
+
+function initMap() {
+  // PortLabel: 白枠なし・テキストシャドウのカスタムオーバーレイ
+  PortLabel = class extends google.maps.OverlayView {
+    constructor(position, text, isSelected) {
+      super();
+      this._pos = position; this._text = text; this._sel = isSelected;
+    }
+    onAdd() {
+      const d = document.createElement('div');
+      d.textContent = this._text;
+      d.style.cssText = [
+        'position:absolute', 'white-space:nowrap', 'pointer-events:none',
+        'font-family:\'Hiragino Sans\',\'Noto Sans JP\',sans-serif',
+        `font-size:${this._sel ? '13px' : '11px'}`,
+        `font-weight:${this._sel ? '700' : '600'}`,
+        `color:${this._sel ? '#1a73e8' : '#444'}`,
+        'text-shadow:0 0 4px #fff,0 0 4px #fff,0 0 4px #fff,0 0 4px #fff',
+        'transform:translate(-50%,-36px)', 'line-height:1',
+      ].join(';');
+      this._div = d;
+      this.getPanes().overlayLayer.appendChild(d);
+    }
+    draw() {
+      const p = this.getProjection().fromLatLngToDivPixel(this._pos);
+      if (!p) return;
+      this._div.style.left = p.x + 'px'; this._div.style.top = p.y + 'px';
+    }
+    onRemove() {
+      if (this._div?.parentNode) this._div.parentNode.removeChild(this._div);
+      this._div = null;
+    }
+  };
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
+    mapTypeControl:false, streetViewControl:false, fullscreenControl:false,
+    gestureHandling:'greedy',
+    clickableIcons:false,
+    styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
+  });
 
   loadData().then(() => {
     document.getElementById('loading').style.display = 'none';
     renderPorts();
     renderPortList();
+    // スマホ: 初期表示をHALF状態に
+    if (window.innerWidth <= 640) {
+      document.getElementById('bs-wrap').style.height = bsPeek() + 'px';
+      setTimeout(() => snapBs(bsHalf()), 100);
+    }
   }).catch(err => {
     document.getElementById('loading').innerHTML =
-      '<div style="color:#f66">データ読み込み失敗<br>' + err.message + '</div>';
+      `<div style="color:#c00">データ読み込み失敗<br>${err.message}</div>`;
   });
 }
 
 function portIcon(hasRoute) {
-  const color = hasRoute ? '#1565c0' : '#888';
+  const color = hasRoute ? '#1565c0' : '#aaa';
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
     <circle cx="10" cy="10" r="7" fill="${color}" stroke="white" stroke-width="2"/>
   </svg>`;
-  return {
-    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
-    scaledSize: new google.maps.Size(20, 20),
-    anchor: new google.maps.Point(10, 10),
-  };
+  return { url:'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg),
+           scaledSize:new google.maps.Size(20,20), anchor:new google.maps.Point(10,10) };
 }
 
 function renderPorts() {
   Object.values(D.ports).forEach(p => {
     const hasRoute = !!D.port_companies[p.id];
     const marker = new google.maps.Marker({
-      position: { lat: p.lat, lng: p.lng },
-      map,
-      title: p.name,
-      icon: portIcon(hasRoute),
-      zIndex: hasRoute ? 2 : 1,
+      position:{lat:p.lat,lng:p.lng}, map, title:p.name,
+      icon:portIcon(hasRoute), zIndex:hasRoute?2:1
     });
     if (hasRoute) {
-      marker.addListener('click', () => selectPort(p.id));
+      marker.addListener('click', () => openPortDetail(p.id));
+    } else {
+      marker.addListener('click', () => {
+        const url = p.place_id
+          ? `https://www.google.com/maps/place/?q=place_id:${p.place_id}`
+          : `https://www.google.com/maps?q=${p.lat},${p.lng}`;
+        window.open(url, '_blank');
+      });
     }
     markerMap[p.id] = marker;
   });
 }
 
-// ---- サイドバー港リスト ----
-function renderPortList(filter = '') {
-  const lc = filter.toLowerCase();
-  const items = Object.values(D.ports)
-    .filter(p => D.port_companies[p.id])
-    .filter(p => !lc || p.name.toLowerCase().includes(lc) || p.location.toLowerCase().includes(lc) || p.pref.toLowerCase().includes(lc))
-    .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
-
-  const html = items.map(p => `
-    <div class="pitem" data-id="${p.id}" onclick="selectPort('${p.id}')">
-      <div class="pdot" style="background:${getCompGroupColor(p.id)}"></div>
-      <div class="pname">${p.name}</div>
-      <div class="ppref">${p.pref}</div>
-    </div>`).join('');
-
-  // デスクトップ: #port-list
-  const list = document.getElementById('port-list');
-  if (list) list.innerHTML = html;
-
-  // スマホ: #bs-list
-  const bsList = document.getElementById('bs-list');
-  if (bsList) bsList.innerHTML = html;
-}
-
-function getCompGroupColor(portId) {
-  const comps = D.port_companies[portId] || [];
-  if (comps.length === 0) return '#888';
-  return getColor(comps[0]);
-}
-
-document.getElementById('search').addEventListener('input', e => {
-  renderPortList(e.target.value);
-});
-
-document.getElementById('bs-search').addEventListener('input', e => {
-  renderPortList(e.target.value);
-});
-
-// ---- 港選択 ----
-function selectPort(portId) {
-  clearLines();
+// ---- サイドバー詳細表示 ----
+function openPortDetail(portId) {
   const port = D.ports[portId];
   if (!port) return;
 
-  // マーカー強調
-  Object.values(markerMap).forEach(m => m.setZIndex(1));
-  if (markerMap[portId]) markerMap[portId].setZIndex(10);
+  clearLabels();
 
-  // サイドバーのアクティブ状態
-  document.querySelectorAll('.pitem').forEach(el => {
-    el.classList.toggle('active', el.dataset.id === portId);
-  });
+  // マーカーのアクティブ状態
+  document.querySelectorAll('.pitem').forEach(el =>
+    el.classList.toggle('active', el.dataset.id === portId));
 
-  // パネルコンテンツ生成（デスクトップ・スマホ共通）
   const compIds = D.port_companies[portId] || [];
-  let bodyHtml = '<div class="sec-title">この港の航路（会社別）</div>';
 
-  compIds.forEach(cid => {
-    const comp = D.companies[cid] || { name: cid, url: '' };
-    const color = getColor(cid);
-    const segs = (D.comp_segments[cid] || []).map(i => D.segments[i]);
-    const carFerry = segs.some(s => s.is_car_ferry);
+  // ヘッダー
+  document.getElementById('pd-name').textContent = port.name;
+  document.getElementById('pd-meta').textContent = `${port.location}　${port.pref}`;
 
-    const chains = buildChains(segs);
-
-    const chainHtml = chains.map(chain => {
-      const portNames = chain.map(pid => {
-        const p = D.ports[pid];
-        return `<span class="chain-port">${p ? p.name : pid}</span>`;
-      }).join('<span class="chain-arrow">→</span>');
-      return `<div class="chain-line">${portNames}</div>`;
+  // 航路リスト
+  const body = document.getElementById('pd-body');
+  body.innerHTML = `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
+    compIds.map(cid => {
+      const comp = D.companies[cid] || {name:cid, url:''};
+      const color = getColor(cid);
+      const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i]);
+      const carFerry = segs.some(s=>s.is_car_ferry);
+      // 選択港に直接繋がる隣接港を抽出（往復ボタン用）
+      const clean = s => s.replace(/[（(][^)）]*[)）]/g, '').trim();
+      const now = new Date();
+      const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0');
+      const d = String(now.getDate()).padStart(2,'0'), hh = String(now.getHours()).padStart(2,'0');
+      const m1 = Math.floor(now.getMinutes() / 10), m2 = now.getMinutes() % 10;
+      const mkYahoo = (f,t) => `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(clean(f))}&to=${encodeURIComponent(clean(t))}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
+      const mkGoogle = (f,t) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(f)}&destination=${encodeURIComponent(t)}&travelmode=transit`;
+      const adjIds = [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))];
+      const chainText = adjIds.map(adjId => {
+        const label = id => { const p = D.ports[id]; return p ? `${p.name}（${p.location}）` : id; };
+        const pn = label(portId), an = label(adjId);
+        const mkRow = (f,t) => `<div class="pd-transit-row">`
+          +`<span class="pd-transit-seg">${f} → ${t}</span>`
+          +`<div class="pd-transit-btns-inline">`
+          +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
+          +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a>`
+          +`</div></div>`;
+        return mkRow(pn,an) + mkRow(an,pn) + '<hr class="pd-divider">';
+      }).join('');
+      const linkHtml = comp.url
+        ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
+      return `
+        <div class="pd-comp active" id="pd-comp-${cid}" onclick="toggleCompLine('${cid}','${portId}')">
+          <div class="pd-dot" style="background:${color}"></div>
+          <div class="pd-cname">${comp.name}</div>
+          <span class="pd-badge ${carFerry?'car':'pass'}">${carFerry?'カーフェリー':'旅客船'}</span>
+        </div>
+        <div class="pd-chain open" id="pd-chain-${cid}">${chainText}${linkHtml}</div>`;
     }).join('');
 
-    const linkHtml = comp.url
-      ? `<a class="comp-link" href="${comp.url}" target="_blank">公式サイト ↗</a>`
-      : '';
+  // 詳細パネルを表示
+  document.getElementById('port-list').style.display = 'none';
+  document.getElementById('search-wrap').style.display = 'none';
+  document.getElementById('port-detail').style.display = 'flex';
 
-    const rowId = 'comp-' + cid;
-    bodyHtml += `
-      <div class="comp-row" onclick="toggleChain('${rowId}', '${cid}')">
-        <div class="comp-color" style="background:${color}"></div>
-        <div class="comp-name">${comp.name}</div>
-        <span class="comp-badge ${carFerry ? 'car' : 'pass'}">${carFerry ? 'カーフェリー' : '旅客船'}</span>
-        <span class="comp-toggle">▼</span>
-      </div>
-      <div class="comp-chain" id="${rowId}">
-        ${chainHtml}${linkHtml}
-      </div>`;
+  // サイドバーが閉じていれば開く
+  if (!sbOpen) toggleSidebar();
 
-    // 航路ライン描画
-    drawCompLines(cid, segs, color);
+  // 航路描画（選択港に直接接続するセグメントのみ）
+  clearLines();
+  activeComps.clear();
+  compIds.forEach(cid => {
+    const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+      .filter(s => s.port_a === portId || s.port_b === portId);
+    drawCompLines(segs, getColor(cid));
+    activeComps.add(cid);
   });
 
+  // 地図を移動
+
+  // 選択港と接続港のラベルを地図上に表示
+  showPortLabel(portId, true);
+  const adjPorts = new Set();
+  compIds.forEach(cid => {
+    (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+      .filter(s => s.port_a === portId || s.port_b === portId)
+      .forEach(s => {
+        adjPorts.add(s.port_a === portId ? s.port_b : s.port_a);
+      });
+  });
+  adjPorts.forEach(pid => showPortLabel(pid, false));
+
+  // スマホ: ボトムシートに詳細表示
   if (window.innerWidth <= 640) {
-    // スマホ: ボトムシート詳細表示
-    bsShowDetail(portId, port, bodyHtml);
-  } else {
-    // デスクトップ: 既存 info-panel
-    document.getElementById('ph-name').textContent = port.name;
-    document.getElementById('ph-meta').textContent = port.location + '  ' + port.pref;
-    document.getElementById('pb').innerHTML = bodyHtml;
-    document.getElementById('info-panel').classList.add('open');
+    const detailHtml = `<div class="bs-detail-hdr">
+      <div class="bs-port-name">${port.name}</div>
+      <div class="bs-port-meta">${port.location}　${port.pref}</div>
+    </div>` + document.getElementById('pd-body').innerHTML;
+    document.getElementById('bs-detail').innerHTML = detailHtml;
+    document.getElementById('bs-list').style.display = 'none';
+    document.getElementById('bs-detail').style.display = '';
+    document.getElementById('bs-back').style.display = '';
+    document.getElementById('bs-search').style.display = 'none';
+    snapBs(bsHalf());
   }
-
-  map.panTo({ lat: port.lat, lng: port.lng });
 }
 
-function toggleChain(rowId, cid) {
-  const el = document.getElementById(rowId);
-  el.classList.toggle('open');
-  const toggle = el.previousElementSibling.querySelector('.comp-toggle');
-  if (toggle) toggle.textContent = el.classList.contains('open') ? '▲' : '▼';
+function showPortList() {
+  document.getElementById('port-detail').style.display = 'none';
+  document.getElementById('port-list').style.display = '';
+  document.getElementById('search-wrap').style.display = '';
+  clearLines(); clearLabels();
+  activeComps.clear();
+  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
 }
 
-// ---- チェーン構築（無向グラフの連結成分を辿って順序付け）----
+function toggleCompLine(cid, portId) {
+  const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+    .filter(s => s.port_a === portId || s.port_b === portId);
+  const color = getColor(cid);
+  const compEl = document.getElementById(`pd-comp-${cid}`);
+  const chainEl = document.getElementById(`pd-chain-${cid}`);
+
+  if (activeComps.has(cid)) {
+    activeComps.delete(cid);
+    if (compEl) compEl.classList.remove('active');
+    if (chainEl) chainEl.classList.remove('open');
+    clearLines();
+    activeComps.forEach(c => {
+      const s = (D.comp_segments[c]||[]).map(i=>D.segments[i])
+        .filter(seg => seg.port_a === portId || seg.port_b === portId);
+      drawCompLines(s, getColor(c));
+    });
+  } else {
+    activeComps.add(cid);
+    if (compEl) compEl.classList.add('active');
+    if (chainEl) chainEl.classList.add('open');
+    drawCompLines(segs, color);
+  }
+}
+
+// ---- チェーン構築 ----
 function buildChains(segs) {
   const adj = {};
   segs.forEach(s => {
-    (adj[s.port_a] = adj[s.port_a] || []).push(s.port_b);
-    (adj[s.port_b] = adj[s.port_b] || []).push(s.port_a);
+    (adj[s.port_a]=adj[s.port_a]||[]).push(s.port_b);
+    (adj[s.port_b]=adj[s.port_b]||[]).push(s.port_a);
   });
-
-  // 次数1の頂点（端点）を起点にしてチェーン構築
   const visited = new Set();
   const chains = [];
-  const ports = new Set(segs.flatMap(s => [s.port_a, s.port_b]));
-
-  // 端点（次数1）を起点に優先
-  const endpoints = [...ports].filter(p => adj[p].length === 1);
+  const ports = new Set(segs.flatMap(s=>[s.port_a,s.port_b]));
+  const endpoints = [...ports].filter(p=>adj[p].length===1);
   const starts = endpoints.length ? endpoints : [...ports];
 
   for (const start of starts) {
     if (visited.has(start)) continue;
     const chain = [];
-    let cur = start, prev = null;
+    let cur = start;
     while (cur && !visited.has(cur)) {
-      visited.add(cur);
-      chain.push(cur);
-      const nexts = (adj[cur] || []).filter(n => !visited.has(n));
-      prev = cur;
-      cur = nexts[0] || null;
+      visited.add(cur); chain.push(cur);
+      cur = (adj[cur]||[]).find(n=>!visited.has(n))||null;
     }
-    if (chain.length >= 2) chains.push(chain);
+    if (chain.length >= 2) {
+      chains.push(chain);
+    } else if (chain.length === 1) {
+      // ハブ港に繋がるスタブ：訪問済み隣接ノードと2ノードチェーンを作る
+      const nb = (adj[chain[0]]||[]).find(n=>visited.has(n));
+      if (nb) chains.push([chain[0], nb]);
+    }
   }
   return chains;
 }
 
-// ---- 航路ライン描画 ----
-function drawCompLines(cid, segs, color) {
-  const drawnEdges = new Set();
+// ---- 航路描画 ----
+function drawCompLines(segs, color) {
+  const drawn = new Set();
   segs.forEach(seg => {
-    const key = [seg.port_a, seg.port_b].sort().join('|');
-    if (drawnEdges.has(key)) return;
-    drawnEdges.add(key);
-
-    const pa = D.ports[seg.port_a];
-    const pb = D.ports[seg.port_b];
-    if (!pa || !pb) return;
-
+    const key = [seg.port_a,seg.port_b].sort().join('|');
+    if (drawn.has(key)) return;
+    drawn.add(key);
+    const pa = D.ports[seg.port_a], pb = D.ports[seg.port_b];
+    if (!pa||!pb) return;
     const line = new google.maps.Polyline({
-      path: [{ lat: pa.lat, lng: pa.lng }, { lat: pb.lat, lng: pb.lng }],
-      geodesic: true,
-      strokeColor: color,
-      strokeOpacity: 0,
-      icons: [{
-        icon: { path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 3 },
-        offset: '0',
-        repeat: '20px',
-      }],
-      strokeWeight: 2,
-      map,
+      path:[{lat:pa.lat,lng:pa.lng},{lat:pb.lat,lng:pb.lng}],
+      geodesic:true, strokeColor:color, strokeOpacity:0,
+      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:3},offset:'0',repeat:'20px'}],
+      strokeWeight:2, map
     });
     activeLines.push(line);
   });
 }
 
 function clearLines() {
-  activeLines.forEach(l => l.setMap(null));
+  activeLines.forEach(l=>l.setMap(null));
   activeLines.length = 0;
 }
 
-function closePanel() {
-  document.getElementById('info-panel').classList.remove('open');
-  clearLines();
-  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
+// --- 港名ラベル（OverlayView、白枠なし） ---
+// PortLabel は initMap() 内で定義（google.maps.OverlayView 継承のため）
+
+function clearLabels() {
+  activeLabels.forEach(l => l.setMap(null));
+  activeLabels.length = 0;
 }
+
+function showPortLabel(portId, isSelected) {
+  const p = D.ports[portId];
+  if (!p) return;
+  const loc = p.location ? `（${p.location}）` : '';
+  const label = new PortLabel(
+    new google.maps.LatLng(p.lat, p.lng),
+    p.name + loc,
+    isSelected
+  );
+  label.setMap(map);
+  activeLabels.push(label);
+}
+
+// ---- サイドバー港リスト ----
+const REGION_ORDER = [
+  '北海道','東北','北陸','関東','東海','近畿','瀬戸内',
+  '山陰','四国','九州北部','九州南部','奄美','沖縄本島','八重山','その他'
+];
+const REGION_LABEL = {
+  '関東': '関東（伊豆含む）',
+  '東海': '東海（中部含む）',
+  '近畿': '近畿（瀬戸内除く）',
+  '山陰': '山陰（山口含む）',
+  '沖縄本島': '沖縄本島（慶良間含む）',
+  '八重山': '八重山（宮古・大東含む）',
+};
+
+const openRegions = new Set();
+
+function portItemHtml(p) {
+  const color = getColor((D.port_companies[p.id]||[])[0]||'');
+  return `<div class="pitem" data-id="${p.id}" onclick="selectPortSidebar('${p.id}')">
+    <div class="pdot" style="background:${color}"></div>
+    <div class="pname">${p.name}</div>
+    <div class="ppref">${p.pref}</div>
+  </div>`;
+}
+
+function renderPortList(filter='') {
+  const list = document.getElementById('port-list');
+  const lc = filter.toLowerCase();
+  const items = Object.values(D.ports)
+    .filter(p => D.port_companies[p.id])
+    .filter(p => !lc || p.name.includes(filter) || p.location.includes(filter) || p.pref.includes(filter) ||
+                         p.name.toLowerCase().includes(lc) || p.location.toLowerCase().includes(lc));
+
+  if (lc) {
+    items.sort((a,b) => a.name.localeCompare(b.name,'ja'));
+    list.innerHTML = items.map(portItemHtml).join('');
+    return;
+  }
+
+  const byRegion = {};
+  items.forEach(p => {
+    const r = p.region || 'その他';
+    (byRegion[r] = byRegion[r] || []).push(p);
+  });
+  Object.values(byRegion).forEach(arr => arr.sort((a,b) => b.lat - a.lat));
+
+  const order = [...REGION_ORDER, ...Object.keys(byRegion).filter(r => !REGION_ORDER.includes(r))];
+  list.innerHTML = order
+    .filter(r => byRegion[r]?.length)
+    .map(r => {
+      const ports = byRegion[r];
+      const rid = 'region-' + r.replace(/[・（）\s]/g,'_');
+      const label = REGION_LABEL[r] || r;
+      const isOpen = openRegions.has(rid);
+      return `<div class="region-header" onclick="toggleRegion('${rid}')">
+        <span>${label}</span><span class="region-count">(${ports.length})</span>
+        <span class="region-arrow" id="${rid}-arrow">${isOpen?'▾':'▸'}</span>
+      </div>
+      <div class="region-list${isOpen?'':' collapsed'}" id="${rid}">
+        ${ports.map(portItemHtml).join('')}
+      </div>`;
+    }).join('');
+
+  syncBsList();
+}
+
+function toggleRegion(rid) {
+  const el = document.getElementById(rid);
+  const arrow = document.getElementById(rid+'-arrow');
+  if (!el) return;
+  const willOpen = el.classList.contains('collapsed');
+  el.classList.toggle('collapsed', !willOpen);
+  if (arrow) arrow.textContent = willOpen ? '▾' : '▸';
+  if (willOpen) openRegions.add(rid); else openRegions.delete(rid);
+}
+
+// スマホ: bs-listをport-listと同期
+function syncBsList() {
+  const bsList = document.getElementById('bs-list');
+  if (bsList && window.innerWidth <= 640) {
+    bsList.innerHTML = document.getElementById('port-list').innerHTML;
+    // pitemクリックをスマホ用に上書き
+    bsList.querySelectorAll('.pitem').forEach(el => {
+      el.onclick = () => openPortDetail(el.dataset.id);
+    });
+    // region-headerのonclickをbs-list内で完結するよう上書き（IDが重複しているためgetElementByIdは使えない）
+    bsList.querySelectorAll('.region-header').forEach(headerEl => {
+      const arrowEl = headerEl.querySelector('.region-arrow');
+      const rid = arrowEl ? arrowEl.id.replace('-arrow', '') : null;
+      if (!rid) return;
+      const listEl = headerEl.nextElementSibling;
+      headerEl.onclick = () => {
+        const willOpen = listEl.classList.contains('collapsed');
+        listEl.classList.toggle('collapsed', !willOpen);
+        arrowEl.textContent = willOpen ? '▾' : '▸';
+        // port-list側も同期
+        const portArrow = document.getElementById(rid + '-arrow');
+        const portList  = document.getElementById(rid);
+        if (portList)  portList.classList.toggle('collapsed', !willOpen);
+        if (portArrow) portArrow.textContent = willOpen ? '▾' : '▸';
+        if (willOpen) openRegions.add(rid); else openRegions.delete(rid);
+      };
+    });
+  }
+}
+
+function selectPortSidebar(portId) {
+  openPortDetail(portId);
+}
+
+document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
+
+// ---- ボトムシート ----
+const bsPeek = () => 72;
+const bsHalf = () => Math.round(window.innerHeight * 0.46);
+const bsFull = () => Math.round(window.innerHeight * 0.88);
+
+let bsCurH = bsPeek();
+
+function snapBs(targetH) {
+  const stages = [bsPeek(), bsHalf(), bsFull()];
+  bsCurH = stages.reduce((a, b) => Math.abs(b - targetH) < Math.abs(a - targetH) ? b : a);
+  const wrap = document.getElementById('bs-wrap');
+  wrap.style.transition = 'height .25s cubic-bezier(.4,0,.2,1)';
+  wrap.style.height = bsCurH + 'px';
+}
+
+function bsBack() {
+  document.getElementById('bs-list').style.display = '';
+  document.getElementById('bs-detail').style.display = 'none';
+  document.getElementById('bs-back').style.display = 'none';
+  document.getElementById('bs-search').style.display = '';
+  clearLines(); clearLabels(); activeComps.clear();
+  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
+  snapBs(bsHalf());
+}
+
+// ドラッグ
+(function() {
+  const TARGETS = ['bs-handle','bs-header'];
+  let startY = 0, startH = 0, dragging = false;
+
+  function onStart(e) {
+    dragging = true;
+    startY = (e.touches ? e.touches[0].clientY : e.clientY);
+    startH = parseInt(document.getElementById('bs-wrap').style.height) || bsCurH;
+    document.getElementById('bs-wrap').style.transition = 'none';
+  }
+  function onMove(e) {
+    if (!dragging) return;
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    const newH = Math.max(bsPeek(), Math.min(bsFull(), startH - (y - startY)));
+    document.getElementById('bs-wrap').style.height = newH + 'px';
+    if (e.cancelable) e.preventDefault();
+  }
+  function onEnd(e) {
+    if (!dragging) return;
+    dragging = false;
+    const curH = parseInt(document.getElementById('bs-wrap').style.height) || bsCurH;
+    snapBs(curH);
+  }
+
+  TARGETS.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('touchstart', onStart, { passive: true });
+    el.addEventListener('touchmove',  onMove,  { passive: false });
+    el.addEventListener('touchend',   onEnd,   { passive: true });
+  });
+})();
+
+// bs-searchの入力
+document.getElementById('bs-search').addEventListener('input', e => {
+  renderPortList(e.target.value);
+  // bs-listにも反映
+  const bsList = document.getElementById('bs-list');
+  bsList.innerHTML = document.getElementById('port-list').innerHTML;
+});
 
 // ---- サイドバートグル ----
 let sbOpen = true;
@@ -514,102 +783,15 @@ function toggleSidebar() {
   const sb = document.getElementById('sidebar');
   const btn = document.getElementById('sb-toggle');
   sbOpen = !sbOpen;
-  sb.classList.toggle('collapsed', !sbOpen);
-  btn.classList.toggle('collapsed', !sbOpen);
+  sb.classList.toggle('collapsed',!sbOpen);
+  btn.classList.toggle('collapsed',!sbOpen);
   btn.textContent = sbOpen ? '◀' : '▶';
 }
-
-// ---- 航空写真トグル ----
-function toggleAerialView() {
-  if (!map) return;
-  aerialMode = !aerialMode;
-  map.setMapTypeId(aerialMode ? 'satellite' : 'roadmap');
-  const btn = document.getElementById('aerial-btn');
-  btn.classList.toggle('active', aerialMode);
-  saveMapState();
-}
-
-// ---- ボトムシート 3段階ドラッグ ----
-const STAGES = () => [72, Math.round(window.innerHeight * 0.45), Math.round(window.innerHeight * 0.88)];
-let bsH = 72;
-
-function snapBs(targetH) {
-  const stages = STAGES();
-  bsH = stages.reduce((a, b) => Math.abs(b - targetH) < Math.abs(a - targetH) ? b : a);
-  const wrap = document.getElementById('bs-wrap');
-  if (wrap) wrap.style.height = bsH + 'px';
-}
-
-(function initBsDrag() {
-  let startY = 0, startH = 0, dragging = false;
-
-  function onTouchStart(e) {
-    startY = e.touches[0].clientY;
-    startH = parseInt(document.getElementById('bs-wrap').style.height) || bsH;
-    dragging = true;
-  }
-  function onTouchMove(e) {
-    if (!dragging) return;
-    const deltaY = startY - e.touches[0].clientY;
-    const newH = Math.max(72, Math.min(STAGES()[2], startH + deltaY));
-    document.getElementById('bs-wrap').style.height = newH + 'px';
-    document.getElementById('bs-wrap').style.transition = 'none';
-  }
-  function onTouchEnd(e) {
-    if (!dragging) return;
-    dragging = false;
-    const currentH = parseInt(document.getElementById('bs-wrap').style.height) || bsH;
-    document.getElementById('bs-wrap').style.transition = 'height 0.25s ease';
-    snapBs(currentH);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const handle = document.getElementById('bs-handle-bar');
-    const top = document.getElementById('bs-top');
-    [handle, top].forEach(el => {
-      if (!el) return;
-      el.addEventListener('touchstart', onTouchStart, { passive: true });
-      el.addEventListener('touchmove', onTouchMove, { passive: true });
-      el.addEventListener('touchend', onTouchEnd);
-    });
-  });
-})();
-
-// ---- ボトムシート 一覧表示 ----
-function bsShowList() {
-  const bsList = document.getElementById('bs-list');
-  const bsDetail = document.getElementById('bs-detail');
-  const bsBack = document.getElementById('bs-back');
-  if (bsList) bsList.style.display = '';
-  if (bsDetail) { bsDetail.style.display = 'none'; bsDetail.innerHTML = ''; }
-  if (bsBack) bsBack.style.display = 'none';
-  clearLines();
-  document.querySelectorAll('.pitem').forEach(el => el.classList.remove('active'));
-}
-
-// ---- ボトムシート 詳細表示 ----
-function bsShowDetail(portId, port, bodyHtml) {
-  const bsList = document.getElementById('bs-list');
-  const bsDetail = document.getElementById('bs-detail');
-  const bsBack = document.getElementById('bs-back');
-
-  if (bsList) bsList.style.display = 'none';
-  if (bsDetail) {
-    bsDetail.style.display = '';
-    bsDetail.innerHTML = `
-      <div class="ph" style="background:#0d1b2a; padding:12px 14px 10px;">
-        <div class="ph-name" style="font-size:16px; font-weight:700; color:#fff; padding-right:0;">${port.name}</div>
-        <div class="ph-meta" style="font-size:11px; color:#89c4e1; margin-top:3px;">${port.location}  ${port.pref}</div>
-      </div>
-      ${bodyHtml}`;
-  }
-  if (bsBack) bsBack.style.display = '';
-
-  // HALFにスナップ
-  const stages = STAGES();
-  bsH = stages[1];
-  const wrap = document.getElementById('bs-wrap');
-  if (wrap) wrap.style.height = bsH + 'px';
+if (window.innerWidth<=640) {
+  document.getElementById('sidebar').classList.add('collapsed');
+  document.getElementById('sb-toggle').classList.add('collapsed');
+  document.getElementById('sb-toggle').textContent = '▶';
+  sbOpen = false;
 }
 </script>
 <script
