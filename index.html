@@ -560,7 +560,7 @@ function openPortDetail(portId) {
   // スマホ: ボトムシートに詳細表示
   if (window.innerWidth <= 640) {
     const detailHtml = `<div class="bs-detail-hdr">
-      <div class="bs-port-name">${port.name}</div>
+      <div class="bs-port-name"><a href="${mapsUrl}" target="_blank" style="color:#333;text-decoration:none;">${port.name}</a></div>
       <div class="bs-port-meta">${port.location}　${port.pref}</div>
     </div>` + document.getElementById('pd-body').innerHTML;
     document.getElementById('bs-detail').innerHTML = detailHtml;
@@ -767,9 +767,11 @@ function syncBsList() {
   const bsList = document.getElementById('bs-list');
   if (bsList && window.innerWidth <= 640) {
     bsList.innerHTML = document.getElementById('port-list').innerHTML;
-    // pitemクリックをスマホ用に上書き
+    // pitemクリックをスマホ用に上書き（港名リンクもGoogle Maps飛びではなく詳細表示に）
     bsList.querySelectorAll('.pitem').forEach(el => {
       el.onclick = () => openPortDetail(el.dataset.id);
+      const link = el.querySelector('.pname-link');
+      if (link) { link.removeAttribute('href'); link.onclick = e => { e.stopPropagation(); openPortDetail(el.dataset.id); }; }
     });
     // region-headerのonclickをbs-list内で完結するよう上書き（IDが重複しているためgetElementByIdは使えない）
     bsList.querySelectorAll('.region-header').forEach(headerEl => {
