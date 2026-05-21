@@ -201,7 +201,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 </div>
 
 <script>
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
+const GAS_URL = '<?= ScriptApp.getService().getUrl() ?>';
 
 // 会社ごとの色パレット
 const PALETTE = [
@@ -228,15 +228,9 @@ function getColor(compId) {
 
 // ---- データ読み込み ----
 async function loadData() {
-  const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
-  try {
-    const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
-    console.log('GAS API response:', resp);
-    D = resp.result || resp;
-    console.log('Data loaded. Ports:', Object.keys(D.ports || {}).length);
-  } catch (err) {
-    console.error('Failed to load data:', err);
-  }
+  const url = GAS_URL + '?fn=exportRouteData';
+  const resp = await fetch(url);
+  D = await resp.json();
 }
 
 // ---- マップ状態の保存・復元 ----
@@ -620,7 +614,7 @@ function bsShowDetail(portId, port, bodyHtml) {
 </script>
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMBPa_T_URVyJNn1lHnXjzDiEZoKPNPSw&callback=initMap&language=ja"
-  async defer loading="async">
+  async defer>
 </script>
 </body>
 </html>
