@@ -45,6 +45,8 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 .pitem:hover { background: #f0f4ff; }
 .pitem.active { background: #e8f0fe; }
 .pname { flex: 1; color: #333; }
+.pname-link { flex: 1; color: #1a73e8; text-decoration: none; cursor: pointer; font-weight: 500; }
+.pname-link:hover { text-decoration: underline; }
 .ppref { font-size: 10px; color: #aaa; }
 .pdot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
@@ -297,6 +299,26 @@ async function loadData() {
   D = resp.result || resp;
 }
 
+// ---- マップ状態の保存・復元 ----
+function saveMapState() {
+  if (!map) return;
+  const center = map.getCenter();
+  const zoom = map.getZoom();
+  localStorage.setItem('mapCenter', JSON.stringify({ lat: center.lat(), lng: center.lng() }));
+  localStorage.setItem('mapZoom', zoom.toString());
+}
+
+function loadMapState() {
+  const saved = {
+    center: localStorage.getItem('mapCenter'),
+    zoom: localStorage.getItem('mapZoom')
+  };
+  return {
+    center: saved.center ? JSON.parse(saved.center) : { lat: 33.5, lng: 132.0 },
+    zoom: saved.zoom ? parseInt(saved.zoom) : 5
+  };
+}
+
 function initMap() {
   // PortLabel: 白枠なし・テキストシャドウのカスタムオーバーレイ
   PortLabel = class extends google.maps.OverlayView {
@@ -330,13 +352,18 @@ function initMap() {
     }
   };
 
+  const state = loadMapState();
   map = new google.maps.Map(document.getElementById('map'), {
-    center:{lat:33.5,lng:132.0}, zoom:5, mapTypeId:'roadmap',
+    center: state.center, zoom: state.zoom, mapTypeId:'roadmap',
     mapTypeControl:false, streetViewControl:false, fullscreenControl:false,
     gestureHandling:'greedy',
     clickableIcons:false,
     styles:[{featureType:'water',stylers:[{color:'#a8d5e5'}]}]
   });
+
+  // マップ操作時に状態を保存
+  map.addListener('center_changed', saveMapState);
+  map.addListener('zoom_changed', saveMapState);
 
   loadData().then(() => {
     document.getElementById('loading').style.display = 'none';
@@ -615,9 +642,12 @@ const openRegions = new Set();
 
 function portItemHtml(p) {
   const color = getColor((D.port_companies[p.id]||[])[0]||'');
+  const mapsUrl = p.place_id
+    ? `https://www.google.com/maps/place/?q=place_id:${p.place_id}`
+    : `https://www.google.com/maps?q=${p.lat},${p.lng}`;
   return `<div class="pitem" data-id="${p.id}" onclick="selectPortSidebar('${p.id}')">
     <div class="pdot" style="background:${color}"></div>
-    <div class="pname">${p.name}</div>
+    <a class="pname-link" href="${mapsUrl}" target="_blank" onclick="event.stopPropagation()">${p.name}</a>
     <div class="ppref">${p.pref}</div>
   </div>`;
 }
