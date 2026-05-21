@@ -67,6 +67,11 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
            cursor: pointer; transition: background .1s; border-radius: 0; }
 .pd-comp:hover { background: #f0f4ff; }
 .pd-comp.active { background: #e8f0fe; }
+@keyframes sbFlash {
+  0%,100% { background: #e8f0fe; }
+  25%,65% { background: #fff176; box-shadow: inset 3px 0 0 #f9a825; }
+}
+.pd-comp.line-clicked { animation: sbFlash .9s ease-out; }
 .pd-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 .pd-cname { font-size: 12px; flex: 1; color: #333; }
 .pd-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
@@ -228,6 +233,7 @@ const activeLines = [];
 const activeComps = new Set();
 const activeLabels = []; // 表示中のPortLabel
 let PortLabel; // Google Maps API読み込み後にinitMap内で定義
+let highlightedCid = null; // 強調表示中の会社ID
 let poiInfoWindow = null; // マップクリック時の POI 情報ウィンドウ
 let placesService = null; // PlacesService インスタンス
 let isSatelliteMode = false; // 衛星写真モード フラグ
@@ -536,10 +542,11 @@ function openPortDetail(portId) {
   // 航路描画（選択港に直接接続するセグメントのみ）
   clearLines();
   activeComps.clear();
+  highlightedCid = null;
   compIds.forEach(cid => {
     const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
       .filter(s => s.port_a === portId || s.port_b === portId);
-    drawCompLines(segs, getColor(cid));
+    drawCompLines(segs, getColor(cid), cid);
     activeComps.add(cid);
   });
 
@@ -593,16 +600,18 @@ function toggleCompLine(cid, portId) {
     if (compEl) compEl.classList.remove('active');
     if (chainEl) chainEl.classList.remove('open');
     clearLines();
+    highlightedCid = null;
     activeComps.forEach(c => {
       const s = (D.comp_segments[c]||[]).map(i=>D.segments[i])
         .filter(seg => seg.port_a === portId || seg.port_b === portId);
-      drawCompLines(s, getColor(c));
+      drawCompLines(s, getColor(c), c);
     });
   } else {
     activeComps.add(cid);
     if (compEl) compEl.classList.add('active');
     if (chainEl) chainEl.classList.add('open');
-    drawCompLines(segs, color);
+    setLineHighlight(cid);   // 既存ラインをダウンスケール
+    drawCompLines(segs, color, cid);
   }
 }
 
@@ -639,8 +648,9 @@ function buildChains(segs) {
 }
 
 // ---- 航路描画 ----
-function drawCompLines(segs, color) {
+function drawCompLines(segs, color, cid) {
   const drawn = new Set();
+  const hl = cid && cid === highlightedCid;
   segs.forEach(seg => {
     const key = [seg.port_a,seg.port_b].sort().join('|');
     if (drawn.has(key)) return;
@@ -650,11 +660,39 @@ function drawCompLines(segs, color) {
     const line = new google.maps.Polyline({
       path:[{lat:pa.lat,lng:pa.lng},{lat:pb.lat,lng:pb.lng}],
       geodesic:true, strokeColor:color, strokeOpacity:0,
-      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:3},offset:'0',repeat:'20px'}],
+      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}],
       strokeWeight:2, map
     });
+    if (cid) {
+      line._cid = cid;
+      line.addListener('click', () => onLineClick(cid));
+    }
     activeLines.push(line);
   });
+}
+
+function setLineHighlight(cid) {
+  highlightedCid = cid;
+  activeLines.forEach(line => {
+    const hl = line._cid === cid;
+    line.setOptions({
+      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}]
+    });
+  });
+}
+
+function onLineClick(cid) {
+  // サイドバーの行を強調
+  const el = document.getElementById(`pd-comp-${cid}`);
+  if (el) {
+    el.scrollIntoView({behavior:'smooth', block:'nearest'});
+    el.classList.remove('line-clicked');
+    void el.offsetWidth; // reflow でアニメーション再始動
+    el.classList.add('line-clicked');
+    setTimeout(() => el.classList.remove('line-clicked'), 1000);
+  }
+  // マップ上でも選択済みルートを強調
+  setLineHighlight(cid);
 }
 
 function clearLines() {
