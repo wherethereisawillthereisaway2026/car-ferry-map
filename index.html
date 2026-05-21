@@ -480,7 +480,10 @@ function openPortDetail(portId) {
   const compIds = D.port_companies[portId] || [];
 
   // ヘッダー
-  document.getElementById('pd-name').textContent = port.name;
+  const mapsUrl = port.place_id
+    ? `https://www.google.com/maps/place/?q=place_id:${port.place_id}`
+    : `https://www.google.com/maps?q=${port.lat},${port.lng}`;
+  document.getElementById('pd-name').innerHTML = `<a href="${mapsUrl}" target="_blank" style="color:#fff;text-decoration:none;cursor:pointer;">${port.name}</a>`;
   document.getElementById('pd-meta').textContent = `${port.location}　${port.pref}`;
 
   // 航路リスト
