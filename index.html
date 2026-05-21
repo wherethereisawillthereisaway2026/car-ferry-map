@@ -229,8 +229,14 @@ function getColor(compId) {
 // ---- データ読み込み ----
 async function loadData() {
   const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
-  const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
-  D = resp.result || resp;
+  try {
+    const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
+    console.log('GAS API response:', resp);
+    D = resp.result || resp;
+    console.log('Data loaded. Ports:', Object.keys(D.ports || {}).length);
+  } catch (err) {
+    console.error('Failed to load data:', err);
+  }
 }
 
 // ---- マップ状態の保存・復元 ----
