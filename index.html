@@ -289,13 +289,12 @@ function buildData(routesText, portsText, compsText) {
   return { ports, companies, segments, comp_segments, port_companies };
 }
 
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
+
 async function loadData() {
-  const [r,p,c] = await Promise.all([
-    fetch(CSV_BASE+ROUTES_GID).then(x=>x.text()),
-    fetch(CSV_BASE+PORTS_GID).then(x=>x.text()),
-    fetch(CSV_BASE+COMPANIES_GID).then(x=>x.text()),
-  ]);
-  D = buildData(r,p,c);
+  const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
+  const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
+  D = resp.result || resp;
 }
 
 function initMap() {
