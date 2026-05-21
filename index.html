@@ -201,7 +201,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 </div>
 
 <script>
-const GAS_URL = '<?= ScriptApp.getService().getUrl() ?>';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
 
 // 会社ごとの色パレット
 const PALETTE = [
@@ -228,9 +228,9 @@ function getColor(compId) {
 
 // ---- データ読み込み ----
 async function loadData() {
-  const url = GAS_URL + '?fn=exportRouteData';
-  const resp = await fetch(url);
-  D = await resp.json();
+  const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
+  const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
+  D = resp.result || resp;
 }
 
 // ---- マップ状態の保存・復元 ----
