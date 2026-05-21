@@ -160,7 +160,14 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 <div id="app">
   <div id="sidebar">
     <div id="sb-header">
-      <h1>⚓ カーフェリー航路マップ</h1>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h1>⚓ カーフェリー航路マップ</h1>
+        <button id="satellite-btn" onclick="toggleMapType()" style="
+          padding: 4px 10px; border: 1px solid #ddd; border-radius: 4px;
+          background: #fff; color: #333; font-size: 12px; cursor: pointer;
+          white-space: nowrap; flex-shrink: 0;
+        ">🛰️ 衛星写真</button>
+      </div>
     </div>
     <div id="search-wrap">
       <input id="search" type="text" placeholder="港を検索...">
@@ -223,6 +230,7 @@ const activeLabels = []; // 表示中のPortLabel
 let PortLabel; // Google Maps API読み込み後にinitMap内で定義
 let poiInfoWindow = null; // マップクリック時の POI 情報ウィンドウ
 let placesService = null; // PlacesService インスタンス
+let isSatelliteMode = false; // 衛星写真モード フラグ
 
 function parseCSV(text) {
   const rows = [];
@@ -871,6 +879,18 @@ document.getElementById('bs-search').addEventListener('input', e => {
   const bsList = document.getElementById('bs-list');
   bsList.innerHTML = document.getElementById('port-list').innerHTML;
 });
+
+// ---- マップタイプ切り替え ----
+function toggleMapType() {
+  if (!map) return;
+  isSatelliteMode = !isSatelliteMode;
+  map.setMapTypeId(isSatelliteMode ? 'satellite' : 'roadmap');
+  const btn = document.getElementById('satellite-btn');
+  if (btn) {
+    btn.textContent = isSatelliteMode ? '🗺️ 通常地図' : '🛰️ 衛星写真';
+    btn.style.background = isSatelliteMode ? '#e8f0fe' : '#fff';
+  }
+}
 
 // ---- サイドバートグル ----
 let sbOpen = true;
