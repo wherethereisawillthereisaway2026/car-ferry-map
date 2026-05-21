@@ -72,6 +72,13 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
   25%,65% { background: #fff176; box-shadow: inset 3px 0 0 #f9a825; }
 }
 .pd-comp.line-clicked { animation: sbFlash .9s ease-out; }
+.pd-seg-group { cursor: pointer; border-radius: 3px; margin: 1px 0; }
+.pd-seg-group:hover { background: #f5f8ff; }
+@keyframes segFlash {
+  0%,100% { background: transparent; }
+  25%,65% { background: #fff176; box-shadow: inset 3px 0 0 #f9a825; }
+}
+.pd-seg-group.seg-clicked { animation: segFlash .9s ease-out; }
 .pd-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 .pd-cname { font-size: 12px; flex: 1; color: #333; }
 .pd-badge { font-size: 10px; padding: 1px 5px; border-radius: 6px; font-weight: 600; }
@@ -233,7 +240,7 @@ const activeLines = [];
 const activeComps = new Set();
 const activeLabels = []; // 表示中のPortLabel
 let PortLabel; // Google Maps API読み込み後にinitMap内で定義
-let highlightedCid = null; // 強調表示中の会社ID
+let highlightedSegKey = null; // 強調表示中のセグメントキー（portA|portB|cid）
 let poiInfoWindow = null; // マップクリック時の POI 情報ウィンドウ
 let placesService = null; // PlacesService インスタンス
 let isSatelliteMode = false; // 衛星写真モード フラグ
@@ -510,6 +517,7 @@ function openPortDetail(portId) {
       const mkGoogle = (f,t) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(f)}&destination=${encodeURIComponent(t)}&travelmode=transit`;
       const adjIds = [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))];
       const chainText = adjIds.map(adjId => {
+        const segId = `pdseg-${[portId,adjId].sort().join('-')}-${cid}`;
         const label = id => { const p = D.ports[id]; return p ? `${p.name}（${p.location}）` : id; };
         const pn = label(portId), an = label(adjId);
         const mkRow = (f,t) => `<div class="pd-transit-row">`
@@ -518,7 +526,9 @@ function openPortDetail(portId) {
           +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
           +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a>`
           +`</div></div>`;
-        return mkRow(pn,an) + mkRow(an,pn) + '<hr class="pd-divider">';
+        return `<div class="pd-seg-group" id="${segId}" onclick="onSegGroupClick(event,'${portId}','${adjId}','${cid}')">`
+          + mkRow(pn,an) + mkRow(an,pn)
+          + `</div><hr class="pd-divider">`;
       }).join('');
       const linkHtml = comp.url
         ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
@@ -542,7 +552,7 @@ function openPortDetail(portId) {
   // 航路描画（選択港に直接接続するセグメントのみ）
   clearLines();
   activeComps.clear();
-  highlightedCid = null;
+  highlightedSegKey = null;
   compIds.forEach(cid => {
     const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
       .filter(s => s.port_a === portId || s.port_b === portId);
@@ -600,7 +610,7 @@ function toggleCompLine(cid, portId) {
     if (compEl) compEl.classList.remove('active');
     if (chainEl) chainEl.classList.remove('open');
     clearLines();
-    highlightedCid = null;
+    highlightedSegKey = null;
     activeComps.forEach(c => {
       const s = (D.comp_segments[c]||[]).map(i=>D.segments[i])
         .filter(seg => seg.port_a === portId || seg.port_b === portId);
@@ -610,7 +620,6 @@ function toggleCompLine(cid, portId) {
     activeComps.add(cid);
     if (compEl) compEl.classList.add('active');
     if (chainEl) chainEl.classList.add('open');
-    setLineHighlight(cid);   // 既存ラインをダウンスケール
     drawCompLines(segs, color, cid);
   }
 }
@@ -648,15 +657,19 @@ function buildChains(segs) {
 }
 
 // ---- 航路描画 ----
+function mkSegKey(portA, portB, cid) {
+  return [portA, portB].sort().join('|') + '|' + (cid||'');
+}
+
 function drawCompLines(segs, color, cid) {
   const drawn = new Set();
-  const hl = cid && cid === highlightedCid;
   segs.forEach(seg => {
-    const key = [seg.port_a,seg.port_b].sort().join('|');
-    if (drawn.has(key)) return;
-    drawn.add(key);
+    const pairKey = [seg.port_a, seg.port_b].sort().join('|');
+    if (drawn.has(pairKey)) return;
+    drawn.add(pairKey);
     const pa = D.ports[seg.port_a], pb = D.ports[seg.port_b];
     if (!pa||!pb) return;
+    const hl = highlightedSegKey && mkSegKey(seg.port_a, seg.port_b, cid) === highlightedSegKey;
     const line = new google.maps.Polyline({
       path:[{lat:pa.lat,lng:pa.lng},{lat:pb.lat,lng:pb.lng}],
       geodesic:true, strokeColor:color, strokeOpacity:0,
@@ -664,35 +677,39 @@ function drawCompLines(segs, color, cid) {
       strokeWeight:2, map
     });
     if (cid) {
-      line._cid = cid;
-      line.addListener('click', () => onLineClick(cid));
+      line._cid = cid; line._portA = seg.port_a; line._portB = seg.port_b;
+      line.addListener('click', () => onLineClick(cid, seg.port_a, seg.port_b));
     }
     activeLines.push(line);
   });
 }
 
-function setLineHighlight(cid) {
-  highlightedCid = cid;
+function setSegHighlight(portA, portB, cid) {
+  highlightedSegKey = mkSegKey(portA, portB, cid);
   activeLines.forEach(line => {
-    const hl = line._cid === cid;
+    const hl = line._cid && mkSegKey(line._portA, line._portB, line._cid) === highlightedSegKey;
     line.setOptions({
       icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}]
     });
   });
 }
 
-function onLineClick(cid) {
-  // サイドバーの行を強調
-  const el = document.getElementById(`pd-comp-${cid}`);
+function onLineClick(cid, portA, portB) {
+  const segId = `pdseg-${[portA,portB].sort().join('-')}-${cid}`;
+  const el = document.getElementById(segId);
   if (el) {
     el.scrollIntoView({behavior:'smooth', block:'nearest'});
-    el.classList.remove('line-clicked');
-    void el.offsetWidth; // reflow でアニメーション再始動
-    el.classList.add('line-clicked');
-    setTimeout(() => el.classList.remove('line-clicked'), 1000);
+    el.classList.remove('seg-clicked');
+    void el.offsetWidth;
+    el.classList.add('seg-clicked');
+    setTimeout(() => el.classList.remove('seg-clicked'), 1000);
   }
-  // マップ上でも選択済みルートを強調
-  setLineHighlight(cid);
+  setSegHighlight(portA, portB, cid);
+}
+
+function onSegGroupClick(e, portId, adjId, cid) {
+  e.stopPropagation();
+  setSegHighlight(portId, adjId, cid);
 }
 
 function clearLines() {
