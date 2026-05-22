@@ -741,6 +741,16 @@ function onLineClick(cid, portA, portB) {
 
 function onSegGroupClick(e, portId, adjId, cid) {
   e.stopPropagation();
+  document.querySelectorAll('.pd-seg-group').forEach(el => el.classList.remove('seg-highlight'));
+  const portKey = [portId, adjId].sort().join('-');
+  new Set(
+    D.segments
+      .filter(s => (s.port_a===portId && s.port_b===adjId) || (s.port_a===adjId && s.port_b===portId))
+      .map(s => s.comp_id)
+  ).forEach(compId => {
+    const el = document.getElementById(`pdseg-${portKey}-${compId}`);
+    if (el) el.classList.add('seg-highlight');
+  });
   setSegHighlight(portId, adjId, cid);
 }
 
