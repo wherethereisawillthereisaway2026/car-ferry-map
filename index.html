@@ -68,6 +68,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
            cursor: pointer; transition: background .1s; border-radius: 0; }
 .pd-comp:hover { background: #f0f4ff; }
 .pd-comp.active { background: #e8f0fe; }
+.pd-comp.route-match { background: #fffde7; }
 @keyframes sbFlash {
   0%,100% { background: #e8f0fe; }
   25%,65% { background: #fff176; box-shadow: inset 3px 0 0 #f9a825; }
@@ -626,6 +627,7 @@ function showPortList() {
 }
 
 function toggleCompLine(cid, portId) {
+  document.querySelectorAll('.pd-comp').forEach(el => el.classList.remove('route-match'));
   const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
     .filter(s => s.port_a === portId || s.port_b === portId);
   const color = getColor(cid);
@@ -722,15 +724,18 @@ function setSegHighlight(portA, portB, cid) {
 }
 
 function onLineClick(cid, portA, portB) {
-  const segId = `pdseg-${[portA,portB].sort().join('-')}-${cid}`;
-  const el = document.getElementById(segId);
-  if (el) {
-    el.scrollIntoView({behavior:'smooth', block:'nearest'});
-    el.classList.remove('seg-clicked');
-    void el.offsetWidth;
-    el.classList.add('seg-clicked');
-    setTimeout(() => el.classList.remove('seg-clicked'), 1000);
-  }
+  // 同一区間を運航する全社のpd-compを黄色ハイライト
+  document.querySelectorAll('.pd-comp').forEach(el => el.classList.remove('route-match'));
+  const matchedComps = new Set(
+    D.segments
+      .filter(s => (s.port_a===portA && s.port_b===portB)
+                || (s.port_a===portB && s.port_b===portA))
+      .map(s => s.comp_id)
+  );
+  matchedComps.forEach(id => {
+    const compEl = document.getElementById(`pd-comp-${id}`);
+    if (compEl) compEl.classList.add('route-match');
+  });
   setSegHighlight(portA, portB, cid);
 }
 
