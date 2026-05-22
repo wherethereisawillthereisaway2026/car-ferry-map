@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>カーフェリー航路マップ</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛴️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛳</text></svg>">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
@@ -317,11 +317,34 @@ function buildData(routesText, portsText, compsText) {
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
 
-async function loadData() {
+const _CACHE_KEY = 'ferryData_v2';
+const _CACHE_TTL = 21600000; // 6時間
+
+async function _fetchAndCache() {
   const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
   const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
-  D = resp.result || resp;
+  const data = resp.result || resp;
+  try { localStorage.setItem(_CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch(e) {}
+  return data;
 }
+
+// ページ読み込み直後に開始（Maps APIと並列）
+let _dataPromise;
+(function() {
+  try {
+    const raw = localStorage.getItem(_CACHE_KEY);
+    if (raw) {
+      const { ts, data } = JSON.parse(raw);
+      if (Date.now() - ts < _CACHE_TTL) {
+        D = data;
+        _dataPromise = Promise.resolve();
+        _fetchAndCache().catch(() => {}); // 次回のためにバックグラウンド更新
+        return;
+      }
+    }
+  } catch(e) {}
+  _dataPromise = _fetchAndCache().then(data => { D = data; });
+})();
 
 // ---- マップ状態の保存・復元 ----
 function saveMapState() {
@@ -435,7 +458,7 @@ function initMap() {
     );
   });
 
-  loadData().then(() => {
+  _dataPromise.then(() => {
     document.getElementById('loading').style.display = 'none';
     renderPorts();
     renderPortList();
