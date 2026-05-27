@@ -97,6 +97,18 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 .pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
 .pd-transit-btn.google { background: #4285f4; color: #fff; }
 .pd-divider { border: none; border-top: 1px dashed #ccc; margin: 5px 0 2px; }
+.islandex-box { margin: 4px 12px 10px; padding: 10px; background: #fff8e1;
+                border: 1px solid #ffe082; border-radius: 6px; }
+.islandex-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.islandex-from { font-size: 12px; color: #333; font-weight: 600; min-width: 0;
+                 overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.islandex-arrow { color: #777; font-size: 12px; flex-shrink: 0; }
+.islandex-select { min-width: 0; flex: 1; padding: 5px 7px; border: 1px solid #e0b64d;
+                   border-radius: 4px; background: #fff; color: #333; font-size: 12px; }
+.islandex-price { margin-top: 8px; font-size: 16px; font-weight: 700; color: #bf360c; }
+.islandex-price.placeholder { font-size: 12px; font-weight: 600; color: #8d6e63; }
+.islandex-note { margin-top: 4px; font-size: 10px; color: #8d6e63; line-height: 1.5; }
+.islandex-link { color: #1a73e8; text-decoration: none; }
 
 /* MAP */
 #map-wrap { flex: 1; position: relative; }
@@ -223,6 +235,8 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
 const CSV_BASE = `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv&gid=`;
 const ROUTES_GID = '466317895', PORTS_GID = '958244978', COMPANIES_GID = '1143602536';
+const ISLANDEX_RATES_GID = '1684406611';
+const ISLANDEX_SOURCE_URL = 'https://car-okinawa.com/';
 
 const PALETTE = [
   '#1565c0','#00838f','#2e7d32','#6a1b9a','#c62828',
@@ -316,15 +330,134 @@ function buildData(routesText, portsText, compsText) {
   return { ports, companies, segments, comp_segments, port_companies };
 }
 
+const ISLANDEX_PORT_ALIASES = {
+  '有明港': '有明フェリーターミナル',
+  '南港': '南港フェリーターミナル',
+  '六甲アイランド': '神戸六甲港',
+  '仙台事務所': '仙台港',
+  '那覇新港': '那覇港（新港ふ頭）',
+  '石垣港': '石垣港（離島ターミナル）',
+  '鹿児島新港': '鹿児島港（南埠頭）',
+  '喜界港': '湾港',
+  '与論港': '茶花港',
+  '多良間港': '普天間港',
+  '竹富港': '竹富東港',
+  '普及港': '若洲港',
+};
+
+function normalizeIslandexName(name) {
+  return String(name || '')
+    .replace(/^\uFEFF/, '')
+    .split('｜')[0]
+    .replace(/[（(][^)）]*[)）]/g, '')
+    .replace(/\s+/g, '')
+    .trim();
+}
+
+function buildIslandexPortLookup(ports) {
+  const lookup = {};
+  Object.values(ports || {}).forEach(port => {
+    const names = [port.name, normalizeIslandexName(port.name)];
+    names.forEach(name => {
+      const key = normalizeIslandexName(name);
+      if (key && !lookup[key]) lookup[key] = port.id;
+    });
+  });
+  Object.entries(ISLANDEX_PORT_ALIASES).forEach(([sourceName, portName]) => {
+    const key = normalizeIslandexName(portName);
+    const port = Object.values(ports || {}).find(p =>
+      normalizeIslandexName(p.name) === key || p.name === portName);
+    if (port) lookup[normalizeIslandexName(sourceName)] = port.id;
+  });
+  return lookup;
+}
+
+function formatIslandexPortLabel(port, fallbackLabel) {
+  if (!port) return fallbackLabel || '';
+  const island = String(port.location || '').replace(/本土$/, '').trim();
+  return island && !port.name.includes(island) ? `${port.name}（${island}）` : port.name;
+}
+
+function buildIslandexRates(csvText, ports) {
+  const rows = parseCSV(csvText || '');
+  const lookup = buildIslandexPortLookup(ports);
+  const sourceUrl = rows[0]?.[3] || ISLANDEX_SOURCE_URL;
+  const byFrom = {};
+
+  rows.slice(1).forEach(([fromLabel, toLabel, priceText]) => {
+    const fromId = lookup[normalizeIslandexName(fromLabel)];
+    const toId = lookup[normalizeIslandexName(toLabel)];
+    const price = parseInt(String(priceText || '').replace(/[^\d]/g, ''), 10);
+    if (!fromId || !toId || !price) return;
+    const rate = {
+      from_port_id: fromId,
+      to_port_id: toId,
+      from_label: formatIslandexPortLabel(ports[fromId], fromLabel),
+      to_label: formatIslandexPortLabel(ports[toId], toLabel),
+      price_yen: price,
+      source_url: sourceUrl
+    };
+    (byFrom[fromId] = byFrom[fromId] || []).push(rate);
+  });
+
+  Object.values(byFrom).forEach(rates =>
+    rates.sort((a, b) => a.to_label.localeCompare(b.to_label, 'ja')));
+  return byFrom;
+}
+
+function attachIslandexRates(data, csvText) {
+  data.islandex_rates_by_from = buildIslandexRates(csvText, data.ports);
+  return data;
+}
+
+function islandexRateBox(portId) {
+  const rates = D?.islandex_rates_by_from?.[portId] || [];
+  if (!rates.length) return '';
+  const first = rates[0];
+  return `
+    <div class="pd-sec">アイランデクス対応</div>
+    <div class="islandex-box" data-islandex-from="${portId}">
+      <div class="islandex-row">
+        <span class="islandex-from">${first.from_label}</span>
+        <span class="islandex-arrow">→</span>
+        <select class="islandex-select" onchange="updateIslandexPrice(this)">
+          <option value="">港選択</option>
+          ${rates.map((rate, idx) =>
+            `<option value="${idx}">${rate.to_label}</option>`).join('')}
+        </select>
+      </div>
+      <div class="islandex-price placeholder">到着港を選択してください</div>
+      <div class="islandex-note">普通自動車・税込価格。<a class="islandex-link" href="${first.source_url}" target="_blank">公式サイト</a></div>
+    </div>`;
+}
+
+function updateIslandexPrice(selectEl) {
+  const box = selectEl.closest('.islandex-box');
+  const rates = D?.islandex_rates_by_from?.[box?.dataset.islandexFrom] || [];
+  const rate = rates[parseInt(selectEl.value, 10)];
+  const priceEl = box.querySelector('.islandex-price');
+  if (!rate) {
+    priceEl.textContent = '到着港を選択してください';
+    priceEl.classList.add('placeholder');
+    return;
+  }
+  priceEl.textContent = `${rate.price_yen.toLocaleString()}円`;
+  priceEl.classList.remove('placeholder');
+}
+
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
 
-const _CACHE_KEY = 'ferryData_v2';
+const _CACHE_KEY = 'ferryData_v3';
 const _CACHE_TTL = 21600000; // 6時間
 
 async function _fetchAndCache() {
   const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
-  const resp = await fetch(url).then(r => r.text()).then(t => JSON.parse(t));
+  const [resp, islandexCsv] = await Promise.all([
+    fetch(url).then(r => r.text()).then(t => JSON.parse(t)),
+    fetch(CSV_BASE + ISLANDEX_RATES_GID).then(r => r.text())
+  ]);
   const data = resp.result || resp;
+  attachIslandexRates(data, islandexCsv);
   try { localStorage.setItem(_CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch(e) {}
   return data;
 }
@@ -526,7 +659,7 @@ function openPortDetail(portId) {
 
   // 航路リスト
   const body = document.getElementById('pd-body');
-  body.innerHTML = `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
+  body.innerHTML = islandexRateBox(portId) + `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
     compIds.map(cid => {
       const comp = D.companies[cid] || {name:cid, url:''};
       const color = getColor(cid);
