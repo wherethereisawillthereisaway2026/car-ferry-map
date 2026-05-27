@@ -254,6 +254,7 @@ let D = null, map;
 const markerMap = {};
 const activeLines = [];
 const activeComps = new Set();
+let islandexLine = null;
 const activeLabels = []; // 表示中のPortLabel
 let PortLabel; // Google Maps API読み込み後にinitMap内で定義
 let highlightedSegKey = null; // 強調表示中のセグメントキー（portA|portB|cid）
@@ -436,6 +437,9 @@ function updateIslandexPrice(selectEl) {
   const rates = D?.islandex_rates_by_from?.[box?.dataset.islandexFrom] || [];
   const rate = rates[parseInt(selectEl.value, 10)];
   const priceEl = box.querySelector('.islandex-price');
+
+  if (islandexLine) { islandexLine.setMap(null); islandexLine = null; }
+
   if (!rate) {
     priceEl.textContent = '到着港を選択してください';
     priceEl.classList.add('placeholder');
@@ -443,6 +447,18 @@ function updateIslandexPrice(selectEl) {
   }
   priceEl.textContent = `${rate.price_yen.toLocaleString()}円`;
   priceEl.classList.remove('placeholder');
+
+  const fromPort = D?.ports?.[rate.from_port_id];
+  const toPort   = D?.ports?.[rate.to_port_id];
+  if (fromPort && toPort && map) {
+    islandexLine = new google.maps.Polyline({
+      path: [{lat: parseFloat(fromPort.lat), lng: parseFloat(fromPort.lng)},
+             {lat: parseFloat(toPort.lat),   lng: parseFloat(toPort.lng)}],
+      geodesic: true, strokeColor: '#E65100', strokeOpacity: 0,
+      icons: [{icon: {path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 4}, offset: '0', repeat: '16px'}],
+      strokeWeight: 2, map
+    });
+  }
 }
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
@@ -890,6 +906,7 @@ function onSegGroupClick(e, portId, adjId, cid) {
 function clearLines() {
   activeLines.forEach(l=>l.setMap(null));
   activeLines.length = 0;
+  if (islandexLine) { islandexLine.setMap(null); islandexLine = null; }
 }
 
 // --- 港名ラベル（OverlayView、白枠なし） ---
