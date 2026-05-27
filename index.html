@@ -401,7 +401,7 @@ function buildIslandexRates(csvText, ports) {
   });
 
   Object.values(byFrom).forEach(rates =>
-    rates.sort((a, b) => a.to_label.localeCompare(b.to_label, 'ja')));
+    rates.sort((a, b) => (ports[b.to_port_id]?.lat ?? 0) - (ports[a.to_port_id]?.lat ?? 0)));
   return byFrom;
 }
 
@@ -659,7 +659,7 @@ function openPortDetail(portId) {
 
   // 航路リスト
   const body = document.getElementById('pd-body');
-  body.innerHTML = islandexRateBox(portId) + `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
+  body.innerHTML = `<div class="pd-sec">この港の航路（クリックで表示）</div>` +
     compIds.map(cid => {
       const comp = D.companies[cid] || {name:cid, url:''};
       const color = getColor(cid);
@@ -697,7 +697,7 @@ function openPortDetail(portId) {
           <span class="pd-badge ${carFerry?'car':'pass'}">${carFerry?'カーフェリー':'旅客船'}</span>
         </div>
         <div class="pd-chain open" id="pd-chain-${cid}">${chainText}${linkHtml}</div>`;
-    }).join('');
+    }).join('') + islandexRateBox(portId);
 
   // 詳細パネルを表示
   document.getElementById('port-list').style.display = 'none';
