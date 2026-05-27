@@ -384,7 +384,7 @@ function buildIslandexRates(csvText, ports) {
   const sourceUrl = rows[0]?.[3] || ISLANDEX_SOURCE_URL;
   const byFrom = {};
 
-  rows.slice(1).forEach(([fromLabel, toLabel, priceText]) => {
+  rows.slice(1).forEach(([fromLabel, toLabel, , priceText]) => {
     const fromId = lookup[normalizeIslandexName(fromLabel)];
     const toId = lookup[normalizeIslandexName(toLabel)];
     const price = parseInt(String(priceText || '').replace(/[^\d]/g, ''), 10);
