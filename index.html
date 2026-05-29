@@ -256,13 +256,14 @@ function openMapLink(url) {
     var center = map.getCenter();
     params = '?lat=' + center.lat().toFixed(5) + '&lng=' + center.lng().toFixed(5) + '&z=' + map.getZoom();
   }
-  var m = new URLSearchParams(location.search).get('m');
+  var m = new URLSearchParams(location.search).get('m') || localStorage.getItem('masterKey');
   if (m) params += (params ? '&' : '?') + 'm=' + encodeURIComponent(m);
   window.location.href = url + params;
 }
 
 const MASTER_KEY = 'ag2026';
-const isMaster = new URLSearchParams(location.search).get('m') === MASTER_KEY;
+(function(){ const m = new URLSearchParams(location.search).get('m'); if(m === MASTER_KEY) localStorage.setItem('masterKey', MASTER_KEY); })();
+const isMaster = new URLSearchParams(location.search).get('m') === MASTER_KEY || localStorage.getItem('masterKey') === MASTER_KEY;
 const FAV_KEY = 'ferryFavPorts';
 let favPorts = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]'));
 function saveFavPorts() { localStorage.setItem(FAV_KEY, JSON.stringify([...favPorts])); }
