@@ -139,7 +139,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
     border-radius: 14px 14px 0 0;
     box-shadow: 0 -3px 16px rgba(0,0,0,.18);
     z-index: 300;
-    height: 72px;
+    height: 115px;
     display: flex; flex-direction: column;
     overflow: hidden;
     transition: height .25s cubic-bezier(.4,0,.2,1);
@@ -209,6 +209,12 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
       </div>
       <div id="pd-body"></div>
     </div>
+    <div id="pc-nav-row" style="padding:6px 8px;border-top:1px solid #eee;display:flex;gap:4px;align-items:center;flex-shrink:0;background:#fff;">
+      <button onclick="openMapLink(SH_MAP_URL)" style="flex:1;padding:6px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🚐車泊</button>
+      <button onclick="openMapLink(FES_MAP_URL)" style="flex:1;padding:6px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🏮祭り</button>
+      <button onclick="openMapLink(FOODS_MAP_URL)" style="flex:1;padding:6px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🍚飯</button>
+      <button style="flex:1;padding:6px;background:#1a73e8;color:#fff;border:1.5px solid #1a73e8;border-radius:4px;cursor:default;font-size:12px;font-weight:bold;">⚓フェリー</button>
+    </div>
   </div>
 
   <button id="sb-toggle" onclick="toggleSidebar()">◀</button>
@@ -229,9 +235,28 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
     <div id="bs-list"></div>
     <div id="bs-detail" style="display:none"></div>
   </div>
+  <div id="bs-nav-row" style="padding:6px 8px;border-top:1px solid #eee;display:flex;gap:4px;align-items:center;flex-shrink:0;background:#fff;">
+    <button onclick="openMapLink(SH_MAP_URL)" style="flex:1;padding:7px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🚐車泊</button>
+    <button onclick="openMapLink(FES_MAP_URL)" style="flex:1;padding:7px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🏮祭り</button>
+    <button onclick="openMapLink(FOODS_MAP_URL)" style="flex:1;padding:7px;background:#fff;color:#1a73e8;border:1.5px solid #1a73e8;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold;">🍚飯</button>
+    <button style="flex:1;padding:7px;background:#1a73e8;color:#fff;border:1.5px solid #1a73e8;border-radius:4px;cursor:default;font-size:12px;font-weight:bold;">⚓フェリー</button>
+  </div>
 </div>
 
 <script>
+const SH_MAP_URL    = 'https://wherethereisawillthereisaway2026.github.io/shakuhachi-map-data/';
+const FES_MAP_URL   = 'https://wherethereisawillthereisaway2026.github.io/matsuri-map-data/';
+const FOODS_MAP_URL = 'https://wherethereisawillthereisaway2026.github.io/foods-map-data/';
+function openMapLink(url) {
+  if (typeof map !== 'undefined' && map) {
+    var center = map.getCenter();
+    var params = '?lat=' + center.lat().toFixed(5) + '&lng=' + center.lng().toFixed(5) + '&z=' + map.getZoom();
+    window.location.href = url + params;
+  } else {
+    window.location.href = url;
+  }
+}
+
 const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
 const CSV_BASE = `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv&gid=`;
 const ROUTES_GID = '466317895', PORTS_GID = '958244978', COMPANIES_GID = '1143602536';
@@ -1048,7 +1073,7 @@ function selectPortSidebar(portId) {
 document.getElementById('search').addEventListener('input', e => renderPortList(e.target.value));
 
 // ---- ボトムシート ----
-const bsPeek = () => 72;
+const bsPeek = () => 115;
 const bsHalf = () => Math.round(window.innerHeight * 0.46);
 const bsFull = () => Math.round(window.innerHeight * 0.88);
 
