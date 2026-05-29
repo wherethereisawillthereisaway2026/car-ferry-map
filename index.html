@@ -248,13 +248,14 @@ const SH_MAP_URL    = 'https://wherethereisawillthereisaway2026.github.io/shakuh
 const FES_MAP_URL   = 'https://wherethereisawillthereisaway2026.github.io/matsuri-map-data/';
 const FOODS_MAP_URL = 'https://wherethereisawillthereisaway2026.github.io/foods-map-data/';
 function openMapLink(url) {
+  var params = '';
   if (typeof map !== 'undefined' && map) {
     var center = map.getCenter();
-    var params = '?lat=' + center.lat().toFixed(5) + '&lng=' + center.lng().toFixed(5) + '&z=' + map.getZoom();
-    window.location.href = url + params;
-  } else {
-    window.location.href = url;
+    params = '?lat=' + center.lat().toFixed(5) + '&lng=' + center.lng().toFixed(5) + '&z=' + map.getZoom();
   }
+  var m = new URLSearchParams(location.search).get('m');
+  if (m) params += (params ? '&' : '?') + 'm=' + encodeURIComponent(m);
+  window.location.href = url + params;
 }
 
 const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
