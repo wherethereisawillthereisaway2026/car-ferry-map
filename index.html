@@ -49,6 +49,9 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 .pname-link { flex: 1; color: #1a73e8; text-decoration: none; cursor: pointer; font-weight: 500; }
 .pname-link:hover { text-decoration: underline; }
 .ppref { font-size: 10px; color: #aaa; }
+.fav-btn { font-size: 13px; color: #ccc; cursor: pointer; padding: 0 2px; flex-shrink: 0; }
+.fav-btn.on { color: #f9a825; }
+.fav-btn:hover { color: #f9a825; }
 .pdot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
 /* PORT DETAIL (サイドバー内詳細パネル) */
@@ -256,6 +259,18 @@ function openMapLink(url) {
   var m = new URLSearchParams(location.search).get('m');
   if (m) params += (params ? '&' : '?') + 'm=' + encodeURIComponent(m);
   window.location.href = url + params;
+}
+
+const MASTER_KEY = 'ag2026';
+const isMaster = new URLSearchParams(location.search).get('m') === MASTER_KEY;
+const FAV_KEY = 'ferryFavPorts';
+let favPorts = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]'));
+function saveFavPorts() { localStorage.setItem(FAV_KEY, JSON.stringify([...favPorts])); }
+function toggleFav(portId, e) {
+  e.stopPropagation();
+  if (favPorts.has(portId)) favPorts.delete(portId); else favPorts.add(portId);
+  saveFavPorts();
+  renderPortList(document.getElementById('search').value || '');
 }
 
 const SHEETS_ID = '1TnoJnK2-3KaDL29QicvLL2QUsA3kSWd5iKxE12lCzh4';
@@ -974,13 +989,15 @@ const openRegions = new Set();
 
 function portItemHtml(p) {
   const color = getColor((D.port_companies[p.id]||[])[0]||'');
-  const mapsUrl = p.place_id
-    ? `https://www.google.com/maps/place/?q=place_id:${p.place_id}`
-    : `https://www.google.com/maps?q=${p.lat},${p.lng}`;
+  const isFav = favPorts.has(p.id);
+  const favBtn = isMaster
+    ? `<span class="fav-btn${isFav?' on':''}" onclick="toggleFav('${p.id}',event)" title="お気に入り">${isFav?'★':'☆'}</span>`
+    : '';
   return `<div class="pitem" data-id="${p.id}" onclick="selectPortSidebar('${p.id}')">
     <div class="pdot" style="background:${color}"></div>
     <span class="pname-link">${p.name}</span>
     <div class="ppref">${p.pref}</div>
+    ${favBtn}
   </div>`;
 }
 
@@ -995,7 +1012,23 @@ function renderPortList(filter='') {
   if (lc) {
     items.sort((a,b) => a.name.localeCompare(b.name,'ja'));
     list.innerHTML = items.map(portItemHtml).join('');
+    syncBsList();
     return;
+  }
+
+  // お気に入りセクション（masterのみ）
+  let favHtml = '';
+  if (isMaster && favPorts.size > 0) {
+    const favItems = [...favPorts].map(id => D.ports[id]).filter(Boolean).filter(p => D.port_companies[p.id]);
+    if (favItems.length > 0) {
+      favHtml = `<div class="region-header" style="color:#e65100;border-top:none;">
+        <span>★ お気に入り</span><span class="region-count">(${favItems.length})</span>
+        <span class="region-arrow">▾</span>
+      </div>
+      <div class="region-list">
+        ${favItems.map(portItemHtml).join('')}
+      </div>`;
+    }
   }
 
   const byRegion = {};
@@ -1006,7 +1039,7 @@ function renderPortList(filter='') {
   Object.values(byRegion).forEach(arr => arr.sort((a,b) => b.lat - a.lat));
 
   const order = [...REGION_ORDER, ...Object.keys(byRegion).filter(r => !REGION_ORDER.includes(r))];
-  list.innerHTML = order
+  list.innerHTML = favHtml + order
     .filter(r => byRegion[r]?.length)
     .map(r => {
       const ports = byRegion[r];
