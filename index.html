@@ -95,6 +95,7 @@ html, body { height: 100%; font-family: 'Hiragino Sans', 'Noto Sans JP', sans-se
 .pd-link { display: block; font-size: 10px; color: #1a73e8; text-decoration: none; margin-top: 3px; }
 .pd-transit-row { display: flex; flex-direction: column; margin-top: 5px; gap: 3px; }
 .pd-transit-seg { font-size: 11px; color: #444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pd-transit-seg.chain { white-space: normal; overflow: visible; text-overflow: clip; }
 .pd-transit-btns-inline { display: flex; gap: 5px; }
 .pd-transit-btn { font-size: 10px; padding: 2px 7px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
 .pd-transit-btn.yahoo { background: #ff0033; color: #fff; }
@@ -304,6 +305,14 @@ let poiInfoWindow = null; // マップクリック時の POI 情報ウィンド�
 let placesService = null; // PlacesService インスタンス
 let isSatelliteMode = false; // 衛星写真モード フラグ
 
+const ROUTE_CHAIN_DEFS = {
+  COMP_050: [
+    { id:'oki', name:'フェリーおき', ports:['PORT_030','PORT_353','PORT_354','PORT_355','PORT_030'] },
+    { id:'kuniga', name:'フェリーくにが', ports:['PORT_030','PORT_356','PORT_355','PORT_354','PORT_353','PORT_030'] },
+    { id:'shirashima', name:'フェリーしらしま', ports:['PORT_353','PORT_354','PORT_355','PORT_356','PORT_031','PORT_355','PORT_353'] },
+  ]
+};
+
 function parseCSV(text) {
   const rows = [];
   for (const line of text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n')) {
@@ -353,13 +362,41 @@ function buildData(routesText, portsText, compsText) {
     companies[cid] = { id:cid, name:cname, url:url||'', note:note||'' };
   });
 
+  const customChainCompIds = new Set(Object.keys(ROUTE_CHAIN_DEFS));
   const seen = {};
   parseCSV(routesText).slice(1).forEach(([rid,cid,dep,arr,carFerry,status,note]) => {
+    if (customChainCompIds.has(cid)) return;
     if (!dep||!arr||!ports[dep]||!ports[arr]) return;
     const car = String(carFerry).toUpperCase()==='TRUE' || String(carFerry).trim()==='1';
     const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
     if (!seen[key]) seen[key] = { comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:car, note:note||'', route_ids:[] };
     seen[key].route_ids.push(rid);
+  });
+
+  const route_chains = {};
+  Object.entries(ROUTE_CHAIN_DEFS).forEach(([cid, defs]) => {
+    const validChains = defs
+      .map(chain => ({ ...chain, ports: chain.ports.filter(pid => ports[pid]) }))
+      .filter(chain => chain.ports.length >= 2);
+    if (!validChains.length) return;
+    route_chains[cid] = validChains;
+    validChains.forEach(chain => {
+      for (let i = 0; i < chain.ports.length - 1; i++) {
+        const dep = chain.ports[i], arr = chain.ports[i + 1];
+        const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
+        if (!seen[key]) {
+          seen[key] = {
+            comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:true,
+            note:chain.name, route_ids:[chain.id]
+          };
+        } else {
+          seen[key].route_ids.push(chain.id);
+          if (!String(seen[key].note || '').includes(chain.name)) {
+            seen[key].note = [seen[key].note, chain.name].filter(Boolean).join(' / ');
+          }
+        }
+      }
+    });
   });
   const segments = Object.values(seen);
 
@@ -370,7 +407,60 @@ function buildData(routesText, portsText, compsText) {
   });
   Object.keys(port_companies).forEach(k => port_companies[k]=[...port_companies[k]].sort());
 
-  return { ports, companies, segments, comp_segments, port_companies };
+  return { ports, companies, segments, comp_segments, port_companies, route_chains };
+}
+
+function applyRouteChains(data) {
+  const customChainCompIds = new Set(Object.keys(ROUTE_CHAIN_DEFS));
+  const segments = (data.segments || [])
+    .filter(seg => !customChainCompIds.has(seg.comp_id));
+  const seen = {};
+
+  segments.forEach(seg => {
+    const key = seg.comp_id+'|'+(seg.port_a<seg.port_b?seg.port_a+'|'+seg.port_b:seg.port_b+'|'+seg.port_a);
+    seen[key] = { ...seg };
+  });
+
+  const route_chains = {};
+  Object.entries(ROUTE_CHAIN_DEFS).forEach(([cid, defs]) => {
+    const validChains = defs
+      .map(chain => ({ ...chain, ports: chain.ports.filter(pid => data.ports?.[pid]) }))
+      .filter(chain => chain.ports.length >= 2);
+    if (!validChains.length) return;
+    route_chains[cid] = validChains;
+    validChains.forEach(chain => {
+      for (let i = 0; i < chain.ports.length - 1; i++) {
+        const dep = chain.ports[i], arr = chain.ports[i + 1];
+        const key = cid+'|'+(dep<arr?dep+'|'+arr:arr+'|'+dep);
+        if (!seen[key]) {
+          seen[key] = {
+            comp_id:cid, port_a:dep, port_b:arr, is_car_ferry:true,
+            note:chain.name, route_ids:[chain.id]
+          };
+        } else {
+          seen[key].route_ids = [...(seen[key].route_ids || []), chain.id];
+          if (!String(seen[key].note || '').includes(chain.name)) {
+            seen[key].note = [seen[key].note, chain.name].filter(Boolean).join(' / ');
+          }
+        }
+      }
+    });
+  });
+
+  data.segments = Object.values(seen);
+  data.route_chains = route_chains;
+  data.comp_segments = {};
+  data.port_companies = {};
+  data.segments.forEach((seg, i) => {
+    (data.comp_segments[seg.comp_id] = data.comp_segments[seg.comp_id] || []).push(i);
+    [seg.port_a, seg.port_b].forEach(pid => {
+      (data.port_companies[pid] = data.port_companies[pid] || new Set()).add(seg.comp_id);
+    });
+  });
+  Object.keys(data.port_companies).forEach(pid => {
+    data.port_companies[pid] = [...data.port_companies[pid]].sort();
+  });
+  return data;
 }
 
 const ISLANDEX_PORT_ALIASES = {
@@ -449,6 +539,7 @@ function buildIslandexRates(csvText, ports) {
 }
 
 function attachIslandexRates(data, csvText) {
+  applyRouteChains(data);
   data.islandex_rates_by_from = buildIslandexRates(csvText, data.ports);
   return data;
 }
@@ -505,7 +596,7 @@ function updateIslandexPrice(selectEl) {
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
 
-const _CACHE_KEY = 'ferryData_v4';
+const _CACHE_KEY = 'ferryData_v5';
 const _CACHE_TTL = 21600000; // 6時間
 
 async function _fetchAndCache() {
@@ -738,21 +829,30 @@ function openPortDetail(portId) {
       const m1 = Math.floor(now.getMinutes() / 10), m2 = now.getMinutes() % 10;
       const mkYahoo = (f,t) => `https://transit.yahoo.co.jp/search/result?from=${encodeURIComponent(clean(f))}&to=${encodeURIComponent(clean(t))}&type=1&y=${y}&m=${m}&d=${d}&hh=${hh}&m1=${m1}&m2=${m2}&ticket=ic&expkind=1&userpass=1&ws=3&s=0&al=1&shin=1&ex=1&hb=1&lb=1&sr=1`;
       const mkGoogle = (f,t) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(f)}&destination=${encodeURIComponent(t)}&travelmode=transit`;
-      const adjIds = [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))];
-      const chainText = adjIds.map(adjId => {
-        const segId = `pdseg-${[portId,adjId].sort().join('-')}-${cid}`;
-        const label = id => { const p = D.ports[id]; return p ? `${p.name}（${p.location}）` : id; };
-        const pn = label(portId), an = label(adjId);
-        const mkRow = (f,t) => `<div class="pd-transit-row">`
-          +`<span class="pd-transit-seg">${f} → ${t}</span>`
-          +`<div class="pd-transit-btns-inline">`
-          +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
-          +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a>`
-          +`</div></div>`;
-        return `<div class="pd-seg-group" id="${segId}" onclick="onSegGroupClick(event,'${portId}','${adjId}','${cid}')">`
-          + mkRow(pn,an) + mkRow(an,pn)
-          + `</div><hr class="pd-divider">`;
-      }).join('');
+      const label = id => { const p = D.ports[id]; return p ? `${p.name}（${p.location}）` : id; };
+      const customChains = (D.route_chains?.[cid] || []).filter(chain => chain.ports.includes(portId));
+      const chainText = customChains.length
+        ? customChains.map(chain => {
+            const chainId = `pdchain-${chain.id}-${cid}`;
+            const routeText = chain.ports.map(pid => D.ports[pid]?.name || pid).join(' → ');
+            return `<div class="pd-seg-group" id="${chainId}" onclick="onRouteChainClick(event,'${cid}','${chain.id}')">`
+              + `<div class="pd-transit-row"><span class="pd-transit-seg chain">${chain.name}: ${routeText}</span></div>`
+              + `</div><hr class="pd-divider">`;
+          }).join('')
+        : [...new Set(segs.filter(s=>s.port_a===portId||s.port_b===portId).map(s=>s.port_a===portId?s.port_b:s.port_a))]
+          .map(adjId => {
+            const segId = `pdseg-${[portId,adjId].sort().join('-')}-${cid}`;
+            const pn = label(portId), an = label(adjId);
+            const mkRow = (f,t) => `<div class="pd-transit-row">`
+              +`<span class="pd-transit-seg">${f} → ${t}</span>`
+              +`<div class="pd-transit-btns-inline">`
+              +`<a class="pd-transit-btn yahoo" href="${mkYahoo(f,t)}" target="_blank">Yahoo</a>`
+              +`<a class="pd-transit-btn google" href="${mkGoogle(f,t)}" target="_blank">Google</a>`
+              +`</div></div>`;
+            return `<div class="pd-seg-group" id="${segId}" onclick="onSegGroupClick(event,'${portId}','${adjId}','${cid}')">`
+              + mkRow(pn,an) + mkRow(an,pn)
+              + `</div><hr class="pd-divider">`;
+          }).join('');
       const linkHtml = comp.url
         ? `<a class="pd-link" href="${comp.url}" target="_blank">公式サイト ↗</a>` : '';
       return `
@@ -779,7 +879,7 @@ function openPortDetail(portId) {
   compIds.forEach(cid => {
     const segs = (D.comp_segments[cid]||[]).map(i=>D.segments[i])
       .filter(s => s.port_a === portId || s.port_b === portId);
-    drawCompLines(segs, getColor(cid), cid);
+    drawRouteLinesForPort(cid, portId, segs, getColor(cid));
     activeComps.add(cid);
   });
 
@@ -792,12 +892,18 @@ function openPortDetail(portId) {
   showPortLabel(portId, true);
   const adjPorts = new Set();
   compIds.forEach(cid => {
-    (D.comp_segments[cid]||[]).map(i=>D.segments[i])
-      .filter(s => s.port_a === portId || s.port_b === portId)
-      .forEach(s => {
-        adjPorts.add(s.port_a === portId ? s.port_b : s.port_a);
-      });
+    const chains = (D.route_chains?.[cid] || []).filter(chain => chain.ports.includes(portId));
+    if (chains.length) {
+      chains.forEach(chain => chain.ports.forEach(pid => adjPorts.add(pid)));
+    } else {
+      (D.comp_segments[cid]||[]).map(i=>D.segments[i])
+        .filter(s => s.port_a === portId || s.port_b === portId)
+        .forEach(s => {
+          adjPorts.add(s.port_a === portId ? s.port_b : s.port_a);
+        });
+    }
   });
+  adjPorts.delete(portId);
   adjPorts.forEach(pid => showPortLabel(pid, false));
 
   // スマホ・縦長タブレット: ボトムシートに詳細表示
@@ -841,13 +947,13 @@ function toggleCompLine(cid, portId) {
     activeComps.forEach(c => {
       const s = (D.comp_segments[c]||[]).map(i=>D.segments[i])
         .filter(seg => seg.port_a === portId || seg.port_b === portId);
-      drawCompLines(s, getColor(c), c);
+      drawRouteLinesForPort(c, portId, s, getColor(c));
     });
   } else {
     activeComps.add(cid);
     if (compEl) compEl.classList.add('active');
     if (chainEl) chainEl.classList.add('open');
-    drawCompLines(segs, color, cid);
+    drawRouteLinesForPort(cid, portId, segs, color);
   }
 }
 
@@ -911,6 +1017,33 @@ function drawCompLines(segs, color, cid) {
   });
 }
 
+function drawRouteLinesForPort(cid, portId, segs, color) {
+  const chains = (D.route_chains?.[cid] || []).filter(chain => chain.ports.includes(portId));
+  if (!chains.length) {
+    drawCompLines(segs, color, cid);
+    return;
+  }
+  chains.forEach(chain => drawRouteChainLine(chain, color, cid));
+}
+
+function drawRouteChainLine(chain, color, cid) {
+  const path = chain.ports
+    .map(pid => D.ports[pid])
+    .filter(Boolean)
+    .map(p => ({ lat:p.lat, lng:p.lng }));
+  if (path.length < 2) return;
+  const hl = highlightedSegKey === `${cid}|${chain.id}`;
+  const line = new google.maps.Polyline({
+    path, geodesic:true, strokeColor:color, strokeOpacity:0,
+    icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}],
+    strokeWeight:2, map
+  });
+  line._cid = cid;
+  line._chainId = chain.id;
+  line.addListener('click', () => onRouteChainLineClick(cid, chain.id));
+  activeLines.push(line);
+}
+
 function setSegHighlight(portA, portB, cid) {
   highlightedSegKey = mkSegKey(portA, portB, cid);
   activeLines.forEach(line => {
@@ -919,6 +1052,31 @@ function setSegHighlight(portA, portB, cid) {
       icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}]
     });
   });
+}
+
+function setRouteChainHighlight(cid, chainId) {
+  highlightedSegKey = `${cid}|${chainId}`;
+  activeLines.forEach(line => {
+    const hl = line._chainId && `${line._cid}|${line._chainId}` === highlightedSegKey;
+    line.setOptions({
+      icons:[{icon:{path:'M 0,-1 0,1',strokeOpacity:1,scale:hl?5:3},offset:'0',repeat:hl?'14px':'20px'}]
+    });
+  });
+}
+
+function onRouteChainLineClick(cid, chainId) {
+  document.querySelectorAll('.pd-seg-group').forEach(el => el.classList.remove('seg-highlight'));
+  const el = document.getElementById(`pdchain-${chainId}-${cid}`);
+  if (el) el.classList.add('seg-highlight');
+  setRouteChainHighlight(cid, chainId);
+}
+
+function onRouteChainClick(e, cid, chainId) {
+  e.stopPropagation();
+  document.querySelectorAll('.pd-seg-group').forEach(el => el.classList.remove('seg-highlight'));
+  const el = document.getElementById(`pdchain-${chainId}-${cid}`);
+  if (el) el.classList.add('seg-highlight');
+  setRouteChainHighlight(cid, chainId);
 }
 
 function onLineClick(cid, portA, portB) {
