@@ -548,6 +548,13 @@ function saveMapState() {
 }
 
 function loadMapState() {
+  const p = new URLSearchParams(location.search);
+  if (p.get('lat') && p.get('lng')) {
+    return {
+      center: { lat: parseFloat(p.get('lat')), lng: parseFloat(p.get('lng')) },
+      zoom: p.get('z') ? parseInt(p.get('z')) : 7
+    };
+  }
   const saved = {
     center: localStorage.getItem('mapCenter'),
     zoom: localStorage.getItem('mapZoom')
