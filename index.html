@@ -310,6 +310,13 @@ const ROUTE_CHAIN_DEFS = {
     { id:'oki', name:'フェリーおき', ports:['PORT_030','PORT_353','PORT_354','PORT_355','PORT_030'] },
     { id:'kuniga', name:'フェリーくにが', ports:['PORT_030','PORT_356','PORT_355','PORT_354','PORT_353','PORT_030'] },
     { id:'shirashima', name:'フェリーしらしま', ports:['PORT_353','PORT_354','PORT_355','PORT_356','PORT_031','PORT_355','PORT_353'] },
+  ],
+  COMP_051: [
+    { id:'kyuyu-hakata-gonoura-izuhara', name:'博多〜郷ノ浦〜厳原', ports:['PORT_037','PORT_221','PORT_219'] },
+    { id:'kyuyu-hakata-ashibe-izuhara', name:'博多〜芦辺〜厳原', ports:['PORT_037','PORT_222','PORT_219'] },
+    { id:'kyuyu-hakata-intsuji', name:'博多〜印通寺', ports:['PORT_037','PORT_223'] },
+    { id:'kyuyu-hakata-hitakatsu', name:'博多〜比田勝', ports:['PORT_037','PORT_220'] },
+    { id:'kyuyu-karatsu-intsuji', name:'唐津〜印通寺', ports:['PORT_045','PORT_223'] },
   ]
 };
 
@@ -596,7 +603,7 @@ function updateIslandexPrice(selectEl) {
 
 const CDN_ROUTE_DATA_URL = 'data/route_data.json';
 
-const _CACHE_KEY = 'ferryData_v12';
+const _CACHE_KEY = 'ferryData_v13';
 const _CACHE_TTL = 21600000; // 6時間
 
 async function _fetchAndCache() {
