@@ -594,18 +594,16 @@ function updateIslandexPrice(selectEl) {
   }
 }
 
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzk56d0-WugXg5l2p1AXEmaLjpDioGSaWRYQS4Kte9AWYcIds88jYk3SLyd4nUZPmK6/exec';
+const CDN_ROUTE_DATA_URL = 'https://raw.githubusercontent.com/wherethereisawillthereisaway2026/car-ferry-map/main/data/route_data.json';
 
-const _CACHE_KEY = 'ferryData_v6';
+const _CACHE_KEY = 'ferryData_v7';
 const _CACHE_TTL = 21600000; // 6時間
 
 async function _fetchAndCache() {
-  const url = GAS_URL + '?fn=exportRouteData&secret=ferry2026';
-  const [resp, islandexCsv] = await Promise.all([
-    fetch(url).then(r => r.text()).then(t => JSON.parse(t)),
-    fetch(CSV_BASE + ISLANDEX_RATES_GID).then(r => r.text())
+  const [data, islandexCsv] = await Promise.all([
+    fetch(CDN_ROUTE_DATA_URL + '?t=' + Date.now()).then(r => r.json()),
+    fetch(CSV_BASE + ISLANDEX_RATES_GID).then(r => r.text()).catch(() => '')
   ]);
-  const data = resp.result || resp;
   attachIslandexRates(data, islandexCsv);
   try { localStorage.setItem(_CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch(e) {}
   return data;
