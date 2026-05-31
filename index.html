@@ -356,6 +356,12 @@ function remapRegion(pref, region) {
   return m[pref] || 'その他';
 }
 
+function normalizePortRegions(data) {
+  Object.values(data.ports || {}).forEach(p => {
+    p.region = remapRegion(p.pref, p.region);
+  });
+}
+
 function buildData(routesText, portsText, compsText) {
   const ports = {};
   parseCSV(portsText).slice(1).forEach(([pid,name,loc,pref,region,lat,lng]) => {
@@ -603,7 +609,7 @@ function updateIslandexPrice(selectEl) {
 
 const CDN_ROUTE_DATA_URL = 'data/route_data.json';
 
-const _CACHE_KEY = 'ferryData_v14';
+const _CACHE_KEY = 'ferryData_v15';
 const _CACHE_TTL = 21600000; // 6時間
 
 async function _fetchAndCache() {
@@ -612,6 +618,7 @@ async function _fetchAndCache() {
     fetch(CSV_BASE + ISLANDEX_RATES_GID).then(r => r.text()).catch(() => '')
   ]);
   attachIslandexRates(data, islandexCsv);
+  normalizePortRegions(data);
   try { localStorage.setItem(_CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch(e) {}
   return data;
 }
@@ -1150,7 +1157,6 @@ const REGION_ORDER = [
 const REGION_LABEL = {
   '関東': '関東（伊豆含む）',
   '東海': '東海（中部含む）',
-  '近畿': '近畿（瀬戸内除く）',
   '山陰': '山陰（山口含む）',
   '沖縄本島': '沖縄本島（慶良間含む）',
   '八重山': '八重山（宮古・大東含む）',
