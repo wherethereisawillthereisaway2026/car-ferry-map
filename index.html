@@ -653,6 +653,8 @@ function saveMapState() {
 function loadMapState() {
   const p = new URLSearchParams(location.search);
   if (p.get('lat') && p.get('lng')) {
+    const _mParam = p.get('m');
+    history.replaceState(null, '', location.pathname + (_mParam ? '?m=' + encodeURIComponent(_mParam) : ''));
     return {
       center: { lat: parseFloat(p.get('lat')), lng: parseFloat(p.get('lng')) },
       zoom: p.get('z') ? parseInt(p.get('z')) : 7
